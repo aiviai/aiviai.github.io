@@ -1,0 +1,40 @@
+# 主导航
+main:
+  - title: "首页"
+    url: /
+  - title: "关于"
+    url: /about/
+
+
+
+# 侧边栏导航
+
+docs:
+  - title: 🚀 AI大模型
+    children:
+      - title: "✅ 通用大语言模型"
+        url: /LLMs/
+      - title: "✅ 多模态AI模型"
+        url: /MultimodalAI/
+      - title: "✅ 闭源AI"
+        url: /ProprietaryAI/
+
+  - title: 🚀 AI项目及技术
+    children:
+      - title: "✅ AI智能体"
+        url: /AIAgents/
+      - title: "✅ 检索增强生成(RAG)"
+        url: /RAG/
+      - title: "✅ 提示词工程"
+        url: /Prompt-Engineering/
+      - title: "✅ 微调(Fine-Tuning)"
+        url: /Fine-Tuning/
+      - title: "✅ 其他AI相关技术"
+        url: /OtherAITech/
+
+  - title: 🚀 AI前沿进展
+    children:
+      - title: "✅ 研究动态"
+        url: /Research-Updates/
+      - title: "✅ 新技术追踪"
+        url: /Emerging-Tech/
