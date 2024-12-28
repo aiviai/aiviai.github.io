@@ -2,6 +2,8 @@
 main:
   - title: "首页"
     url: /
+  - title: "分类"
+    url: /categories/
   - title: "关于"
     url: /about/
 
@@ -13,28 +15,28 @@ docs:
   - title: 🚀 AI大模型
     children:
       - title: "✅ 通用大语言模型"
-        url: /LLMs/
+        url: /categories/#llms
       - title: "✅ 多模态AI模型"
-        url: /MultimodalAI/
+        url: /categories/#multimodalai
       - title: "✅ 闭源AI"
-        url: /ProprietaryAI/
+        url: /categories/#proprietaryai
 
   - title: 🚀 AI项目及技术
     children:
       - title: "✅ AI智能体"
-        url: /AIAgents/
+        url: /categories/#aiagents
       - title: "✅ 检索增强生成(RAG)"
-        url: /RAG/
+        url: /categories/#rag
       - title: "✅ 提示词工程"
-        url: /Prompt-Engineering/
+        url: /categories/#prompt-engineering
       - title: "✅ 微调(Fine-Tuning)"
-        url: /Fine-Tuning/
+        url: /categories/#fine-tuning/
       - title: "✅ 其他AI相关技术"
-        url: /OtherAITech/
+        url: /categories/#otheraitech
 
   - title: 🚀 AI前沿进展
     children:
       - title: "✅ 研究动态"
-        url: /Research-Updates/
+        url: /categories/#research-updates
       - title: "✅ 新技术追踪"
-        url: /Emerging-Tech/
+        url: /categories/#emerging-tech

@@ -111,6 +111,8 @@ keep_files:
   - downloads
   - assets
   - _data
+  - _layouts
+  - _pages
 
 # Conversion
 markdown: kramdown
@@ -136,7 +138,7 @@ sass:
   style: compressed
 
 # Outputting
-permalink: /:categories/:title/
+permalink: /:categories/:title
 paginate: 10 # 每页显示的文章数量
 paginate_path: /page:num/
 timezone: Asia/Singapore
@@ -150,6 +152,23 @@ plugins:
   - jekyll-include-cache
   - jekyll-remote-theme
   - jekyll-archives
+
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-archives  # 添加这一行
+
+
+jekyll-archives:
+  enabled:
+    - categories
+  layouts:
+    category: archive-taxonomy
+  permalinks:
+    category: /categories/:name/
 
 # Archives
 category_archive:
