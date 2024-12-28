@@ -33,13 +33,19 @@ url: "https://www.aivi.fyi/" # the base hostname & protocol for your site, e.g. 
 locale: "zh-CN"
 
 # Build settings
-theme: minimal-mistakes-jekyll
+# theme: minimal-mistakes-jekyll
+
+remote_theme: "mmistakes/minimal-mistakes@4.26.2"
+plugins:
+  - jekyll-include-cache
+  - jekyll-remote-theme
+  - jekyll-feed
 
 
 minimal_mistakes_skin: "air"
 
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 
 # Exclude from processing.
 # The following items will not be processed, by default.
