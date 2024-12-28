@@ -1,0 +1,13 @@
+Blog
+
+
+cd /Users/charlesqin/MyBlog
+
+bundle exec jekyll serve
+
+git add .
+
+git commit -m "添加新博客文章"
+
+git push --set-upstream origin main
+

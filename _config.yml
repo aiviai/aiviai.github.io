@@ -165,10 +165,13 @@ whitelist:
 jekyll-archives:
   enabled:
     - categories
+    - tags  # 添加这行
   layouts:
     category: archive-taxonomy
+    tag: archive-taxonomy  # 添加这行
   permalinks:
     category: /categories/:name/
+    tag: /tags/:name/  # 添加这行
 
 # Archives
 category_archive:
