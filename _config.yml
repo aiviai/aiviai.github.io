@@ -139,7 +139,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title
-paginate: 10 # 每页显示的文章数量
+paginate: 5 # 每页显示的文章数量
 paginate_path: /page:num/
 timezone: Asia/Singapore
 
