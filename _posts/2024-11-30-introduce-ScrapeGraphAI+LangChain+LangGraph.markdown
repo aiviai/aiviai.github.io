@@ -526,14 +526,7 @@ class AINewsGenerator:
             URL: {url}
             
             请以JSON格式返回，包含以下字段：
-            {{
-                "title": "文章标题",
-                "author": "作者名称",
-                "publish_date": "发布日期",
-                "content": "完整文章内容",
-                "summary": "文章摘要",
-                "tags": ["标签1", "标签2"]
-            }}
+            { "title": "文章标题", "author": "作者名称", "publish_date": "发布日期", "content": "完整文章内容", "summary": "文章摘要", "tags": ["标签1", "标签2"] }
             """
             
             extraction_inputs = {
