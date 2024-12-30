@@ -4,7 +4,7 @@ title: "ScrapeGraphAI开启智能数据抓取新时代！用AI重塑数据提取
 sidebar:
   nav: "docs"
 date: 2024-12-30 10:00:00 +0800  
-categories: aiagents
+categories: AIAgents
 tags: [Ai智能体, 爬虫, 开源, 自然语言处理,LangChain,LangGraph]
 classes: wide  
 
