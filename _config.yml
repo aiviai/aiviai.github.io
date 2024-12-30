@@ -72,6 +72,10 @@ author:
     - label: "哔哩哔哩"
       icon: "fab fa-fw fa-bilibili"
       url: "https://b23.tv/S7VBv0M"
+    - label: "微信"
+      icon: "fab fa-fw fa-weixin"
+      url: "https://private-user-images.githubusercontent.com/42172631/313519233-7568cf78-c8ba-4182-aa96-d524d903f2bc.jpeg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzU1NDc5OTEsIm5iZiI6MTczNTU0NzY5MSwicGF0aCI6Ii80MjE3MjYzMS8zMTM1MTkyMzMtNzU2OGNmNzgtYzhiYS00MTgyLWFhOTYtZDUyNGQ5MDNmMmJjLmpwZWc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMjMwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTIzMFQwODM0NTFaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wZjMyNzUyZjkxZTdkYmZjNmM4YzRlNGU3Y2NmZjk3NWMzZTg4OTg2MmEwZjgxNTNjYjBmNmEwODhkN2E1NGMwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.xA9asXwJkDw1YEjSp6dN2jNIF_v50kyN_CTGwJsfiYQ"
+
 
 # Reading Files
 include:
