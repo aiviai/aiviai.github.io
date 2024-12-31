@@ -18,6 +18,9 @@ Meta于2024年12月6日正式发布了新一代开源大型语言模型Llama 3.3
 
 - [👉👉👉 通过哔哩哔哩观看](https://b23.tv/uFAO2FG)
 - [👉👉👉 通过YouTube观看](https://youtu.be/MRRFyl5d958)
+- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+- 👉👉👉 我的微信：stoeng
 
 ## 技术创新与架构优化
 

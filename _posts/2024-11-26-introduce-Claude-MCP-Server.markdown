@@ -17,6 +17,9 @@ author_profile: true
 
 - [👉👉👉 通过哔哩哔哩观看](https://b23.tv/lXC0XdH)
 - [👉👉👉 通过YouTube观看](https://youtu.be/KbgDABTSV9I)
+- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+- 👉👉👉 我的微信：stoeng
 
 
 ## MCP协议的核心特点

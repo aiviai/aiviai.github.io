@@ -117,6 +117,7 @@ keep_files:
   - _data
   - _layouts
   - _pages
+  - _includes
 
 # Conversion
 markdown: kramdown
@@ -219,3 +220,19 @@ defaults:
 
 # Favicon
 favicon: /assets/images/favicon.ico
+
+
+footer:
+  links:
+    - label: "X"
+      icon: "fab fa-fw fa-x-twitter"
+      url: "https://x.com/AISuperDomain"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/win4r/AISuperDomain"
+    - label: "YouTube"
+      icon: "fab fa-fw fa-youtube"
+      url: "https://www.youtube.com/@AIsuperdomain"
+    - label: "哔哩哔哩"
+      icon: "fab fa-fw fa-bilibili"
+      url: "https://b23.tv/S7VBv0M"
