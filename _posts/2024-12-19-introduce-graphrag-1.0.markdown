@@ -20,7 +20,9 @@ author_profile: true
 
 - [👉👉👉 通过哔哩哔哩观看](https://b23.tv/YzH4acK)
 - [👉👉👉 通过YouTube观看](https://youtu.be/GRZ2th6s7uY)
-
+- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+- 👉👉👉 我的微信：stoeng
 
 
 ### 主要改进

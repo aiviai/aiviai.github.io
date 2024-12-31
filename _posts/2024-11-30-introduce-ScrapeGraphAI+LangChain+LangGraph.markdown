@@ -13,6 +13,15 @@ author_profile: true
 
 传统的网页抓取工具严重依赖于预定义的规则和模式，一旦目标网站的结构发生变化，就需要手动更新代码，耗时费力。而 ScrapeGraphAI 则另辟蹊径，它利用 LLMs 的强大理解能力，让用户只需用自然语言描述所需数据，剩下的复杂工作全部交给 AI 完成！
 
+### 本篇笔记所对应的视频：
+
+- [👉👉👉 通过哔哩哔哩观看](https://bili2233.cn/reWSLAE)
+- [👉👉👉 通过YouTube观看](https://youtu.be/PEB8z48mAhw)
+- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+- 👉👉👉 我的微信：stoeng
+
+
 ### ScrapeGraphAI：革新网络爬取的开源工具
 
 **ScrapeGraphAI** 是一个开源的 Python 库，通过结合**大语言模型（LLMs）和基于图的逻辑**，彻底革新了网络爬取技术。用户只需用简单的自然语言描述需要提取的信息，即可从网站或多种文档格式中提取结构化数据。
