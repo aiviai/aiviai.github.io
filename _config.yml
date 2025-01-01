@@ -218,10 +218,6 @@ defaults:
         nav: "docs"
       read_time: true
 
-# Favicon
-favicon: /assets/images/favicon.ico
-
-
 footer:
   links:
     - label: "GitHub"
