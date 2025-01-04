@@ -14,7 +14,7 @@ HuggingFace于2024年12月31日发布了一款全新的AI代理框架SmolAgents�
 
 ### 本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://b23.tv/YzH4acK)
+- [👉👉👉 通过哔哩哔哩观看](https://b23.tv/vvhMhRT)
 - [👉👉👉 通过YouTube观看](https://youtu.be/wwN3oAugc4c)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
