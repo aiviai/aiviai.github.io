@@ -16,8 +16,8 @@ author_profile: true
 LitGPT是一款开源的优秀微调框架。LitGPT是由Lightning AI团队开发的工具包，为用户提供了高效的大语言模型训练、微调和部署解决方案。使用LitGPT可以快速实现微调大语言模型。
 
 ### **本篇笔记所对应的视频：**
-
-- [👉👉👉 通过哔哩哔哩观看](https://b23.tv/Jgy4jMc)
+- [👉👉👉 数据集制作视频可以参考](https://youtu.be/7zw2B8upP00)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1f2cqeFEii/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/MSwltnFg1fw)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
