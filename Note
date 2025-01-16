@@ -5,6 +5,8 @@ cd /Users/charlesqin/MyBlog
 
 bundle exec jekyll serve
 
+bundle exec jekyll build
+
 git add .
 
 git commit -m "添加新博客文章"
