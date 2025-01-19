@@ -13,7 +13,7 @@ author_profile: true
 AutoGen 是一个用于构建代理 AI 应用程序的开源框架，允许开发者创建可以自主行动或与人类协作的多代理 AI 系统。AutoGen 0.4.2 是一个重要的更新版本，它在代理工作流程中提高了代码质量、稳健性、通用性和可扩展性。新的异步、事件驱动的架构使 AutoGen 更具可扩展性和稳健性，从而支持更广泛的代理场景。
 
 ### **本篇笔记所对应的视频：**
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1f2cqeFEii/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1uWwCePEYu/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/IrTEDPnEVvU)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
