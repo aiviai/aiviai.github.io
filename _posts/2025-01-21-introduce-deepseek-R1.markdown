@@ -13,7 +13,7 @@ author_profile: true
 DeepSeek-R1是由幻方量化旗下的AI公司深度求索（DeepSeek）发布的一个大型语言模型。它在后训练阶段大规模应用了强化学习技术，极大地提升了模型的推理能力，尤其在数学、代码和自然语言推理等任务上表现出色。
 
 ### **本篇笔记所对应的视频：**
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1uWwCePEYu/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1shwaefEdk/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/pUOhVxsJ5bI)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
