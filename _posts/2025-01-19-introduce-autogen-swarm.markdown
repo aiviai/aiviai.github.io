@@ -3,7 +3,7 @@ layout: single
 title: "微软最强AI智能体AutoGen史诗级更新！原生支持Magentic-One和Swarm与Teams！引领AI智能体元年！支持ollama本地部署！小白也能轻松掌握AI框架保姆级教程，超详细上手指南"
 sidebar:
   nav: "docs"
-date: 2025-01-15 00:00:00 +0800
+date: 2025-01-19 00:00:00 +0800
 categories: AIAgents
 tags: [AIAgents, AutoGen, AI智能体, ollama, Llama3.2, Magentic-One, Swarm, AI]
 classes: wide
