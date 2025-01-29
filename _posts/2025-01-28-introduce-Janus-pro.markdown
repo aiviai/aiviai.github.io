@@ -14,7 +14,7 @@ Janus-Pro-7B 是由 DeepSeek 开发的**多模态** AI 模型，它在理解和�
 
 ### **本篇笔记所对应的视频：**
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1uWwCePEYu/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV18DFpeMEps/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/5eAtaW0LT80)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
