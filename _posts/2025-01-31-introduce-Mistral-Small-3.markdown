@@ -14,7 +14,7 @@ Mistral-Small-24B-Instruct-2501 是 Mistral AI 开发的指令遵循语言模型
 
 ### **本篇笔记所对应的视频：**
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1BZF5e8E6z/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1sgFDeuEtZ/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/Ikon2p8Strs)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
