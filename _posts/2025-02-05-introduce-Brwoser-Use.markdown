@@ -14,7 +14,7 @@ Browser-use是一款开源的基于AI的智能浏览器自动化工具， 而且
 
 ### **本篇笔记所对应的视频：**
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1sgFDeuEtZ/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1CXPCecEUk/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/jsd8TpzicRQ)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
