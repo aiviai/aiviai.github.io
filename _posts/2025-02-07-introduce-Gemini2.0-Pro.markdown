@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀谷歌重磅发布Gemini 2.0 Pro！多模态能力大幅提升，训练数据质量高，编程能力强！多维度测评轻松识别手写汉字、提取模糊扫描内容，Roo Code+Gemini 2.0 Pro编程大幅能力提升"
+title: "🚀谷歌重磅发布Gemini 2.0 Pro！多模态能力大幅提升，训练数据质量高，编程能力强！多维度测评轻松识别手写汉字、提取模糊扫描内容，Roo Code+Gemini 2.0 Pro编程能力大幅提升"
 sidebar:
   nav: "docs"
 date: 2025-02-07 00:00:00 +0800
