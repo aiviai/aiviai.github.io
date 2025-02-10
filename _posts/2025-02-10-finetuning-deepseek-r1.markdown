@@ -13,7 +13,7 @@ DeepSeek-R1-Distill-Llama-8B 是一个基于 Llama 架构的 8B 参数语言模�
 
 ### **本篇笔记所对应的视频：**
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1knNhetETR/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1pCNaeaEEJ/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/MpTxJLcViuU)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
