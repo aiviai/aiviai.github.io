@@ -14,7 +14,7 @@ AutoGen v0.4引入了对Model Context Protocol (MCP) server的支持，这是一
 
 ### 本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://b23.tv/Jgy4jMc)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1gdPMeGEgu/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/RxR3x_Uyq4c)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
