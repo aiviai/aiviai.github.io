@@ -123,6 +123,21 @@ curl -X POST http://localhost:3000/api/v1/query \
     "maxBadAttempt": 3
   }' | jq -r .requestId | xargs -I {} curl -N http://localhost:3000/api/v1/stream/{}
 
+
+  curl http://localhost:3000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer your_secret_token" \
+  -d '{
+    "model": "jina-deepsearch-v1",
+    "messages": [
+      {
+        "role": "user",
+        "content": "1+2="
+      }
+    ],
+    "stream": true
+  }'
+
 ```
 
 ### 🚀 chatbot代码
@@ -132,148 +147,167 @@ curl -X POST http://localhost:3000/api/v1/query \
 # 安装所需依赖 pip install gradio requests
 
 # 完整代码如下：
+# 安装依赖 pip install gradio requests
+
 import gradio as gr
 import requests
 import json
 import time
-from typing import Generator, Tuple, List, Dict
+import re
 
-def parse_sse_data(data: str) -> dict:
-    """Parse SSE data string into a dictionary."""
-    if data.startswith("data: "):
-        try:
-            return json.loads(data[6:])  # Remove "data: " prefix
-        except json.JSONDecodeError:
-            return {}
-    return {}
+# DeepResearch OpenAI 兼容API URL
+SERVER_URL = "http://localhost:3000/v1/chat/completions"
 
-def get_final_answer(response_text: str) -> str:
-    """Extract the final answer from the SSE stream."""
-    lines = response_text.strip().split('\n')
-    for line in reversed(lines):  # Search from the end
-        parsed = parse_sse_data(line)
-        if parsed.get("type") == "answer":
-            return parsed.get("data", {}).get("answer", "No answer found")
-    return "No answer found"
+def extract_thinking(text):
+    """从响应中提取思考过程和最终答案"""
+    think_pattern = r'<think>(.*?)</think>'
+    think_match = re.search(think_pattern, text, re.DOTALL)
+    
+    if think_match:
+        thinking = think_match.group(1).strip()
+        answer = re.sub(think_pattern, '', text, flags=re.DOTALL).strip()
+        return thinking, answer
+    
+    return "", text
 
-def query_api(message: str) -> str:
-    """Send query to API and get response."""
+def query_deepsearch(message: str, history):
+    """向DeepResearch服务发送查询并接收响应"""
+    # 从聊天历史创建消息列表
+    messages = []
+    
+    # 添加历史消息 - 历史是(用户,助手)元组的列表
+    for user_msg, assistant_msg in history:
+        messages.append({"role": "user", "content": user_msg})
+        messages.append({"role": "assistant", "content": assistant_msg})
+    
+    # 添加当前消息
+    messages.append({"role": "user", "content": message})
+    
+    data = {
+        "model": "jina-deepsearch-v1",
+        "messages": messages,
+        "stream": True
+    }
+    
     try:
-        # First request to get requestId
-        session = requests.Session()
-        
-        init_response = session.post(
-            "http://localhost:3000/api/v1/query",
-            json={
-                "q": message,
-                "budget": 1000000,
-                "maxBadAttempt": 3
-            },
-            headers={
-                "Content-Type": "application/json"
-            },
-            timeout=60  # Increased timeout
-        )
-        
-        init_response.raise_for_status()
-        request_id = init_response.json().get("requestId")
-        
-        if not request_id:
-            return "Error: No request ID received"
-        
-        # Stream the response with increased timeout
-        stream_response = session.get(
-            f"http://localhost:3000/api/v1/stream/{request_id}",
+        # 发送请求
+        response = requests.post(
+            SERVER_URL,
+            headers={"Content-Type": "application/json"},
+            json=data,
             stream=True,
-            timeout=120,  # Increased timeout for streaming
-            headers={
-                "Accept": "text/event-stream"
-            }
+            timeout=300  # 增加超时时间
         )
         
-        stream_response.raise_for_status()
+        if response.status_code != 200:
+            return f"请求失败: {response.status_code} {response.text}"
         
-        full_response = ""
-        for line in stream_response.iter_lines(decode_unicode=True):
+        # 处理流式响应
+        full_text = ""
+        buffer = ""
+        
+        for line in response.iter_lines(decode_unicode=True):
             if line:
-                full_response += line + '\n'
-                # Check if we've received the answer
-                if '"type":"answer"' in line:
-                    parsed = parse_sse_data(line)
-                    if parsed.get("type") == "answer":
-                        answer = parsed.get("data", {}).get("answer")
-                        if answer:
-                            return answer
-                            
-        # If we haven't returned by now, try to extract answer from full response
-        answer = get_final_answer(full_response)
-        return answer if answer else "No answer found in response"
-
+                if line.startswith("data: "):
+                    line = line[6:]  # 移除 "data: " 前缀
+                    
+                    if line.strip() == "[DONE]":
+                        continue
+                        
+                    try:
+                        json_data = json.loads(line)
+                        content = json_data.get("choices", [{}])[0].get("delta", {}).get("content", "")
+                        if content:
+                            buffer += content
+                            full_text = buffer
+                    except json.JSONDecodeError:
+                        continue
+        
+        # 提取思考过程和最终答案
+        thinking, answer = extract_thinking(full_text)
+        
+        # 如果有思考过程，将其格式化为纯文本
+        if thinking:
+            formatted_answer = f"【思考过程】\n{thinking}\n\n【最终答案】\n{answer}"
+            return formatted_answer
+        else:
+            return answer
+            
     except requests.exceptions.Timeout:
-        return "Error: Request timed out. Please try again."
+        return "错误: 请求超时，请重试。"
     except requests.exceptions.RequestException as e:
-        return f"API Error: {str(e)}"
+        return f"API错误: {str(e)}"
     except Exception as e:
-        return f"Error: {str(e)}"
+        return f"错误: {str(e)}\n\n请确保DeepResearch服务正在运行，并可以通过 {SERVER_URL} 访问。"
 
-def format_message(role: str, content: str) -> Dict[str, str]:
-    """Format message in the OpenAI-style format."""
-    return {"role": role, "content": content}
-
-def chat_response(message: str, history: List[Dict[str, str]]) -> str:
-    """Handle chat interaction and return response."""
-    try:
-        response = query_api(message)
-        return response
-    except Exception as e:
-        return f"Error: {str(e)}"
-
-# Create Gradio interface
+# 创建Gradio界面
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
-    gr.Markdown("""# AI Query Interface
-    Enter your question below to get an answer from the AI system.""")
+    gr.Markdown("""# DeepResearch 聊天界面
+    输入您的问题，DeepResearch将搜索互联网寻找答案。
+    """)
     
     chatbot = gr.Chatbot(
-        label="Chat History",
-        height=400,
-        type="messages"
+        label="聊天历史",
+        height=500,
+        elem_id="chatbot"
     )
     
     msg = gr.Textbox(
-        label="Your Question",
-        placeholder="Type your question here...",
+        label="您的问题",
+        placeholder="例如：'什么是Jina AI的最新博客文章的标题？'",
         container=True
     )
     
     with gr.Row():
-        clear = gr.Button("Clear Chat")
-        submit = gr.Button("Submit", variant="primary")
-
-    def user(user_message: str, history: List[Dict[str, str]]) -> Tuple[str, List[Dict[str, str]]]:
-        if not user_message.strip():
-            return "", history
-        user_msg = format_message("user", user_message)
-        history.append(user_msg)
-        return "", history
-
-    def bot(history: List[Dict[str, str]]) -> List[Dict[str, str]]:
-        user_message = history[-1]["content"]
-        bot_response = chat_response(user_message, history)
-        bot_msg = format_message("assistant", bot_response)
-        history.append(bot_msg)
+        clear = gr.Button("清除聊天")
+        submit = gr.Button("发送", variant="primary")
+    
+    # 设置事件处理
+    def user(user_message, history):
+        """处理用户输入，添加到历史记录"""
+        return "", history + [[user_message, ""]]
+    
+    def bot(history):
+        """处理机器人响应"""
+        user_message = history[-1][0]
+        bot_response = query_deepsearch(user_message, history[:-1])
+        history[-1][1] = bot_response
         return history
-
-    # Set up event handlers
+    
     msg.submit(user, [msg, chatbot], [msg, chatbot], queue=False).then(
         bot, chatbot, chatbot
     )
+    
     submit.click(user, [msg, chatbot], [msg, chatbot], queue=False).then(
         bot, chatbot, chatbot
     )
+    
     clear.click(lambda: None, None, chatbot, queue=False)
+    
+    # 设置示例问题
+    examples = [
+        "Jina AI的最新博客文章是什么？",
+        "ReadLM-v2的上下文长度是多少？",
+        "列出你能找到的所有Jina AI员工",
+        "谁是Jina AI的创始人？",
+        "1+2="
+    ]
+    
+    gr.Examples(
+        examples=examples,
+        inputs=msg,
+        label="示例问题"
+    )
+    
+    gr.HTML("""
+    <div style="text-align: center; margin-top: 1rem; padding: 1rem; background-color: #f7f7f7; border-radius: 5px;">
+        <p>此界面连接到本地运行的DeepResearch服务。确保服务已启动并在<code>http://localhost:3000</code>上运行。</p>
+        <p>DeepResearch会搜索互联网并逐步找到最佳答案 - 由Jina AI和Google Gemini提供支持。</p>
+    </div>
+    """)
 
 if __name__ == "__main__":
-    # Launch the interface with public URL enabled
+    # 启动界面并启用公网访问
     demo.launch(
         share=True,
         server_name="0.0.0.0",
