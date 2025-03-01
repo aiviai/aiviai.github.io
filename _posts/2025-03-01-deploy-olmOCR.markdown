@@ -16,7 +16,7 @@ allenai/olmocr是由Allen人工智能研究所(AI2)开发的一个开源工具�
 
 ### 本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1jKPYeXE9Q/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1gPXXYiETE/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/XF3Q_ZjwfaI)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
