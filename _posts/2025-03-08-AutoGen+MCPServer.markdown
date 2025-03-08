@@ -28,13 +28,13 @@ Manus是中国科技团队最近推出的AI智能体系统，但是这个智能�
 - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
 
 ## 🔥 MCP Server相关视频：
-1️⃣ https://youtu.be/RxR3x_Uyq4c
-2️⃣ https://youtu.be/jsd8TpzicRQ
-3️⃣ https://youtu.be/kFwE4hHbkT0
-4️⃣ https://youtu.be/7BFMY0yuRAY
+* 1️⃣ [MCP Server视频1](https://youtu.be/RxR3x_Uyq4c)
+* 2️⃣ [MCP Server视频2](https://youtu.be/jsd8TpzicRQ)
+* 3️⃣ [MCP Server视频3](https://youtu.be/kFwE4hHbkT0)
+* 4️⃣ [MCP Server视频4](https://youtu.be/7BFMY0yuRAY)
 
 ## 🔥 AutoGen相关视频：
-1️⃣ https://youtu.be/IrTEDPnEVvU
+* 1️⃣ [AutoGen视频1](https://youtu.be/IrTEDPnEVvU)
 
 
 使用AutoGen+MCP Server打造超越Manus的智能体具有以下优势:
