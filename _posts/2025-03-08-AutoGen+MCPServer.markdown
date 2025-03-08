@@ -20,7 +20,7 @@ Manus是中国科技团队最近推出的AI智能体系统，但是这个智能�
 
 ### 本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1gPXXYiETE/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV119RHYmEPF/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/szTXELuaJos)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
