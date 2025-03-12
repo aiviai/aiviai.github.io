@@ -10,6 +10,11 @@ classes: wide
 author_profile: true
 ---
 
+OpenAI全新Agents SDK和Responses API强势出击，助力开发者实现多智能体无缝协作，推动各领域实现数字化转型革命。
+
+2025年3月11日，OpenAI再次引爆业界，正式推出了全新的开发者工具，其中核心亮点便是全新开源的**Agents SDK**。这款SDK与全新的**Responses API**深度融合，共同为构建具备复杂任务处理能力的AI代理（Agent）提供了强大支持，标志着AI应用开发进入了一个全新阶段。
+
+
 ### 本篇笔记所对应的视频：
 
 - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV119RHYmEPF/)
@@ -29,9 +34,6 @@ author_profile: true
 * 4️⃣ [MCP Server视频4](https://youtu.be/7BFMY0yuRAY)
 
 
-OpenAI全新Agents SDK和Responses API强势出击，助力开发者实现多智能体无缝协作，推动各领域实现数字化转型革命。
-
-2025年3月11日，OpenAI再次引爆业界，正式推出了全新的开发者工具，其中核心亮点便是全新开源的**Agents SDK**。这款SDK与全新的**Responses API**深度融合，共同为构建具备复杂任务处理能力的AI代理（Agent）提供了强大支持，标志着AI应用开发进入了一个全新阶段。
 
 ## 一、颠覆传统，简化复杂任务编排
 
