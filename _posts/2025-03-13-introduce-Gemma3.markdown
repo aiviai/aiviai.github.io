@@ -3,7 +3,7 @@ layout: single
 title: "🚀多方位客观测评谷歌最新多模态大模型Gemma 3 27B！综合能力是否被高估？从text to SQL能力到编程能力到逻辑推理能力到多模态ORC识别中文能力！是否适合企业项目？"
 sidebar:
   nav: "docs"
-date: 2025-03-15 00:00:00 +0800
+date: 2025-03-13 00:00:00 +0800
 categories: LLMs
 tags: [Gemma 3, Gemma 3 27B , 多模态大模型, Gemma, AIGC, VLM, LLMs]
 classes: wide
