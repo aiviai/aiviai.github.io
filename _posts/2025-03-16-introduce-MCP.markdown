@@ -16,7 +16,7 @@ MCP（Model Context Protocol）是一个开源协议，旨在简化AI模型与�
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://b23.tv/lXC0XdH)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1RMQaYEEnS/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/vYm0brFoMwA)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
