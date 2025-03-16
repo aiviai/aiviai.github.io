@@ -1,6 +1,6 @@
 ---
 layout: single  
-title: "# 🚀实战详解MCP，从入门到开发！小白也能看懂！MCP推动AI智能体大爆发！Cline+Claude3.7打造论文搜索MCP Server！集成到AutoGen+smolagents智能体框架！AGI到来"  
+title: "🚀实战详解MCP，从入门到开发！小白也能看懂！MCP推动AI智能体大爆发！Cline+Claude3.7打造论文搜索MCP Server！集成到AutoGen+smolagents智能体框架！AGI到来"  
 sidebar:
   nav: "docs"
 date: 2025-03-16 10:00:00 +0800  
@@ -14,17 +14,17 @@ author_profile: true
 MCP（Model Context Protocol）是一个开源协议，旨在简化AI模型与外部数据源、工具和系统的连接，从而对AI智能体开发产生了深远的影响。它提供了一个标准化的方法，使得AI智能体能够更轻松地访问和利用各种资源，从而提升其功能性和开发效率。以下是从MCP对AI智能体开发影响力的角度进行的详细介绍：
 
 
-### 本篇笔记所对应的视频：
+### 🚀本篇笔记所对应的视频：
 
 - [👉👉👉 通过哔哩哔哩观看](https://b23.tv/lXC0XdH)
-- [👉👉👉 通过YouTube观看](https://youtu.be/KbgDABTSV9I)
+- [👉👉👉 通过YouTube观看](https://youtu.be/vYm0brFoMwA)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
 - 👉👉👉 我的微信：stoeng
 - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
 
 
-# 观看我之前发布的MCP与AutoGen相关视频
+## 🚀观看我之前发布的MCP与AutoGen相关视频
 
 | 类别 | 视频链接 |
 |------|----------|
