@@ -24,7 +24,7 @@ MCP（Model Context Protocol）是一个开源协议，旨在简化AI模型与�
 - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
 
 
-## 🚀观看我之前发布的MCP与AutoGen相关视频
+## 🚀观看我之前发布的MCP与AI智能体相关视频
 
 | 类别 | 视频链接 |
 |------|----------|
@@ -72,8 +72,6 @@ MCP对AI智能体开发的影响是多方面的：它简化了集成过程、增
 
 ```bash
 pip install uv
-
-pip install uvx
 ```
 
 ### arxiv论文检索代码
