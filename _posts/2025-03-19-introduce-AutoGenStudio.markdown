@@ -14,12 +14,21 @@ author_profile: true
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1Q9XLYiEwD/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1i9QfYaEf9/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/6ymRgLtsJZk)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
 - 👉👉👉 我的微信：stoeng
 - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
+
+### 🔥AI智能体相关视频
+
+1. [AI智能体视频 1](https://youtu.be/vYm0brFoMwA)  
+2. [AI智能体视频 2](https://youtu.be/szTXELuaJos)  
+3. [AI智能体视频 3](https://youtu.be/szTXELuaJos)  
+4. [AI智能体视频 4](https://youtu.be/RxR3x_Uyq4c)  
+5. [AI智能体视频 5](https://youtu.be/IrTEDPnEVvU)  
+
 
 
 ## 什么是 AutoGen Studio？
