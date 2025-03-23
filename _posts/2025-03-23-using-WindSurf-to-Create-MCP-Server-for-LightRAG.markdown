@@ -11,9 +11,11 @@ author_profile: true
 ---
 
 
-使用WindSurf开发LightRAG MCP服务器，增强Claude和AutoGen的知识库能力
+使用WindSurf开发LightRAG MCP服务器，增强Claude和AutoGen的知识库能力。本视频展示如何使用WindSurf（无需编写代码）开发一个LightRAG MCP服务器，并将其集成到Claude桌面版和AutoGen智能体框架中，提供强大的知识库检索功能。
 
-本视频展示如何使用WindSurf（无需编写代码）开发一个LightRAG MCP服务器，并将其集成到Claude桌面版和AutoGen智能体框架中，提供强大的知识库检索功能。
+随着人工智能技术的不断突破，编程工具正迎来前所未有的变革。由 Codeium 团队推出的 WindSurf，以全新的 AI Flow 范式和多工具协同能力，正逐步超越备受关注的 Cursor，成为开发者提高工作效率的利器。
+
+WindSurf 的最大亮点在于其深度上下文理解能力。传统的编程助手往往只能对简单代码片段进行补全，而 WindSurf 则能智能捕捉项目整体结构、变量关系以及函数调用链，无需开发者反复输入提示。它能够主动预测需求，在代码编写、重构、调试等过程中提供精准建议，从而大幅减少手动调试和反复确认的时间。
 
 ### 🚀本篇笔记所对应的视频：
 
@@ -33,21 +35,17 @@ author_profile: true
 5. [AI智能体视频 5](https://youtu.be/IrTEDPnEVvU)  
 
 
-## 视频亮点：
-- 详细演示如何安装LightRAG并构建自定义知识库
-- 通过WindSurf快速构建MCP服务器，无需手动编写代码
-- 支持多种检索方式：naive、local、global和hybrid
-- 将微调Llama3的技术文档作为示例知识库
-- 完整演示与Claude桌面版和AutoGen框架的集成过程
+WindSurf 内置了一整套工具集成系统。无论是文件搜索、目录管理，还是命令行执行，所有功能均实现无缝衔接。借助这一系统，开发者只需在一个平台内就能完成项目管理、代码编辑、依赖安装等多项任务。例如，在项目重构过程中，WindSurf 可以自动检测源目录与目标目录的状态，智能判断文件冲突，并根据历史操作自动选择最合适的执行策略，让整个过程变得流畅而高效。
 
-## 技术特点：
-- LightRAG基于图结构的检索增强生成系统
-- 通过构建知识图谱优化文本索引和检索
-- 融合向量与结构化关系，增强信息连贯性
-- 支持增量更新，降低计算成本
-- 在复杂信息检索和跨文档推理方面表现优异
+与 Cursor 相比，WindSurf 在多步骤任务规划和协同工作方面优势更为明显。其支持多工具联动，通过自动维护上下文状态，能将复杂任务分解为多个子任务，逐步完成操作。这种能力不仅适用于大型项目的代码重构，也能帮助初学者在熟悉项目结构的同时，快速掌握开发技巧。
 
-本视频所使用的代码和指令可在视频下方描述栏或评论区找到，也可通过博客查找对应笔记。
+WindSurf 的智能编程助手功能更是为开发者提供了全新的交互体验。利用先进的 GPT-4o 和 Claude 3.5 模型，WindSurf 可处理文本、图像等多模态输入，生成高质量代码和解决方案。不仅如此，它还能根据开发者的操作习惯进行自动学习，将常用操作记录为隐式记忆，从而在后续对话中提供更加个性化的建议。
+
+在实际应用中，比如一个基于 Nuxt 3 的 AI 工具集项目，开发者需要将旧有目录迁移至新架构。传统方法往往需要多次手动操作，而 WindSurf 则能自动扫描项目结构、识别配置文件、处理依赖问题，并利用内置命令顺利完成文件复制与删除、配置更新等任务。整个流程几乎无需人工干预，大大提升了项目重构效率。
+
+未来，随着 AI 技术的进一步发展，WindSurf 将持续优化其智能交互和自动化能力，拓展更多企业级功能，如 SSO 认证、深度日志审计等。凭借强大的上下文感知、多步骤任务协同和灵活的工具集成，WindSurf 不仅重新定义了 AI 辅助编程的标准，更为开发者开辟了一条高效、智能的工作之路。
+
+WindSurf 作为一款集智能、高效、便捷于一体的全新 AI 编程工具，正在引领编程工具的未来。无论是对个人开发者还是团队协作而言，WindSurf 都展示了它在提升代码质量、优化开发流程以及减少重复劳动方面的巨大潜力。未来的编程世界，将由这些智能工具驱动，让开发者真正实现“写代码，享受生活”。
 
 ### WindSurf Prompt
 
@@ -68,8 +66,6 @@ execute @task.md
 ```bash
 
 pip install -U "autogen-ext[mcp]"
-
-pip install -U "autogen-agentchat"
 
 import asyncio
 
@@ -107,7 +103,7 @@ asyncio.run(main())
       "command": "/Users/charlesqin/PycharmProjects/ligtrag-test/.venv/bin/python",
       "args": ["/Users/charlesqin/PycharmProjects/ligtrag-test/mcp_server.py"],
       "env": {
-        "OPENAI_API_KEY": "sk-proj--"
+        "OPENAI_API_KEY": "sk-proj---"
       }
     }
   }
@@ -196,13 +192,12 @@ if __name__ == "__main__":
 
 ### windsurf Prompt
 
-```markdown
+```bash
 ### task:
 
 为 LightRAG 构建一个 MCP 服务器(MCP Server)。  
 
-该服务器应允许我输入任意查询文本，并使用四种不同的 MCP 工具执行搜索操作：
-**朴素搜索、本地搜索、全局搜索和混合搜索**。  
+该服务器应允许我输入任意查询文本，并使用四种不同的 MCP 工具执行搜索操作：**朴素搜索、本地搜索、全局搜索和混合搜索**。  
 
 ### 支持多种查询模式：  
 
@@ -218,7 +213,7 @@ if __name__ == "__main__":
 cd /Users/charlesqin/Documents/test-mcp
 source .venv/bin/activate
 
-export OPENAI_API_KEY=sk-proj-xxxxxxx
+export OPENAI_API_KEY=sk-proj-aZpGaivSXgNJ--
 
 Here's the Code and Response for the LightRAG:
 
@@ -292,156 +287,99 @@ if __name__ == "__main__":
 
 [Full response logs showing the initialization and search results]
 
-(.venv) charlesqin@charless-MacBook-Pro test-mcp % python app.py
-INFO: Process 6536 Shared-Data created for Single Process
-INFO:nano-vectordb:Load (124, 1536) data
-INFO:nano-vectordb:Init {'embedding_dim': 1536, 'metric': 'cosine', 'storage_file': './mybook/vdb_entities.json'} 124 data
-INFO:nano-vectordb:Load (110, 1536) data
-INFO:nano-vectordb:Init {'embedding_dim': 1536, 'metric': 'cosine', 'storage_file': './mybook/vdb_relationships.json'} 110 data
+(.venv) charlesqin@charless-MacBook-Pro ligtrag-test % python app.py  
+INFO: Process 31212 Shared-Data created for Single Process
+INFO:nano-vectordb:Load (89, 1536) data
+INFO:nano-vectordb:Init {'embedding_dim': 1536, 'metric': 'cosine', 'storage_file': './mybook/vdb_entities.json'} 89 data
+INFO:nano-vectordb:Load (85, 1536) data
+INFO:nano-vectordb:Init {'embedding_dim': 1536, 'metric': 'cosine', 'storage_file': './mybook/vdb_relationships.json'} 85 data
 INFO:nano-vectordb:Load (9, 1536) data
 INFO:nano-vectordb:Init {'embedding_dim': 1536, 'metric': 'cosine', 'storage_file': './mybook/vdb_chunks.json'} 9 data
-INFO: Process 6536 initialized updated flags for namespace: [full_docs]
-INFO: Process 6536 ready to initialize storage namespace: [full_docs]
-INFO: Process 6536 initialized updated flags for namespace: [text_chunks]
-INFO: Process 6536 ready to initialize storage namespace: [text_chunks]
-INFO: Process 6536 initialized updated flags for namespace: [entities]
-INFO: Process 6536 initialized updated flags for namespace: [relationships]
-INFO: Process 6536 initialized updated flags for namespace: [chunks]
-INFO: Process 6536 initialized updated flags for namespace: [chunk_entity_relation]
-INFO: Process 6536 initialized updated flags for namespace: [llm_response_cache]
-INFO: Process 6536 ready to initialize storage namespace: [llm_response_cache]
-INFO: Process 6536 initialized updated flags for namespace: [doc_status]
-INFO: Process 6536 ready to initialize storage namespace: [doc_status]
-INFO: Process 6536 storage namespace already initialized: [full_docs]
-INFO: Process 6536 storage namespace already initialized: [text_chunks]
-INFO: Process 6536 storage namespace already initialized: [llm_response_cache]
-INFO: Process 6536 storage namespace already initialized: [doc_status]
-INFO: Process 6536 Pipeline namespace initialized
-## 数据质量控制流程
+INFO: Process 31212 initialized updated flags for namespace: [full_docs]
+INFO: Process 31212 ready to initialize storage namespace: [full_docs]
+INFO: Process 31212 initialized updated flags for namespace: [text_chunks]
+INFO: Process 31212 ready to initialize storage namespace: [text_chunks]
+INFO: Process 31212 initialized updated flags for namespace: [entities]
+INFO: Process 31212 initialized updated flags for namespace: [relationships]
+INFO: Process 31212 initialized updated flags for namespace: [chunks]
+INFO: Process 31212 initialized updated flags for namespace: [chunk_entity_relation]
+INFO: Process 31212 initialized updated flags for namespace: [llm_response_cache]
+INFO: Process 31212 ready to initialize storage namespace: [llm_response_cache]
+INFO: Process 31212 initialized updated flags for namespace: [doc_status]
+INFO: Process 31212 ready to initialize storage namespace: [doc_status]
+INFO: Process 31212 storage namespace already initialized: [full_docs]
+INFO: Process 31212 storage namespace already initialized: [text_chunks]
+INFO: Process 31212 storage namespace already initialized: [llm_response_cache]
+INFO: Process 31212 storage namespace already initialized: [doc_status]
+INFO: Process 31212 Pipeline namespace initialized
+## Self-Consistency Prompt
 
-数据质量控制流程在确保用于模型微调的训练数据符合标准方面至关重要。特别是在医疗和金融领域，这一过程确保数据的准确性和可靠性。以下是针对医疗领域的数据质量控制流程：
+The Self-Consistency prompt is a technique utilized to ensure that the output generated by ChatGPT maintains consistency with the provided input. This approach is particularly useful for tasks such as fact-checking, data validation, or ensuring consistency in text generation.
 
-### 1. 数据来源审核
+### Prompt Formula
+The prompt formula for the Self-Consistency prompt involves embedding the input text alongside an instruction. The instruction typically states, "Please ensure the following text is self-consistent."
 
-- **MedChat 数据集**：包含医疗问答对，需要确保数据的来源是权威的和可靠的。
-- **MeDAL 数据集**：从 PubMed 摘要中提取的 1400 万篇文章，以保证医疗信息的真实性和最新性。
-- **医学诊断数据集**：用于生成合成 Q&A 数据集，确保数据可用于训练并符合医疗领域的要求。
+### Examples of Application
 
-### 2. 专业人员审核
+1. **Text Generation**
+   - **Task**: Generate a product review.
+   - **Instructions**: The review should be consistent with the product information provided in the input.
+   - **Prompt formula**: "Generate a product review that is consistent with the following product information [insert product information]."
 
-- 通过医学专业人员对收集到的数据进行审核，确认数据的准确性和适用性。
-- 借助专家知识确保数据中的术语和内容符合医学标准和现实情况。
+2. **Text Summarization**
+   - **Task**: Summarize a news article.
+   - **Instructions**: The summary should be consistent with the information provided in the article.
+   - **Prompt formula**: "Summarize the following news article in a way that is consistent with the information provided [insert news article]."
 
-### 3. 术语标准化
+3. **Fact-checking**
+   - **Task**: Check for consistency in a given news article.
+   - **Input text**: "The article states that the population of the city is 5 million, but later on, it says that the population is 7 million."
+   - **Prompt formula**: "Please ensure the following text is self-consistent: The article states that the population of the city is 5 million, but later on, it says that the population is 7 million."
 
-- 对于数据集中使用的医学术语，进行标准化处理，以确保不同数据源中的术语一致，避免歧义。
+4. **Data Validation**
+   - **Task**: Check for consistency in a given data set.
+   - **Input text**: "The data shows that the average temperature in July is 30 degrees, but the minimum temperature is recorded as 20 degrees."
+   - **Prompt formula**: "Please ensure the following text is self-consistent: The data shows that the average temperature in July is 30 degrees, but the minimum temperature is recorded as 20 degrees."
 
-### 4. 权威资料引用
-
-- 引用权威的医学资料，以支持数据的有效性和可信度。这能够提高模型在处理医疗相关查询时的准确性和可靠性。
-
-### 5. 数据清洗和预处理
-
-- 对数据进行清洗，去除冗余和不相关的信息，确保数据的整洁。
-- 格式化数据，使其适合模型的输入要求。
-
-这些步骤将有效保障数据的高质量，为后续的模型训练奠定基础，并提升模型在特定任务上的表现。
-
-### References
-- [KG] 数据质量控制策略 (File: N/A)
-- [DC] 医疗领域微调案例分析 (File: N/A)
-### 数据质量控制流程
-
-数据质量控制流程是Meta为确保Llama 3训练数据集高质量而实施的一系列系统性措施，旨在提升数据的有效性与可靠性。该流程包括以下几个关键部分：
-
-1. **基于LLM的分类器**：
-   - 开发多种基于大型语言模型的分类器，用于筛选高质量的提示和响应。这些分类器有助于自动判断数据的相关性和准确性。
-
-2. **主题分类**：
-   - 利用微调过的Llama 3 8B模型作为主题分类器，将采集到的数据分类为广泛类别和特定类别，以便于后续的数据处理和分析。
-
-3. **问题检测与纠正**：
-   - 实施基于规则的策略，识别并过滤不良内容，例如过度使用表情符号和感叹号、以及频繁出现的道歉语气等。此外，还确保所有数据遵循统一的格式规范。
-
-4. **数据清洗**：
-   - 进行重复内容的去除，低质量文档的过滤，以及个人身份信息和成人内容的移除，以保证数据集中只有高质量材料。
-
-5. **数据增强技术**：
-   - 采用多种数据增强技术，例如变体生成和难度递增等，以提升模型训练的全面性与有效性。这些增强措施有助于提高模型对不同场景的适应能力。
-
-通过上述流程，Meta确保Llama 3所使用的数据集具备高质量，从而促进模型性能的优化和提升。
-
-### 参考文献
-
-1. Meta实施的数据质量控制流程 [KG] Source content (File: unknown_source)
-2. 数据清洗的定义与Importance [KG] Source content (File: unknown_source)
-3. 数据增强技术的应用与优势 [KG] Source content (File: unknown_source)
-### 数据质量控制流程
-
-数据质量控制流程是由Meta实施的一种系统化方法，旨在确保用于训练Llama 3的高标准数据集。这一流程包括多个关键步骤，以有效维护数据的高质量和可靠性：
-
-1. **数据收集**：依据既定标准和目标，收集多样化和高质量的数据。这一步骤涉及明确数据源和收集方法，以确保数据的代表性和覆盖面。
-
-2. **数据清洗**：通过去除重复项，过滤低质量文档等验证技术，确保数据的准确性和一致性。这是提升训练数据质量的关键环节。
-
-3. **数据验证**：对收集的数据进行审查，确保其符合预设的要求和特点，防止因不良数据影响模型性能。
-
-4. **合规检查**：在数据处理过程中，审查潜在的法律和道德问题，确保所用数据的合理性和合规性。
-
-5. **持续监控**：实施持续的质量监控和反馈机制，定期评估数据集的质量和适度性，以便及时进行调整和优化。
-
-数据质量控制流程是Llama 3微调及应用中不可或缺的组成部分，帮助确保AI模型在训练中使用到的数据能够支持其性能表现。
+By employing the Self-Consistency prompt, users can enhance the reliability of the text generated by ensuring that it aligns with the provided inputs.
 
 ### References
+- [KG] Self-Consistency Prompt Description (File: Document Chunks)
+- [KG] Application Examples for Self-Consistency Prompts (File: Document Chunks)
+The Knowledge Base does not provide specific information on the "Self-Consistency Prompt." It typically discusses various prompt engineering techniques and their applications with language models like ChatGPT, but mentions self-consistency without elaborating on its definition or use cases.
 
-- [KG] Meta实施的严格数据质量控制流程 (File: unknown_source)
-- [KG] Llama 3的高标准数据集 (File: unknown_source)
-- [KG] 数据质量控制确保模型性能的影响 (File: unknown_source)
-- [KG] 管理和预处理的数据集的重要性 (File: unknown_source)
-### 数据质量控制流程
-
-Meta为Llama 3实施了严格的数据质量控制流程，以确保训练所用数据集的高标准。以下是该流程的关键组成部分：
-
-1. **基于LLM的分类器**：
-   - 开发多种基于大型语言模型的分类器，用于筛选高质量提示和响应。
-
-2. **主题分类**：
-   - 使用微调过的Llama 3 8B模型作为主题分类器，将数据分为广泛和特定类别，以提高分类的准确性。
-
-3. **问题检测与纠正**：
-   - **表情符号和感叹号过度使用**：实施基于规则的策略，识别并过滤此类元素。
-   - **过度道歉语气**：识别并调整如“我很抱歉”或“我道歉”等常见短语的频率。
-   - **格式一致性**：确保所有数据遵循统一格式，以提升数据集的整体质量。
-
-4. **数据清洗**：
-   - 去除重复内容。
-   - 过滤低质量文档。
-   - 移除个人身份信息和成人内容，以保障数据的合法性和道德性。
-
-5. **数据增强技术**：
-   - 针对微调的目标，采用各种数据增强技术以提升数据多样性和使用效果。这包括生成变体、制定难度递增的训练样本及其它特定的方案。
-
-通过以上流程，Meta确保Llama 3模型能够在高质量的数据基础上进行训练，从而提高模型的性能和可靠性。
+If you have more detailed questions about other prompt techniques or topics related to prompt engineering, please feel free to ask!
 
 ### References
-- [KG] Data Quality Control Process (File: unknown_source)
-- [KG] 安全微调的技术实现 (File: unknown_source)
-- [KG] 数据清洗 (File: unknown_source)
-(.venv) charlesqin@charless-MacBook-Pro test-mcp % 
+- [KG] Prompt Engineering Techniques encompass a variety of methods and practices for effectively engaging with language models like ChatGPT. (File: unknown_source)
+- [KG] The Art of Asking ChatGPT for High-Quality Answers: A Complete Guide to Prompt Engineering Techniques covers various techniques related to prompt engineering and the effective use of ChatGPT. (File: unknown_source)
+- [KG] ChatGPT is a state-of-the-art language model capable of generating human-like text based on the prompts given. (File: unknown_source)
+The Knowledge Base provided does not contain specific information about the "Self-Consistency Prompt." This term may refer to a prompting technique meant to encourage models, like ChatGPT, to generate consistent outputs across different prompts or contexts, but further details are not available in the provided content. Therefore, I cannot provide a detailed explanation or context for the Self-Consistency Prompt.
+
+If you have any other questions or need information on a different topic, feel free to ask! 
+
+### References
+- [KG] Ibrahim John discusses various prompting techniques in his book (File: unknown_source)
+- [KG] Knowledge generation techniques are outlined in the book's content (File: unknown_source)
+I don’t have specific details about the story you’re referring to, as the Knowledge Base does not provide information on any particular narrative beyond discussing techniques for text generation and prompt engineering. 
+
+However, common themes in literature often include:
+
+1. **Love** - exploring emotional connections and relationships.
+2. **Personal Growth** - focusing on the journey of self-discovery and development.
+3. **Conflict** - presenting struggles between characters or within oneself.
+4. **Change** - highlighting transformations in characters or settings (e.g., changing seasons).
+5. **Morality** - examining the concepts of right and wrong.
+
+If you could provide more details or specify the story, I could help further! 
+
+### References
+- [KG] Love is a complex emotion that forms the basis of many poems and literary works. (File: unknown_source)
+- [KG] Personal growth refers to the process of self-improvement and development, focusing on various aspects of life such as emotional, intellectual and relational growth. (File: unknown_source)
+- [KG] The changing seasons refer to the transition periods throughout the year characterized by different weather patterns, environmental changes, and their impact on nature and human life. (File: unknown_source)
+(.venv) charlesqin@charless-MacBook-Pro ligtrag-test % 
 
 ### The MCP document is:
-
-# Example Clients
-Source: https://modelcontextprotocol.io/clients
-
-A list of applications that support MCP integrations
-
-This page provides an overview of applications that support the Model Context Protocol (MCP). Each client may support different MCP features, allowing for varying levels of integration with MCP servers.
-
-🔥此处省略，因为文档过长博客展示不出来了，请自行准备MCP文档。MCP文档请从这里获取：https://modelcontextprotocol.io/llms-full.txt
-
-Remember that Claude can help you modify and improve your server as requirements change over time.
-
-Need more guidance? Just ask Claude specific questions about implementing MCP features or troubleshooting issues that arise.
+https://modelcontextprotocol.io/llms-full.txt
 
 ```
