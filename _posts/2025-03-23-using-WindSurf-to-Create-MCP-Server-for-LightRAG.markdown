@@ -17,7 +17,7 @@ author_profile: true
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1i9QfYaEf9/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1P6XYYgEjY/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/KGZ_zM6Xi-U)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
