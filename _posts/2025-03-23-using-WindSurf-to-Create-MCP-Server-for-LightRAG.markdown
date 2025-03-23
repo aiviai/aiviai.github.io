@@ -10,9 +10,6 @@ classes: wide
 author_profile: true
 ---
 
-
-使用WindSurf开发LightRAG MCP服务器，增强Claude和AutoGen的知识库能力。本视频展示如何使用WindSurf（无需编写代码）开发一个LightRAG MCP服务器，并将其集成到Claude桌面版和AutoGen智能体框架中，提供强大的知识库检索功能。
-
 随着人工智能技术的不断突破，编程工具正迎来前所未有的变革。由 Codeium 团队推出的 WindSurf，以全新的 AI Flow 范式和多工具协同能力，正逐步超越备受关注的 Cursor，成为开发者提高工作效率的利器。
 
 WindSurf 的最大亮点在于其深度上下文理解能力。传统的编程助手往往只能对简单代码片段进行补全，而 WindSurf 则能智能捕捉项目整体结构、变量关系以及函数调用链，无需开发者反复输入提示。它能够主动预测需求，在代码编写、重构、调试等过程中提供精准建议，从而大幅减少手动调试和反复确认的时间。
@@ -307,25 +304,24 @@ if __name__ == "__main__":
 ```bash
 ### task:
 
-为 LightRAG 构建一个 MCP 服务器(MCP Server)。  
+Build an MCP server for the LightRAG.
+This server should allow me to input any query text and perform search operations using four distinct MCP Tools: naive search, local search, global search, and hybrid search.
 
-该服务器应允许我输入任意查询文本，并使用四种不同的 MCP 工具执行搜索操作：**朴素搜索、本地搜索、全局搜索和混合搜索**。  
+Support Multiple Query Modes:
 
-### 支持多种查询模式：  
+Naive Search: Perform a straightforward search over the inserted content.
 
-- **朴素搜索（Naive Search）**：对插入的内容执行直接搜索。  
-- **本地搜索（Local Search）**：在插入文档的局部上下文中检索结果。  
-- **全局搜索（Global Search）**：对整个数据集进行全面搜索。  
-- **混合搜索（Hybrid Search）**：结合本地搜索和全局搜索的特点，以提高结果的相关性和一致性。  
+Local Search: Focus on retrieving results within a limited, local context of the inserted documents.
 
-**工作目录（WORKING_DIR）**路径为：  
-`/Users/charlesqin/PycharmProjects/ligtrag-test`  
+Global Search: Conduct a comprehensive search across the entire dataset.
 
-请激活虚拟环境（venv）：
-cd /Users/charlesqin/Documents/test-mcp
+Hybrid Search: Combine aspects of local and global searches to enhance result relevance and consistency.
+
+The WORKING_DIR path is /Users/charlesqin/PycharmProjects/ligtrag-test
+
+Please activate the venv:
+cd /Users/charlesqin/PycharmProjects/ligtrag-test
 source .venv/bin/activate
-
-export OPENAI_API_KEY=sk-proj-aZpGaivSXgNJ--
 
 Here's the Code and Response for the LightRAG:
 
@@ -492,6 +488,7 @@ If you could provide more details or specify the story, I could help further!
 (.venv) charlesqin@charless-MacBook-Pro ligtrag-test % 
 
 ### The MCP document is:
+⚠️请将下面链接里的MCP文档完整的复制粘贴到这里，由于博客字数有限，所以请自行复制文档内容⬇️
 https://modelcontextprotocol.io/llms-full.txt
 
 ```
