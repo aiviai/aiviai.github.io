@@ -3,7 +3,7 @@ layout: single
 title: "🚀DeepSeek 6850亿参数开源大模型！DeepSeek-V3-0324全方位测评！编程能力、文档分析、复杂推理能力、Text-to-SQL能力！Cline+DeepSeek轻松开发城市模拟游戏"
 sidebar:
   nav: "docs"
-date: 2025-02-07 00:00:00 +0800
+date: 2025-03-25 00:00:00 +0800
 categories: LLMs
 tags: [DeepSeek, DeepSeek-V3-0324 , DeepSeek-V3, Cline, AIGC, AI编程, LLMs, Text to SQL]
 classes: wide
