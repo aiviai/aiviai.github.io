@@ -21,7 +21,7 @@ Roo Code 是一款集成于 VS Code 的 AI 编程助手，能显著提高开发�
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1R5ovYzEQA/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1atZpYKEXc/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/KQULGx6wjco)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
@@ -50,7 +50,7 @@ Roo Code 是一款集成于 VS Code 的 AI 编程助手，能显著提高开发�
 4. 根据可视化工作流生成代码
 
 以下是我要实现的OpenAI Agents SDK示例代码：
-```python
+
 # 基本示例
 from agents import Agent, Runner
 
@@ -73,7 +73,7 @@ def get_weather(city: str) -> str:
     return f"The weather in {city} is sunny."
 
 agent = Agent(name="Hello world", instructions="You are a helpful agent.", tools=[get_weather])
-```
+
 ```
 
 ```markdown
@@ -178,14 +178,13 @@ agent = Agent(name="Hello world", instructions="You are a helpful agent.", tools
 5. Runner执行代码，根据选择生成同步或异步版本
 
 代码生成逻辑示例:
-```
+
 - 对于每个Function Tool节点，生成@function_tool装饰器函数
 - 对于每个Agent节点，生成Agent实例
 - 对于连接到Agent的Function节点，添加到Agent的tools参数
 - 对于连接到Agent的其他Agent节点，添加到handoffs参数
 - 对于Runner节点，生成对应的Runner.run或Runner.run_sync代码
 - 如果有异步执行，添加asyncio.run(main())代码
-```
 
 ## 6. 用户交互设计
 
@@ -228,17 +227,16 @@ agent = Agent(name="Hello world", instructions="You are a helpful agent.", tools
 
 ### 示例1: 基本Agent
 
-```python
+python
 from agents import Agent, Runner
 
 agent = Agent(name="Assistant", instructions="You are a helpful assistant")
 result = Runner.run_sync(agent, "Write a haiku about recursion in programming.")
 print(result.final_output)
-```
 
 ### 示例2: Handoffs
 
-```python
+python
 from agents import Agent, Runner
 import asyncio
 
@@ -264,11 +262,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
 
 ### 示例3: Function Tools
 
-```python
+python
 import asyncio
 from agents import Agent, Runner, function_tool
 
@@ -288,11 +285,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
 
 ### 示例4: Guardrails
 
-```python
+python
 from agents import Agent, InputGuardrail, GuardrailFunctionOutput, Runner
 from pydantic import BaseModel
 import asyncio
@@ -345,11 +341,10 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
 
 ### 示例5: Specialist Agents
 
-```python
+python
 from agents import Agent, Runner
 import asyncio
 
@@ -377,7 +372,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-```
 
 ## 9. 扩展功能（如果可能）
 
@@ -501,4 +495,3 @@ function sortArray(arr) {
 *这种模式专注于错误排查和问题分析，非常适合遇到复杂 bug 时使用。*
 
 ---
-
