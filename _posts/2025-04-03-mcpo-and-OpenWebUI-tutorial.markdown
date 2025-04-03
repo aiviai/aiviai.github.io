@@ -19,7 +19,7 @@ Open WebUI 的 MCPo 项目：将 MCP 工具无缝集成到 OpenAPI 的创新解�
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1atZpYKEXc/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rjZSYtExH/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/AAiG_j4Lx4c)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
