@@ -47,7 +47,7 @@ Llama 4系列包括三款不同的模型，分别针对特定应用场景：
 - **Llama 4 Maverick**：同样拥有17亿活跃参数，但配备128个专家，适用于精确图像理解和多语言任务，同时在通用助手功能上表现出色。
 - **Llama 4 Behemoth**（预览版）：这是一个规模庞大的教师模型，拥有288亿活跃参数和近两万亿总参数，在STEM基准测试中超越了GPT-4.5等领先模型。
 
-![Logo](./assets/images/llama4.svg)
+![Llama4对比图](https://raw.githubusercontent.com/aiviai/aiviai.github.io/7d41bacc25ad66f0d30abd55ceeb35e1b98d86c5/assets/images/llama4.svg?sanitize=true)
 
 ### **技术细节与训练优化**
 
