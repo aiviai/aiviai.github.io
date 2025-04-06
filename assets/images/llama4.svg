@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750">
+  <!-- 背景 -->
+  <rect width="1000" height="750" fill="#f8f9fa" />
+  
+  <!-- 页面框架 -->
+  <rect x="20" y="20" width="960" height="710" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1" />
+  
+  <!-- 标题 -->
+  <text x="500" y="60" font-family="Arial, sans-serif" font-size="32" font-weight="bold" text-anchor="middle" fill="#333">Meta Llama 4 模型详细对比</text>
+  <text x="500" y="90" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#666">基于MoE架构的多模态大语言模型 - 2025年4月发布</text>
+  
+  <!-- 添加水印效果的原创标记 - 科幻风格 -->
+  <text x="500" y="112" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="rgba(64,127,223,0.4)" style="letter-spacing:1px;">AI超元域频道原创</text>
+  
+  <!-- 模型区域背景 -->
+  <rect x="50" y="120" width="420" height="470" rx="10" fill="#f1f8fe" stroke="#0288D1" stroke-width="1" />
+  <rect x="530" y="120" width="420" height="470" rx="10" fill="#f2f8f2" stroke="#388E3C" stroke-width="1" />
+  
+  <!-- 模型标题 -->
+  <text x="260" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#0288D1">Llama 4 Scout</text>
+  <text x="740" y="150" font-family="Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="#388E3C">Llama 4 Maverick</text>
+  
+  <!-- 模型图标 -->
+  <circle cx="260" cy="190" r="30" fill="#0288D1" />
+  <path d="M260 170 L250 190 L270 190 Z" fill="white" />
+  <path d="M245 180 L275 180" stroke="white" stroke-width="2.5" />
+  
+  <circle cx="740" cy="190" r="30" fill="#388E3C" />
+  <path d="M725 190 L740 175 L755 190 L740 205 Z" fill="white" />
+  
+  <!-- 参数表格 - Scout -->
+  <g transform="translate(70, 240)">
+    <rect width="380" height="330" rx="5" fill="white" stroke="#0288D1" stroke-width="1" />
+    
+    <!-- 表格标题 -->
+    <rect width="380" height="40" rx="5" fill="#0288D1" />
+    <text x="190" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">技术参数 - Scout</text>
+    
+    <!-- 表格内容 -->
+    <g font-family="Arial, sans-serif" font-size="16">
+      <!-- 行1 -->
+      <rect y="40" width="380" height="40" fill="#e3f2fd" />
+      <text x="10" y="65" font-weight="bold">活跃参数：</text>
+      <text x="370" y="65" text-anchor="end">17B (170亿)</text>
+      
+      <!-- 行2 -->
+      <rect y="80" width="380" height="40" fill="white" />
+      <text x="10" y="105" font-weight="bold">总参数量：</text>
+      <text x="370" y="105" text-anchor="end">109B (1090亿)</text>
+      
+      <!-- 行3 -->
+      <rect y="120" width="380" height="40" fill="#e3f2fd" />
+      <text x="10" y="145" font-weight="bold">专家数量：</text>
+      <text x="370" y="145" text-anchor="end">16个</text>
+      
+      <!-- 行4 -->
+      <rect y="160" width="380" height="40" fill="white" />
+      <text x="10" y="185" font-weight="bold">上下文窗口：</text>
+      <text x="370" y="185" text-anchor="end">10M tokens (约15,000页)</text>
+      
+      <!-- 行5 -->
+      <rect y="200" width="380" height="40" fill="#e3f2fd" />
+      <text x="10" y="225" font-weight="bold">硬件需求：</text>
+      <text x="370" y="225" text-anchor="end">单个H100 GPU</text>
+      
+      <!-- 行6 -->
+      <rect y="240" width="380" height="40" fill="white" />
+      <text x="10" y="265" font-weight="bold">训练数据：</text>
+      <text x="370" y="265" text-anchor="end">约40万亿tokens</text>
+      
+      <!-- 行7 -->
+      <rect y="280" width="380" height="50" fill="#e3f2fd" />
+      <text x="10" y="305" font-weight="bold">优势：</text>
+      <text x="370" y="305" text-anchor="end">超长上下文、文档摘要</text>
+      <text x="10" y="325" font-size="14">超越：Gemma 3、Gemini 2.0 Flash-Lite、Mistral 3.1</text>
+    </g>
+  </g>
+  
+  <!-- 参数表格 - Maverick -->
+  <g transform="translate(550, 240)">
+    <rect width="380" height="330" rx="5" fill="white" stroke="#388E3C" stroke-width="1" />
+    
+    <!-- 表格标题 -->
+    <rect width="380" height="40" rx="5" fill="#388E3C" />
+    <text x="190" y="25" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="white">技术参数 - Maverick</text>
+    
+    <!-- 表格内容 -->
+    <g font-family="Arial, sans-serif" font-size="16">
+      <!-- 行1 -->
+      <rect y="40" width="380" height="40" fill="#e8f5e9" />
+      <text x="10" y="65" font-weight="bold">活跃参数：</text>
+      <text x="370" y="65" text-anchor="end">17B (170亿)</text>
+      
+      <!-- 行2 -->
+      <rect y="80" width="380" height="40" fill="white" />
+      <text x="10" y="105" font-weight="bold">总参数量：</text>
+      <text x="370" y="105" text-anchor="end">400B (4000亿)</text>
+      
+      <!-- 行3 -->
+      <rect y="120" width="380" height="40" fill="#e8f5e9" />
+      <text x="10" y="145" font-weight="bold">专家数量：</text>
+      <text x="370" y="145" text-anchor="end">128个</text>
+      
+      <!-- 行4 -->
+      <rect y="160" width="380" height="40" fill="white" />
+      <text x="10" y="185" font-weight="bold">上下文窗口：</text>
+      <text x="370" y="185" text-anchor="end">1M tokens (约1,500页)</text>
+      
+      <!-- 行5 -->
+      <rect y="200" width="380" height="40" fill="#e8f5e9" />
+      <text x="10" y="225" font-weight="bold">硬件需求：</text>
+      <text x="370" y="225" text-anchor="end">8xH100或分布式推理</text>
+      
+      <!-- 行6 -->
+      <rect y="240" width="380" height="40" fill="white" />
+      <text x="10" y="265" font-weight="bold">训练数据：</text>
+      <text x="370" y="265" text-anchor="end">约22万亿tokens</text>
+      
+      <!-- 行7 -->
+      <rect y="280" width="380" height="50" fill="#e8f5e9" />
+      <text x="10" y="305" font-weight="bold">优势：</text>
+      <text x="370" y="305" text-anchor="end">多语言(12种)、图像理解</text>
+      <text x="10" y="325" font-size="14">超越：GPT-4o、Gemini 2.0 Flash、接近DeepSeek V3</text>
+    </g>
+  </g>
+  
+  <!-- 删除比较箭头 -->
+  
+  <!-- 即将发布Behemoth提示 - 现在移到模型下面且更靠下 -->
+  <g transform="translate(500, 625)">
+    <rect x="-225" y="-25" width="450" height="50" rx="25" fill="#ffe0b2" stroke="#ff9800" stroke-width="1" />
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#333">即将发布: Llama 4 Behemoth</text>
+    <text x="0" y="20" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">288B活跃参数 • 16专家 • 近2万亿总参数</text>
+  </g>
+  
+  <!-- 共同特点 - 也向下移动 -->
+  <rect x="50" y="670" width="900" height="60" rx="5" fill="#fff8e1" stroke="#ffa000" stroke-width="1" />
+  <text x="500" y="695" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#333">共同特点</text>
+  <text x="500" y="715" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#333">多模态能力 • MoE架构 • 开源软件 • 12种语言支持 • 知识截止2024年8月 • 从Behemoth蒸馏</text>
+  
+  <!-- 水印 - 也相应下移 -->
+  <text x="970" y="740" font-family="Arial, sans-serif" font-size="10" text-anchor="end" fill="#999">2025年4月数据</text>
+</svg>
