@@ -15,7 +15,7 @@ Meta今天发布了其革命性的Llama 4系列模型，这标志着人工智能
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rjZSYtExH/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV16gRiY5EUV/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/r_11bvuZRC0)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
