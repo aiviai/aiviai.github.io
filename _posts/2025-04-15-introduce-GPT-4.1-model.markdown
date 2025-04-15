@@ -15,11 +15,11 @@ OpenAI推出GPT-4.1系列模型：性能全面突破，百万Token上下文时�
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1PmdGYRECA/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV14AdZYpEDk/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/W2YnjNhbiUM)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
--[👉👉👉 Windsurf注册和下载](https://windsurf.com/refer?referral_code=e0soesze5kyr9o53)
+- [👉👉👉 Windsurf注册和下载](https://windsurf.com/refer?referral_code=e0soesze5kyr9o53)
 - 👉👉👉 我的微信：stoeng
 - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
 
