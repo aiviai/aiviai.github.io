@@ -16,7 +16,7 @@ OpenAI近日正式发布了Codex CLI，这是一款开源的AI编程助手，专
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV14AdZYpEDk/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1n55BztEwJ/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/Qcyycy4aYgY)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
@@ -67,7 +67,7 @@ Codex CLI是一个轻量级的命令行工具，能够在开发者的本地环�
 
 Codex CLI安装极为便捷，仅需一行命令即可全局安装：
 
-`bashnpm install -g @openai/codex`
+`npm i -g @openai/codex`
 
 配置好OpenAI API密钥后，即可通过`codex`命令进入交互环境，或直接输入自然语言指令让AI帮你完成各类开发任务。例如：
 
