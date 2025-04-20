@@ -17,7 +17,7 @@ InternVL3模型采用了一种称为"原生多模态预训练"的创新方法，
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rjZSYtExH/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1QDLFzGEyL/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/_EqUR0dYGtE)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
