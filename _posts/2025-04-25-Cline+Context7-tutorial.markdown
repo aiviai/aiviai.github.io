@@ -14,7 +14,7 @@ Context7是由Upstash团队开发的一个平台，旨在为大型语言模型(L
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1QDLFzGEyL/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1AKLHzXEX1/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/HdYT915bcfY)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
