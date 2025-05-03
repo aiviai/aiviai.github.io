@@ -14,7 +14,7 @@ unsloth微调Qwen3模型提供显著优势：训练速度提高2倍，VRAM使用
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SeGvzFEGX/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV17jGdzAETg/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/opk1f-XtIsw)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
