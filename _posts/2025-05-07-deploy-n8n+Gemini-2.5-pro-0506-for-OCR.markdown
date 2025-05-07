@@ -103,7 +103,7 @@ https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-preview-0
         {
           "inline_data": {
             "mime_type": "image/jpeg",
-            "data": "{{ $json.data }}"
+            "data": "{% raw %}{{ $json.data }}{% endraw %}"
           }
         }
       ]
