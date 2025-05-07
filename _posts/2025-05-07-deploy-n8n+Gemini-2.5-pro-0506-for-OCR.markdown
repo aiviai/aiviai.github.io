@@ -115,3 +115,5 @@ https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-preview-0
   }
 }
 ```
+### 🔥🔥🔥完整n8n工作流下载
+[👉👉👉 点击下载](https://github.com/win4r/mytest/blob/main/n8n-ocr-workflow.json)
