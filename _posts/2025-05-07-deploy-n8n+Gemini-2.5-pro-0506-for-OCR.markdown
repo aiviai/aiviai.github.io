@@ -85,7 +85,14 @@ n8n是一个功能强大的工作流自动化平台，可以实现各种应用�
 npx n8n
 ```
 
-### HTTP Request
+### HTTP Request配置
+
+✅URL
+```bash
+https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro-preview-05-06:generateContent?key=你的API_KEY
+```
+
+✅Send Body
 
 ```json
 {
