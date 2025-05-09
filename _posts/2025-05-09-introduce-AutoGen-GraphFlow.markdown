@@ -12,6 +12,24 @@ author_profile: true
 
 在AI智能体领域，微软的AutoGen团队近期推出了一项引人注目的新特性--GraphFlow。这一创新组件为AI多代理系统带来了高度灵活且并发友好的工作流编排能力，极大提升了团队协作的效率和可控性。
 
+### 🚀本篇笔记所对应的视频：
+
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1Vy55zSEpd/)
+- [👉👉👉 通过YouTube观看](https://youtu.be/q_IdxUGZsow)
+- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+- 👉👉👉 我的微信：stoeng
+- 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
+
+### 🔥AI智能体相关视频
+
+1. [AI智能体视频 1](https://youtu.be/vYm0brFoMwA) 
+2. [AI智能体视频 2](https://youtu.be/szTXELuaJos)  
+3. [AI智能体视频 3](https://youtu.be/szTXELuaJos)  
+4. [AI智能体视频 4](https://youtu.be/RxR3x_Uyq4c)  
+5. [AI智能体视频 5](https://youtu.be/IrTEDPnEVvU)  
+
+
 **什么是GraphFlow？**
 
 GraphFlow是AutoGen AgentChat API中的一款全新团队类，可以将AI代理的协作流程抽象为有向图。与传统的线性或简单分组聊天不同，GraphFlow允许开发者以图结构精准控制每个代理的任务分发、并行处理和结果汇总过程。这意味着，复杂的团队协作场景，如多轮编辑、意见融合、并行审核等，都可以通过图结构灵活实现。
