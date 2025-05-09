@@ -4,7 +4,7 @@ title: "🚀OCR能力倍增！n8n+Gemini 2.5 pro 0506三分钟打造全自动OCR
 sidebar:
   nav: "docs"
 date: 2025-05-07 00:00:00 +0800
-categories: AIAgents
+categories: LLMs
 tags: [Gemini 2.5 Pro, Gemini 2.5 , Gemini, OCR, n8n, n8n工作流, LLMs, 多模态大模型]
 classes: wide
 author_profile: true
