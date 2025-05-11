@@ -3,7 +3,7 @@ layout: single
 title: "🚀支持视觉大模型的开源PDF解析+OCR工具！Docling本地配置从入门到精通保姆级教程！支持LM Studio+InternVL3-9B与Gemini2.5 Pro轻松识别解析模糊PDF扫描文件"
 sidebar:
   nav: "docs"
-date: 2025-05-1 00:00:00 +0800
+date: 2025-05-11 00:00:00 +0800
 categories: LLMs
 tags: [Docling, OCR, PDF解析 , LM Studio, InternVL3-9B, Gemini2.5 Pro, AI, Gemini]
 classes: wide
