@@ -14,7 +14,7 @@ author_profile: true
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1Vy55zSEpd/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1AVEgzFEHx/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/WWPWAi-REl0)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
@@ -23,8 +23,8 @@ author_profile: true
 
 ### 🔥OCR能力测评视频
 
-1. [InternVL#](https://youtu.be/_EqUR0dYGtE) 
-2. [Gemini2.5 Pro](https://youtu.be/nb87POhO6aA)  
+1. [👉👉👉 InternVL3](https://youtu.be/_EqUR0dYGtE) 
+2. [👉👉👉 Gemini2.5 Pro](https://youtu.be/nb87POhO6aA)  
 
 
 ### 🔥AI智能体相关视频
