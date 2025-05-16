@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀阿里巴巴颠覆视频创作领域！全新Wan2.1-VACE-视频生成大模型震撼发布，保姆级教程手把手教你本地与Colab双平台部署，轻松生成电影级AI大片！Wan2.1-VACE-1.3B参数做出惊艳效果"
+title: "🚀阿里巴巴颠覆视频创作领域！全新Wan2.1-VACE视频生成大模型震撼发布，保姆级教程手把手教你本地与Colab双平台部署，轻松生成电影级AI大片！Wan2.1-VACE-1.3B参数做出惊艳效果"
 sidebar:
   nav: "docs"
 date: 2025-05-16 00:00:00 +0800
@@ -14,7 +14,7 @@ author_profile: true
 
 ### 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1AVEgzFEHx/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ofEbzgE6r/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/SVyN2Mf2tgE)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
