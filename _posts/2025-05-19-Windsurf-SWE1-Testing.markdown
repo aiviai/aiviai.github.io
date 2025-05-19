@@ -14,7 +14,7 @@ author_profile: true
 
 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ofEbzgE6r/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1QeE9zeE2z/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/-rHM4TbfdGA)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
@@ -87,17 +87,17 @@ Docling Serve API端点是：
 POST http://localhost:5001/v1alpha/convert/source
 
 对于URL，请求体格式为：
-```json
+
 {
   "http_sources": [{"url": "https://example.com/document.pdf"}]
 }
-```
+
 对于本地文件，请求体格式为：
-```json
+
 {
   "file_sources": [{"path": "/path/to/document.pdf"}]
 }
-```
+
 
 请生成这个MCP服务器的完整实现，包括：
 1. 所有必要的导入和依赖项
