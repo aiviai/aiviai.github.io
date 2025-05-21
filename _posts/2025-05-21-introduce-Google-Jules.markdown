@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 date: 2025-05-21 00:00:00 +0800
 categories: AIAgents
-tags: [Windsurf, Cursor, AI Coding, 编程开发, AI编程, Docling, MCP Server, MCP, PDF]
+tags: [Jules, Gemini, AI Coding, 编程开发, AI编程, Google, AI智能体, AI Agents, 编程AI]
 classes: wide
 author_profile: true
 ---
@@ -15,7 +15,7 @@ author_profile: true
 
 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1QeE9zeE2z/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1oyJBzvE6m/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/_OGUP_geTsA)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
 - [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
