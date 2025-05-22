@@ -16,7 +16,7 @@ AI助手的新时代已经到来！想象一下，你只需要说一句话，AI�
 
 🚀本篇笔记所对应的视频：
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1oyJBzvE6m/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1gsJJzqEGw/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/0ubHrQz9PN0)
 - [👉👉👉 Magentic-One视频](https://youtu.be/QNZZJvGnk80)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
