@@ -1,6 +1,6 @@
 ---
 layout: single  
-title: "# Anthropic震撼发布！全球最强Claude 4编程能力全方位测评：macOS原生应用开发、iOS app开发、AutoGen智能体开发、SwiftUI界面设计、Transformer模型实现、物理场景模拟，无所不能"  
+title: "Anthropic震撼发布！全球最强Claude 4编程能力全方位测评：macOS原生应用开发、iOS app开发、AutoGen智能体开发、SwiftUI界面设计、Transformer模型实现、物理场景模拟，无所不能"  
 sidebar:
   nav: "docs"
 date: 2025-05-23 10:00:00 +0800  
