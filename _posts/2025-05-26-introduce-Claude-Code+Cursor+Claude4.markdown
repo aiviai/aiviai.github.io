@@ -18,7 +18,7 @@ author_profile: true
 
 - [👉👉👉 Magentic-UI视频](https://youtu.be/0ubHrQz9PN0)
 
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1LxjEzKEcG/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1cCj2ztEf5/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/SK9JBDyHqiI)
 - [👉👉👉 Magentic-One视频](https://youtu.be/QNZZJvGnk80)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
