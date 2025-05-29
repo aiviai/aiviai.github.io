@@ -14,7 +14,7 @@ author_profile: true
 2025年5月28日，备受瞩目的中国人工智能初创公司DeepSeek，悄然在开源平台Hugging Face上线了其旗舰推理模型R1的最新升级版——DeepSeek-R1-0528。这一更新虽被官方称为“小幅试验性升级”，却在全球AI社区引发了巨大关注。本文将为您深度解读DeepSeek-R1-0528的核心优势、技术亮点及其对全球AI格局的影响。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1cCj2ztEf5/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1sm7VzzEnb/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/rrJig5xrHoE)
 - [👉👉👉 Magentic-One视频](https://youtu.be/QNZZJvGnk80)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
@@ -107,14 +107,14 @@ DeepSeek-R1-0528以其卓越的推理能力、完全开源的开放策略、高�
 7. 仅在穷尽所有分析途径后才给出最终答案，并对最终结论进行全面评估
 
 8. 按照以下JSON结构组织你的回答：
-```json
+json
 {
   "步骤": 1,
   "标题": "关键信息识别",
   "内容": "## 🔍 关键信息识别\n\n为了解决这个问题，我们需要仔细检查给定信息并识别将指导我们解决方案过程的关键要素。这涉及到...",
   "下一步行动": "继续"
 }
-```
+
 
 9. 对于最后一步，使用 `"下一步行动": "最终答案"` 并包含你的结论
 
