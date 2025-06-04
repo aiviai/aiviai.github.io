@@ -15,7 +15,7 @@ author_profile: true
 想象一下，你只需要提出一个问题，AI助手就能自动进行深度研究，动态生成搜索查询，反思搜索结果，识别知识缺口，并迭代优化搜索策略，最终为你提供一个有充分引用支持的完整答案。这就是Gemini Fullstack LangGraph为我们带来的革命性体验。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV17c7UzZEUx/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1L2TjzrER3/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/hcbrEkb3oa0)
 - [👉👉👉 Magentic-One视频](https://youtu.be/QNZZJvGnk80)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
