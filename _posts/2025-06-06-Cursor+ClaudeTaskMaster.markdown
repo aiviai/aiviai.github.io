@@ -14,7 +14,7 @@ author_profile: true
 > 
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1L2TjzrER3/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SCTMz6EUb/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Kilo Code编程视频](https://youtu.be/sUCsitU7hmE)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
@@ -200,13 +200,18 @@ task-master init
       "command": "npx",
       "args": ["-y", "--package=task-master-ai", "task-master-ai"],
       "env": {
-        "ANTHROPIC_API_KEY": "你的_ANTHROPIC_API_密钥",
-        "PERPLEXITY_API_KEY": "你的_PERPLEXITY_API_密钥",
-        "OPENAI_API_KEY": "你的_OPENAI_密钥",
-        "MODEL": "claude-3-7-sonnet-20250219"
-      }
-    }
-  }
+        "ANTHROPIC_API_KEY": "YOUR_ANTHROPIC_API_KEY_HERE",
+        "PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY_HERE",
+        "OPENAI_API_KEY": "YOUR_OPENAI_KEY_HERE",
+        "GOOGLE_API_KEY": "YOUR_GOOGLE_KEY_HERE",
+        "MISTRAL_API_KEY": "YOUR_MISTRAL_KEY_HERE",
+        "OPENROUTER_API_KEY": "YOUR_OPENROUTER_KEY_HERE",
+        "XAI_API_KEY": "YOUR_XAI_KEY_HERE",
+        "AZURE_OPENAI_API_KEY": "YOUR_AZURE_KEY_HERE",
+        "OLLAMA_API_KEY": "YOUR_OLLAMA_API_KEY_HERE",
+      },
+    },
+  },
 }
 ```
 
