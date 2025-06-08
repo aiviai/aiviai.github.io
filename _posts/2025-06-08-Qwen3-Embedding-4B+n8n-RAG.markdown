@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 date: 2025-06-08 00:00:00 +0800
 categories: RAG
-tags: [n8n, Qwen3, Qwen3 Embedding, Qwen3 Embedding 4B, RAG, AI知识库, 检索增强生成, , 开源项目]
+tags: [n8n, Qwen3, Qwen3 Embedding, Qwen3 Embedding 4B, RAG, AI知识库, 检索增强生成, 开源项目]
 classes: wide
 author_profile: true
 ---
