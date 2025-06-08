@@ -13,7 +13,7 @@ author_profile: true
 在信息爆炸的时代，如何高效管理和检索个人知识已成为现代人的迫切需求。传统的文件夹分类和标签管理方式已经无法满足海量信息的处理需求。幸运的是，AI技术的快速发展为我们带来了全新的解决方案。今天，我们将深入探讨如何利用阿里巴巴最新发布的Qwen3-Embedding模型，结合n8n工作流自动化平台，构建一个智能化的个人知识库系统。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SCTMz6EUb/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1bmT9zvEDB/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/abv1DsIhNfA)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Kilo Code编程视频](https://youtu.be/sUCsitU7hmE)
