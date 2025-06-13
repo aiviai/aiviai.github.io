@@ -16,7 +16,7 @@ Zen MCP是一个基于Model Context Protocol的服务器，它为Claude提供了
 
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1bmT9zvEDB/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1qRM6zjEqo/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Claude Code编程视频](https://youtu.be/SK9JBDyHqiI)
