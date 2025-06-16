@@ -13,7 +13,7 @@ author_profile: true
 在当今快速发展的软件开发领域，开发者们面临着前所未有的挑战：代码库日益复杂，框架和库更新频繁，文档版本繁多。传统的开发工具已经无法满足现代开发者的需求。今天，我们要介绍两个革命性的工具——Augment和Context7，它们的结合将为开发者带来前所未有的编程体验。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1qRM6zjEqo/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ngMhzxETY/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/DbM3QZy5I6E)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Claude Code编程视频](https://youtu.be/SK9JBDyHqiI)
