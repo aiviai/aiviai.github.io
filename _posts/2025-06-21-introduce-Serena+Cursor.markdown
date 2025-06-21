@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 date: 2025-06-21 00:00:00 +0800
 categories: AIAgents
-tags: [Cursor, Augment, Context7, AI智能体, AI编程, Vibe Coding, MCP Server, Vibe Coding, 开源项目]
+tags: [Cursor, Serena, Claude4, Windsurf, AI智能体, AI编程, Vibe Coding, MCP Server, Claude Code, 开源项目]
 classes: wide
 author_profile: true
 ---
@@ -19,7 +19,7 @@ author_profile: true
 它就是——**serena**！一个给大型语言模型（LLM）装上“IDE大脑”的超级工具包！
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ngMhzxETY/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1m7N1zKEU8/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/DZ-gLebVnmg)
 - [👉👉👉 Augment编程插件视频](https://youtu.be/DbM3QZy5I6E)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
