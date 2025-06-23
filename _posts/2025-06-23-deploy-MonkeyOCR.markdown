@@ -3,7 +3,7 @@ layout: single
 title: "🚀只有3B参数开源OCR大模型！MonkeyOCR媲美MinerU+Gemini 2.5 Pro +Qwen2.5-VL+olmOCR！真实测评+保姆级部署教程！三分钟打造自己的PDF扫描件OCR项目"
 sidebar:
   nav: "docs"
-date: 2025-05-23 00:00:00 +0800
+date: 2025-06-23 00:00:00 +0800
 categories: LLMs
 tags: [MonkeyOCR, OCR, Gemini 2.5 , MinerU, olmOCR, Qwen2.5-VL, PDF扫描件, LLMs, 多模态大模型]
 classes: wide
@@ -358,4 +358,3 @@ sudo sh cuda_12.4.1_550.54.15_linux.run
 
 ```
 
-###
