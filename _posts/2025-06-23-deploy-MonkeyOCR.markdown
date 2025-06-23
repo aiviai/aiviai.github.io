@@ -13,7 +13,7 @@ author_profile: true
 MonkeyOCR是一个基于Structure-Recognition-Relation (SRR)三元组范式的轻量级文档解析模型，由华中科技大学和金山办公联合开发。该模型专门用于文档解析任务，能够处理中英文文档。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1m7N1zKEU8/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1sxKhztEx1/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/T9oaqp-IaZ0)
 - [👉👉👉 olmOCR视频](https://youtu.be/XF3Q_ZjwfaI)
 - [👉👉👉 internVL3 OCR视频](https://youtu.be/_EqUR0dYGtE)
