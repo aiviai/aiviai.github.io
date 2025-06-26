@@ -13,7 +13,7 @@ author_profile: true
 Google最近推出了Gemini CLI，这是一个基于Gemini 1.5 Pro模型的开源命令行界面工具，将人工智能直接引入开发者的终端环境。这一创新工具代表了开发者生产力的重大进步，将传统命令行从刚性的命令执行器转变为智能的对话伙伴。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1m7N1zKEU8/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV13zKozyEKC/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/v41xKxZmygU)
 - [👉👉👉 Augment编程插件视频](https://youtu.be/DbM3QZy5I6E)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
