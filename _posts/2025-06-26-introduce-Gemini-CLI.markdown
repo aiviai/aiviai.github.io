@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀保姆级教程！Google震撼发布Gemini CLI！100万TOKEN超长上下文完爆Claude Code，支持MCP Server扩展，开发者的终极AI"
+title: "🚀保姆级教程！Google震撼发布Gemini CLI！100万TOKEN超长上下文远超Claude Code，支持MCP Server扩展，开发者的终极AI！Context7+Task Master轻松开发AI智能体"
 sidebar:
   nav: "docs"
 date: 2025-06-25 00:00:00 +0800
@@ -145,7 +145,7 @@ Gemini CLI代表了开发者工具的范式转变，人工智能成为命令行�
 - 包管理：pip + requirements.txt
 
 ### 安装步骤
-```bash
+
 # 创建虚拟环境
 python3.11 -m venv .venv
 
@@ -155,17 +155,17 @@ source .venv/bin/activate  # Linux/Mac
 
 # 安装AutoGen
 pip install -U "autogen-agentchat" "autogen-ext[openai]"
-```
+
 
 ## 编程规范
 
 ### 导入约定
-```python
+
 import asyncio
 from autogen_agentchat.agents import AssistantAgent, UserProxyAgent
 from autogen_agentchat.teams import RoundRobinGroupChat
 from autogen_ext.models.openai import OpenAIChatCompletionClient
-```
+
 
 ### 代码风格
 - 所有操作使用 async/await（AutoGen 0.4是异步架构）
@@ -174,7 +174,7 @@ from autogen_ext.models.openai import OpenAIChatCompletionClient
 - 错误处理要完善
 
 ### 基本模式
-```python
+
 async def main():
     # 创建模型客户端
     model_client = OpenAIChatCompletionClient(model="gpt-4o")
@@ -187,10 +187,10 @@ async def main():
     
     # 关闭连接
     await model_client.close()
-```
+
 
 ## 项目结构
-```
+
 项目目录/
 ├── .venv/           # 虚拟环境（不提交到git）
 ├── .env             # 环境变量（不提交到git）
@@ -198,14 +198,14 @@ async def main():
 ├── agents/          # 智能体实现
 ├── main.py          # 主程序入口
 └── GEMINI.md        # 本配置文件
-```
+
 
 ## 环境变量设置
-```bash
+
 # .env 文件
 OPENAI_API_KEY=你的API密钥
 MODEL_NAME=gpt-4o
-```
+
 
 ## 开发要点
 
