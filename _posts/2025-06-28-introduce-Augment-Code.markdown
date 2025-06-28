@@ -15,7 +15,7 @@ author_profile: true
 Augment Code是一个专为专业软件工程师和大型代码库设计的AI编程平台，拥有业界领先的上下文引擎。与市面上其他AI编程工具不同，Augment Code专门针对"真实"的开发工作，特别是处理数百万行代码的复杂企业级项目。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SCTMz6EUb/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1LBg9zpEyj/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/B_p8vog3CN4)
 - [👉👉👉 Kilo Code编程视频](https://youtu.be/sUCsitU7hmE)
 - [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
