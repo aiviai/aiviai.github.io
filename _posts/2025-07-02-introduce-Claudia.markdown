@@ -16,7 +16,7 @@ Claudia是一款基于Tauri 2构建的桌面应用程序，为Claude Code提供�
 
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1bmT9zvEDB/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV16D34zpEGu/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/WIwW7V56wxE)
 - [👉👉👉 Cursor编程视频](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
