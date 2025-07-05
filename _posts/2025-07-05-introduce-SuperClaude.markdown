@@ -14,7 +14,7 @@ author_profile: true
 SuperClaude是一个专门为Claude Code设计的综合配置框架，旨在将Claude Code转变为一个专业的AI开发助手。它通过结构化的配置文件和专业化的工作流程，极大地增强了Claude Code的开发能力。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV16D34zpEGu/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rh3DzWEVF/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/bMO13RNjvBk)
 - [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
