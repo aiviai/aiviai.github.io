@@ -14,7 +14,7 @@ author_profile: true
 OCRFlux是一款革命性的开源OCR工具，基于3B参数的多模态大语言模型构建，在文档识别准确率上实现了突破性进展。在权威测试中，OCRFlux达到了惊人的96.7%准确率，大幅超越了参数量更大的7B模型olmOCR（87.2%）和MonkeyOCR（78.0%），充分证明了其技术架构的先进性。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rh3DzWEVF/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ei32zeEXs/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/sec-BQYCsco)
 - [👉👉👉 Gemini OCR视频](https://youtu.be/nb87POhO6aA)
 - [👉👉👉 internVL3 OCR视频](https://youtu.be/_EqUR0dYGtE)
