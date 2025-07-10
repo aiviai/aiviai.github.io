@@ -14,7 +14,7 @@ author_profile: true
 Graphiti 的 MCP Server 是一个实验性的 Model Context Protocol 服务，旨在为支持 MCP 协议的 AI 助手（如 Claude Desktop、Cursor 等）提供结构化的知识图谱接口。它能够将用户的自然语言输入、消息和 JSON 数据存储为“episode”，自动抽取其中的实体及其关系，并构建时序知识图，实现 AI 的长期记忆与推理能力。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rh3DzWEVF/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1z5G5zpEfo/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/oQmJR7G0QlU)
 - [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
