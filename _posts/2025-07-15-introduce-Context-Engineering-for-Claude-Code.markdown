@@ -17,7 +17,7 @@ author_profile: true
 它采用PRP（产品需求提示）的方式，将复杂功能分解为可验证的步骤，通过迭代验证循环确保代码质量。这种方法能显著提高AI开发的成功率和代码一致性，是现代AI辅助开发的重要进展。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1z5G5zpEfo/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1a6uCz7EW8/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/oEZ7aN7jOEI)
 - [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
