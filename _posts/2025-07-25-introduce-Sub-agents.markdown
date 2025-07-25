@@ -273,7 +273,7 @@ tools: file_edit, web_search, file_search
 ## 常用模板和工具
 
 ### 用户故事模板
-```
+
 作为 [用户角色]
 我希望 [功能描述]  
 以便 [业务价值]
@@ -282,7 +282,7 @@ tools: file_edit, web_search, file_search
 - Given [前置条件]
 - When [操作动作]
 - Then [预期结果]
-```
+
 
 ### 功能优先级矩阵
 - P0: 核心功能，必须实现
