@@ -13,7 +13,7 @@ author_profile: true
 Anthropic公司在其Claude Code平台上推出了一项创新功能——Sub Agents（子智能体）。这一功能标志着AI助手从通用型向专业化的重要转变，为开发者提供了更精细、更高效的任务执行解决方案。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1a6uCz7EW8/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1Uwb9zQEiU/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
