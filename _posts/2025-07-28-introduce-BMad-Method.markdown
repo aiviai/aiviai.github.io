@@ -13,7 +13,7 @@ author_profile: true
 BMad Method是一个革命性的AI代理框架，专为提供"敏捷AI驱动开发"（Agentic Agile Driven Development）而设计，其核心理念是"突破性敏捷 AI 驱动开发方法"。这不仅仅是一个软件开发工具，而是一个可以扩展到任何领域的通用AI代理系统。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1z5G5zpEfo/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV13w8XzoEnR/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/ak9kOecZGRc)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
 - [👉👉👉 Sub Agents视频](https://youtu.be/GjlkRcNNONo)
