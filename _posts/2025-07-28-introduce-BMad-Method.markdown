@@ -15,6 +15,12 @@ BMad Method是一个革命性的AI代理框架，专为提供"敏捷AI驱动开�
 🚀本篇笔记所对应的视频：
 - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1z5G5zpEfo/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/ak9kOecZGRc)
+- [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
+- [👉👉👉 Sub Agents视频](https://youtu.be/GjlkRcNNONo)
+- [👉👉👉 Graphiti MCP视频](https://youtu.be/oQmJR7G0QlU)
+- [👉👉👉 SuperClaude视频](https://youtu.be/bMO13RNjvBk)
+- [👉👉👉 Claudia视频](https://youtu.be/WIwW7V56wxE)
+- [👉👉👉 Task Master视频](https://youtu.be/6dhOUJ_vnIY)
 - [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
 - [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
 - [👉👉👉 Serena MCP视频](https://youtu.be/DZ-gLebVnmg)
