@@ -14,7 +14,7 @@ author_profile: true
 dots.ocr是小红书团队开源的一个多语言文档解析神器。它能干什么呢？给它一张包含文字、表格、公式的复杂文档图片，它就能准确地告诉你每个元素在哪里、是什么类型、里面写的什么内容，甚至还能保持人类阅读的逻辑顺序。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV13w8XzoEnR/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1tDhPzXEp6/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/t_8ZgUIgnLo)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
 - [👉👉👉 olmOCR视频](https://youtu.be/XF3Q_ZjwfaI)
