@@ -14,7 +14,7 @@ author_profile: true
 当传统浏览器自动化框架频频崩溃，基于AI驱动的Browser-Use又过于难以掌控时，一个名为Stagehand的项目悄然改变了游戏规则。
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1tDhPzXEp6/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1fdtnzkEFB/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/AOVrgnvYr60)
 - [👉👉👉 Browser-Use](https://youtu.be/jsd8TpzicRQ)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
