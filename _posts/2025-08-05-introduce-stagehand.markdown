@@ -155,15 +155,13 @@ npx create-browser-app --example quickstart
 
 就这么简单！Stagehand已经为你准备好了一切。
 
-## 写在最后
-
 在这个AI工具层出不穷的时代，真正能解决实际问题的产品并不多。Stagehand成功弥合了传统自动化工具和AI代理之间的鸿沟，为开发者提供了一个既智能又可控的解决方案。
 
 如果你正在为浏览器自动化的维护成本头疼，或者想要构建更智能的Web工作流，Stagehand绝对值得一试。它不是万能药，但确实代表了浏览器自动化的一个重要进步。
 
 ---
 
-*想了解更多技术干货？关注我们，不错过每一个改变开发体验的好工具！*
+*想了解更多技术干货？关注我的博客和频道，不错过每一个改变开发体验的好工具！*
 
 项目仓库:[https://github.com/browserbase/stagehand](https://github.com/browserbase/stagehand)
 
