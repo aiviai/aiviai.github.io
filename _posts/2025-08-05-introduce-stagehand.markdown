@@ -11,24 +11,24 @@ classes: wide
 author_profile: true  
 ---
 
-> 当传统浏览器自动化框架频频崩溃，基于AI驱动的Browser-Use又过于难以掌控时，一个名为Stagehand的项目悄然改变了游戏规则。
+当传统浏览器自动化框架频频崩溃，基于AI驱动的Browser-Use又过于难以掌控时，一个名为Stagehand的项目悄然改变了游戏规则。
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1tDhPzXEp6/)
-- [👉👉👉 通过YouTube观看](https://youtu.be/AOVrgnvYr60)
-- [👉👉👉 Browser-Use](https://youtu.be/jsd8TpzicRQ)
-- [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
-- [👉👉👉 SuperClaude视频](https://youtu.be/bMO13RNjvBk)
-- [👉👉👉 Claudia视频](https://youtu.be/WIwW7V56wxE)
-- [👉👉👉 Task Master视频](https://youtu.be/6dhOUJ_vnIY)
-- [👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
-- [👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
-- [👉👉👉 Serena MCP视频](https://youtu.be/DZ-gLebVnmg)
-- [👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
-- [👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
-- 👉👉👉 我的微信：stoeng
-- 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
-
+[👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1tDhPzXEp6/)
+[👉👉👉 通过YouTube观看](https://youtu.be/AOVrgnvYr60)
+[👉👉👉 Browser-Use](https://youtu.be/jsd8TpzicRQ)
+[👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
+[👉👉👉 SuperClaude视频](https://youtu.be/bMO13RNjvBk)
+[👉👉👉 Claudia视频](https://youtu.be/WIwW7V56wxE)
+[👉👉👉 Task Master视频](https://youtu.be/6dhOUJ_vnIY)
+[👉👉👉 Zen MCP编程视频](https://youtu.be/2WgICfNzgZY)
+[👉👉👉 Augment编程视频](https://youtu.be/DbM3QZy5I6E)
+[👉👉👉 Serena MCP视频](https://youtu.be/DZ-gLebVnmg)
+[👉👉👉 我的开源项目](https://github.com/win4r/AISuperDomain)
+[👉👉👉 请我喝咖啡](https://ko-fi.com/aila)
+👉👉👉 我的微信：stoeng
+👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
+> 
 ### 🔥AI智能体相关视频
 
 1. [AI智能体视频 1](https://youtu.be/vYm0brFoMwA) 
