@@ -19,7 +19,7 @@ OpenAI终于兑现承诺，正式发布了两款开源AI模型——GPT-OSS！
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1fdtnzkEFB/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1WgtwzaEkm/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/Ud7JZwjOHms)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
 - [👉👉👉 SuperClaude视频](https://youtu.be/bMO13RNjvBk)
@@ -192,7 +192,7 @@ lms get openai/gpt-oss-20b
 - 可以根据需求自定义模型
 - 完全免费使用
 
-AI民主化的时代真的来了！大家赶紧去试试吧～
+AIGC的时代真的来了！
 
 ---
 
