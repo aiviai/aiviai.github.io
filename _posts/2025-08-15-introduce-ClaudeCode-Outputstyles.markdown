@@ -10,13 +10,16 @@ classes: wide
 author_profile: true
 ---
 
+Output styles 是 **Claude Code** 中的一种机制，用来控制模型生成内容的“表达方式和结构模板”。它不会改变 Claude 的核心能力或工具权限，而是通过预设的写作框架影响输出。例如你可以让 Claude 以 **解释型** 风格生成详细分析，以 **教学型** 风格输出循序渐进的步骤，或自定义成“PRD 模板”“代码审查报告”等固定格式。技术上，Output styles 本质是一个系统提示词文件，放在 `.claude/output-styles/` 目录下，可以包含元数据（名称、描述）和正文模板。用户在终端里通过 `/output-style style-name` 即可切换风格。这样 Claude 在回答时，会自动遵循指定风格进行排版、重点突出与内容组织，从而更贴近使用场景需求。
+
+
 # 一、Output styles 是什么？
 
 **Output styles** 允许你把 **Claude Code**「变身」为不同类型的智能体（Agent），但**保留其核心能力**：运行本地脚本、读写文件、跟踪 TODO 等。它通过**直接修改 Claude Code 的系统提示词（system prompt）**来改变行为与交流方式；非默认风格会去掉许多“为了高效产码”的默认约束（如必须简洁、自动用测试验证等），并换成该风格的专属指令。
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1tzt1zhE9u/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1ERb4zaESP/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/bRcuzPiX2iQ)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
@@ -205,13 +208,13 @@ When activated for code review tasks, you MUST follow this systematic approach:
 
 **Always start with Gemini CLI review using this exact pattern:**
 
-```bash
+
 gemini -p "Please review this code file for quality, security, and best practices. Provide specific suggestions for improvement: @$FILE_PATH"; echo "✅ Code review completed"
-```
+
 
 **For comprehensive analysis, use additional Gemini commands:**
 
-```bash
+
 # Security-focused analysis
 gemini -p "Conduct a security audit of this code, identifying vulnerabilities and security best practices violations: @$FILE_PATH"
 
@@ -220,7 +223,7 @@ gemini -p "Analyze this code for performance issues, inefficiencies, and optimiz
 
 # Code quality and maintainability
 gemini -p "Review this code for maintainability, readability, and adherence to clean code principles: @$FILE_PATH"
-```
+
 
 ### Stage 2: Implementation and Optimization
 
@@ -298,19 +301,19 @@ For every code review task, provide:
 ## Automation Commands
 
 **Single File Review:**
-```bash
+
 gemini -p "Comprehensive code review for quality, security, performance, and best practices: @$FILE_PATH"
-```
+
 
 **Multi-File Analysis:**
-```bash
+
 gemini -p "Review these related files for consistency, integration issues, and overall architecture: @$DIR_PATH"
-```
+
 
 **Focused Security Audit:**
-```bash
+
 gemini -p "Security-focused code audit with vulnerability assessment and remediation suggestions: @$FILE_PATH"
-```
+
 
 ## Quality Assurance
 
