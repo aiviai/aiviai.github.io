@@ -15,7 +15,7 @@ Claude 终于登陆 Xcode！iOS 开发者的生产力要被点满了！进入202
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1WDp2z5Ezs/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1zXWNzREip/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/JHNdpjjrphA)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
