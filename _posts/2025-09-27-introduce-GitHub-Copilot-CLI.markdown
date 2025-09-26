@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀重磅发布！GitHub官方神器GitHub Copilot CLI保姆级教程！一条prompt自动创建项目并推送到GitHub仓库，自动创建pr，免费支持GPT-5和Claude Sonnet 4"
+title: "🚀保姆级教程！GitHub Copilot CLI横空出世，支持MCP扩展+自动PR创建，让AI编程效率提升1000%，开发者必看！开发完整应用实战演示！支持GPT-5和Claude Sonnet 4"
 sidebar:
   nav: "docs"
 date: 2025-09-27 00:00:00 +0800
