@@ -14,7 +14,7 @@ author_profile: true
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV15Vn5zYErx/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1EynZzcEmh/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/dlV5nbpCyR0)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
