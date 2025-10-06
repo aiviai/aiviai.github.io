@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 date: 2025-10-06 00:00:00 +0800
 categories: LLMs
-tags: [ Claude Sonnet 4.5,Spec Kit5 , Spec-Driven, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
+tags: [Claude Sonnet 4.5,Spec Kit5 , Spec-Driven, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true
 ---
