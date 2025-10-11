@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI超元域 - 动态壁纸</title>
+    <title>AI超元域 - 宇宙动态壁纸</title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,103 @@
             overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
             background: linear-gradient(135deg, #0a0e27 0%, #1a1147 50%, #2d1b69 100%);
+        }
+
+        /* 星云层 - 纯CSS，GPU加速 */
+        .nebula-layer {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            opacity: 0.4;
+            mix-blend-mode: screen;
+            animation: nebulaFloat 120s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .nebula1 {
+            background: radial-gradient(ellipse at 30% 40%, 
+                rgba(138, 43, 226, 0.3) 0%, 
+                rgba(75, 0, 130, 0.2) 20%,
+                transparent 50%);
+            animation-delay: 0s;
+        }
+
+        .nebula2 {
+            background: radial-gradient(ellipse at 70% 60%, 
+                rgba(0, 191, 255, 0.25) 0%, 
+                rgba(30, 144, 255, 0.15) 25%,
+                transparent 55%);
+            animation-delay: -40s;
+        }
+
+        .nebula3 {
+            background: radial-gradient(ellipse at 50% 20%, 
+                rgba(255, 20, 147, 0.2) 0%, 
+                rgba(138, 43, 226, 0.1) 30%,
+                transparent 60%);
+            animation-delay: -80s;
+        }
+
+        @keyframes nebulaFloat {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(5%, 8%) rotate(3deg) scale(1.05);
+            }
+            66% {
+                transform: translate(-3%, -5%) rotate(-2deg) scale(0.95);
+            }
+        }
+
+        /* 远景星云团 */
+        .distant-nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0;
+            animation: distantPulse 30s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .distant-nebula1 {
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(138, 43, 226, 0.15), transparent);
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .distant-nebula2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.12), transparent);
+            bottom: 25%;
+            right: 15%;
+            animation-delay: 10s;
+        }
+
+        .distant-nebula3 {
+            width: 450px;
+            height: 350px;
+            background: radial-gradient(ellipse, rgba(255, 105, 180, 0.1), transparent);
+            top: 55%;
+            left: 60%;
+            animation-delay: 20s;
+        }
+
+        @keyframes distantPulse {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
         }
 
         #particleCanvas {
@@ -86,7 +183,6 @@
         .wave-char:nth-child(4) { animation-delay: 0s, 0.45s; }
         .wave-char:nth-child(5) { animation-delay: 0s, 0.6s; margin-right: 0; }
 
-        /* 水面波动效果 */
         @keyframes waterRipple {
             0%, 100% {
                 transform: scaleY(1) translateY(0);
@@ -107,7 +203,6 @@
             50% { background-position: 100% 50%; }
         }
 
-        /* 水面倒影效果 */
         .water-reflection {
             position: absolute;
             top: 100%;
@@ -262,6 +357,16 @@
     </style>
 </head>
 <body>
+    <!-- 星云层 -->
+    <div class="nebula-layer nebula1"></div>
+    <div class="nebula-layer nebula2"></div>
+    <div class="nebula-layer nebula3"></div>
+    
+    <!-- 远景星云 -->
+    <div class="distant-nebula distant-nebula1"></div>
+    <div class="distant-nebula distant-nebula2"></div>
+    <div class="distant-nebula distant-nebula3"></div>
+
     <canvas id="particleCanvas"></canvas>
     <div class="gradient-overlay"></div>
     <div class="glow-orbs">
@@ -296,25 +401,24 @@
         <div>FPS: <span id="fps" class="perf-good">60</span></div>
         <div>Stars: <span id="starCount">0</span></div>
         <div>Comets: <span id="cometCount">0</span></div>
+        <div>Pulsars: <span id="pulsarCount">0</span></div>
         <div>Memory: <span id="memoryUsage">N/A</span></div>
         <div style="margin-top: 5px; font-size: 10px;">按 F12 切换显示</div>
     </div>
 
     <script>
-        // 性能监控和资源管理系统（增强版）
         class PerformanceManager {
             constructor() {
                 this.fps = 0;
                 this.frameCount = 0;
                 this.lastTime = performance.now();
                 this.fpsHistory = [];
-                this.maxFpsHistory = 120; // 2秒的历史记录（60fps）
+                this.maxFpsHistory = 120;
                 this.memoryCheckInterval = null;
-                this.performanceMode = 'normal'; // normal, reduced
+                this.performanceMode = 'normal';
             }
 
             start() {
-                // 每5秒检查一次内存
                 this.memoryCheckInterval = setInterval(() => {
                     this.checkPerformance();
                 }, 5000);
@@ -345,16 +449,14 @@
             checkPerformance() {
                 const avgFPS = this.getAverageFPS();
                 
-                // 如果平均FPS低于40，切换到降级模式
                 if (avgFPS < 40 && this.performanceMode === 'normal') {
                     this.performanceMode = 'reduced';
-                    console.warn('性能降级：FPS过低，减少粒子效果');
+                    console.warn('性能降级：FPS过低');
                 } else if (avgFPS > 50 && this.performanceMode === 'reduced') {
                     this.performanceMode = 'normal';
-                    console.log('性能恢复：FPS正常');
+                    console.log('性能恢复');
                 }
 
-                // 检查内存使用（如果浏览器支持）
                 if (performance.memory) {
                     const memoryMB = (performance.memory.usedJSHeapSize / 1048576).toFixed(2);
                     const memoryLimitMB = (performance.memory.jsHeapSizeLimit / 1048576).toFixed(2);
@@ -362,11 +464,6 @@
                     if (document.getElementById('perfInfo').style.display === 'block') {
                         document.getElementById('memoryUsage').textContent = 
                             `${memoryMB} / ${memoryLimitMB} MB`;
-                    }
-
-                    // 如果内存使用超过限制的80%，警告
-                    if (performance.memory.usedJSHeapSize > performance.memory.jsHeapSizeLimit * 0.8) {
-                        console.warn('内存使用过高，可能需要优化');
                     }
                 }
             }
@@ -382,7 +479,6 @@
             }
         }
 
-        // 资源清理管理器
         class ResourceManager {
             constructor() {
                 this.timers = [];
@@ -408,44 +504,16 @@
             }
 
             cleanup() {
-                console.log('清理资源...');
-                
-                // 清理定时器
                 this.timers.forEach(timer => clearInterval(timer));
                 this.timers = [];
-
-                // 清理事件监听器
                 this.listeners.forEach(({ target, event, handler }) => {
                     target.removeEventListener(event, handler);
                 });
                 this.listeners = [];
-
-                // 取消动画帧
                 if (this.animationFrame) {
                     cancelAnimationFrame(this.animationFrame);
                     this.animationFrame = null;
                 }
-
-                console.log('资源清理完成');
-            }
-        }
-
-        // 渐变缓存系统（减少重复创建）
-        class GradientCache {
-            constructor(ctx) {
-                this.ctx = ctx;
-                this.cache = new Map();
-            }
-
-            getOrCreate(key, creator) {
-                if (!this.cache.has(key)) {
-                    this.cache.set(key, creator());
-                }
-                return this.cache.get(key);
-            }
-
-            clear() {
-                this.cache.clear();
             }
         }
 
@@ -455,10 +523,8 @@
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d', { 
             alpha: false,
-            desynchronized: true // 提升性能
+            desynchronized: true
         });
-
-        const gradientCache = new GradientCache(ctx);
 
         function setCanvasSize() {
             const newWidth = window.innerWidth;
@@ -467,24 +533,26 @@
             if (canvas.width !== newWidth || canvas.height !== newHeight) {
                 canvas.width = newWidth;
                 canvas.height = newHeight;
-                // 清空渐变缓存
-                gradientCache.clear();
             }
         }
         setCanvasSize();
 
-        // 配置对象
         const config = {
             maxComets: 2,
             starCount: 50,
+            pulsarCount: 3,
             cometSpawnInterval: 3000,
-            cometSpawnChance: 0.3
+            cometSpawnChance: 0.3,
+            meteorShowerChance: 0.002, // 流星雨概率
+            constellationLineChance: 0.6
         };
 
+        // 星星类（含脉冲星）
         class Star {
-            constructor(canvasWidth, canvasHeight) {
+            constructor(canvasWidth, canvasHeight, isPulsar = false) {
                 this.canvasWidth = canvasWidth;
                 this.canvasHeight = canvasHeight;
+                this.isPulsar = isPulsar;
                 this.init();
             }
 
@@ -493,25 +561,32 @@
                 this.y = Math.random() * this.canvasHeight;
                 this.vx = (Math.random() - 0.5) * 0.3;
                 this.vy = (Math.random() - 0.5) * 0.3;
-                this.baseSize = Math.random() * 2.5 + 0.5;
-                this.baseOpacity = Math.random() * 0.6 + 0.4;
-                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
-                this.twinklePhase = Math.random() * Math.PI * 2;
                 
-                const colors = [
-                    'rgba(255, 255, 255, ',
-                    'rgba(200, 230, 255, ',
-                    'rgba(255, 240, 220, ',
-                    'rgba(180, 220, 255, '
-                ];
-                this.color = colors[Math.floor(Math.random() * colors.length)];
+                if (this.isPulsar) {
+                    this.baseSize = Math.random() * 2 + 2.5;
+                    this.baseOpacity = 0.9;
+                    this.twinkleSpeed = Math.random() * 0.15 + 0.15;
+                    this.color = 'rgba(255, 100, 255, ';
+                } else {
+                    this.baseSize = Math.random() * 2.5 + 0.5;
+                    this.baseOpacity = Math.random() * 0.6 + 0.4;
+                    this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                    const colors = [
+                        'rgba(255, 255, 255, ',
+                        'rgba(200, 230, 255, ',
+                        'rgba(255, 240, 220, ',
+                        'rgba(180, 220, 255, '
+                    ];
+                    this.color = colors[Math.floor(Math.random() * colors.length)];
+                }
+                
+                this.twinklePhase = Math.random() * Math.PI * 2;
             }
 
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // 边界循环
                 if (this.x < 0) this.x = this.canvasWidth;
                 if (this.x > this.canvasWidth) this.x = 0;
                 if (this.y < 0) this.y = this.canvasHeight;
@@ -525,28 +600,25 @@
                 const currentSize = this.baseSize * (0.7 + twinkle * 0.6);
                 const currentOpacity = this.baseOpacity * (0.5 + twinkle * 0.5);
 
-                // 绘制星星主体
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, currentSize, 0, Math.PI * 2);
                 ctx.fillStyle = this.color + currentOpacity + ')';
                 ctx.fill();
 
-                // 如果性能良好，添加光晕
                 if (!reduceQuality && currentSize > 1.5) {
                     const gradient = ctx.createRadialGradient(
                         this.x, this.y, 0,
-                        this.x, this.y, currentSize * 3
+                        this.x, this.y, currentSize * (this.isPulsar ? 5 : 3)
                     );
                     gradient.addColorStop(0, this.color + (currentOpacity * 0.3) + ')');
                     gradient.addColorStop(1, this.color + '0)');
                     
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, currentSize * 3, 0, Math.PI * 2);
+                    ctx.arc(this.x, this.y, currentSize * (this.isPulsar ? 5 : 3), 0, Math.PI * 2);
                     ctx.fillStyle = gradient;
                     ctx.fill();
                 }
 
-                // 大星星添加十字光芒
                 if (!reduceQuality && this.baseSize > 2 && twinkle > 0.7) {
                     ctx.strokeStyle = this.color + (currentOpacity * 0.4) + ')';
                     ctx.lineWidth = 0.5;
@@ -562,10 +634,12 @@
             }
         }
 
+        // 彗星/流星类
         class Comet {
-            constructor(canvasWidth, canvasHeight) {
+            constructor(canvasWidth, canvasHeight, isMeteor = false) {
                 this.canvasWidth = canvasWidth;
                 this.canvasHeight = canvasHeight;
+                this.isMeteor = isMeteor;
                 this.reset();
             }
 
@@ -573,36 +647,38 @@
                 const side = Math.floor(Math.random() * 4);
                 const offset = 100;
                 
+                const speedMultiplier = this.isMeteor ? 2 : 1;
+                
                 switch(side) {
                     case 0:
                         this.x = Math.random() * this.canvasWidth;
                         this.y = -offset;
-                        this.vx = (Math.random() - 0.5) * 8;
-                        this.vy = Math.random() * 6 + 4;
+                        this.vx = (Math.random() - 0.5) * 8 * speedMultiplier;
+                        this.vy = (Math.random() * 6 + 4) * speedMultiplier;
                         break;
                     case 1:
                         this.x = this.canvasWidth + offset;
                         this.y = Math.random() * this.canvasHeight;
-                        this.vx = -(Math.random() * 6 + 4);
-                        this.vy = (Math.random() - 0.5) * 8;
+                        this.vx = -(Math.random() * 6 + 4) * speedMultiplier;
+                        this.vy = (Math.random() - 0.5) * 8 * speedMultiplier;
                         break;
                     case 2:
                         this.x = -offset;
                         this.y = Math.random() * this.canvasHeight;
-                        this.vx = Math.random() * 6 + 4;
-                        this.vy = (Math.random() - 0.5) * 8;
+                        this.vx = (Math.random() * 6 + 4) * speedMultiplier;
+                        this.vy = (Math.random() - 0.5) * 8 * speedMultiplier;
                         break;
                     case 3:
                         this.x = Math.random() * this.canvasWidth;
                         this.y = -offset;
-                        this.vx = (Math.random() - 0.5) * 12;
-                        this.vy = Math.random() * 8 + 6;
+                        this.vx = (Math.random() - 0.5) * 12 * speedMultiplier;
+                        this.vy = (Math.random() * 8 + 6) * speedMultiplier;
                         break;
                 }
 
-                this.size = Math.random() * 3 + 2;
+                this.size = this.isMeteor ? Math.random() * 1.5 + 1 : Math.random() * 3 + 2;
                 this.life = 1;
-                this.fadeSpeed = Math.random() * 0.005 + 0.003;
+                this.fadeSpeed = this.isMeteor ? Math.random() * 0.015 + 0.01 : Math.random() * 0.005 + 0.003;
                 
                 const colors = [
                     { r: 0, g: 255, b: 255 },
@@ -612,8 +688,7 @@
                 ];
                 this.color = colors[Math.floor(Math.random() * colors.length)];
                 
-                // 优化：使用固定大小的数组，减少内存分配
-                this.trail = new Array(30).fill(null).map(() => ({ x: this.x, y: this.y }));
+                this.trail = new Array(this.isMeteor ? 15 : 30).fill(null).map(() => ({ x: this.x, y: this.y }));
                 this.trailIndex = 0;
             }
 
@@ -622,11 +697,9 @@
                 this.y += this.vy;
                 this.life -= this.fadeSpeed;
 
-                // 使用循环数组记录轨迹，避免 shift/push
                 this.trail[this.trailIndex] = { x: this.x, y: this.y };
                 this.trailIndex = (this.trailIndex + 1) % this.trail.length;
 
-                // 检查是否离开屏幕
                 if (this.x < -200 || this.x > this.canvasWidth + 200 ||
                     this.y < -200 || this.y > this.canvasHeight + 200 ||
                     this.life <= 0) {
@@ -637,9 +710,8 @@
 
             draw(reduceQuality = false) {
                 const opacity = this.life;
-
-                // 绘制彗星尾巴
-                const trailLength = reduceQuality ? 15 : 30;
+                const trailLength = reduceQuality ? (this.isMeteor ? 8 : 15) : this.trail.length;
+                
                 for (let i = 0; i < trailLength; i++) {
                     const idx = (this.trailIndex - i + this.trail.length) % this.trail.length;
                     const point = this.trail[idx];
@@ -665,7 +737,6 @@
                     ctx.fill();
                 }
 
-                // 绘制彗星核心
                 const coreGradient = ctx.createRadialGradient(
                     this.x, this.y, 0,
                     this.x, this.y, this.size * 8
@@ -685,7 +756,6 @@
                 ctx.fill();
             }
 
-            // 清理方法，释放资源
             dispose() {
                 this.trail = null;
             }
@@ -693,25 +763,69 @@
 
         const stars = [];
         const comets = [];
+        const meteors = [];
 
-        // 初始化星星
+        // 初始化星星（包含脉冲星）
         for (let i = 0; i < config.starCount; i++) {
-            stars.push(new Star(canvas.width, canvas.height));
+            const isPulsar = i < config.pulsarCount;
+            stars.push(new Star(canvas.width, canvas.height, isPulsar));
+        }
+
+        // 星座连线效果（轻量级）
+        function drawConstellations(reduceQuality) {
+            if (reduceQuality || Math.random() > config.constellationLineChance) return;
+            
+            ctx.strokeStyle = 'rgba(100, 150, 255, 0.15)';
+            ctx.lineWidth = 0.5;
+            
+            const maxDistance = 150;
+            const maxLines = 5;
+            let lineCount = 0;
+            
+            for (let i = 0; i < stars.length && lineCount < maxLines; i++) {
+                for (let j = i + 1; j < stars.length && lineCount < maxLines; j++) {
+                    const dx = stars[i].x - stars[j].x;
+                    const dy = stars[i].y - stars[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < maxDistance && Math.random() > 0.95) {
+                        ctx.beginPath();
+                        ctx.moveTo(stars[i].x, stars[i].y);
+                        ctx.lineTo(stars[j].x, stars[j].y);
+                        ctx.stroke();
+                        lineCount++;
+                    }
+                }
+            }
         }
 
         function spawnComet() {
             if (comets.length < config.maxComets && Math.random() < config.cometSpawnChance) {
-                comets.push(new Comet(canvas.width, canvas.height));
+                comets.push(new Comet(canvas.width, canvas.height, false));
+            }
+        }
+
+        // 流星雨效果
+        function checkMeteorShower() {
+            if (Math.random() < config.meteorShowerChance) {
+                console.log('🌠 流星雨！');
+                const meteorCount = Math.floor(Math.random() * 3) + 2;
+                for (let i = 0; i < meteorCount; i++) {
+                    setTimeout(() => {
+                        meteors.push(new Comet(canvas.width, canvas.height, true));
+                    }, i * 200);
+                }
             }
         }
 
         const cometTimer = setInterval(spawnComet, config.cometSpawnInterval);
+        const meteorShowerTimer = setInterval(checkMeteorShower, 10000);
+        
         resourceManager.addTimer(cometTimer);
+        resourceManager.addTimer(meteorShowerTimer);
 
-        // 启动性能监控
         perfManager.start();
 
-        // 立即渲染第一帧
         ctx.fillStyle = '#000';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         stars.forEach(star => star.draw());
@@ -725,28 +839,40 @@
             const deltaTime = now - lastFrameTime;
             lastFrameTime = now;
 
-            // 如果帧时间过长（>50ms），跳过复杂渲染
             const skipComplexRender = deltaTime > 50;
             const reduceQuality = perfManager.shouldReduceQuality() || skipComplexRender;
 
             ctx.fillStyle = '#000';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // 更新和绘制星星
+            // 星座连线
+            drawConstellations(reduceQuality);
+
+            // 星星
             stars.forEach(star => {
                 star.update();
                 star.draw(reduceQuality);
             });
 
-            // 更新和绘制彗星
+            // 彗星
             for (let i = comets.length - 1; i >= 0; i--) {
                 const alive = comets[i].update();
                 if (alive) {
                     comets[i].draw(reduceQuality);
                 } else {
-                    // 清理彗星对象
                     comets[i].dispose();
                     comets.splice(i, 1);
+                }
+            }
+
+            // 流星
+            for (let i = meteors.length - 1; i >= 0; i--) {
+                const alive = meteors[i].update();
+                if (alive) {
+                    meteors[i].draw(reduceQuality);
+                } else {
+                    meteors[i].dispose();
+                    meteors.splice(i, 1);
                 }
             }
 
@@ -755,7 +881,6 @@
                 const fpsElement = document.getElementById('fps');
                 fpsElement.textContent = perfManager.fps;
                 
-                // 根据FPS改变颜色
                 if (perfManager.fps >= 50) {
                     fpsElement.className = 'perf-good';
                 } else if (perfManager.fps >= 30) {
@@ -766,6 +891,7 @@
                 
                 document.getElementById('starCount').textContent = stars.length;
                 document.getElementById('cometCount').textContent = comets.length;
+                document.getElementById('pulsarCount').textContent = config.pulsarCount;
             }
 
             const frame = requestAnimationFrame(animate);
@@ -774,21 +900,15 @@
 
         animate();
 
-        // 窗口大小改变
         const resizeHandler = () => {
             setCanvasSize();
             stars.forEach(star => {
                 star.canvasWidth = canvas.width;
                 star.canvasHeight = canvas.height;
             });
-            comets.forEach(comet => {
-                comet.canvasWidth = canvas.width;
-                comet.canvasHeight = canvas.height;
-            });
         };
         resourceManager.addEventListener(window, 'resize', resizeHandler);
 
-        // 鼠标交互效果
         const mouseMoveHandler = (e) => {
             const textElement = document.querySelector('#waterText');
             const rect = textElement.getBoundingClientRect();
@@ -802,7 +922,6 @@
         };
         resourceManager.addEventListener(document, 'mousemove', mouseMoveHandler);
 
-        // 键盘快捷键
         resourceManager.addEventListener(document, 'keydown', (e) => {
             if (e.key === 'F12') {
                 e.preventDefault();
@@ -811,40 +930,24 @@
             }
         });
 
-        // 页面可见性变化
-        resourceManager.addEventListener(document, 'visibilitychange', () => {
-            if (document.hidden) {
-                console.log('页面隐藏，动画继续运行（可选择暂停）');
-            } else {
-                console.log('页面显示');
-            }
-        });
-
-        // 页面卸载时清理
         resourceManager.addEventListener(window, 'beforeunload', () => {
             perfManager.cleanup();
             resourceManager.cleanup();
             
-            // 清理所有彗星对象
             comets.forEach(comet => comet.dispose());
+            meteors.forEach(meteor => meteor.dispose());
             comets.length = 0;
+            meteors.length = 0;
             stars.length = 0;
-            
-            gradientCache.clear();
         });
 
-        // 监听内存压力（实验性API）
-        if ('memory' in performance) {
-            const memoryCheckTimer = setInterval(() => {
-                const memUsage = performance.memory.usedJSHeapSize / performance.memory.jsHeapSizeLimit;
-                if (memUsage > 0.9) {
-                    console.warn('内存使用过高:', (memUsage * 100).toFixed(2) + '%');
-                }
-            }, 10000);
-            resourceManager.addTimer(memoryCheckTimer);
-        }
-
-        console.log('🎨 动态壁纸初始化完成');
+        console.log('🌌 宇宙壁纸初始化完成');
+        console.log('✨ 新增效果：');
+        console.log('  - 多层星云（CSS GPU加速）');
+        console.log('  - 脉冲星（3颗快速闪烁）');
+        console.log('  - 星座连线');
+        console.log('  - 流星雨（随机触发）');
+        console.log('  - 远景星云团');
         console.log('📊 按 F12 显示性能监控');
     </script>
 </body>
