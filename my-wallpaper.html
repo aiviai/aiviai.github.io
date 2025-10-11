@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI超元域 - 动态壁纸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1147 50%, #2d1b69 100%);
+        }
+
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(0, 191, 255, 0.15) 0%, transparent 50%);
+            animation: gradientShift 15s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+        }
+
+        #waterText {
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-text {
+            font-size: 120px;
+            font-weight: 700;
+            position: relative;
+            display: flex;
+        }
+
+        .wave-char {
+            display: inline-block;
+            margin-right: 8px;
+            background: linear-gradient(135deg, #00ffff, #00ff88, #00ffff, #00ff88);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease infinite, wave 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) 
+                    drop-shadow(0 0 20px rgba(0, 255, 136, 0.6));
+        }
+
+        .wave-char:nth-child(1) { animation-delay: 0s, 0s; }
+        .wave-char:nth-child(2) { animation-delay: 0s, 0.2s; }
+        .wave-char:nth-child(3) { animation-delay: 0s, 0.4s; }
+        .wave-char:nth-child(4) { animation-delay: 0s, 0.6s; }
+        .wave-char:nth-child(5) { animation-delay: 0s, 0.8s; margin-right: 0; }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .glow-orbs {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb1 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3), transparent);
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .orb2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 191, 255, 0.25), transparent);
+            bottom: 15%;
+            right: 20%;
+            animation-delay: 5s;
+        }
+
+        .orb3 {
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, rgba(123, 47, 247, 0.2), transparent);
+            top: 60%;
+            left: 70%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        @media (max-width: 768px) {
+            .main-text {
+                font-size: 60px;
+            }
+            
+            .wave-char {
+                margin-right: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <div class="gradient-overlay"></div>
+    <div class="glow-orbs">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+    <div class="grid-overlay"></div>
+    
+    <div class="text-container">
+        <div id="waterText">
+            <div class="main-text">
+                <span class="wave-char">A</span>
+                <span class="wave-char">I</span>
+                <span class="wave-char">超</span>
+                <span class="wave-char">元</span>
+                <span class="wave-char">域</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 群星、彗星和星系系统
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // 立即设置canvas尺寸
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasSize();
+
+        class Star {
+            constructor(canvasWidth, canvasHeight) {
+                this.canvasWidth = canvasWidth;
+                this.canvasHeight = canvasHeight;
+                this.init();
+                this.twinkleSpeed = Math.random() * 0.02 + 0.01;
+                this.twinklePhase = Math.random() * Math.PI * 2;
+            }
+
+            init() {
+                // 完全随机分布在整个屏幕
+                this.x = Math.random() * this.canvasWidth;
+                this.y = Math.random() * this.canvasHeight;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.baseSize = Math.random() * 2.5 + 0.5;
+                this.baseOpacity = Math.random() * 0.6 + 0.4;
+                this.color = this.getStarColor();
+            }
+
+            reset() {
+                this.x = Math.random() * this.canvasWidth;
+                this.y = Math.random() * this.canvasHeight;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.baseSize = Math.random() * 2.5 + 0.5;
+                this.baseOpacity = Math.random() * 0.6 + 0.4;
+                this.color = this.getStarColor();
+            }
+
+            getStarColor() {
+                const colors = [
+                    'rgba(255, 255, 255, ',
+                    'rgba(200, 230, 255, ',
+                    'rgba(255, 240, 220, ',
+                    'rgba(180, 220, 255, '
+                ];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // 边界处理 - 循环移动
+                if (this.x < 0) this.x = this.canvasWidth;
+                if (this.x > this.canvasWidth) this.x = 0;
+                if (this.y < 0) this.y = this.canvasHeight;
+                if (this.y > this.canvasHeight) this.y = 0;
+
+                // 更新闪烁相位
+                this.twinklePhase += this.twinkleSpeed;
+            }
+
+            draw() {
+                // 闪烁效果
+                const twinkle = Math.sin(this.twinklePhase) * 0.5 + 0.5;
+                const currentSize = this.baseSize * (0.7 + twinkle * 0.6);
+                const currentOpacity = this.baseOpacity * (0.5 + twinkle * 0.5);
+
+                // 绘制星星主体
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, currentSize, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + currentOpacity + ')';
+                ctx.fill();
+
+                // 绘制星光效果
+                if (currentSize > 1.5) {
+                    const gradient = ctx.createRadialGradient(
+                        this.x, this.y, 0,
+                        this.x, this.y, currentSize * 3
+                    );
+                    gradient.addColorStop(0, this.color + (currentOpacity * 0.3) + ')');
+                    gradient.addColorStop(1, this.color + '0)');
+                    
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, currentSize * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+                }
+
+                // 大星星添加十字光芒
+                if (this.baseSize > 2 && twinkle > 0.7) {
+                    ctx.strokeStyle = this.color + (currentOpacity * 0.4) + ')';
+                    ctx.lineWidth = 0.5;
+                    const rayLength = currentSize * 4;
+                    
+                    ctx.beginPath();
+                    ctx.moveTo(this.x - rayLength, this.y);
+                    ctx.lineTo(this.x + rayLength, this.y);
+                    ctx.moveTo(this.x, this.y - rayLength);
+                    ctx.lineTo(this.x, this.y + rayLength);
+                    ctx.stroke();
+                }
+            }
+        }
+
+        // 彗星类
+        class Comet {
+            constructor(canvasWidth, canvasHeight) {
+                this.canvasWidth = canvasWidth;
+                this.canvasHeight = canvasHeight;
+                this.reset();
+            }
+
+            reset() {
+                // 随机从屏幕边缘外开始
+                const side = Math.floor(Math.random() * 4);
+                const offset = 100;
+                
+                switch(side) {
+                    case 0: // 从上方
+                        this.x = Math.random() * this.canvasWidth;
+                        this.y = -offset;
+                        this.vx = (Math.random() - 0.5) * 8;
+                        this.vy = Math.random() * 6 + 4;
+                        break;
+                    case 1: // 从右侧
+                        this.x = this.canvasWidth + offset;
+                        this.y = Math.random() * this.canvasHeight;
+                        this.vx = -(Math.random() * 6 + 4);
+                        this.vy = (Math.random() - 0.5) * 8;
+                        break;
+                    case 2: // 从左侧
+                        this.x = -offset;
+                        this.y = Math.random() * this.canvasHeight;
+                        this.vx = Math.random() * 6 + 4;
+                        this.vy = (Math.random() - 0.5) * 8;
+                        break;
+                    case 3: // 从上方斜向飞行（最常见的彗星效果）
+                        this.x = Math.random() * this.canvasWidth;
+                        this.y = -offset;
+                        this.vx = (Math.random() - 0.5) * 12;
+                        this.vy = Math.random() * 8 + 6;
+                        break;
+                }
+
+                this.size = Math.random() * 3 + 2;
+                this.tailLength = Math.random() * 80 + 60;
+                this.life = 1;
+                this.fadeSpeed = Math.random() * 0.005 + 0.003;
+                
+                // 彗星颜色（冷色调科幻感）
+                const colors = [
+                    { r: 0, g: 255, b: 255 },      // 青色
+                    { r: 100, g: 200, b: 255 },    // 浅蓝
+                    { r: 200, g: 100, b: 255 },    // 紫色
+                    { r: 255, g: 255, b: 255 }     // 白色
+                ];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                
+                this.trail = [];
+                this.maxTrailLength = 30;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.life -= this.fadeSpeed;
+
+                // 记录轨迹
+                this.trail.push({ x: this.x, y: this.y });
+                if (this.trail.length > this.maxTrailLength) {
+                    this.trail.shift();
+                }
+
+                // 检查是否离开屏幕
+                if (this.x < -200 || this.x > this.canvasWidth + 200 ||
+                    this.y < -200 || this.y > this.canvasHeight + 200 ||
+                    this.life <= 0) {
+                    return false;
+                }
+                return true;
+            }
+
+            draw() {
+                const opacity = this.life;
+
+                // 绘制彗星尾巴
+                if (this.trail.length > 1) {
+                    for (let i = 0; i < this.trail.length - 1; i++) {
+                        const progress = i / this.trail.length;
+                        const trailOpacity = opacity * progress * 0.6;
+                        const trailSize = this.size * progress * 0.8;
+
+                        // 绘制尾巴的发光效果
+                        const gradient = ctx.createRadialGradient(
+                            this.trail[i].x, this.trail[i].y, 0,
+                            this.trail[i].x, this.trail[i].y, trailSize * 4
+                        );
+                        gradient.addColorStop(0, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${trailOpacity})`);
+                        gradient.addColorStop(0.5, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${trailOpacity * 0.5})`);
+                        gradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
+
+                        ctx.beginPath();
+                        ctx.arc(this.trail[i].x, this.trail[i].y, trailSize * 4, 0, Math.PI * 2);
+                        ctx.fillStyle = gradient;
+                        ctx.fill();
+                    }
+
+                    // 绘制连接线（尾巴主体）
+                    ctx.beginPath();
+                    ctx.moveTo(this.trail[0].x, this.trail[0].y);
+                    for (let i = 1; i < this.trail.length; i++) {
+                        ctx.lineTo(this.trail[i].x, this.trail[i].y);
+                    }
+                    ctx.strokeStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.3})`;
+                    ctx.lineWidth = this.size * 0.5;
+                    ctx.stroke();
+                }
+
+                // 绘制彗星核心的强烈发光
+                const coreGradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.size * 8
+                );
+                coreGradient.addColorStop(0, `rgba(255, 255, 255, ${opacity})`);
+                coreGradient.addColorStop(0.2, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.8})`);
+                coreGradient.addColorStop(0.5, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.4})`);
+                coreGradient.addColorStop(1, `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, 0)`);
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 8, 0, Math.PI * 2);
+                ctx.fillStyle = coreGradient;
+                ctx.fill();
+
+                // 绘制彗星核心
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+                ctx.fill();
+
+                // 添加额外的光晕
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color.r}, ${this.color.g}, ${this.color.b}, ${opacity * 0.5})`;
+                ctx.fill();
+            }
+        }
+
+        // 星系类（仙女座星系效果）
+        class Galaxy {
+            constructor(canvasWidth, canvasHeight) {
+                this.canvasWidth = canvasWidth;
+                this.canvasHeight = canvasHeight;
+                this.reset();
+            }
+
+            reset() {
+                // 从屏幕边缘外开始
+                const side = Math.floor(Math.random() * 4);
+                const offset = 200;
+                
+                switch(side) {
+                    case 0: // 从上方
+                        this.x = Math.random() * this.canvasWidth;
+                        this.y = -offset;
+                        this.vx = (Math.random() - 0.5) * 2;
+                        this.vy = Math.random() * 1 + 0.5;
+                        break;
+                    case 1: // 从右侧
+                        this.x = this.canvasWidth + offset;
+                        this.y = Math.random() * this.canvasHeight;
+                        this.vx = -(Math.random() * 1 + 0.5);
+                        this.vy = (Math.random() - 0.5) * 2;
+                        break;
+                    case 2: // 从左侧
+                        this.x = -offset;
+                        this.y = Math.random() * this.canvasHeight;
+                        this.vx = Math.random() * 1 + 0.5;
+                        this.vy = (Math.random() - 0.5) * 2;
+                        break;
+                    case 3: // 从下方
+                        this.x = Math.random() * this.canvasWidth;
+                        this.y = this.canvasHeight + offset;
+                        this.vx = (Math.random() - 0.5) * 2;
+                        this.vy = -(Math.random() * 1 + 0.5);
+                        break;
+                }
+
+                this.size = Math.random() * 60 + 80; // 星系大小 80-140
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.01;
+                this.life = 1;
+                this.fadeSpeed = 0.001;
+                this.opacity = 0;
+                this.fadeInSpeed = 0.02;
+                this.fadeInComplete = false;
+                
+                // 生成螺旋臂上的星点
+                this.stars = [];
+                this.generateSpiralStars();
+            }
+
+            generateSpiralStars() {
+                const armCount = 2; // 两条主要螺旋臂
+                const starsPerArm = 80;
+                
+                for (let arm = 0; arm < armCount; arm++) {
+                    for (let i = 0; i < starsPerArm; i++) {
+                        const progress = i / starsPerArm;
+                        const angle = arm * (Math.PI * 2 / armCount) + progress * Math.PI * 4;
+                        const distance = progress * this.size;
+                        const randomOffset = (Math.random() - 0.5) * 15;
+                        
+                        this.stars.push({
+                            angle: angle,
+                            distance: distance + randomOffset,
+                            size: Math.random() * 1.5 + 0.5,
+                            brightness: Math.random() * 0.8 + 0.2,
+                            color: this.getStarColor(progress)
+                        });
+                    }
+                }
+                
+                // 添加中心核心的密集星点
+                for (let i = 0; i < 50; i++) {
+                    const angle = Math.random() * Math.PI * 2;
+                    const distance = Math.random() * this.size * 0.2;
+                    this.stars.push({
+                        angle: angle,
+                        distance: distance,
+                        size: Math.random() * 2 + 1,
+                        brightness: Math.random() * 0.5 + 0.5,
+                        color: { r: 255, g: 240, b: 200 } // 核心黄白色
+                    });
+                }
+            }
+
+            getStarColor(progress) {
+                // 根据距离中心的位置返回不同颜色
+                if (progress < 0.3) {
+                    // 内部：黄白色
+                    return { r: 255, g: 240, b: 220 };
+                } else if (progress < 0.6) {
+                    // 中部：蓝白色（年轻恒星）
+                    return { r: 180, g: 220, b: 255 };
+                } else {
+                    // 外部：淡蓝色和粉色混合
+                    return Math.random() > 0.5 
+                        ? { r: 150, g: 200, b: 255 }
+                        : { r: 255, g: 180, b: 220 };
+                }
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.rotation += this.rotationSpeed;
+                
+                // 淡入效果
+                if (!this.fadeInComplete) {
+                    this.opacity += this.fadeInSpeed;
+                    if (this.opacity >= 1) {
+                        this.opacity = 1;
+                        this.fadeInComplete = true;
+                    }
+                } else {
+                    this.life -= this.fadeSpeed;
+                }
+
+                // 检查是否离开屏幕
+                if (this.x < -300 || this.x > this.canvasWidth + 300 ||
+                    this.y < -300 || this.y > this.canvasHeight + 300 ||
+                    this.life <= 0) {
+                    return false;
+                }
+                return true;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.globalAlpha = this.opacity * this.life;
+
+                // 绘制星系核心的强烈发光
+                const coreGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size * 0.3);
+                coreGradient.addColorStop(0, 'rgba(255, 255, 255, 0.9)');
+                coreGradient.addColorStop(0.3, 'rgba(255, 240, 200, 0.6)');
+                coreGradient.addColorStop(0.6, 'rgba(255, 220, 150, 0.3)');
+                coreGradient.addColorStop(1, 'rgba(255, 200, 100, 0)');
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size * 0.3, 0, Math.PI * 2);
+                ctx.fillStyle = coreGradient;
+                ctx.fill();
+
+                // 绘制椭圆形的星系盘（灰尘带）
+                ctx.save();
+                ctx.scale(1, 0.4); // 创建椭圆效果
+                const diskGradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size);
+                diskGradient.addColorStop(0, 'rgba(100, 120, 150, 0.3)');
+                diskGradient.addColorStop(0.5, 'rgba(80, 100, 130, 0.15)');
+                diskGradient.addColorStop(1, 'rgba(60, 80, 110, 0)');
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = diskGradient;
+                ctx.fill();
+                ctx.restore();
+
+                // 绘制螺旋臂上的星点
+                this.stars.forEach(star => {
+                    const x = Math.cos(star.angle) * star.distance;
+                    const y = Math.sin(star.angle) * star.distance * 0.4; // 椭圆效果
+
+                    // 绘制星点光晕
+                    const starGradient = ctx.createRadialGradient(x, y, 0, x, y, star.size * 3);
+                    starGradient.addColorStop(0, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${star.brightness})`);
+                    starGradient.addColorStop(0.5, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${star.brightness * 0.3})`);
+                    starGradient.addColorStop(1, `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, 0)`);
+                    
+                    ctx.beginPath();
+                    ctx.arc(x, y, star.size * 3, 0, Math.PI * 2);
+                    ctx.fillStyle = starGradient;
+                    ctx.fill();
+
+                    // 绘制星点核心
+                    ctx.beginPath();
+                    ctx.arc(x, y, star.size, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${star.brightness})`;
+                    ctx.fill();
+                });
+
+                // 添加外围发光效果
+                ctx.save();
+                ctx.scale(1, 0.4);
+                const outerGlow = ctx.createRadialGradient(0, 0, this.size * 0.5, 0, 0, this.size * 1.2);
+                outerGlow.addColorStop(0, 'rgba(150, 180, 255, 0)');
+                outerGlow.addColorStop(0.7, 'rgba(150, 180, 255, 0.1)');
+                outerGlow.addColorStop(1, 'rgba(150, 180, 255, 0)');
+                
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size * 1.2, 0, Math.PI * 2);
+                ctx.fillStyle = outerGlow;
+                ctx.fill();
+                ctx.restore();
+
+                ctx.restore();
+            }
+        }
+
+        const stars = [];
+        const starCount = 200;
+        const comets = [];
+        const galaxies = [];
+
+        // 创建完全随机分布的星星，明确传入canvas尺寸
+        for (let i = 0; i < starCount; i++) {
+            stars.push(new Star(canvas.width, canvas.height));
+        }
+
+        // 随机生成彗星的函数
+        function spawnComet() {
+            if (Math.random() < 0.3) { // 30%概率生成彗星
+                comets.push(new Comet(canvas.width, canvas.height));
+            }
+        }
+
+        // 随机生成星系的函数
+        function spawnGalaxy() {
+            if (Math.random() < 0.4) { // 40%概率生成星系
+                galaxies.push(new Galaxy(canvas.width, canvas.height));
+            }
+        }
+
+        // 每隔一段时间尝试生成彗星和星系
+        setInterval(spawnComet, 2000);
+        setInterval(spawnGalaxy, 8000); // 每8秒尝试生成一个星系
+
+        // 立即渲染第一帧，确保页面加载时星星就显示
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        stars.forEach(star => star.draw());
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 更新和绘制星星
+            stars.forEach(star => {
+                star.update();
+                star.draw();
+            });
+
+            // 更新和绘制星系（在星星之后，彗星之前）
+            for (let i = galaxies.length - 1; i >= 0; i--) {
+                const alive = galaxies[i].update();
+                if (alive) {
+                    galaxies[i].draw();
+                } else {
+                    galaxies.splice(i, 1);
+                }
+            }
+
+            // 更新和绘制彗星
+            for (let i = comets.length - 1; i >= 0; i--) {
+                const alive = comets[i].update();
+                if (alive) {
+                    comets[i].draw();
+                } else {
+                    comets.splice(i, 1);
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            setCanvasSize();
+            // 更新所有星星的画布尺寸引用
+            stars.forEach(star => {
+                star.canvasWidth = canvas.width;
+                star.canvasHeight = canvas.height;
+            });
+        });
+
+        // 鼠标交互效果
+        document.addEventListener('mousemove', (e) => {
+            const textElement = document.querySelector('#waterText');
+            const rect = textElement.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const deltaX = (e.clientX - centerX) * 0.01;
+            const deltaY = (e.clientY - centerY) * 0.01;
+            
+            textElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
+    </script>
+</body>
+</html>
