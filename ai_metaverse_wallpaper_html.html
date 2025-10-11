@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI超元域 - 动态壁纸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            overflow: hidden;
+            background: #000;
+        }
+        
+        svg {
+            width: 100vw;
+            height: 100vh;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <svg viewBox="0 0 2560 1440" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <!-- 渐变背景 -->
+            <radialGradient id="spaceGradient" cx="50%" cy="50%">
+                <stop offset="0%" style="stop-color:#1a0033;stop-opacity:1" />
+                <stop offset="50%" style="stop-color:#0d001a;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+            </radialGradient>
+            
+            <!-- 星云效果 -->
+            <radialGradient id="nebula1">
+                <stop offset="0%" style="stop-color:#6b46c1;stop-opacity:0.3" />
+                <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0" />
+            </radialGradient>
+            
+            <radialGradient id="nebula2">
+                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+            </radialGradient>
+            
+            <!-- 星系渐变 -->
+            <radialGradient id="galaxyCore1">
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+                <stop offset="30%" style="stop-color:#00ffff;stop-opacity:0.6" />
+                <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0" />
+            </radialGradient>
+            
+            <radialGradient id="galaxyCore2">
+                <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                <stop offset="30%" style="stop-color:#ff00ff;stop-opacity:0.5" />
+                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+            </radialGradient>
+            
+            <radialGradient id="galaxyArm1">
+                <stop offset="0%" style="stop-color:#00ffff;stop-opacity:0.4" />
+                <stop offset="50%" style="stop-color:#6b46c1;stop-opacity:0.2" />
+                <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0" />
+            </radialGradient>
+            
+            <radialGradient id="galaxyArm2">
+                <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.2" />
+                <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0" />
+            </radialGradient>
+            
+            <radialGradient id="galaxyArm3">
+                <stop offset="0%" style="stop-color:#00ff88;stop-opacity:0.3" />
+                <stop offset="50%" style="stop-color:#6b46c1;stop-opacity:0.2" />
+                <stop offset="100%" style="stop-color:#6b46c1;stop-opacity:0" />
+            </radialGradient>
+            
+            <!-- 水波纹效果滤镜 -->
+            <filter id="wave">
+                <feTurbulence type="turbulence" baseFrequency="0.01" numOctaves="2" result="turbulence">
+                    <animate attributeName="baseFrequency" values="0.01;0.015;0.01" dur="8s" repeatCount="indefinite"/>
+                </feTurbulence>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G">
+                    <animate attributeName="scale" values="10;15;10" dur="4s" repeatCount="indefinite"/>
+                </feDisplacementMap>
+            </filter>
+            
+            <!-- 发光效果 -->
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            
+            <!-- 强发光效果 -->
+            <filter id="strongGlow">
+                <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+            
+            <!-- 流星渐变定义 - 霓虹色 -->
+            <linearGradient id="meteorGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00ffff;stop-opacity:0" />
+            </linearGradient>
+            <linearGradient id="meteorGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ff00ff;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:0" />
+            </linearGradient>
+            <linearGradient id="meteorGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#00ff88;stop-opacity:0" />
+            </linearGradient>
+            
+            <!-- 文字渐变 - 更科幻的霓虹色 -->
+            <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#00ffff;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#00ffff;#ff00ff;#00ff88;#00ffff" dur="8s" repeatCount="indefinite"/>
+                </stop>
+                <stop offset="50%" style="stop-color:#ff00ff;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#ff00ff;#00ff88;#00ffff;#ff00ff" dur="8s" repeatCount="indefinite"/>
+                </stop>
+                <stop offset="100%" style="stop-color:#00ff88;stop-opacity:1">
+                    <animate attributeName="stop-color" values="#00ff88;#00ffff;#ff00ff;#00ff88" dur="8s" repeatCount="indefinite"/>
+                </stop>
+            </linearGradient>
+        </defs>
+        
+        <!-- 背景 -->
+        <rect width="2560" height="1440" fill="url(#spaceGradient)"/>
+        
+        <!-- 星云层 -->
+        <circle cx="400" cy="300" r="300" fill="url(#nebula1)" opacity="0.5">
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="10s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="2000" cy="1000" r="400" fill="url(#nebula2)" opacity="0.4">
+            <animate attributeName="opacity" values="0.2;0.5;0.2" dur="12s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1800" cy="400" r="250" fill="url(#nebula1)" opacity="0.3">
+            <animate attributeName="opacity" values="0.2;0.4;0.2" dur="15s" repeatCount="indefinite"/>
+        </circle>
+        
+        <!-- 仙女座星系效果1 - 左上角 -->
+        <g opacity="0.6" transform="translate(500, 200)">
+            <ellipse cx="0" cy="0" rx="400" ry="150" fill="url(#galaxyCore1)" opacity="0.8">
+                <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="120s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="350" ry="120" fill="url(#galaxyArm1)" opacity="0.6">
+                <animateTransform attributeName="transform" type="rotate" from="45 0 0" to="405 0 0" dur="100s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="300" ry="100" fill="url(#galaxyArm2)" opacity="0.5">
+                <animateTransform attributeName="transform" type="rotate" from="90 0 0" to="450 0 0" dur="110s" repeatCount="indefinite"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="200" ry="60" fill="#ffffff" opacity="0.4">
+                <animateTransform attributeName="transform" type="rotate" from="0 0 0" to="360 0 0" dur="90s" repeatCount="indefinite"/>
+            </ellipse>
+            <!-- 星系核心发光 -->
+            <circle cx="0" cy="0" r="40" fill="#ffffff" opacity="0.8" filter="url(#strongGlow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="5s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 仙女座星系效果2 - 右下角 -->
+        <g opacity="0.5" transform="translate(2100, 1100)">
+            <ellipse cx="0" cy="0" rx="350" ry="130" fill="url(#galaxyCore2)" opacity="0.7" transform="rotate(-30)">
+                <animateTransform attributeName="transform" type="rotate" from="-30 0 0" to="330 0 0" dur="130s" repeatCount="indefinite" additive="sum"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="300" ry="110" fill="url(#galaxyArm3)" opacity="0.6" transform="rotate(-30)">
+                <animateTransform attributeName="transform" type="rotate" from="15 0 0" to="375 0 0" dur="110s" repeatCount="indefinite" additive="sum"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="250" ry="90" fill="url(#galaxyArm1)" opacity="0.5" transform="rotate(-30)">
+                <animateTransform attributeName="transform" type="rotate" from="60 0 0" to="420 0 0" dur="120s" repeatCount="indefinite" additive="sum"/>
+            </ellipse>
+            <circle cx="0" cy="0" r="35" fill="#ffd4a0" opacity="0.9" filter="url(#strongGlow)">
+                <animate attributeName="opacity" values="0.7;1;0.7" dur="6s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 仙女座星系效果3 - 中间偏右 -->
+        <g opacity="0.4" transform="translate(1700, 600)">
+            <ellipse cx="0" cy="0" rx="300" ry="110" fill="url(#galaxyCore1)" opacity="0.6" transform="rotate(60)">
+                <animateTransform attributeName="transform" type="rotate" from="60 0 0" to="420 0 0" dur="140s" repeatCount="indefinite" additive="sum"/>
+            </ellipse>
+            <ellipse cx="0" cy="0" rx="250" ry="90" fill="url(#galaxyArm2)" opacity="0.5" transform="rotate(60)">
+                <animateTransform attributeName="transform" type="rotate" from="105 0 0" to="465 0 0" dur="120s" repeatCount="indefinite" additive="sum"/>
+            </ellipse>
+            <circle cx="0" cy="0" r="30" fill="#a0d8ff" opacity="0.8" filter="url(#strongGlow)">
+                <animate attributeName="opacity" values="0.6;0.9;0.6" dur="7s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 星星层1 - 大星星 -->
+        <g opacity="0.9">
+            <circle cx="200" cy="200" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="500" cy="150" r="1.5" fill="#a0d8ff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="800" cy="300" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1200" cy="250" r="1.5" fill="#ffd4a0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1600" cy="200" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1900" cy="350" r="1.5" fill="#a0d8ff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="5.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2200" cy="280" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.8s" repeatCount="indefinite"/>
+            </circle>
+            
+            <circle cx="300" cy="600" r="1.5" fill="#ffd4a0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="700" cy="700" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="5.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1100" cy="650" r="1.5" fill="#a0d8ff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1800" cy="750" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2300" cy="680" r="1.5" fill="#ffd4a0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="5.8s" repeatCount="indefinite"/>
+            </circle>
+            
+            <circle cx="400" cy="1000" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="900" cy="1100" r="1.5" fill="#a0d8ff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="4.4s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1400" cy="1050" r="2" fill="#ffffff" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.4;1;0.4" dur="5.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2000" cy="1200" r="1.5" fill="#ffd4a0" filter="url(#glow)">
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="3.9s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 星星层2 - 小星星 -->
+        <g opacity="0.7">
+            <circle cx="350" cy="400" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="650" cy="500" r="1" fill="#a0d8ff">
+                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.2s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1000" cy="450" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4.1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1400" cy="500" r="1" fill="#ffd4a0">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1700" cy="600" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3.5s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2100" cy="500" r="1" fill="#a0d8ff">
+                <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4.3s" repeatCount="indefinite"/>
+            </circle>
+            
+            <circle cx="250" cy="850" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="550" cy="900" r="1" fill="#ffd4a0">
+                <animate attributeName="opacity" values="0.4;0.9;0.4" dur="2.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1300" cy="850" r="1" fill="#ffffff">
+                <animate attributeName="opacity" values="0.2;0.7;0.2" dur="3.9s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2200" cy="950" r="1" fill="#a0d8ff">
+                <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.4s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 星尘粒子层 - 环绕星系 -->
+        <g opacity="0.5">
+            <!-- 左上星系周围的粒子 -->
+            <circle cx="450" cy="150" r="0.8" fill="#00ffff">
+                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.3s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="600" cy="180" r="0.7" fill="#ff00ff">
+                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="2.8s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="380" cy="250" r="0.8" fill="#00ff88">
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3.1s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="520" cy="280" r="0.6" fill="#00ffff">
+                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- 右下星系周围的粒子 -->
+            <circle cx="2050" cy="1050" r="0.8" fill="#ff00ff">
+                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.7s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2180" cy="1130" r="0.7" fill="#00ff88">
+                <animate attributeName="opacity" values="0.3;0.7;0.3" dur="3.0s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="2120" cy="1180" r="0.8" fill="#00ffff">
+                <animate attributeName="opacity" values="0.2;0.5;0.2" dur="2.4s" repeatCount="indefinite"/>
+            </circle>
+            
+            <!-- 中间星系周围的粒子 -->
+            <circle cx="1650" cy="550" r="0.7" fill="#00ffff">
+                <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2.9s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1780" cy="630" r="0.8" fill="#ff00ff">
+                <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2.6s" repeatCount="indefinite"/>
+            </circle>
+            <circle cx="1720" cy="680" r="0.7" fill="#00ff88">
+                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="3.2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+        
+        <!-- 流星 -->
+        <g opacity="0.9">
+            <!-- 流星1 -->
+            <line x1="100" y1="100" x2="200" y2="200" stroke="url(#meteorGradient1)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+                <animate attributeName="x1" values="100;1300" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="y1" values="100;800" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="200;1400" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="200;900" dur="3s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="3s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- 流星2 -->
+            <line x1="2400" y1="200" x2="2300" y2="300" stroke="url(#meteorGradient2)" stroke-width="2.5" stroke-linecap="round" filter="url(#glow)">
+                <animate attributeName="x1" values="2400;1200" dur="4s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="y1" values="200;900" dur="4s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="2300;1100" dur="4s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="300;1000" dur="4s" begin="1s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="4s" begin="1s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- 流星3 -->
+            <line x1="1800" y1="50" x2="1700" y2="150" stroke="url(#meteorGradient3)" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+                <animate attributeName="x1" values="1800;600" dur="3.5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="y1" values="50;850" dur="3.5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="x2" values="1700;500" dur="3.5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="150;950" dur="3.5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0;1;1;0" dur="3.5s" begin="2.5s" repeatCount="indefinite"/>
+            </line>
+        </g>
+        
+        <!-- 中心文字 "AI超元域" 带水波纹效果 -->
+        <g filter="url(#wave)">
+            <text x="1280" y="720" font-family="Arial, sans-serif" font-size="120" font-weight="bold" fill="url(#textGradient)" text-anchor="middle" filter="url(#strongGlow)">
+                AI超元域
+            </text>
+        </g>
+        
+        <!-- 文字周围的霓虹光环 -->
+        <circle cx="1280" cy="720" r="350" fill="none" stroke="#00ffff" stroke-width="2" opacity="0.4" filter="url(#glow)">
+            <animate attributeName="r" values="320;380;320" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="stroke" values="#00ffff;#ff00ff;#00ffff" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1280" cy="720" r="300" fill="none" stroke="#ff00ff" stroke-width="1.5" opacity="0.5" filter="url(#glow)">
+            <animate attributeName="r" values="280;320;280" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.4;0.7;0.4" dur="5s" repeatCount="indefinite"/>
+            <animate attributeName="stroke" values="#ff00ff;#00ff88;#ff00ff" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1280" cy="720" r="250" fill="none" stroke="#00ff88" stroke-width="1" opacity="0.3" filter="url(#glow)">
+            <animate attributeName="r" values="240;270;240" dur="6s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.2;0.5;0.2" dur="6s" repeatCount="indefinite"/>
+            <animate attributeName="stroke" values="#00ff88;#00ffff;#00ff88" dur="8s" repeatCount="indefinite"/>
+        </circle>
+    </svg>
+</body>
+</html>
