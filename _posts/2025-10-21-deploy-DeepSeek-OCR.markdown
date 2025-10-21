@@ -24,7 +24,7 @@ DeepSeek团队显然注意到了这个痛点。他们提出了一个脑洞大开
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1fFWJztEAu/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SPWozJEos/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/9oICqbApvTg)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
