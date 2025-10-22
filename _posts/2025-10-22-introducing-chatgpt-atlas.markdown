@@ -21,7 +21,7 @@ OpenAI这次要做的，就是把ChatGPT直接"长"进浏览器里，让AI真正
 
 > 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SPWozJEos/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1t1sbzrEbd/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/Wlju7HqHvz4)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
