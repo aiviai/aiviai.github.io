@@ -1,15 +1,15 @@
 ---
-layout: single
-title: "🚀OCR场景必备技能！微调DeepSeek-OCR大模型！10分钟让DeepSeek识别准确率暴增70%！Google Colab免费GPU也能微调OCR模型！小参数开源模型OCR微调实战保姆级教程"
+layout: single  
+title: "🚀微调的力量：看3B参数的DeepSeek-OCR如何蜕变为中文识别高手！零成本微调保姆级教程：用Google Colab免费GPU，十分钟打造一个专属领域的OCR识别神器！解决手写体、扫描件识别难题"  
 sidebar:
   nav: "docs"
-date: 2025-11-11 00:00:00 +0800
+date: 2025-11-11 10:00:00 +0800  
 categories: LLMs
-tags: [OCR, Fine-Tuning, 微调, 微调DeepSeek, DeepSeek-OCR, AI, AIGC]
-classes: wide
-author_profile: true
----
+tags: [DeepSeek-OCR, Fine Tuning, OCR, VLM, multimodal, AI, PDF, Chandra OCR, markdown]
+classes: wide  
 
+author_profile: true  
+---
 
 你是否遇到过这样的困境：想要识别图片中的文字，但大模型太"重"跑不动，小模型又经常认错字？比如把清晰的"一"识别成"二"，把重要的表格数据搞得面目全非……
 
