@@ -269,6 +269,7 @@ https://huggingface.co/datasets/priyank-m/chinese_text_recognition
 
 ### 数据集创建
 
+{% raw %}
 ```python
 #!/usr/bin/env python3
 """
@@ -512,3 +513,4 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+{% endraw %}
