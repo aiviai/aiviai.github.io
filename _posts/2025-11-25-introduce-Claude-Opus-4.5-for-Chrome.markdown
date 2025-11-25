@@ -13,9 +13,11 @@ author_profile: true
 
 Anthropic在11月25日正式发布了Claude Opus 4.5模型，同时推出了Claude for Chrome浏览器扩展插件。这款插件此前处于小范围测试阶段，现已向所有Max用户开放。与OpenAI选择开发独立的Atlas浏览器不同，Anthropic走了另一条路——直接为现有的Chrome浏览器提供扩展插件。
 
-> 
+> **获取插件**: [Claude for Chrome官方页面](https://claude.ai/chrome)
+
+>
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1HHULBPEVr/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV11nUQB6E8b/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/i1WotgP_VSI)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
