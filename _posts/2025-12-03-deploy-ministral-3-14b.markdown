@@ -21,7 +21,7 @@ Mistral AI 悄悄发布了全新的 Mistral 3 系列模型，除了旗舰版 Mis
 
 
 > 🚀本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV11nUQB6E8b/)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1rb2tBFEZi/)
 > - [👉👉👉 通过YouTube观看](https://youtu.be/UJuDZNykOIc)
 > - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 > - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
@@ -157,4 +157,8 @@ Mistral AI 悄悄发布了全新的 Mistral 3 系列模型，除了旗舰版 Mis
 
 如果你正在寻找一款性价比高、能力全面的开源模型，不妨试试这个"小钢炮"。
 
-- [Colab笔记](https://colab.research.google.com/drive/1YpqAIkProxuv_4c3XNQ3-L0afEbCUoEk?usp=sharing)
+- [🔥Colab笔记](https://colab.research.google.com/drive/1YpqAIkProxuv_4c3XNQ3-L0afEbCUoEk?usp=sharing)
+- [🔥Colab笔记](https://colab.research.google.com/drive/1S8pUq_TS_D_VPmDMhteNB3n4QyeE0q6Z?usp=sharing)
+- [🔥Colab笔记](https://colab.research.google.com/drive/1NsYPh_b-tyRXGJYCfFPBtN99GmXChJxt?usp=sharing)
+
+
