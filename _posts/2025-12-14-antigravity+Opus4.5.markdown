@@ -145,6 +145,31 @@ Antigravity加上Claude Opus 4.5这个组合，确实可以在一定程度上替
 
 如果你也在找Claude Code的替代品，可以试试看。
 
+### 🚀设置中文界面和中文回答
+
+Antigravity IDE **支持切换为中文显示**。
+
+由于Antigravity是基于VS Code构建的，它沿用了VS Code的语言设置方式。具体操作步骤如下：
+
+### 界面切换为中文
+
+1. 按 `Ctrl+Shift+X`（Windows）或 `Cmd+Shift+X`（Mac）打开扩展商店
+2. 搜索 "Chinese (Simplified) Language Pack" 或 "Chinese (Traditional) Language Pack"
+3. 安装语言包后重启
+4. 按 `Ctrl+Shift+P` 打开命令面板，输入 "display"
+5. 选择 "Configure Display Language"
+6. 选择中文，等待软件重启即可
+
+### 让AI用中文回复
+
+界面语言和AI回复语言是分开的。如果你希望AI默认用中文回复（而不是每次都要求），可以在全局规则里添加设置：
+
+1. 点击右上角三个点 → Customizations → Rules
+2. 添加规则，比如：`所有回复、思考过程及任务清单，均须使用中文`
+3. 按 `Ctrl+S` 保存
+
+这样设置后，Antigravity就会默认用中文回复了。
+
 
 ### 🚀智能体转换
 
