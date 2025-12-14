@@ -286,3 +286,71 @@ await model_client.close()
 - 暗色模式支持
 
 ```
+
+
+### Rules文件设置步骤
+
+1. 在Agent面板点击"..." → Customizations → Rules
+2. 点击"+ Workspace"创建工作区规则
+3. 粘贴以上内容
+4. 激活方式建议选择**Always On**或**Glob**（匹配`.py`）
+
+```python
+---
+activation: always
+---
+
+# Python Development Rules
+
+## Python版本
+- 使用 Python 3.11
+- 运行命令统一使用 `python3` 而非 `python`
+
+## 虚拟环境
+- 创建虚拟环境：`python3 -m venv venv`
+- 激活命令：`source venv/bin/activate`（Mac/Linux）
+- 安装依赖前必须确保虚拟环境已激活
+- 安装依赖：`python3 -m pip install -r requirements.txt`
+
+## 运行命令规范
+- 运行脚本：`python3 script.py`
+- 安装包：`python3 -m pip install <package>`
+- 运行模块：`python3 -m <module>`
+- 运行测试：`python3 -m pytest tests/`
+- 格式化代码：`python3 -m black .`
+- 类型检查：`python3 -m mypy src/`
+
+## 代码规范
+- 遵循PEP 8代码风格
+- 使用Python 3.11新特性（如match语句、类型参数等）
+- 函数和类需要docstring文档
+- 使用类型注解（Type Hints）
+
+## 依赖管理
+- 更新依赖：`python3 -m pip freeze > requirements.txt`
+- 升级pip：`python3 -m pip install --upgrade pip`
+
+# Next.js + Supabase Rules
+
+## 技术栈
+- Next.js 14（App Router）
+- TailwindCSS
+- Supabase（数据库 + 认证 + 存储）
+
+## 强制约束
+- 所有数据库表必须启用 RLS
+- 用户认证只使用 Supabase OAuth（Google、GitHub）
+- 永远不要在客户端暴露 SUPABASE_SERVICE_ROLE_KEY
+- 服务器端操作使用 `createServerClient`
+- 客户端使用 `createBrowserClient`
+
+## 项目结构
+- Supabase 客户端配置放在 `src/lib/supabase/`
+- OAuth 回调路由：`/auth/callback`
+- 认证相关组件放在 `src/components/auth/`
+
+## 运行命令
+- 开发：`npm run dev`
+- 构建：`npm run build`
+
+```
