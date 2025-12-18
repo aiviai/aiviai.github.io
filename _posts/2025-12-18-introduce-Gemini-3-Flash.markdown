@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀开发者必看！深度测评谷歌Gemini 3 Pro + Antigravity IDE！对比Claude Sonnet 4.5前端编程巅峰对决！模型能力是否被高估了？"
+title: "🚀OCR+视觉直接起飞！Gemini 3 Flash深度实测：OCR识别潦草处方、模糊古书全对！前端小项目完美开发！Antigravity实测iOS原生开发暴露真实编码能力！别信跑分信实测！"
 sidebar:
   nav: "docs"
 date: 2025-12-18 00:00:00 +0800
