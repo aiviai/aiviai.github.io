@@ -17,7 +17,7 @@ author_profile: true
 项目由 Jesse Vincent（GitHub: obra）开发，目前已获得 16.1k 星标和 1.3k 分叉，社区活跃度很高。
 
 🚀本篇笔记所对应的视频：
-- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1SYrTBMEzB/)
+- [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV11urFBrEc4/)
 - [👉👉👉 通过YouTube观看](https://youtu.be/TMmq9Wx1AIQ)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
