@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀Claude Code被封号？用谷歌Antigravity+Claude Opus 4.5轻松替代！实测项目重构+全栈开发效果惊艳！Opus 4.5 才是编程真神？Antigravity保姆级教程"
+title: "🚀2026年Skills元年正式开启！谷歌Antigravity支持Agent Skills，彻底改写传统AI编程！保姆级教程从安装到创建到调用！UI UX Pro Max Skills实测效果超预期"
 sidebar:
   nav: "docs"
 date: 2026-01-15 00:00:00 +0800
@@ -35,7 +35,7 @@ Agent Skills 是一种由 Anthropic 最初开发并作为**开放标准**发布�
 > - 👉👉👉 承接大模型微调、RAG、AI智能体、AI相关应用开发等项目。
 
 
----
+
 
 ## 二、如何在 Antigravity IDE 中使用 Skills
 
