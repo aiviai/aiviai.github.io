@@ -179,7 +179,4 @@ Apply all guidelines from @.agent/skills/code-review/SKILL.md to the target file
 ```
 
 
-
-### 🔥skills文件：
-
-https://github.com/win4r/agent-skills-code-review-router
+[🔥skills文件：](https://github.com/win4r/agent-skills-code-review-router)
