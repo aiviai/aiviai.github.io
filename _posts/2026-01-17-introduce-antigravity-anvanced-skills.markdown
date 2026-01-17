@@ -19,6 +19,18 @@ classes: wide
 author_profile: true
 ---
 
+上期视频为大家演示了Agent Skills的基础用法，很多朋友私信问我：有没有更高级的玩法能进一步提升开发效率？答案是肯定的，而且效果相当不错。本期我将分享Agent Skills生态中被开发者称为"灵魂技术"的核心技巧——决策树。
+
+## 什么是Agent Skills中的决策树？
+
+首先需要澄清的是，这里说的决策树不是机器学习里那个需要训练数据的算法，而是一种在SKILL.md文件中嵌入结构化if-else决策逻辑的技术方案。
+
+根据Anthropic官方文档的定义，Agent Skills是通过Markdown文件教会AI Agent如何完成特定任务的能力包。每个Skill本质上是一个包含SKILL.md文件的文件夹，通过YAML元数据和详细的指令说明，让AI智能体获得特定领域的专业能力。
+
+决策树优化则是在这个基础上更进一步：通过显式定义条件分支、优先级排序和异常处理逻辑，让Antigravity、Claude Code、Codex CLI等AI编程助手能够自主判断、自主选择最佳方案，从而减少50%到80%的手动干预。
+
+
+
 
 > 🚀本篇笔记所对应的视频：
 > - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1FQkwByEAY/)
@@ -41,15 +53,6 @@ author_profile: true
 
 
 
-上期视频为大家演示了Agent Skills的基础用法，很多朋友私信问我：有没有更高级的玩法能进一步提升开发效率？答案是肯定的，而且效果相当不错。本期我将分享Agent Skills生态中被开发者称为"灵魂技术"的核心技巧——决策树。
-
-## 什么是Agent Skills中的决策树？
-
-首先需要澄清的是，这里说的决策树不是机器学习里那个需要训练数据的算法，而是一种在SKILL.md文件中嵌入结构化if-else决策逻辑的技术方案。
-
-根据Anthropic官方文档的定义，Agent Skills是通过Markdown文件教会AI Agent如何完成特定任务的能力包。每个Skill本质上是一个包含SKILL.md文件的文件夹，通过YAML元数据和详细的指令说明，让AI智能体获得特定领域的专业能力。
-
-决策树优化则是在这个基础上更进一步：通过显式定义条件分支、优先级排序和异常处理逻辑，让Antigravity、Claude Code、Codex CLI等AI编程助手能够自主判断、自主选择最佳方案，从而减少50%到80%的手动干预。
 
 ## 为什么需要决策树？
 
