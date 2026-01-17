@@ -33,7 +33,7 @@ author_profile: true
 
 
 > 🚀本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1FQkwByEAY/)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1KErQB4Esx/)
 > - [👉👉👉 通过YouTube观看](https://youtu.be/Qydk2wlh4YI)
 > - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 > - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
@@ -180,4 +180,6 @@ Apply all guidelines from @.agent/skills/code-review/SKILL.md to the target file
 
 
 
-### 🔥skills文件：https://github.com/win4r/agent-skills-code-review-router
+### 🔥skills文件：
+
+https://github.com/win4r/agent-skills-code-review-router
