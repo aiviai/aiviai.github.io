@@ -20,7 +20,7 @@ Ralph Wiggum 这个 Claude Code 官方插件的厉害之处就在于：它不试
 > 
 🚀本篇笔记所对应的视频：
 - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1zyiiBRE32/)
-- [👉👉👉 通过YouTube观看](https://youtu.be/T8nQSFXvoLA)
+- [👉👉👉 通过YouTube观看](https://youtu.be/9VUgJIIj6K8)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
