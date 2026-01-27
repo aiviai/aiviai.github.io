@@ -5,7 +5,7 @@ sidebar:
   nav: "docs"
 date: 2025-12-19 10:00:00 +0800  
 categories: AIAgents
-tags: [Claude, Opus 4.5, Claude Code, Claude for Chrome, Chrome, AI浏览器, AI, 浏览器自动化, AIGC, AGI]
+tags: [Claude, Clawdbot, Clawd, Claude for Chrome, Chrome, AI浏览器, AI, 浏览器自动化, AIGC, AGI]
 classes: wide  
 
 author_profile: true  
@@ -23,7 +23,7 @@ author_profile: true
 >
 🚀本篇笔记所对应的视频：
 - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1EdBFBbEZn/)
-- [👉👉👉 通过YouTube观看](https://youtu.be/wVS-J7lRLlg)
+- [👉👉👉 通过YouTube观看](https://youtu.be/daXOXSSyudM)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
