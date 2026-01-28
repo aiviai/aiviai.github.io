@@ -109,7 +109,7 @@ clawdbot cron runs --id <ID> --limit 10
 >
 🚀本篇笔记所对应的视频：
 - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV14z6GB1EAr/)
-- [👉👉👉 通过YouTube观看]([Clawdbot](https://youtu.be/daXOXSSyudM))
+- [👉👉👉 通过YouTube观看](https://youtu.be/daXOXSSyudM)
 - [👉👉👉 Subagents视频](https://youtu.be/GjlkRcNNONo)
 - [👉👉👉 Gemini CLI视频](https://youtu.be/v41xKxZmygU)
 - [👉👉👉 Context Engineering视频](https://youtu.be/oEZ7aN7jOEI)
