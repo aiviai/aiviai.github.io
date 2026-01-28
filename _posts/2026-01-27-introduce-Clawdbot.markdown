@@ -18,7 +18,7 @@ Clawdbot 最初是为 **Clawd** 而构建的——一个虚构的太空龙虾 AI
 ```markdown
 
 # 安装
-curl -fsSL https://clawd.bot/install.sh | bash 
+curl -fsSL https://molt.bot/install.sh | bash
 
 # 启动
 clawdbot gateway
