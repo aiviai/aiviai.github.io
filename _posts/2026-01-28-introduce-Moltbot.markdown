@@ -77,7 +77,7 @@ author_profile: true
 ```markdown
 
 # 安装
-curl -fsSL https://clawd.bot/install.sh | bash 
+curl -fsSL https://molt.bot/install.sh | bash
 
 # 启动
 clawdbot gateway
