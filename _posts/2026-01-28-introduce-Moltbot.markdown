@@ -80,7 +80,7 @@ author_profile: true
 curl -fsSL https://molt.bot/install.sh | bash
 
 # 启动
-clawdbot gateway
+clawdbot gateway start
 
 # 停止
 clawdbot gateway stop 
