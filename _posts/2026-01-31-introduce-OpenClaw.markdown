@@ -133,7 +133,7 @@ author_profile: true
 - 安全可靠地执行各种任务
 - 越用越聪明的AI超级助理
 
-项目地址：https://github.com/moltbot/moltbot
+项目地址：https://github.com/openclaw/openclaw
 
 如果你也想拥有这样一个能够自动进化的AI智能体，强烈推荐去试试OpenClaw。
 
