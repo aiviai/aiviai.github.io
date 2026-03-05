@@ -361,26 +361,123 @@ OpenClaw 的安全架构推荐仅开放 SSH 端口。Web 界面和 WebSocket 网
 
 ### 系统要求
 
+| 项目 | 要求 |
+| --- | --- |
+| Node.js | ≥ 22（必须） |
+| 操作系统 | macOS / Linux / Windows (WSL2) |
+| 内存 | 建议 2GB+，浏览器自动化建议 4GB+ |
+
+### 前置依赖：安装 Node.js ≥ 22
+
+OpenClaw 依赖 Node.js 22 或更高版本，安装前请先确认：
+
+```bash
+node --version
+# 如果输出低于 v22，请按下方对应平台安装或升级
 ```
-项目要求Node.js≥ 22操作系统macOS / Linux / Windows (WSL2)内存建议 2GB+，浏览器自动化建议 4GB+
+
+**macOS（通过 Homebrew）：**
+
+```bash
+brew install node
 ```
 
-### 快速安装
+**Ubuntu / Debian：**
 
-bash
+```bash
+curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
 
-`# 一键安装脚本（推荐）
+**Fedora / RHEL：**
+
+```bash
+sudo dnf install nodejs
+```
+
+**Windows：**
+
+```powershell
+# 方式一：winget（推荐）
+winget install OpenJS.NodeJS.LTS
+
+# 方式二：Chocolatey
+choco install nodejs-lts
+```
+
+**使用版本管理器（可选，推荐多版本共存场景）：**
+
+```bash
+# 以 fnm 为例
+fnm install 22
+fnm use 22
+# 注意：确保版本管理器已在 shell 启动文件（.bashrc / .zshrc）中初始化
+```
+
+### 安装 OpenClaw
+
+**方式一：一键安装脚本（推荐，自动处理 Node 检测和配置向导）**
+
+```bash
+# macOS / Linux / WSL2
 curl -fsSL https://openclaw.ai/install.sh | bash
 
-# 或通过包管理器
-npm install -g openclaw
-pnpm add -g openclaw`
+# Windows PowerShell
+iwr -useb https://openclaw.ai/install.ps1 | iex
+
+# 如果只想安装、跳过配置向导，可追加参数：
+# bash: curl -fsSL https://openclaw.ai/install.sh | bash -s -- --no-onboard
+# PowerShell: iwr -useb https://openclaw.ai/install.ps1 | iex -NoOnboard
+```
+
+**方式二：通过 npm / pnpm 手动安装**
+
+```bash
+# npm
+npm install -g openclaw@latest
+openclaw onboard --install-daemon
+
+# pnpm（需要额外批准构建脚本）
+pnpm add -g openclaw@latest
+pnpm approve-builds -g
+openclaw onboard --install-daemon
+```
+
+**方式三：Docker（适合服务器 / 无需污染宿主环境）**
+
+```bash
+# 快速启动（自动构建镜像 + 配置向导 + 启动 Gateway）
+./docker-setup.sh
+
+# 或使用官方预构建镜像
+export OPENCLAW_IMAGE="ghcr.io/openclaw/openclaw:latest"
+./docker-setup.sh
+
+# 手动分步操作
+docker build -t openclaw:local -f Dockerfile .
+docker compose run --rm openclaw-cli onboard
+docker compose up -d openclaw-gateway
+```
+
+**方式四：从源码构建（开发者 / 贡献者）**
+
+```bash
+git clone https://github.com/openclaw/openclaw.git
+cd openclaw
+pnpm install
+pnpm ui:build
+pnpm build
+pnpm link --global
+openclaw onboard --install-daemon
+```
+
+> 其他安装方式（Bun 实验性支持、Nix、Podman、Ansible 等）请参考官方文档：[docs.openclaw.ai/install](https://docs.openclaw.ai/install/index.md)
 
 ### 配置向导
 
-bash
-
-`openclaw onboard --install-daemon`
+```bash
+openclaw onboard --install-daemon
+```
 
 向导将引导完成：
 
