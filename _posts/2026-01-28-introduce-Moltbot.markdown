@@ -91,20 +91,104 @@ openclaw channels login --channel whatsapp
 # 检查WhatsApp是否连通
 curl -I https://web.whatsapp.com/
 
-# 选择模型
+# 选择模型（交互式）
 openclaw configure --section model
 
-# 1) 设置 MiniMax Anthropic-compatible Base URL（官方推荐）
-openclaw config set models.providers.minimax.baseUrl "https://api.minimaxi.com/anthropic"
+```
 
-openclaw config set models.providers.minimax.baseUrl "https://api.minimax.io/anthropic"
+---
 
-# 2) 设置 MiniMax API Key（对应 MINIMAX_API_KEY）
-openclaw config set models.providers.minimax.apiKey "你的MINIMAX_API_KEY"
+### 🔥配置 MiniMax 模型（三种方式）
 
-# 3)（建议）明确走 Anthropic Messages 兼容协议
-openclaw config set models.providers.minimax.api "anthropic-messages"
+**方式一：OAuth 插件登录（推荐，适合 MiniMax Coding Plan 用户）**
 
+```bash
+# 启用 MiniMax OAuth 插件
+openclaw plugins enable minimax-portal-auth
+
+# 重启 Gateway 使插件生效
+openclaw gateway restart
+
+# 通过 OAuth 登录 MiniMax（会自动打开浏览器授权）
+openclaw onboard --auth-choice minimax-portal
+# 登录时可选择端点：Global（api.minimax.io）或 CN（api.minimaxi.com）
+```
+
+**方式二：交互式配置（适合使用 API Key 的用户）**
+
+```bash
+# 运行交互式配置向导
+openclaw configure
+# 然后选择 Model/auth → MiniMax M2.5，按提示输入 API Key
+```
+
+**方式三：手动编辑 JSON 配置（适合高级用户）**
+
+在 `~/.openclaw/openclaw.json` 中添加以下配置：
+
+```json
+{
+  "env": {
+    "MINIMAX_API_KEY": "sk-你的API_KEY"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "minimax/MiniMax-M2.5"
+      }
+    }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "minimax": {
+        "baseUrl": "https://api.minimax.io/anthropic",
+        "apiKey": "${MINIMAX_API_KEY}",
+        "api": "anthropic-messages",
+        "models": [
+          {
+            "id": "MiniMax-M2.5",
+            "name": "MiniMax M2.5",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": { "input": 0.3, "output": 1.2, "cacheRead": 0.03, "cacheWrite": 0.12 },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          },
+          {
+            "id": "MiniMax-M2.5-highspeed",
+            "name": "MiniMax M2.5 Highspeed",
+            "reasoning": true,
+            "input": ["text"],
+            "cost": { "input": 0.3, "output": 1.2, "cacheRead": 0.03, "cacheWrite": 0.12 },
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  }
+}
+```
+
+> **注意**：
+> - 国际用户 baseUrl 使用 `https://api.minimax.io/anthropic`
+> - 国内用户 baseUrl 使用 `https://api.minimaxi.com/anthropic`
+> - 模型 ID 区分大小写，必须使用 `MiniMax-M2.5` 而不是 `minimax-m2.5`
+> - API Key 推荐通过 `env` 字段引用环境变量 `${MINIMAX_API_KEY}`，避免明文写入配置文件
+
+**配置完成后切换/验证模型：**
+
+```bash
+# 查看已配置的模型列表
+openclaw models list
+
+# 切换默认模型为 MiniMax
+openclaw models set minimax/MiniMax-M2.5
+
+# 也可以将 MiniMax 设为容灾备选模型
+# 在 openclaw.json 中配置 fallbacks:
+# "model": { "primary": "anthropic/claude-opus-4-6", "fallbacks": ["minimax/MiniMax-M2.5"] }
 ```
 
 ---
