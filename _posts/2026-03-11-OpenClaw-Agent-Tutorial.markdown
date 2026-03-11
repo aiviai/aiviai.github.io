@@ -3,7 +3,7 @@ layout: single
 title: "🚀OpenClaw高级玩法之工作区优化+三大Agent深度解析！保姆级教程让你学会Persistent Agent、Sub-Agent和ACP Agent的正确打开方式！90%的用户都不知道的进阶技巧"
 sidebar:
   nav: "docs"
-date: 2026-03-12 00:00:00 +0800
+date: 2026-03-11 00:00:00 +0800
 categories: AIAgents
 tags: [OpenClaw, Clawdbot, Clawd, moltbook, MoltBot, AI智能体, Claude Code, Agent Teams, OpenClaw]
 classes: wide
@@ -20,7 +20,6 @@ author_profile: true
 ACP（Agent Client Protocol）让 OpenClaw 通过结构化的 stdio JSON-RPC 协议调用外部编码代理（Claude Code、Codex、Gemini CLI、OpenCode、Pi），替代传统的 PTY 终端刮取方式。
 
 > ⚡ **核心要点**：ACP 协议层本身消耗 **零 Token**。只有编码代理内部的 LLM 调用才消耗 Token。ACP 会话是非交互式的（无 TTY），权限模式必须预先配置。
-> 
 
 ---
 
@@ -62,7 +61,7 @@ openclaw restart
 /acp doctor
 ```
 
-### [🔥优化AGENTS.md](http://🔥优化AGENTS.md) skil用法
+### 🔥优化 AGENTS.md skill 用法
 
 **https://github.com/win4r/openclaw-workspace**
 
@@ -127,21 +126,15 @@ openclaw restart
 - 完成后默认 cleanup: "delete"，除非用户要求保留日志
 ```
 
-```
-
 ### 用法
 
-> 
-> 
-> 
 > 🚀把这段放入 AGENTS.md 后，你日常只需要说：
-> 
+>
 > 1️⃣每日简报
-> 
+>
 > 2️⃣帮我调研 LangGraph、CrewAI 和 Google ADK 的最新进展
-> 
+>
 > 3️⃣审查一下 /workspace/src/auth 目录的代码
-> 
 
 ### 🚀自然语言调用
 
@@ -151,5 +144,4 @@ openclaw restart
 检查安全、类型安全、错误处理、边界情况。用 GPT-5.2 开 high thinking。
 派一个子任务去审查 PR #142，用 GPT-5.2 高推理模式，完成后告诉我结果。
 spawn 一个 subagent 帮我审查这个 PR：https://github.com/CortexReach/memory-lancedb-pro/pull/142
-
 ```
