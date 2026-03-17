@@ -17,7 +17,7 @@ author_profile: true
 OpenClaw 现在支持用内置的 **`profile="user"`** 连接你本机已经登录中的真实 Chrome 会话，而不是只使用默认的隔离浏览器。这个模式适合 **已有登录态、Cookie、现有标签页很重要** 的场景。省略 `profile` 时，OpenClaw 会使用 `browser.defaultProfile`；默认通常是 `openclaw`，也就是隔离浏览器。
 
 > 🚀本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1vYFQzQE4P/)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1yVwXzGEbL/)
 > - [👉👉👉 通过YouTube观看](https://youtu.be/Smk5nisOZC0)
 
 
