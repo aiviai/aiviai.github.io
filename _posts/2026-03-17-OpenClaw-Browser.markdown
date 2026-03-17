@@ -286,9 +286,6 @@ openclaw browser --browser-profile user status
 
 ---
 
-## 给其他用户的一句提醒
-
-这项功能最适合 **人在电脑前、已有登录态、想让 OpenClaw 接管当前真实 Chrome 工作流** 的场景；它不是远程 VPS 自动化的通用替代方案，也不是完全无人值守浏览器机器人。
 
 <img src="https://private-user-images.githubusercontent.com/42172631/313519233-7568cf78-c8ba-4182-aa96-d524d903f2bc.jpeg?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NzM3NDQ3NTgsIm5iZiI6MTc3Mzc0NDQ1OCwicGF0aCI6Ii80MjE3MjYzMS8zMTM1MTkyMzMtNzU2OGNmNzgtYzhiYS00MTgyLWFhOTYtZDUyNGQ5MDNmMmJjLmpwZWc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjYwMzE3JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI2MDMxN1QxMDQ3MzhaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0wMzFlN2UwZmEyYmI1MThlOGVhOTQ0ZmJjOGMwYWFhYmRiZmUwNjdlM2M4ODM5ZDM2YzBkYWFmM2JmZmYwMzkwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.7BRSFAaGC9AmP1X2nE6nOfGQo-ZgmdHbhP1iETXFJRQ" width="214.8" height="291" style="max-width: 100%; height: auto; max-height: 291px;">
 
