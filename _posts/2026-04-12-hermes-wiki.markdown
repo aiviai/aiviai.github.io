@@ -18,6 +18,11 @@ author_profile: true
 
 🏗️ 详细解析了LLM Wiki的三层架构：不可变的原始来源层、Agent驱动的Wiki页面层、人机协同的进化层，真正实现"编译一次，持续更新"的数据飞轮。
 
+> 🚀本篇笔记所对应的视频：
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1G9DiBSEmj/)
+> - [👉👉👉 通过YouTube观看](https://youtu.be/UeI3nR9HLoQ)
+
+
 ---
 
 这个适配器是针对**个人微信账号**的，使用的是腾讯的 **iLink Bot API**。它通过 HTTP 长轮询（long-polling）接收消息，因此**不需要公网端点或 Webhook**。如果你需要企业微信，请使用 WeCom 适配器。
