@@ -19,7 +19,7 @@ author_profile: true
 🏗️ 详细解析了LLM Wiki的三层架构：不可变的原始来源层、Agent驱动的Wiki页面层、人机协同的进化层，真正实现"编译一次，持续更新"的数据飞轮。
 
 > 🚀本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1G9DiBSEmj/)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1zGD9BrEwe/)
 > - [👉👉👉 通过YouTube观看](https://youtu.be/UeI3nR9HLoQ)
 
 
