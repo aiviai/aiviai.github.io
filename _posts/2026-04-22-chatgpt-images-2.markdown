@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🔥OpenAI甩出ChatGPT Images 2.0！AI画图彻底换了个物种！跨语言排版+Thinking模式+电影级精度全面碾压，20+实测Prompt全公开，设计师工作流要重新洗牌"
+title: "🚀达到专业设计师水平！ChatGPT Images 2.0深度评测：会思考的图像生成模型！生成中文书法零错别字！还能生成架构图、工程手稿、杂志封面、装修图、老照片修复！超越谷歌Nano Banana！"
 sidebar:
   nav: "docs"
 date: 2026-04-22 00:00:00 +0800
