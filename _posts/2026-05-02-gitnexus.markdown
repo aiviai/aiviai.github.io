@@ -15,9 +15,11 @@ author_profile: true
 GitNexus 被作者称作**代码库的神经系统**，核心理念只有一句话：**AI Agent 不应该盲目编辑代码**。它把代码仓库索引为知识图谱，再通过 MCP 协议把这份图谱喂给 Codex、Claude Code、Cursor 等 AI 编程助手，让它们在动手改代码之前就能完整地感知项目结构、依赖关系和"爆炸半径"。
 
 > 🚀 本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/)
-> - [👉👉👉 通过YouTube观看](https://www.youtube.com/@AIsuperdomain)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV1vy9XBrExq/)
+> - [👉👉👉 通过YouTube观看](https://youtu.be/Zy6tS-7xg9M)
 > - [👉👉👉 GitHub仓库](https://github.com/gitnexus/gitnexus)
+
+<iframe width="800" height="450" src="https://www.youtube.com/embed/Zy6tS-7xg9M" title="GitNexus 保姆级教程" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ---
 
