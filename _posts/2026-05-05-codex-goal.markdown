@@ -13,7 +13,7 @@ author_profile: true
 `/goal` 是 OpenAI 在 **Codex CLI 0.128.0**（2026 年 4 月 30 日发布）中新增的一条命令。它不是又一个普通的提示词模板，而是 Codex 内部新增了一整套**目标生命周期管理**机制——给一个目标，Codex 会自己一轮接一轮往下推进，真正实现无人值守。社区里已经出现连续运行 21 小时、烧掉 9 亿 token 的案例。这篇笔记把我自己踩过的坑、固定下来的工作流、配套的 Skill 全都整理成保姆级教程。
 
 > 🚀 本篇笔记所对应的视频：
-> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BVxxxxxxxxxx/)
+> - [👉👉👉 通过哔哩哔哩观看](https://www.bilibili.com/video/BV13KR1BEEBm/)
 > - [👉👉👉 通过YouTube观看](https://youtu.be/sAYM1xvDXw4)
 
 <iframe width="800" height="450" src="https://www.youtube.com/embed/sAYM1xvDXw4" title="Codex /goal 保姆级教程" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
