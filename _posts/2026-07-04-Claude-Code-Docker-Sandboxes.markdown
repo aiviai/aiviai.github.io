@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "🚀Claude Code悄悄加入的Workflow，可能会改变我们使用多Agent的方式！隐藏的多Agent编排能力实测：JavaScript脚本化编排、Subagent并行调度、结构化输出+Schema约束，比Subagents/Agent Teams/Skills更适合沉淀复用的工程流水线"
+title: "🚀Claude Code有后门？立即锁进Docker Sandboxes里！sbx完整实测：Claude Code、Codex、OpenCode如何安全隔离运行！防隐私泄露、防恶意Skill和MCP"
 sidebar:
   nav: "docs"
 date: 2026-07-04 00:00:00 +0800
