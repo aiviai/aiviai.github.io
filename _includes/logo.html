@@ -1,0 +1,6 @@
+{%- assign lt_logo_size = include.px | default: 24 -%}
+{%- if site.latent.logo -%}
+<img src="{{ site.latent.logo | relative_url }}" width="{{ lt_logo_size }}" height="{{ lt_logo_size }}" alt="">
+{%- else -%}
+<svg width="{{ lt_logo_size }}" height="{{ lt_logo_size }}" viewBox="0 0 24 24" aria-hidden="true"><rect width="24" height="24" rx="7" style="fill: var(--ink)"></rect><g style="fill: var(--paper)"><circle cx="7" cy="7" r="1.5"></circle><circle cx="12" cy="7" r="1.5"></circle><circle cx="17" cy="7" r="1.5"></circle><circle cx="7" cy="12" r="1.5"></circle><circle cx="17" cy="12" r="1.5"></circle><circle cx="7" cy="17" r="1.5"></circle><circle cx="12" cy="17" r="1.5"></circle><circle cx="17" cy="17" r="1.5"></circle></g><circle cx="12" cy="12" r="2.8" style="fill: var(--signal)"></circle></svg>
+{%- endif -%}

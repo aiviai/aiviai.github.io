@@ -6,7 +6,8 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Theme Settings
-remote_theme           : "mmistakes/minimal-mistakes@4.26.2"
+# Latent is vendored in _layouts, _includes, _sass and assets.
+theme: null
 minimal_mistakes_skin    : "air" # "default", "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -16,7 +17,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "AI超元域"
 description              : "AI超元域频道的技术博客。分享AI技术、AI项目、开源大模型、大模型微调、RAG、AIAgent、提示词工程等AI前沿内容。"
-url                      : "https://www.aivi.fyi/"
+url                      : "https://www.aivi.fyi"
 baseurl                  : ""
 repository               : "aiviai/aiviai.github.io"  # GitHub username/repo-name
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -108,6 +109,8 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  - graphify-out
+  - LICENSE-latent.txt
 keep_files:
   - .git
   - .svn
@@ -229,3 +232,26 @@ footer:
     - label: "哔哩哔哩"
       icon: "fab fa-fw fa-bilibili"
       url: "https://b23.tv/S7VBv0M"
+
+# Presentation only: article metadata, permalinks and pagination stay unchanged.
+lang: zh-CN
+latent:
+  color_scheme: system
+  search: true
+  toc: true
+  sidenotes: true
+  citations: false
+  newsletter: false
+  home_notes: false
+  subscribe_button: false
+  wordmark: false
+  google_fonts: false
+  archive_url: /archive/
+  date_format: "%Y-%m-%d"
+  related_title: "继续阅读"
+  footer_writing_label: "文章分类"
+  section_titles:
+    LLMs: LLMs
+    AIAgents: AIAgents
+    RAG: RAG
+    Fine-Tuning: Fine-Tuning

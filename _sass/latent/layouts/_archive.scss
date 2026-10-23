@@ -1,0 +1,242 @@
+.lt-intro {
+  padding-top: 80px;
+  padding-bottom: 44px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 48px;
+}
+
+.lt-intro__text {
+  max-width: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.lt-page-title {
+  margin: 0;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: 1.02;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+
+.lt-intro__dek {
+  margin: 0;
+  max-width: 34em;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.lt-filterbar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 20;
+  background: var(--header);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  backdrop-filter: saturate(1.6) blur(14px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  > .lt-wrap {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 20px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .lt-field {
+    margin-left: auto;
+    flex: 0 1 320px;
+    min-width: 220px;
+
+    .lt-input {
+      height: 44px;
+    }
+  }
+}
+
+.lt-years {
+  padding-top: 20px;
+  padding-bottom: 96px;
+}
+
+.lt-years__summary {
+  padding: 8px 0 28px;
+  font: 12.5px var(--mono);
+  color: var(--ink-3);
+}
+
+.lt-year {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 48px;
+  border-top: 1px solid var(--ink);
+  margin-bottom: 48px;
+  animation: lt-enter .45s var(--ease) both;
+}
+
+.lt-year__head {
+  flex: 0 0 180px;
+  align-self: flex-start;
+  position: sticky;
+  top: calc(var(--header-h) + 84px);
+  padding-top: 20px;
+
+  .y {
+    font-size: 44px;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: -.04em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .c {
+    margin-top: 10px;
+    font: 12px var(--mono);
+    color: var(--ink-3);
+  }
+}
+
+.lt-year__list {
+  flex: 999 1 600px;
+  min-width: 0;
+
+  > div {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.lt-entry {
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr) 140px 72px 20px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 20px 16px;
+  margin: 0 -16px;
+
+  time {
+    font: 12.5px var(--mono);
+    color: var(--ink-3);
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .t {
+    font-size: 19px;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: -.012em;
+    text-wrap: balance;
+  }
+
+  .x {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+
+  .read {
+    font: 12px var(--mono);
+    color: var(--ink-3);
+    text-align: right;
+  }
+}
+
+.lt-empty {
+  padding: 72px 24px;
+  border: 1px dashed var(--line-2);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  strong {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -.015em;
+  }
+
+  span {
+    font-size: 15px;
+    color: var(--ink-2);
+  }
+}
+
+.lt-tagcloud {
+  border-top: 1px solid var(--line);
+
+  > .lt-wrap {
+    padding-top: 80px;
+    padding-bottom: 96px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 48px;
+  }
+
+  .head {
+    flex: 0 0 228px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h2 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+      font-weight: 500;
+      letter-spacing: -.022em;
+    }
+  }
+
+  .lt-chips {
+    flex: 999 1 600px;
+    min-width: 0;
+    align-content: flex-start;
+    gap: 10px;
+  }
+}
+
+@include lt-phone-down {
+  .lt-intro {
+    padding-top: 48px;
+  }
+
+  .lt-entry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .lt-year__head {
+    position: static;
+    flex-basis: 100%;
+    padding-bottom: 8px;
+  }
+
+  .lt-filterbar .lt-field {
+    margin-left: 0;
+    flex: 1 1 100%;
+  }
+}

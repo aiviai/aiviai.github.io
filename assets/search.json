@@ -1,0 +1,43 @@
+---
+layout: null
+sitemap: false
+---
+{%- assign lt_archive = site.latent.archive_url | default: "/archive/" -%}
+{%- assign lt_body_chars = site.latent.search_body_chars | default: 3000 -%}
+{
+  "posts": [
+    {%- assign lt_search_pages = site.pages | where_exp: "p", "p.search != false" | where_exp: "p", "p.title" | where_exp: "p", "p.layout != 'archive-taxonomy'" -%}
+    {%- assign lt_documents = site.posts | concat: lt_search_pages -%}
+    {%- for post in lt_documents -%}
+    {%- assign lt_sec = post.categories.first -%}
+    {%- capture lt_meta -%}{% if lt_sec %}{% include section-title.html key=lt_sec %} · {% endif %}{{ post.date | date: "%b %-d, %Y" }}{%- endcapture -%}
+    {%- assign lt_snip = post.dek | default: post.description | default: post.excerpt | strip_html | normalize_whitespace | truncate: 200 -%}
+    {%- assign lt_chunks = post.content | split: "<h2" %}
+    {
+      "t": {{ post.title | strip_html | jsonify }},
+      "s": {{ lt_snip | jsonify }},
+      "m": {{ lt_meta | strip | jsonify }},
+      "u": {{ post.url | relative_url | jsonify }},
+      "g": {{ post.tags | jsonify }},
+      "x": {{ post.content | strip_html | normalize_whitespace | jsonify }},
+      "h": [
+        {%- assign lt_first_h = true -%}
+        {%- for lt_chunk in lt_chunks offset: 1 -%}
+          {%- assign lt_head = lt_chunk | split: "</h2>" | first -%}
+          {%- assign lt_attr = lt_head | split: ">" | first -%}
+          {%- unless lt_attr contains 'id="' -%}{%- continue -%}{%- endunless -%}
+          {%- assign lt_id = lt_attr | split: 'id="' | last | split: '"' | first -%}
+          {%- assign lt_label = lt_head | remove_first: lt_attr | remove_first: ">" | strip_html | strip -%}
+          {%- unless lt_first_h %},{% endunless %}{"id": {{ lt_id | jsonify }}, "t": {{ lt_label | jsonify }}}
+          {%- assign lt_first_h = false -%}
+        {%- endfor -%}
+      ]
+    }{% unless forloop.last %},{% endunless %}
+    {%- endfor %}
+  ],
+  "tags": [
+    {%- for t in site.tags -%}
+    {% assign lt_tag_encoded = t[0] | url_encode %}{% assign tag_posts = t[1] | uniq %}{"t": {{ t[0] | jsonify }}, "n": {{ tag_posts.size }}, "u": {{ lt_archive | append: "?tag=" | append: lt_tag_encoded | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  ]
+}

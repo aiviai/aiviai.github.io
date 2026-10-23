@@ -1,0 +1,29 @@
+// Latent - a Jekyll theme for research writing.
+// Partials use @import so the theme compiles on GitHub Pages (Ruby Sass)
+// as well as Jekyll 4 (Dart Sass).
+
+@import
+  "latent/tokens",
+  "latent/base",
+  "latent/utilities",
+  "latent/animations",
+  "latent/header",
+  "latent/buttons",
+  "latent/forms",
+  "latent/cards",
+  "latent/covers",
+  "latent/plates",
+  "latent/code",
+  "latent/prose",
+  "latent/footer",
+  "latent/menu",
+  "latent/search",
+  "latent/layouts/home",
+  "latent/layouts/post",
+  "latent/layouts/page",
+  "latent/layouts/archive",
+  "latent/layouts/404";
+
+// Empty in the theme. Create _sass/latent-custom.scss in your site to add
+// or override styles without copying the theme.
+@import "latent-custom";

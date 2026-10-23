@@ -1,0 +1,243 @@
+.lt-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.005em;
+  white-space: nowrap;
+  transition: background-color .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+
+  svg {
+    flex: none;
+    transition: transform .3s var(--ease);
+  }
+
+  &:hover .go { transform: translateX(3px); }
+  &:hover .back { transform: translateX(-3px); }
+  &:active { transform: scale(.98); }
+
+  &[aria-disabled="true"] {
+    opacity: .4;
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.lt-btn-sm {
+  height: 38px;
+  padding: 0 16px;
+  font-size: 14px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -4px;
+  }
+}
+
+.lt-btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+
+  &:hover {
+    background: var(--signal);
+    color: var(--on-signal);
+  }
+}
+
+.lt-btn-secondary {
+  border-color: var(--line-2);
+  color: var(--ink);
+
+  &:hover {
+    border-color: var(--ink);
+    background: var(--surface);
+  }
+}
+
+.lt-btn-ghost {
+  color: var(--ink-2);
+
+  &:hover {
+    color: var(--ink);
+    background: var(--surface-2);
+  }
+}
+
+.lt-btn.done,
+.lt-btn.is-copied {
+  background: var(--signal);
+  border-color: var(--signal);
+  color: var(--on-signal);
+}
+
+// Copy buttons carry both labels; the state class picks one.
+.lt-when-idle {
+  display: contents;
+}
+
+.lt-when-copied {
+  display: none;
+}
+
+.is-copied {
+  .lt-when-idle { display: none; }
+  .lt-when-copied { display: contents; }
+}
+
+.lt-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+
+  svg {
+    flex: none;
+    transition: transform .3s var(--ease);
+  }
+
+  span {
+    background: linear-gradient(currentColor, currentColor) 0 100%/0% 1.5px no-repeat;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-size .45s var(--ease);
+  }
+
+  &:hover svg { transform: translateX(4px); }
+  &:hover span { background-size: 100% 1.5px; }
+}
+
+.lt-chip {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  transition: border-color .2s var(--ease), background-color .2s var(--ease), color .2s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -5px -2px;
+  }
+
+  &:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  &.on {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .n {
+    font: 11.5px var(--mono);
+    color: var(--ink-3);
+  }
+
+  &.on .n {
+    color: var(--paper);
+    opacity: .65;
+  }
+
+  .hash {
+    opacity: .6;
+  }
+}
+
+.lt-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.lt-tab {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  color: var(--ink-2);
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -3px 0;
+  }
+
+  &:hover {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+
+  &.on {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .n {
+    font: 11.5px var(--mono);
+    color: var(--ink-3);
+  }
+
+  &.on .n {
+    color: var(--paper);
+    opacity: .65;
+  }
+}
+
+// Light / Dark / System
+.lt-segs {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.lt-seg {
+  position: relative;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--ink-3);
+  transition: background-color .25s var(--ease), color .25s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
+  }
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  &.on {
+    background: var(--ink);
+    color: var(--paper);
+  }
+}

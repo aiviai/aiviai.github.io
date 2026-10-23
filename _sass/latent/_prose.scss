@@ -1,0 +1,576 @@
+// Long-form content: whatever kramdown produces from Markdown. Used by the
+// post body (.lt-prose) and page sections (.lt-sec-b).
+
+$lt-prose-aside: 300px !default; // sidenote margin beside the text column
+
+%lt-inline-code {
+  font-family: var(--mono);
+  font-size: .78em;
+  padding: .14em .42em;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+%lt-fn-badge {
+  display: inline-grid;
+  place-items: center;
+  min-width: 19px;
+  height: 19px;
+  padding: 0 5px;
+  margin-left: 2px;
+  border-radius: 5px;
+  background: var(--signal);
+  color: var(--on-signal);
+  font: 600 11px/1 var(--mono);
+  font-style: normal;
+  vertical-align: .5em;
+  text-decoration: none;
+}
+
+.lt-p,
+.lt-prose p,
+.lt-sec-b p {
+  margin: 0 0 24px;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.65;
+  color: var(--prose);
+  text-wrap: pretty;
+}
+
+.lt-sec-b p {
+  margin-bottom: 22px;
+}
+
+.lt-prose,
+.lt-sec-b {
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  p.lead {
+    font-size: 22.5px;
+    line-height: 1.6;
+  }
+
+  .lead-in {
+    font-family: var(--mono);
+    font-size: .74em;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  :not(pre) > code {
+    @extend %lt-inline-code;
+  }
+
+  sub,
+  sup {
+    font-size: .7em;
+  }
+
+  // Links read like a highlighter pass.
+  a:not([class]),
+  .lt-link {
+    border-radius: 2px;
+    background: linear-gradient(var(--signal), var(--signal)) 0 100%/0% 100% no-repeat;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: .2em;
+    text-decoration-color: var(--line-2);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    transition: background-size .35s var(--ease), color .2s var(--ease), text-decoration-color .2s var(--ease);
+
+    &:hover {
+      background-size: 100% 100%;
+      color: var(--on-signal);
+      text-decoration-color: transparent;
+    }
+  }
+
+  h2 {
+    position: relative;
+    margin: 64px 0 20px;
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: -.025em;
+    scroll-margin-top: 100px;
+    text-wrap: balance;
+
+    &:hover .lt-anchor {
+      opacity: 1;
+    }
+  }
+
+  h3 {
+    margin: 44px 0 16px;
+    font-size: 23px;
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -.018em;
+    scroll-margin-top: 100px;
+    text-wrap: balance;
+  }
+
+  h4 {
+    margin: 32px 0 12px;
+    font-size: 18px;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+
+  ul,
+  ol {
+    margin: 0 0 24px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  ol {
+    padding-left: 30px;
+  }
+
+  li {
+    position: relative;
+    font-family: var(--serif);
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--prose);
+    text-wrap: pretty;
+
+    > p {
+      margin-bottom: 12px;
+    }
+
+    > ul,
+    > ol {
+      margin: 12px 0 0;
+    }
+  }
+
+  ul > li {
+    padding-left: 30px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: .66em;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--signal);
+      box-shadow: 0 0 0 1px var(--ring);
+    }
+  }
+
+  ol > li::marker {
+    font: 500 .7em var(--mono);
+    color: var(--ink-3);
+  }
+
+  ul ul > li::before {
+    background: transparent;
+    box-shadow: inset 0 0 0 1px var(--ink-3);
+  }
+
+  // The pull quote.
+  blockquote {
+    margin: 48px 0;
+    padding: 26px 0 0;
+    border-top: 1px solid var(--ink);
+    font-size: 34px;
+    line-height: 1.18;
+    font-weight: 450;
+    letter-spacing: -.024em;
+    color: var(--ink);
+    text-wrap: balance;
+
+    p {
+      margin: 0 0 16px;
+      font: inherit;
+      color: inherit;
+      letter-spacing: inherit;
+    }
+
+    cite,
+    footer {
+      display: block;
+      margin-top: 16px;
+      font: 12px var(--mono);
+      font-style: normal;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+  }
+
+  hr {
+    margin: 56px 0;
+    border: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  img {
+    display: block;
+    border-radius: 14px;
+  }
+
+  mark {
+    background: var(--signal);
+    color: var(--on-signal);
+    border-radius: 3px;
+    padding: 0 .1em;
+  }
+
+  kbd {
+    display: inline-flex;
+    align-items: center;
+    height: 1.4em;
+    padding: 0 .4em;
+    border: 1px solid var(--line-2);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+    background: var(--paper);
+    font: 500 .6em/1 var(--mono);
+    color: var(--ink-2);
+    vertical-align: .15em;
+  }
+
+  // Tables: the script wraps them in a scroll container.
+  table {
+    width: 100%;
+    margin: 36px 0 40px;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+
+  th {
+    padding: 0 20px 12px 0;
+    text-align: left;
+    font: 500 11.5px var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    border-bottom: 1px solid var(--ink);
+  }
+
+  td {
+    padding: 16px 20px 16px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: baseline;
+    line-height: 1.5;
+    color: var(--ink-2);
+
+    &:first-child {
+      color: var(--ink);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+
+  // Footnote references (kramdown) become signal badges.
+  sup[role="doc-noteref"],
+  sup[id^="fnref"] {
+    font-size: inherit;
+    vertical-align: baseline;
+    line-height: inherit;
+  }
+
+  a.footnote,
+  .lt-fn {
+    @extend %lt-fn-badge;
+  }
+
+  // The footnote list: the no-script fallback for sidenotes.
+  .footnotes {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+
+    ol {
+      gap: 10px;
+    }
+
+    li,
+    li p {
+      font-family: var(--sans);
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--ink-2);
+    }
+
+    li p {
+      margin: 0;
+    }
+
+    .reversefootnote {
+      margin-left: 4px;
+      background: none;
+      text-decoration: none;
+      color: var(--ink-3);
+    }
+  }
+
+  .js &[data-sidenotes] .footnotes {
+    display: none;
+  }
+
+  // Math (KaTeX, loaded when a page sets `math: true`).
+  .katex-display {
+    margin: 30px 0;
+    padding: 8px 0;
+    font-size: 1.15em;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .katex {
+    font-size: 1.08em;
+  }
+}
+
+// Section numbers: a hanging "01" before each h2, drawn with a counter so
+// plain Markdown headings get them too.
+.lt-prose--numbered {
+  counter-reset: lt-h2;
+
+  h2 {
+    padding-left: 32px;
+    text-indent: -32px;
+  }
+
+  h2::before {
+    counter-increment: lt-h2;
+    content: counter(lt-h2, decimal-leading-zero);
+    display: inline-block;
+    width: 32px;
+    text-indent: 0;
+    font: 500 13px var(--mono);
+    letter-spacing: .04em;
+    color: var(--ink-3);
+    transform: translateY(-.45em);
+  }
+}
+
+.lt-anchor {
+  margin-left: 16px;
+  opacity: 0;
+  font: 400 22px var(--mono);
+  color: var(--ink-3);
+  background: none !important;
+  text-decoration: none !important;
+  transition: opacity .2s var(--ease), color .2s var(--ease);
+
+  &:hover {
+    color: var(--ink) !important;
+  }
+
+  &:focus-visible {
+    opacity: 1;
+  }
+}
+
+.lt-lead {
+  font-family: var(--mono);
+  font-size: .74em;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+// Sidenotes sit in the right margin of the text column.
+.lt-sn {
+  position: relative;
+}
+
+.lt-side {
+  position: absolute;
+  top: 4px;
+  right: -$lt-prose-aside;
+  width: $lt-prose-aside - 48px;
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+
+  .lt-fn {
+    margin: 0 8px 0 0;
+    vertical-align: 1px;
+  }
+
+  // Doubled class: must outrank the phone-size rule for prose paragraphs.
+  &.lt-side p {
+    display: inline;
+    margin: 0;
+    font: inherit;
+    color: inherit;
+  }
+
+  a:not([class]) {
+    background: none;
+  }
+}
+
+.lt-callout {
+  margin: 8px 0 32px;
+  padding: 22px 24px;
+  border-radius: 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+
+  .lt-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+  }
+
+  .lt-callout__body {
+    margin-top: 10px;
+
+    p,
+    li {
+      margin: 0 0 10px;
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Figures and captions.
+.lt-fig {
+  margin: 36px 0 40px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.lt-cap {
+  display: flex;
+  gap: 14px;
+  margin-top: 14px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-3);
+
+  b {
+    flex: none;
+    padding-top: 1px;
+    font: 500 11.5px var(--mono);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+}
+
+.lt-plate-fig {
+  border-radius: 16px;
+  background: var(--plate);
+  border: 1px solid var(--plate-border);
+  color: var(--plate-ink);
+  overflow-x: auto;
+}
+
+.lt-table-wrap {
+  margin: 36px 0 40px;
+  overflow-x: auto;
+
+  table {
+    min-width: 620px;
+    margin: 0;
+  }
+
+  + .lt-cap {
+    margin-top: -26px;
+    margin-bottom: 40px;
+  }
+}
+
+.lt-meter {
+  display: inline-flex;
+  gap: 3px;
+  margin-right: 10px;
+  vertical-align: -1px;
+
+  i {
+    width: 4px;
+    height: 12px;
+    border-radius: 1px;
+    background: var(--line-2);
+
+    &.on {
+      background: var(--ink);
+    }
+  }
+}
+
+.lt-eq {
+  margin: 30px 0;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1.35;
+  color: var(--ink);
+
+  > div {
+    position: relative;
+    text-align: center;
+  }
+
+  sub,
+  sup {
+    font-size: .6em;
+  }
+}
+
+.lt-eqn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font: 13px var(--mono);
+  color: var(--ink-3);
+}
+
+@include lt-phone-down {
+  .lt-prose,
+  .lt-sec-b {
+    p,
+    li {
+      font-size: 18.5px;
+    }
+
+    p.lead {
+      font-size: 20px;
+    }
+
+    blockquote {
+      font-size: 27px;
+    }
+  }
+}

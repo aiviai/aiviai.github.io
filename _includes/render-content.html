@@ -1,0 +1,10 @@
+{%- comment -%}The original article uses an expired signed URL for this QR image. Resolve the same asset through its permanent public GitHub URL without editing article sources.{%- endcomment -%}
+{%- assign rendered_content = include.html -%}
+{%- assign expired_image_prefix = 'src="https://private-user-images.githubusercontent.com/42172631/313519233-7568cf78-c8ba-4182-aa96-d524d903f2bc.jpeg' -%}
+{%- assign image_segments = rendered_content | split: expired_image_prefix -%}
+{%- for segment in image_segments offset: 1 -%}
+  {%- assign signed_suffix = segment | split: '"' | first -%}
+  {%- assign expired_src = expired_image_prefix | append: signed_suffix | append: '"' -%}
+  {%- assign rendered_content = rendered_content | replace: expired_src, 'src="https://github.com/win4r/AISuperDomain/assets/42172631/7568cf78-c8ba-4182-aa96-d524d903f2bc"' -%}
+{%- endfor -%}
+{{- rendered_content -}}

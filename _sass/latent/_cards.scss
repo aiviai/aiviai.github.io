@@ -1,0 +1,224 @@
+.lt-card {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  &:hover .lt-ct { background-size: 100% 1.5px; }
+  &:hover .lt-more svg { transform: translateX(4px); }
+  &:hover .lt-more span { background-size: 100% 1.5px; }
+  &:hover .lt-cover { transform: scale(1.035); }
+  &:hover .lt-arrow { opacity: 1; transform: none; }
+}
+
+.lt-card--row {
+  flex-direction: row;
+  align-items: center;
+
+  &:hover .lt-cover { transform: scale(1.06); }
+}
+
+.lt-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lt-card__title {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 500;
+  letter-spacing: -.018em;
+  text-wrap: balance;
+}
+
+.lt-card__excerpt {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  text-wrap: pretty;
+}
+
+.lt-card__byline {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+
+  .name {
+    color: var(--ink-2);
+  }
+}
+
+// A plate that holds a generative cover.
+.lt-frame {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 12px;
+  background: var(--plate);
+  border: 1px solid var(--plate-border);
+  aspect-ratio: 16 / 10;
+}
+
+.lt-cover {
+  position: absolute;
+  inset: 0;
+  transition: transform .7s var(--ease);
+}
+
+.lt-cover--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lt-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  background: var(--signal);
+  color: var(--on-signal);
+  opacity: 0;
+  transform: translate(-6px, 6px) scale(.9);
+  transition: opacity .3s var(--ease), transform .35s var(--ease);
+}
+
+// Block labels drawn over the "stream" cover.
+.lt-st {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: calc(50% - 74px);
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+
+  > span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  b {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 34px;
+    border-radius: 8px;
+    background: var(--plate-2);
+    border: 1px solid var(--plate-str);
+    font: 500 10.5px var(--mono);
+    letter-spacing: .04em;
+    color: var(--plate-ink);
+  }
+
+  i {
+    display: block;
+    width: 1px;
+    height: 30px;
+    background: var(--plate-str);
+  }
+
+  em {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--plate);
+    border: 1.5px solid var(--signal);
+    font: 600 12px/1 var(--mono);
+    font-style: normal;
+    color: var(--signal);
+  }
+}
+
+.lt-frame__caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font: 11.5px var(--mono);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--plate-ink-2);
+}
+
+// Rows: notes, archive entries, recent lists.
+.lt-row {
+  border-radius: 10px;
+  transition: background-color .2s var(--ease);
+
+  &:hover {
+    background: var(--surface);
+  }
+
+  &:hover .lt-ct {
+    background-size: 100% 1.5px;
+  }
+
+  &:hover .lt-row-arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.lt-row-arrow {
+  flex: none;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+
+.lt-rows {
+  border-top: 1px solid var(--line);
+
+  > * {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.lt-mini-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 12px;
+  margin: 0 -12px;
+
+  time {
+    flex: none;
+    width: 56px;
+    font: 12px var(--mono);
+    color: var(--ink-3);
+  }
+
+  .t {
+    flex: 1;
+    min-width: 0;
+    font-size: 15.5px;
+    font-weight: 500;
+    letter-spacing: -.008em;
+  }
+}
+
+@include lt-phone-down {
+  .lt-row.lt-row--grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 6px !important;
+  }
+}

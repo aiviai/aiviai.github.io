@@ -1,0 +1,44 @@
+{%- comment -%}
+  "Cite this post": a plain reference and a BibTeX entry built from front
+  matter and _data/authors.yml. Expects `lt_authors` (see authors.html).
+{%- endcomment -%}
+{%- assign lt_year = page.date | date: "%Y" -%}
+{%- capture lt_ref_names -%}
+  {%- for key in lt_authors -%}
+    {%- assign lt_a = site.data.authors[key] -%}
+    {%- assign lt_ap = lt_a.name | default: key | split: " " -%}
+    {%- if forloop.last and forloop.length > 1 %}{% if forloop.length > 2 %},{% endif %} and {% elsif forloop.index > 1 %}, {% endif -%}
+    {{- lt_ap.last }}{% if lt_ap.size > 1 %}, {{ lt_ap.first | slice: 0 }}.{% endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- capture lt_bib_names -%}
+  {%- for key in lt_authors -%}
+    {%- assign lt_a = site.data.authors[key] -%}
+    {%- assign lt_an = lt_a.name | default: key -%}
+    {%- assign lt_ap = lt_an | split: " " -%}
+    {%- if forloop.index > 1 %} and {% endif -%}
+    {%- if lt_ap.size > 1 -%}{{ lt_ap.last }}, {{ lt_an | remove_first: lt_ap.last | strip }}{%- else -%}{{ lt_an }}{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- assign lt_first_author = lt_authors.first -%}
+{%- assign lt_fa = site.data.authors[lt_first_author] -%}
+{%- assign lt_key_name = lt_fa.name | default: lt_first_author | default: site.title | split: " " | last | downcase | replace: "'", "" | replace: "’", "" -%}
+{%- assign lt_key_word = page.slug | split: "-" | first | downcase -%}
+{%- assign lt_lb = "{" -%}
+{%- assign lt_rb = "}" -%}
+<section id="cite" class="lt-cite" aria-labelledby="cite-title">
+  <div class="head">
+    <h2 id="cite-title" class="lt-label">Cite this post</h2>
+    <button class="lt-btn lt-btn-ghost lt-btn-sm" type="button" data-copy-target="#lt-bib" data-requires-js><span class="lt-when-idle">{% include icon.html name="copy" px=15 %}Copy BibTeX</span><span class="lt-when-copied">{% include icon.html name="check" px=15 %}Copied</span></button>
+  </div>
+  <p>{% if lt_ref_names != "" %}{{ lt_ref_names }} {% endif %}({{ lt_year }}). “{{ page.title }}.” <i>{{ site.title }}</i>, {{ page.date | date: "%B %-d" }}.</p>
+  <pre id="lt-bib">@article{{ lt_lb }}{{ lt_key_name }}{{ lt_year }}{{ lt_key_word }},
+  title   = {{ lt_lb }}{{ page.title }}{{ lt_rb }},
+{%- if lt_bib_names != "" %}
+  author  = {{ lt_lb }}{{ lt_bib_names }}{{ lt_rb }},
+{%- endif %}
+  journal = {{ lt_lb }}{{ site.title }}{{ lt_rb }},
+  year    = {{ lt_lb }}{{ lt_year }}{{ lt_rb }},
+  url     = {{ lt_lb }}{{ page.url | absolute_url }}{{ lt_rb }}
+}</pre>
+</section>

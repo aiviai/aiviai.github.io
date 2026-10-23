@@ -1,0 +1,26 @@
+{%- comment -%}
+  Primary navigation links: site.latent.navigation or _data/navigation.yml
+  (title, url and an optional section key), else pages that set `nav_order`.
+  variant: "desktop" (default) or "mobile".
+{%- endcomment -%}
+{%- assign lt_nav = site.latent.navigation | default: site.data.navigation.main -%}
+{%- unless lt_nav -%}
+  {%- assign lt_nav = site.pages | where_exp: "p", "p.nav_order" | sort: "nav_order" -%}
+{%- endunless -%}
+{%- assign lt_page_section = page.categories.first | downcase -%}
+{%- for item in lt_nav -%}
+  {%- assign lt_item_title = item.nav_title | default: item.title -%}
+  {%- assign lt_item_path = item.url | split: "?" | first | split: "#" | first -%}
+  {%- assign lt_current = false -%}
+  {%- if item.section -%}
+    {%- assign lt_item_section = item.section | downcase -%}
+    {%- if page.collection == "posts" and lt_page_section == lt_item_section -%}{%- assign lt_current = true -%}{%- endif -%}
+  {%- elsif lt_item_path == page.url -%}
+    {%- assign lt_current = true -%}
+  {%- endif -%}
+  {%- if include.variant == "mobile" %}
+<a href="{{ item.url | relative_url }}"{% if item.section %} data-nav-section="{{ item.section | downcase }}"{% endif %}{% if lt_current %} aria-current="page"{% endif %}><span>{{ lt_item_title }}<span class="lt-sq"></span></span>{% include icon.html name="arrow-right" px=20 %}</a>
+  {%- else %}
+<a href="{{ item.url | relative_url }}"{% if item.section %} data-nav-section="{{ item.section | downcase }}"{% endif %}{% if lt_current %} aria-current="page"{% endif %}>{{ lt_item_title }}</a>
+  {%- endif -%}
+{%- endfor -%}

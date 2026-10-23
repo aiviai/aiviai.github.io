@@ -1,0 +1,12 @@
+{%- comment -%}
+  Sets `lt_authors`: a list of author keys or names for include.post.
+  Keys are looked up in _data/authors.yml; anything else is shown as a name.
+  Falls back to site.author.
+{%- endcomment -%}
+{%- assign lt_authors = include.post.authors | default: include.post.author -%}
+{%- if lt_authors == nil or lt_authors == empty -%}
+  {%- assign lt_authors = site.author.name | default: site.author -%}
+{%- endif -%}
+{%- if lt_authors.first == nil -%}
+  {%- assign lt_authors = lt_authors | split: "|||" -%}
+{%- endif -%}

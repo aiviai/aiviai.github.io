@@ -1,0 +1,180 @@
+.lt-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--header);
+  -webkit-backdrop-filter: saturate(1.6) blur(14px);
+  backdrop-filter: saturate(1.6) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.lt-header__bar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lt-header__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lt-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+
+  svg {
+    flex: none;
+  }
+}
+
+.lt-nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 16px;
+
+  a {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 999px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    transition: background-color .2s var(--ease), color .2s var(--ease);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: -4px 0;
+    }
+
+    &:hover {
+      color: var(--ink);
+      background: var(--surface-2);
+    }
+
+    &[aria-current="page"] {
+      color: var(--ink);
+
+      &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--signal);
+        box-shadow: 0 0 0 1px var(--ring);
+      }
+    }
+  }
+}
+
+.lt-icon {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  color: var(--ink-2);
+  transition: background-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+
+  &:hover {
+    color: var(--ink);
+    background: var(--surface-2);
+  }
+
+  &:active {
+    transform: scale(.94);
+  }
+}
+
+.lt-search {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 220px;
+  height: 40px;
+  padding: 0 6px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink-3);
+  font-size: 14px;
+  transition: border-color .2s var(--ease), color .2s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+  }
+
+  &:hover {
+    border-color: var(--line-2);
+    color: var(--ink-2);
+  }
+
+  span {
+    flex: 1;
+  }
+}
+
+// Sun shows in dark mode, moon in light.
+.lt-i-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] {
+  .lt-i-sun { display: block; }
+  .lt-i-moon { display: none; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    .lt-i-sun { display: block; }
+    .lt-i-moon { display: none; }
+  }
+}
+
+.lt-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--progress);
+  border-radius: 0 2px 2px 0;
+}
+
+@include lt-phone-down {
+  .lt-header__bar {
+    height: 56px;
+    padding-right: 8px;
+  }
+
+  .lt-header .lt-brand {
+    gap: 9px;
+    font-size: 16px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  .lt-header__actions {
+    gap: 0;
+  }
+}

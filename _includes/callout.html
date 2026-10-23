@@ -1,0 +1,8 @@
+{%- comment -%}
+  A highlighted aside in a post or page.
+  {% include callout.html title="Key idea" text="Markdown **allowed**." %}
+{%- endcomment -%}
+<aside class="lt-callout" aria-label="{{ include.title | default: 'Note' | escape }}">
+  <div class="lt-label"><span class="lt-sq"></span><span>{{ include.title | default: "Note" }}</span></div>
+  <div class="lt-callout__body">{{ include.text | markdownify }}</div>
+</aside>

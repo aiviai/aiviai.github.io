@@ -1,0 +1,5 @@
+{% if page.comments and site.comments.provider == 'giscus' and site.comments.giscus.repo_id and site.comments.giscus.category_id %}
+<section class="lt-comments" aria-label="评论">
+<script src="https://giscus.app/client.js" data-repo="{{ site.repository }}" data-repo-id="{{ site.comments.giscus.repo_id }}" data-category="{{ site.comments.giscus.category_name }}" data-category-id="{{ site.comments.giscus.category_id }}" data-mapping="{{ site.comments.giscus.discussion_term | default: 'pathname' }}" data-strict="0" data-reactions-enabled="{{ site.comments.giscus.reactions_enabled | default: '1' }}" data-emit-metadata="0" data-input-position="top" data-theme="{{ site.comments.giscus.theme | default: 'preferred_color_scheme' }}" data-lang="zh-CN" crossorigin="anonymous" async></script>
+</section>
+{% endif %}

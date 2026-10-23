@@ -1,0 +1,35 @@
+{%- assign lt = site.latent -%}
+{%- assign lt_archive = lt.archive_url | default: "/archive/" | relative_url -%}
+{%- if lt.newsletter == false -%}
+  {%- assign lt_subscribe = lt.subscribe_url | default: lt.feed_url | default: "/feed.xml" | relative_url -%}
+{%- else -%}
+  {%- assign lt_subscribe = lt.subscribe_url | default: "/#subscribe" | relative_url -%}
+{%- endif -%}
+<header class="lt-header">
+  <div class="lt-wrap lt-header__bar">
+    <a class="lt-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }}, home">
+      {% include logo.html %}
+      <span>{{ site.title }}</span>
+    </a>
+    <nav class="lt-nav lt-hide-m" aria-label="Primary">
+      {%- include navigation.html %}
+    </nav>
+    <div class="lt-header__actions">
+      {%- if lt.search != false %}
+      <a class="lt-search lt-hide-m" href="{{ lt_archive }}" data-search-open>{% include icon.html name="search" %}<span>搜索</span><kbd class="lt-kbd" data-kbd-mod>⌘K</kbd></a>
+      <a class="lt-icon lt-show-m" href="{{ lt_archive }}" data-search-open aria-label="搜索">{% include icon.html name="search" px=18 stroke=1.7 %}</a>
+      {%- endif %}
+      <button class="lt-icon" type="button" data-theme-toggle data-requires-js aria-label="切换主题">
+        {%- include icon.html name="sun" px=18 class="lt-i-sun" -%}
+        {%- include icon.html name="moon" px=18 class="lt-i-moon" -%}
+      </button>
+      {%- if lt.subscribe_button != false %}
+      <a class="lt-btn lt-btn-primary lt-btn-sm lt-hide-m" href="{{ lt_subscribe }}">{{ lt.subscribe_label | default: "Subscribe" }}</a>
+      {%- endif %}
+      <button class="lt-icon lt-show-m" type="button" data-menu-open data-requires-js aria-controls="lt-menu" aria-expanded="false" aria-label="打开菜单">{% include icon.html name="menu" px=18 %}</button>
+    </div>
+  </div>
+  {%- if page.collection == "posts" %}
+  <div class="lt-progress" data-progress aria-hidden="true"></div>
+  {%- endif %}
+</header>

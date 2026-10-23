@@ -1,0 +1,25 @@
+{%- comment -%}
+  Contents list built from the <h2 id="..."> headings in include.html, with
+  no plugin. A heading can set a shorter label with kramdown's attribute
+  syntax:  ## A long heading {#id data-toc="Short"}
+{%- endcomment -%}
+{%- assign lt_chunks = include.html | split: "<h2" -%}
+{%- assign lt_toc_n = 0 -%}
+{%- capture lt_toc_items -%}
+{%- for lt_chunk in lt_chunks offset: 1 -%}
+  {%- assign lt_head = lt_chunk | split: "</h2>" | first -%}
+  {%- assign lt_attr = lt_head | split: ">" | first -%}
+  {%- unless lt_attr contains 'id="' -%}{%- continue -%}{%- endunless -%}
+  {%- assign lt_id = lt_attr | split: 'id="' | last | split: '"' | first -%}
+  {%- if lt_attr contains 'data-toc="' -%}
+    {%- assign lt_label = lt_attr | split: 'data-toc="' | last | split: '"' | first -%}
+  {%- else -%}
+    {%- assign lt_label = lt_head | remove_first: lt_attr | remove_first: ">" | strip_html | strip -%}
+  {%- endif -%}
+  {%- assign lt_toc_n = lt_toc_n | plus: 1 -%}
+  <li><a class="lt-toc-a" href="#{{ lt_id }}" data-toc-link><span class="n">{% if lt_toc_n < 10 %}0{% endif %}{{ lt_toc_n }}</span><span>{{ lt_label }}</span></a></li>
+{%- endfor -%}
+{%- endcapture -%}
+{%- if lt_toc_n > 0 -%}
+<ol class="lt-toc">{{ lt_toc_items }}</ol>
+{%- endif -%}

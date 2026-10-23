@@ -1,0 +1,34 @@
+---
+layout: default
+footer: slim
+---
+{%- assign lt = site.latent -%}
+{%- assign lt_archive = lt.archive_url | default: "/archive/" -%}
+<main id="main" class="lt-wrap lt-404">
+  <div class="lt-404__text">
+    <div class="lt-label lt-kicker"><span class="lt-sq"></span><span>Error 404 · not found</span></div>
+    <div aria-hidden="true"><span class="lt-big">404<span class="lt-stray"></span></span></div>
+    <h1>{{ page.heading | default: "This page fell out of distribution." }}</h1>
+    <p>{{ page.dek | default: "The link may be broken, or the post may have moved. Search for it, or start again from somewhere familiar." }}</p>
+    {%- if lt.search != false %}
+    <a class="lt-findbox" href="{{ lt_archive | relative_url }}" data-search-open>{% include icon.html name="search" px=18 %}<span>搜索文章、内容与标签</span><kbd class="lt-kbd" data-kbd-mod>⌘K</kbd></a>
+    {%- endif %}
+    <div class="lt-actions">
+      <a class="lt-btn lt-btn-primary" href="{{ '/' | relative_url }}">{% include icon.html name="arrow-left" class="back" %}Back to home</a>
+      <a class="lt-btn lt-btn-secondary" href="{{ lt_archive | relative_url }}">Browse the archive{% include icon.html name="arrow-right" class="go" %}</a>
+    </div>
+  </div>
+  <div class="lt-404__side">
+    {% include plate-404.html %}
+    {%- if site.posts.size > 0 %}
+    <div>
+      <div class="lt-label">Recently published</div>
+      <div class="lt-rows">
+        {%- for post in site.posts limit: 3 %}
+        <div><a class="lt-row lt-mini-row" href="{{ post.url | relative_url }}"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time><span class="t"><span class="lt-ct">{{ post.title }}</span></span>{% include icon.html name="arrow-right" class="lt-row-arrow" %}</a></div>
+        {%- endfor %}
+      </div>
+    </div>
+    {%- endif %}
+  </div>
+</main>

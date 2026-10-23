@@ -1,0 +1,20 @@
+{%- assign lt = site.latent -%}
+<div class="lt-menu" id="lt-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-menu>
+  <div class="lt-wrap lt-menu__bar">
+    <a class="lt-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }}, home">{% include logo.html px=22 %}<span>{{ site.title }}</span></a>
+    <button class="lt-icon" type="button" data-menu-close aria-label="关闭菜单">{% include icon.html name="close" px=18 %}</button>
+  </div>
+  <div class="lt-wrap lt-menu__body">
+    {%- if lt.search != false %}
+    <button class="lt-menu__search" type="button" data-search-open>{% include icon.html name="search" px=17 %}搜索文章、内容与标签</button>
+    {%- endif %}
+    <nav class="lt-mnav" aria-label="Primary">
+      {%- include navigation.html variant="mobile" %}
+    </nav>
+    <div class="lt-menu__foot">
+      <span class="lt-label">外观</span>
+      {%- include theme-switch.html %}
+      <div class="row"><a href="{{ lt.feed_url | default: '/feed.xml' | relative_url }}">RSS 订阅</a><span>© {{ site.time | date: "%Y" }} {{ site.title }}</span></div>
+    </div>
+  </div>
+</div>

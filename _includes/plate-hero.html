@@ -1,0 +1,26 @@
+{%- comment -%}The home hero illustration: a descent path across loss contours.{%- endcomment -%}
+<div class="lt-plate">
+  <svg viewBox="0 0 480 480" aria-hidden="true">
+    <defs><pattern id="lt-dots-hero" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r="1.15" style="fill: var(--plate-dot)"></circle></pattern></defs>
+    <rect width="480" height="480" fill="url(#lt-dots-hero)"></rect>
+    <g class="lt-contours"><g transform="rotate(-18 300 204)" style="fill: none; stroke-width: 1">
+      <ellipse class="lt-breathe" cx="300" cy="204" rx="54" ry="38" style="stroke: var(--plate-str)"></ellipse>
+      <ellipse cx="300" cy="204" rx="102" ry="74" style="stroke: var(--plate-str)"></ellipse>
+      <ellipse cx="300" cy="204" rx="150" ry="110" style="stroke: var(--plate-line)"></ellipse>
+      <ellipse cx="300" cy="204" rx="198" ry="146" style="stroke: var(--plate-line)"></ellipse>
+      <ellipse cx="300" cy="204" rx="246" ry="182" style="stroke: var(--plate-line)"></ellipse>
+    </g></g>
+    <path class="lt-path" d="M84 372 L156 324 L228 300 L276 228 L300 204" pathLength="100" style="fill: none; stroke: var(--signal); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round"></path>
+    <circle class="lt-node" cx="84" cy="372" r="4" style="fill: var(--plate-ink); animation-delay: .2s"></circle>
+    <circle class="lt-node" cx="156" cy="324" r="3" style="fill: var(--plate-ink); animation-delay: .7s"></circle>
+    <circle class="lt-node" cx="228" cy="300" r="3" style="fill: var(--plate-ink); animation-delay: 1.2s"></circle>
+    <circle class="lt-node" cx="276" cy="228" r="3" style="fill: var(--plate-ink); animation-delay: 1.7s"></circle>
+    <circle class="lt-pulse" cx="300" cy="204" r="7" style="fill: none; stroke: var(--signal); stroke-width: 1.2"></circle>
+    <circle class="lt-node" cx="300" cy="204" r="7" style="fill: var(--signal); animation-delay: 2.1s"></circle>
+    <circle class="lt-node" cx="300" cy="204" r="2.4" style="fill: #0B0D0E; animation-delay: 2.1s"></circle>
+    <text x="94" y="396" style="font: 13px var(--mono); fill: var(--plate-ink-2)">z₀</text>
+    <text x="316" y="190" style="font: 13px var(--mono); fill: var(--plate-ink)">z*</text>
+  </svg>
+  <div class="lt-label lt-plate__label">{{ include.label | default: "Latent space · 2-D projection" }}</div>
+  <div class="lt-plate__foot" aria-hidden="true"><span>z₀ → z*</span><span>∇ descent · 4 steps</span></div>
+</div>

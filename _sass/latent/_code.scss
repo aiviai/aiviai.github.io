@@ -1,0 +1,149 @@
+// Code blocks: Rouge output from fenced Markdown (div.highlighter-rouge),
+// the {% highlight %} tag (figure.highlight), and hand-written .lt-code.
+
+$lt-code-fn: #A9C7FF !default;      // functions, classes
+$lt-code-string: #9FD8C9 !default;
+$lt-code-number: #F5B99A !default;  // numbers, constants
+$lt-code-comment: #7D858C !default;
+$lt-code-type: #E8D49B !default;    // builtins, types, keys
+$lt-code-self: #C7CCD1 !default;    // self, this
+
+.lt-code,
+div.highlighter-rouge,
+figure.highlight {
+  margin: 32px 0;
+  border-radius: 14px;
+  background: var(--plate);
+  border: 1px solid var(--code-border);
+  color: var(--plate-ink);
+  overflow: hidden;
+}
+
+figure.highlight {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.highlighter-rouge .highlight {
+  margin: 0;
+  background: none;
+}
+
+.lt-code pre,
+div.highlighter-rouge pre,
+figure.highlight pre {
+  margin: 0;
+  padding: 18px 22px 20px;
+  overflow-x: auto;
+  font: 13.5px/1.75 var(--mono);
+  tab-size: 4;
+  counter-reset: ln;
+  background: none;
+  color: inherit;
+
+  code {
+    font: inherit;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+  }
+}
+
+// Line numbers, added by the script.
+.lt-code--ln pre {
+  padding-left: 6px;
+}
+
+.lt-code .l::before,
+.lt-code--ln .l::before {
+  counter-increment: ln;
+  content: counter(ln);
+  display: inline-block;
+  width: 2.4em;
+  margin-right: 1.4em;
+  text-align: right;
+  color: $lt-code-comment;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.lt-code-h {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 46px;
+  padding: 0 8px 0 18px;
+  border-bottom: 1px solid var(--plate-line);
+  font: 12.5px var(--mono);
+  color: var(--plate-ink-2);
+
+  .file {
+    color: var(--plate-ink);
+  }
+
+  .lt-copy {
+    margin-left: auto;
+  }
+}
+
+.lt-copy {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 8px;
+  color: var(--plate-ink-2);
+  font: 12px var(--mono);
+  transition: background-color .2s var(--ease), color .2s var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -6px 0;
+  }
+
+  &:hover {
+    background: var(--plate-2);
+    color: var(--plate-ink);
+  }
+
+  &.is-copied {
+    color: var(--signal);
+  }
+}
+
+// Token colors. Short class names are Rouge's (Pygments-compatible).
+.tk { color: var(--signal); }
+.tf { color: $lt-code-fn; }
+.ts { color: $lt-code-string; }
+.tn { color: $lt-code-number; }
+.tc { color: $lt-code-comment; font-style: italic; }
+.tt { color: $lt-code-type; }
+.tv { color: $lt-code-self; font-style: italic; }
+
+.highlight {
+  .k, .kd, .kn, .kp, .kr, .kv, .ow { color: var(--signal); }
+  .nf, .nc, .fm, .nd, .ne { color: $lt-code-fn; }
+  .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss { color: $lt-code-string; }
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .mx, .kc { color: $lt-code-number; }
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf { color: $lt-code-comment; font-style: italic; }
+  .nb, .kt, .na, .nt { color: $lt-code-type; }
+  .bp, .vi, .vc, .vg { color: $lt-code-self; font-style: italic; }
+  .gi { color: $lt-code-string; }
+  .gd { color: $lt-code-number; }
+  .gh, .gu { color: $lt-code-fn; }
+  .ge { font-style: italic; }
+  .gs { font-weight: 600; }
+  .err { color: inherit; background: none; }
+}
+
+@include lt-phone-down {
+  .lt-code pre,
+  div.highlighter-rouge pre,
+  figure.highlight pre {
+    font-size: 12.5px;
+  }
+}

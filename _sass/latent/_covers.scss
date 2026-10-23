@@ -1,0 +1,58 @@
+// Generative covers: pure CSS, no image assets. Pick one with `cover:` in
+// front matter, or let the theme derive one from the post's slug.
+
+.cv-field {
+  background:
+    radial-gradient(circle at calc(50% - 96px) calc(50% - 32px), var(--signal) 0 6px, transparent 7px),
+    radial-gradient(circle at calc(50% - 96px) calc(50% - 32px), transparent 0 15px, var(--plate-str) 15px 16px, transparent 17px),
+    radial-gradient(circle at calc(50% + 48px) calc(50% + 32px), var(--signal) 0 6px, transparent 7px),
+    radial-gradient(circle at calc(50% + 144px) calc(50% - 64px), var(--plate-ink) 0 3px, transparent 4px),
+    radial-gradient(circle, var(--plate-dot) 1.1px, transparent 1.7px) 50% 50%/16px 16px,
+    var(--plate);
+}
+
+.cv-rings {
+  background:
+    radial-gradient(circle at 72% 46%, var(--signal) 0 16px, transparent 17px),
+    repeating-radial-gradient(circle at 72% 46%, transparent 0 23px, var(--plate-str) 23px 24px),
+    var(--plate);
+}
+
+.cv-lines {
+  background:
+    linear-gradient(118deg, transparent 0 60.5%, var(--signal) 60.5% 61.6%, transparent 61.6%),
+    repeating-linear-gradient(118deg, transparent 0 11px, var(--plate-dot) 11px 12px),
+    var(--plate);
+}
+
+.cv-grid {
+  background:
+    linear-gradient(var(--signal), var(--signal)) calc(50% + 40px) calc(50% - 40px)/40px 40px no-repeat,
+    linear-gradient(var(--signal), var(--signal)) calc(50% + 80px) calc(50% - 40px)/40px 40px no-repeat,
+    linear-gradient(var(--signal), var(--signal)) calc(50% + 80px) 50%/40px 40px no-repeat,
+    linear-gradient(var(--plate-line) 1px, transparent 1px) 50% 50%/40px 40px,
+    linear-gradient(90deg, var(--plate-line) 1px, transparent 1px) 50% 50%/40px 40px,
+    var(--plate);
+}
+
+.cv-rays {
+  background:
+    radial-gradient(circle at 16% 86%, var(--signal) 0 10px, transparent 11px),
+    repeating-conic-gradient(from 0deg at 16% 86%, var(--plate-dot) 0 .4deg, transparent .4deg 6deg),
+    var(--plate);
+}
+
+.cv-wave {
+  background:
+    radial-gradient(circle at 66% 40%, var(--signal) 0 8px, transparent 9px),
+    radial-gradient(circle at 50% 100%, transparent 0 10.5px, var(--plate-str) 11px 12px, transparent 12.5px) 50% 50%/26px 13px,
+    var(--plate);
+}
+
+.cv-stream {
+  background:
+    linear-gradient(transparent calc(50% - 1px), var(--signal) calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px)),
+    repeating-linear-gradient(90deg, transparent 0 47px, var(--plate-line) 47px 48px),
+    radial-gradient(circle, var(--plate-dot) 1px, transparent 1.6px) 50% 50%/16px 16px,
+    var(--plate);
+}

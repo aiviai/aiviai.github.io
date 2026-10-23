@@ -1,0 +1,95 @@
+---
+layout: default
+---
+{%- comment -%}
+  Every post, grouped by year. Filtering by section, tag and title runs in
+  the browser; `?section=`, `?tag=` and `?q=` in the URL preselect filters,
+  so category and tag links need no plugin.
+{%- endcomment -%}
+{%- assign lt = site.latent -%}
+{%- include sections.html -%}
+{%- assign lt_total = site.posts.size -%}
+<main id="main" class="lt-main" data-archive>
+
+<section aria-labelledby="archive-title" class="lt-wrap lt-intro">
+  <div class="lt-intro__text">
+    <div class="lt-label lt-kicker"><span class="lt-sq"></span><span>{{ page.kicker | default: page.title }}</span></div>
+    <h1 id="archive-title" class="lt-page-title">{{ page.heading | default: "Everything we’ve written." }}</h1>
+    {%- if page.dek or page.description %}
+    <p class="lt-intro__dek">{{ page.dek | default: page.description }}</p>
+    {%- endif %}
+  </div>
+  <a class="lt-btn lt-btn-secondary" href="{{ lt.feed_url | default: '/feed.xml' | relative_url }}">{% include icon.html name="rss" %}Subscribe to the feed</a>
+</section>
+
+<div class="lt-filterbar">
+  <div class="lt-wrap">
+    <div class="tabs" role="group" aria-label="Filter by section" data-requires-js>
+      <button class="lt-tab on" type="button" data-filter-section="" aria-pressed="true">全部<span class="n">{{ lt_total }}</span></button>
+      {%- for sec in lt_sections %}
+      {%- assign lt_count = site.categories[sec].size | default: 0 %}
+      <button class="lt-tab" type="button" data-filter-section="{{ sec | downcase }}" aria-pressed="false">{% include section-title.html key=sec %}<span class="n">{{ lt_count }}</span></button>
+      {%- endfor %}
+    </div>
+    <button class="lt-chip on" type="button" data-filter-tag-clear aria-label="Remove tag filter" hidden>#<span data-filter-tag-name></span>{% include icon.html name="close" px=14 stroke=2 %}</button>
+    <div class="lt-field" data-requires-js>
+      <label class="lt-sr" for="archive-q">按标题筛选</label>
+      {% include icon.html name="search" %}
+      <input class="lt-input" id="archive-q" type="search" autocomplete="off" placeholder="按标题筛选" data-filter-query>
+    </div>
+  </div>
+</div>
+
+<section aria-label="Posts by year" class="lt-wrap lt-years">
+  <div class="lt-years__summary" role="status" data-filter-summary>{{ lt_total }} entries</div>
+  {%- assign lt_years = site.posts | group_by_exp: "p", "p.date | date: '%Y'" %}
+  {%- for year in lt_years %}
+  <div class="lt-year" data-year>
+    <div class="lt-year__head">
+      <div class="y">{{ year.name }}</div>
+      <div class="c" data-year-count>{{ year.items.size }} {% if year.items.size == 1 %}entry{% else %}entries{% endif %}</div>
+    </div>
+    <div class="lt-year__list">
+      {%- for post in year.items %}
+      {%- assign lt_psec = post.categories.first %}
+      {%- assign lt_pdek = post.dek | default: post.description | default: post.excerpt | strip_html | strip | truncate: 140 %}
+      <div data-entry data-section="{{ lt_psec | downcase }}" data-categories="{{ post.categories | jsonify | escape }}" data-tags="{{ post.tags | jsonify | escape }}" data-title="{{ post.title | strip_html | downcase | escape }}">
+        <a class="lt-row lt-entry" href="{{ post.url | relative_url }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %-d" }}</time>
+          <span class="main"><span class="t"><span class="lt-ct">{{ post.title }}</span></span>{% if lt_pdek != "" %}<span class="x">{{ lt_pdek }}</span>{% endif %}</span>
+          <span class="lt-meta lt-hide-s">{% if lt_psec %}<span class="lt-cat">{% include section-title.html key=lt_psec %}</span>{% endif %}</span>
+          <span class="read lt-hide-s">{% include read-time.html post=post %} 分钟</span>
+          {% include icon.html name="arrow-right" px=18 class="lt-row-arrow lt-hide-s" %}
+        </a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+  {%- endfor %}
+  <div class="lt-empty" hidden data-filter-empty>
+    <strong>没有符合条件的文章。</strong>
+    <span>试试其他分类、标签或关键词。</span>
+    <button class="lt-btn lt-btn-secondary lt-btn-sm" type="button" data-filter-reset>清除筛选</button>
+  </div>
+</section>
+
+{%- if site.tags.size > 0 %}
+{%- capture lt_tag_str -%}{%- for t in site.tags -%}{% assign tag_posts = t[1] | uniq %}{{ 99999 | minus: tag_posts.size }}@@{{ t[0] }}@@{{ tag_posts.size }}{%- unless forloop.last -%}|||{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+{%- assign lt_tag_sorted = lt_tag_str | split: "|||" | sort %}
+<section id="tags" aria-labelledby="tags-title" class="lt-tagcloud">
+  <div class="lt-wrap">
+    <div class="head">
+      <span class="lt-label">标签</span>
+      <h2 id="tags-title">按标签浏览</h2>
+    </div>
+    <div class="lt-chips">
+      {%- for t in lt_tag_sorted %}
+      {%- assign lt_tp = t | split: "@@" %}
+      <a class="lt-chip" href="?tag={{ lt_tp[1] | url_encode }}" data-filter-tag="{{ lt_tp[1] | escape }}"><span class="hash">#</span>{{ lt_tp[1] }}<span class="n">{{ lt_tp[2] }}</span></a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+</main>

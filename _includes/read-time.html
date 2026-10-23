@@ -1,0 +1,7 @@
+{%- if include.post.read_time and include.post.read_time != true -%}
+  {%- assign lt_minutes = include.post.read_time -%}
+{%- else -%}
+  {%- assign lt_wpm = site.latent.words_per_minute | default: site.words_per_minute | default: 200 -%}
+  {%- assign lt_minutes = include.post.content | strip_html | number_of_words | divided_by: lt_wpm | at_least: 1 -%}
+{%- endif -%}
+{{- lt_minutes -}}
