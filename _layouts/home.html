@@ -93,10 +93,13 @@ layout: default
 </section>
 {%- endif %}
 
+{%- comment -%} The homepage recent-post preview has its own limit; keep historical pagination intact. {%- endcomment -%}
+{%- assign lt_recent_listing = lt_listing -%}
+{%- if lt_page_number == 1 -%}{%- assign lt_recent_listing = site.posts -%}{%- endif -%}
 {%- assign lt_shown = 0 -%}
 {%- assign lt_writing_total = 0 -%}
 {%- capture lt_cards -%}
-{%- for post in lt_listing -%}
+{%- for post in lt_recent_listing -%}
   {%- if post.categories contains lt_notes_cat -%}{%- continue -%}{%- endif -%}
   {%- assign lt_writing_total = lt_writing_total | plus: 1 -%}
   {%- if post.url == lt_featured.url -%}{%- continue -%}{%- endif -%}
