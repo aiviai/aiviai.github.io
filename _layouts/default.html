@@ -1,0 +1,24 @@
+<!doctype html>
+{%- assign lt_scheme = site.latent.color_scheme | default: "system" %}
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}" class="no-js" data-theme-default="{{ lt_scheme }}"{% if lt_scheme == "light" or lt_scheme == "dark" %} data-theme="{{ lt_scheme }}"{% endif %}>
+<head>
+{%- include head.html %}
+</head>
+<body class="lt layout-{{ page.layout | default: 'default' }}"{% if site.latent.line_numbers == false %} data-no-line-numbers{% endif %}>
+<a class="lt-skip" href="#main">跳到正文</a>
+{%- include header.html %}
+<noscript><nav class="lt-wrap lt-noscript" aria-label="主导航">{% include navigation.html %}<a href="{{ '/archive/' | relative_url }}">全部文章</a></nav></noscript>
+{{ content }}
+{%- assign lt_footer = page.footer | default: layout.footer %}
+{%- if lt_footer == "slim" %}
+{%- include footer.html slim=true %}
+{%- else %}
+{%- include footer.html %}
+{%- endif %}
+{%- include mobile-menu.html %}
+{%- if site.latent.search != false %}
+{%- include search.html %}
+{%- endif %}
+<script src="{{ '/assets/js/latent.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% assign taxonomy = site[include.taxonomy] %}
+{% assign maximum = 0 %}{% for term in taxonomy %}{% if term[1].size > maximum %}{% assign maximum = term[1].size %}{% endif %}{% endfor %}
+{% comment %}Keep the old most-used-first order. Distinct tags may share a slug; only the first keeps the historic anchor.{% endcomment %}
+<main id="main" class="lt-main lt-wrap lt-taxonomy">
+  <h1 class="lt-page-title">{{ page.title }}</h1>
+  <div class="lt-chips">
+  {% assign seen = '|' %}{% assign ordinal = 0 %}
+  {% for count in (1..maximum) reversed %}{% for term in taxonomy %}{% if term[1].size == count %}{% assign term_posts = term[1] | uniq %}
+    {% assign ordinal = ordinal | plus: 1 %}{% assign slug = term[0] | slugify %}{% assign token = slug | prepend: '|' | append: '|' %}{% assign anchor = slug %}
+    {% if seen contains token %}{% assign anchor = slug | append: '--' | append: ordinal %}{% endif %}{% assign seen = seen | append: token %}
+    <a class="lt-chip" href="#{{ anchor }}">{{ term[0] }} <span class="n">{{ term_posts.size }}</span></a>
+  {% endif %}{% endfor %}{% endfor %}
+  </div>
+  {% assign seen = '|' %}{% assign ordinal = 0 %}
+  {% for count in (1..maximum) reversed %}{% for term in taxonomy %}{% if term[1].size == count %}{% assign term_posts = term[1] | uniq %}
+    {% assign ordinal = ordinal | plus: 1 %}{% assign slug = term[0] | slugify %}{% assign token = slug | prepend: '|' | append: '|' %}{% assign anchor = slug %}
+    {% if seen contains token %}{% assign anchor = slug | append: '--' | append: ordinal %}{% endif %}{% assign seen = seen | append: token %}
+    <section class="lt-taxonomy-group" id="{{ anchor }}" data-term="{{ term[0] | escape }}">
+      <h2>{{ term[0] }} <span class="lt-label">{{ term_posts.size }} 篇</span></h2>
+      {% for post in term_posts %}{% include archive-row.html post=post %}{% endfor %}
+      <a class="lt-more" href="#main">返回顶部 ↑</a>
+    </section>
+  {% endif %}{% endfor %}{% endfor %}
+  {% if include.taxonomy == 'categories' %}
+  {% for group in site.data.navigation.docs %}{% for item in group.children %}{% assign key = item.url | split: '#' | last | remove: '/' %}{% assign token = key | prepend: '|' | append: '|' %}{% unless seen contains token %}<section class="lt-taxonomy-group" id="{{ key }}"><h2>{{ item.title }}</h2><p>该分类暂无文章。</p></section>{% endunless %}{% endfor %}{% endfor %}
+  <span id="fine-tuning/"></span>
+  {% endif %}
+</main>

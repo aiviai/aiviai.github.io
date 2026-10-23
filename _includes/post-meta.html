@@ -1,0 +1,6 @@
+{%- assign lt_pm_sec = include.post.categories.first -%}
+{%- assign lt_pm_fmt = include.format | default: site.latent.date_format | default: "%b %-d, %Y" -%}
+<div class="lt-meta">
+  {%- if lt_pm_sec %}<span class="lt-cat">{% include section-title.html key=lt_pm_sec %}</span><span aria-hidden="true">·</span>{% endif -%}
+  <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: lt_pm_fmt }}</time>
+</div>

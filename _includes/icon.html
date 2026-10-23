@@ -1,0 +1,36 @@
+{%- comment -%}
+  Stroke icons. Usage: {% include icon.html name="search" px=16 class="go" %}
+{%- endcomment -%}
+{%- assign lt_s = include.px | default: 16 -%}
+{%- assign lt_w = include.stroke | default: 1.8 -%}
+{%- capture lt_attrs %} width="{{ lt_s }}" height="{{ lt_s }}" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"{% if include.class %} class="{{ include.class }}"{% endif %}{% endcapture -%}
+{%- case include.name -%}
+{%- when "search" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+{%- when "sun" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 1.7 }}" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"></path></svg>
+{%- when "moon" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 1.7 }}" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"></path></svg>
+{%- when "menu" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 1.7 }}" stroke-linecap="round"><path d="M4 8h16M4 16h16"></path></svg>
+{%- when "close" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+{%- when "arrow-right" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+{%- when "arrow-left" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>
+{%- when "arrow-up-right" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 2 }}" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+{%- when "rss" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round"><path d="M5 5a14 14 0 0 1 14 14M5 11a8 8 0 0 1 8 8"></path><circle cx="6" cy="18" r="1.3" fill="currentColor" stroke="none"></circle></svg>
+{%- when "link" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"></path><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"></path></svg>
+{%- when "copy" -%}
+<svg{{ lt_attrs }} stroke-width="{{ lt_w }}" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2.5"></rect><path d="M16 8V6.5A2.5 2.5 0 0 0 13.5 4h-7A2.5 2.5 0 0 0 4 6.5v7A2.5 2.5 0 0 0 6.5 16H8"></path></svg>
+{%- when "check" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 2 }}" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+{%- when "doc" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 1.7 }}" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z"></path><path d="M10 12h5M10 16h5"></path></svg>
+{%- when "tag" -%}
+<svg{{ lt_attrs }} stroke-width="{{ include.stroke | default: 1.7 }}" stroke-linejoin="round"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7Z"></path><circle cx="8" cy="8" r="1.4" fill="currentColor" stroke="none"></circle></svg>
+{%- endcase -%}

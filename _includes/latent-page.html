@@ -1,0 +1,58 @@
+
+{%- comment -%}
+  A single column with a section rail. Each `## Heading` in the page becomes
+  a numbered section with its title in the rail — plain Markdown, no plugin.
+  Set `sections: false` for one continuous column, `numbered: false` to drop
+  the numbers.
+{%- endcomment -%}
+{%- assign lt_chunks = content | split: "<h2" -%}
+<main id="main" class="lt-main">
+<div class="lt-wrap lt-page">
+  <header class="lt-page-head">
+    <div class="spacer lt-hide-s"></div>
+    <div class="txt">
+      {%- if page.kicker != false %}
+      <div class="lt-label lt-kicker"><span class="lt-sq"></span><span>{{ page.kicker | default: page.nav_title | default: page.title }}</span></div>
+      {%- endif %}
+      <h1 class="lt-page-title">{{ page.heading | default: page.title }}</h1>
+      {%- if page.dek or page.description %}
+      <p class="dek">{{ page.dek | default: page.description }}</p>
+      {%- endif %}
+    </div>
+  </header>
+
+  {%- if page.sections == false or lt_chunks.size < 2 %}
+  <section class="lt-sec">
+    <div class="lt-sec-h lt-hide-s"></div>
+    <div class="lt-sec-b" data-prose data-anchors>
+{{ content }}
+    </div>
+  </section>
+  {%- else %}
+  {%- assign lt_intro = lt_chunks.first | strip %}
+  {%- if lt_intro != "" %}
+  <section class="lt-sec">
+    <div class="lt-sec-h lt-hide-s"></div>
+    <div class="lt-sec-b" data-prose>
+{{ lt_intro }}
+    </div>
+  </section>
+  {%- endif %}
+  {%- for lt_chunk in lt_chunks offset: 1 %}
+  {%- assign lt_head = lt_chunk | split: "</h2>" | first %}
+  {%- assign lt_attr = lt_head | split: ">" | first %}
+  {%- assign lt_title = lt_head | remove_first: lt_attr | remove_first: ">" %}
+  {%- assign lt_body = lt_chunk | remove_first: lt_head | remove_first: "</h2>" %}
+  <section class="lt-sec">
+    <div class="lt-sec-h">
+      {%- if page.numbered != false %}<span class="lt-label">{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>{% endif %}
+      <h2{{ lt_attr }}>{{ lt_title }}</h2>
+    </div>
+    <div class="lt-sec-b" data-prose>
+{{ lt_body }}
+    </div>
+  </section>
+  {%- endfor %}
+  {%- endif %}
+</div>
+</main>

@@ -1,0 +1,11 @@
+{%- comment -%}
+  Sets `lt_sections` (category keys, in display order) and `lt_notes_cat`.
+  Uses site.latent.sections when set, otherwise every category with posts.
+{%- endcomment -%}
+{%- assign lt_notes_cat = site.latent.notes_category | default: "notes" -%}
+{%- if site.latent.sections -%}
+  {%- assign lt_sections = site.latent.sections -%}
+{%- else -%}
+  {%- capture lt_sec_str -%}{%- for c in site.categories -%}{{ c[0] }}{%- unless forloop.last -%}|||{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+  {%- assign lt_sections = lt_sec_str | split: "|||" -%}
+{%- endif -%}

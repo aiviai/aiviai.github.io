@@ -1,0 +1,185 @@
+// Single column with a numbered section rail (About, docs, colophons).
+
+.lt-page {
+  padding-bottom: 48px;
+}
+
+.lt-page-head {
+  padding-top: 96px;
+  padding-bottom: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+
+  .spacer {
+    flex: 0 0 228px;
+  }
+
+  .txt {
+    flex: 999 1 560px;
+    min-width: 0;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .lt-page-title {
+    max-width: 14em;
+  }
+
+  .dek {
+    margin: 4px 0 0;
+    max-width: 31em;
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.45;
+    color: var(--ink-2);
+    text-wrap: pretty;
+  }
+}
+
+.lt-sec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 48px;
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+
+.lt-sec-h {
+  flex: 0 0 228px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  h2 {
+    margin: 0;
+    font-size: 22px;
+    line-height: 1.25;
+    font-weight: 500;
+    letter-spacing: -.015em;
+    scroll-margin-top: 100px;
+  }
+}
+
+.lt-sec-b {
+  flex: 999 1 560px;
+  min-width: 0;
+  max-width: 760px;
+
+  .lt-code,
+  div.highlighter-rouge,
+  figure.highlight {
+    margin: 8px 0 22px;
+  }
+}
+
+// Building blocks for page content written in HTML.
+.lt-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(#{'min(200px, 100%)'}, 1fr));
+  gap: 28px 32px;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lt-sq {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+  }
+
+  h3 {
+    margin: 4px 0 0;
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: -.01em;
+  }
+
+  p {
+    margin: 0;
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+}
+
+.lt-list {
+  border-top: 1px solid var(--ink);
+
+  > div {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.lt-list-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 20px;
+  gap: 24px;
+  align-items: baseline;
+  padding: 18px 16px;
+  margin: 0 -16px;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+
+  .lt-ct {
+    color: var(--ink);
+  }
+}
+
+.lt-code-chip {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  padding: .14em .42em;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.lt-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.lt-spec {
+  flex: 1 1 200px;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color .2s var(--ease), transform .3s var(--ease);
+
+  &:hover {
+    border-color: var(--line-2);
+    transform: translateY(-2px);
+  }
+}
+
+@include lt-phone-down {
+  .lt-page-head {
+    padding-top: 48px;
+    padding-bottom: 40px;
+
+    .dek {
+      font-size: 20px;
+    }
+  }
+
+  .lt-list-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+  }
+}

@@ -1,0 +1,187 @@
+
+{%- assign lt = site.latent -%}
+{%- assign lt_archive = lt.archive_url | default: "/archive/" -%}
+{%- include sections.html -%}
+{%- assign lt_sec = page.categories.first -%}
+{%- assign lt_is_note = false -%}
+{%- if page.categories contains lt_notes_cat -%}{%- assign lt_is_note = true -%}{%- endif -%}
+{%- assign lt_url = page.url | absolute_url -%}
+{%- assign lt_dek = page.dek | default: page.description -%}
+{%- capture lt_read -%}{% include read-time.html post=page %}{%- endcapture -%}
+
+{%- comment -%} Feature switches: front matter wins over site config. {%- endcomment -%}
+{%- assign lt_show_toc = true -%}
+{%- if page.toc == false or lt.toc == false and page.toc != true -%}{%- assign lt_show_toc = false -%}{%- endif -%}
+{%- assign lt_sidenotes = true -%}
+{%- if page.sidenotes == false or lt.sidenotes == false and page.sidenotes != true -%}{%- assign lt_sidenotes = false -%}{%- endif -%}
+{%- assign lt_show_cover = true -%}
+{%- if page.cover == false or lt_is_note and page.cover == nil -%}{%- assign lt_show_cover = false -%}{%- endif -%}
+{%- assign lt_show_cite = true -%}
+{%- if page.cite == false or lt.citations == false or lt_is_note and page.cite != true -%}{%- assign lt_show_cite = false -%}{%- endif -%}
+{%- assign lt_numbered = lt_show_toc -%}
+{%- if page.numbered == false -%}{%- assign lt_numbered = false -%}{%- endif -%}
+
+{%- include byline.html post=page link=true -%}
+
+<main id="main" class="lt-main">
+<article class="lt-article" data-article data-minutes="{{ lt_read }}">
+  <header class="lt-wrap lt-article-head">
+    <div class="lt-indent">
+      <nav aria-label="Breadcrumb" class="lt-meta">
+        <a class="lt-blink" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        {%- if lt_sec %}<span aria-hidden="true">/</span><a class="lt-blink" href="{{ lt_archive | append: '?section=' | append: lt_sec | relative_url }}">{% include section-title.html key=lt_sec %}</a>{% endif %}
+        {%- if page.tags.first %}<span aria-hidden="true">/</span><span class="lt-cat">{{ page.tags.first }}</span>{% endif %}
+      </nav>
+      <h1 class="lt-post-title">{{ page.title }}</h1>
+      {%- if lt_dek %}
+      <p class="lt-post-dek">{{ lt_dek }}</p>
+      {%- endif %}
+      <div class="lt-post-byline">
+        {%- if lt_authors.size > 0 %}
+        <div class="who"><span class="lt-avs">{{ lt_avatars }}</span><span class="names">{{ lt_names }}</span></div>
+        {%- endif %}
+        <div class="lt-meta"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time><span aria-hidden="true">·</span><span>{{ lt_read }} 分钟阅读</span></div>
+        <div class="tools">
+          <button class="lt-btn lt-btn-secondary lt-btn-sm" type="button" data-copy-text="{{ lt_url }}" data-requires-js><span class="lt-when-idle">{% include icon.html name="link" px=15 %}复制链接</span><span class="lt-when-copied">{% include icon.html name="check" px=15 %}已复制</span></button>
+          {%- if lt_show_cite %}
+          <a class="lt-btn lt-btn-ghost lt-btn-sm" href="#cite">Cite</a>
+          {%- endif %}
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {%- if lt_show_cover %}
+  <figure class="lt-wrap lt-post-cover">
+    {% include cover.html post=page overlay=true %}
+    {%- if page.cover_note %}
+    <figcaption class="lt-cap lt-indent"><b>Cover</b><span>{{ page.cover_note }}</span></figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+
+  {% if lt_show_toc %}{% capture mobile_toc %}{% include toc.html html=content %}{% endcapture %}{% if lt_toc_n > 0 %}<details class="lt-wrap lt-mobile-toc"><summary>文章目录</summary>{{ mobile_toc }}</details>{% endif %}{% endif %}
+  <div class="lt-wrap lt-post-body">
+    <aside class="lt-rail lt-hide-l" aria-label="On this page">
+      {%- if lt_show_toc %}
+      {%- capture lt_toc %}{% include toc.html html=content %}{% endcapture %}
+      {%- if lt_toc_n > 0 %}
+      <div>
+        <div class="lt-label">文章目录</div>
+        {{ lt_toc }}
+      </div>
+      {%- endif %}
+      {%- endif %}
+      <div class="lt-rail__progress" data-requires-js>
+        <div class="lt-label">阅读进度</div>
+        <div class="track"><div class="bar" data-progress></div></div>
+        <span class="txt" data-progress-label>0% · about {{ lt_read }} min left</span>
+      </div>
+      <div class="lt-rail__share">
+        <div class="lt-label">分享</div>
+        <button class="lt-more" type="button" data-copy-text="{{ lt_url }}" data-requires-js><span class="lt-when-idle"><span>复制链接</span></span><span class="lt-when-copied"><span>已复制</span></span></button>
+        {%- if lt_show_cite %}
+        <a class="lt-more" href="#cite"><span>Cite this post</span></a>
+        {%- endif %}
+      </div>
+    </aside>
+
+    <div class="lt-article-col">
+      <div class="lt-prose{% if lt_numbered %} lt-prose--numbered{% endif %}" data-prose data-anchors{% if lt_sidenotes %} data-sidenotes{% endif %}{% if page.math %} data-math{% endif %}>
+{% include render-content.html html=content %}
+      </div>
+
+      {% include share-links.html %}
+      {% include comments.html %}
+      <footer class="lt-post-foot">
+        {%- if page.tags.size > 0 %}
+        <div class="lt-tags">
+          <span class="lt-label">Filed under</span>
+          {%- assign post_tags = page.tags | uniq %}{%- for tag in post_tags %}{%- assign lt_tag_encoded = tag | url_encode %}
+          <a class="lt-chip" href="{{ lt_archive | append: '?tag=' | append: lt_tag_encoded | relative_url }}"><span class="hash">#</span>{{ tag }}</a>
+          {%- endfor %}
+        </div>
+        {%- endif %}
+
+        {%- if lt_show_cite %}
+        {%- include cite.html %}
+        {%- endif %}
+
+        {%- capture lt_author_cards -%}
+        {%- for key in lt_authors -%}
+          {%- assign lt_a = site.data.authors[key] -%}
+          {%- unless lt_a -%}{%- continue -%}{%- endunless -%}
+          {%- assign lt_ap = lt_a.name | split: " " -%}
+          {%- capture lt_ai -%}{% if lt_a.initials %}{{ lt_a.initials }}{% else %}{{ lt_ap.first | slice: 0 }}{% if lt_ap.size > 1 %}{{ lt_ap.last | slice: 0 }}{% endif %}{% endif %}{%- endcapture -%}
+          {%- if lt_a.url %}
+          <a class="lt-author" href="{{ lt_a.url | relative_url }}">
+          {%- else %}
+          <div class="lt-author">
+          {%- endif %}
+            <span class="lt-av">{{ lt_ai | upcase }}</span>
+            <span class="txt"><span class="name">{{ lt_a.name }}</span>{% if lt_a.role %}<span class="role">{{ lt_a.role }}</span>{% endif %}</span>
+            {%- if lt_a.url %}{% include icon.html name="arrow-right" px=18 class="lt-row-arrow" %}{% endif %}
+          {%- if lt_a.url %}
+          </a>
+          {%- else %}
+          </div>
+          {%- endif %}
+        {%- endfor -%}
+        {%- endcapture -%}
+        {%- assign lt_author_cards = lt_author_cards | strip -%}
+        {%- if lt_author_cards != "" %}
+        <div class="lt-authors">{{ lt_author_cards }}</div>
+        {%- endif %}
+
+        {%- if page.previous or page.next %}
+        <nav class="lt-pn-nav" aria-label="Adjacent posts">
+          {%- if page.previous %}
+          <a class="lt-pn" href="{{ page.previous.url | relative_url }}" rel="prev"><span class="lt-label">← 上一篇</span><span class="t"><span class="lt-ct">{{ page.previous.title }}</span></span></a>
+          {%- endif %}
+          {%- if page.next %}
+          <a class="lt-pn lt-pn--next" href="{{ page.next.url | relative_url }}" rel="next"><span class="lt-label">下一篇 →</span><span class="t"><span class="lt-ct">{{ page.next.title }}</span></span></a>
+          {%- endif %}
+        </nav>
+        {%- endif %}
+      </footer>
+    </div>
+  </div>
+</article>
+
+{%- comment -%} Keep reading: others in the same section. {%- endcomment -%}
+{%- if lt_sec and lt.related != false %}
+{%- assign lt_rel_n = 0 -%}
+{%- capture lt_related -%}
+{%- for post in site.categories[lt_sec] -%}
+  {%- if post.url == page.url -%}{%- continue -%}{%- endif -%}
+  {%- if lt_rel_n >= 3 -%}{%- break -%}{%- endif -%}
+  {%- assign lt_rel_n = lt_rel_n | plus: 1 %}
+    <a class="lt-card lt-card--row" href="{{ post.url | relative_url }}">
+      {% include cover.html post=post %}
+      <div class="lt-card__body">
+        {% include post-meta.html post=post %}
+        <h3><span class="lt-ct">{{ post.title }}</span></h3>
+      </div>
+    </a>
+{%- endfor -%}
+{%- endcapture -%}
+{%- if lt_rel_n > 0 %}
+<section aria-labelledby="rel-title" class="lt-related">
+  <div class="lt-wrap">
+    <div class="lt-heading-row">
+      <h2 id="rel-title">{{ lt.related_title | default: "Keep reading" }}</h2>
+      {%- if page.tags.first %}
+      {%- assign lt_first_tag_encoded = page.tags.first | url_encode %}
+      <a class="lt-more" href="{{ lt_archive | append: '?tag=' | append: lt_first_tag_encoded | relative_url }}"><span>More on {{ page.tags.first | replace: "-", " " }}</span>{% include icon.html name="arrow-right" %}</a>
+      {%- else %}
+      <a class="lt-more" href="{{ lt_archive | append: '?section=' | append: lt_sec | relative_url }}"><span>More in {% include section-title.html key=lt_sec %}</span>{% include icon.html name="arrow-right" %}</a>
+      {%- endif %}
+    </div>
+    <div class="lt-related__grid">
+      {{- lt_related -}}
+    </div>
+  </div>
+</section>
+{%- endif %}
+{%- endif %}
+</main>

@@ -1,0 +1,14 @@
+{%- assign lt_card = include.post -%}
+{%- include byline.html post=lt_card avatars="first" -%}
+<a class="lt-card" href="{{ lt_card.url | relative_url }}">
+  {% include cover.html post=lt_card arrow=true %}
+  <div class="lt-card__body">
+    {% include post-meta.html post=lt_card %}
+    <h3 class="lt-card__title"><span class="lt-ct">{{ lt_card.title }}</span></h3>
+    {%- assign lt_card_dek = lt_card.dek | default: lt_card.description | default: lt_card.excerpt | strip_html | strip | truncatewords: 32 %}
+    {%- if lt_card_dek != "" %}
+    <p class="lt-card__excerpt">{{ lt_card_dek }}</p>
+    {%- endif %}
+    <div class="lt-card__byline">{{ lt_avatars }}<span class="name">{{ lt_names }}</span><span aria-hidden="true">·</span><span>{% include read-time.html post=lt_card %} 分钟阅读</span></div>
+  </div>
+</a>

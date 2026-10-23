@@ -1,0 +1,159 @@
+---
+layout: default
+---
+{%- assign lt = site.latent -%}
+{%- assign lt_listing = paginator.posts | default: site.posts -%}
+{%- assign lt_page_number = paginator.page | default: 1 -%}
+{%- assign lt_hero = page.hero -%}
+{%- assign lt_archive = lt.archive_url | default: "/archive/" -%}
+{%- assign lt_feed = lt.feed_url | default: "/feed.xml" -%}
+{%- include sections.html -%}
+
+{%- comment -%} Featured: the newest post with `featured: true`, else the newest post. Notes never lead. {%- endcomment -%}
+{%- assign lt_featured = nil -%}
+{%- assign lt_first = nil -%}
+{%- for post in lt_listing -%}
+  {%- if post.categories contains lt_notes_cat -%}{%- continue -%}{%- endif -%}
+  {%- unless lt_first -%}{%- assign lt_first = post -%}{%- endunless -%}
+  {%- if post.featured -%}{%- assign lt_featured = post -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+{%- unless lt_featured -%}{%- assign lt_featured = lt_first -%}{%- endunless -%}
+{%- assign lt_home_count = lt.home_posts | default: 6 -%}
+
+<main id="main" class="lt-main">
+
+{% if lt_page_number == 1 %}
+<section aria-labelledby="hero-title">
+  <div class="lt-wrap lt-hero">
+    <div class="lt-hero__text">
+      {%- capture lt_kicker_str -%}{% for sec in lt_sections %}{% unless sec == lt_notes_cat %}{% include section-title.html key=sec %}|||{% endunless %}{% endfor %}{%- endcapture %}
+      {%- assign lt_kicker_default = lt_kicker_str | split: "|||" | join: " · " %}
+      {%- assign lt_kicker = lt_hero.kicker | default: "AI 技术 · 开源项目 · 实践笔记" | strip %}
+      {%- if lt_kicker != "" %}
+      <div class="lt-label lt-kicker"><span class="lt-sq"></span><span>{{ lt_kicker }}</span></div>
+      {%- endif %}
+      <h1 id="hero-title" class="lt-hero__title">{{ lt_hero.title | default: site.tagline | default: site.title }}</h1>
+      {%- assign lt_hero_text = lt_hero.text | default: site.description %}
+      {%- if lt_hero.lead or lt_hero_text %}
+      <p class="lt-hero__lead">{% if lt_hero.lead %}<em>{{ lt_hero.lead }}</em> {% endif %}{{ lt_hero_text }}</p>
+      {%- endif %}
+      <div class="lt-actions lt-hero__actions">
+        {%- assign lt_latest = lt_first | default: site.posts.first %}
+        {%- if lt_latest %}
+        <a class="lt-btn lt-btn-primary" href="{{ lt_latest.url | relative_url }}">{{ lt_hero.cta | default: "阅读最新文章" }}{% include icon.html name="arrow-right" class="go" %}</a>
+        {%- endif %}
+        <a class="lt-btn lt-btn-secondary" href="{{ lt_feed | relative_url }}">{% include icon.html name="rss" class="lt-hide-s" %}<span><span class="lt-hide-s">订阅 </span>RSS</span></a>
+      </div>
+    </div>
+    {% include plate-hero.html label=lt_hero.plate_label %}
+  </div>
+
+  {%- comment -%} Topics: front matter or config, else the most-used tags. {%- endcomment -%}
+  {%- assign lt_topics = page.topics | default: lt.topics -%}
+  {%- unless lt_topics -%}
+    {%- capture lt_tag_str -%}{%- for t in site.tags -%}{{ 99999 | minus: t[1].size }}@@{{ t[0] }}{%- unless forloop.last -%}|||{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+    {%- assign lt_tag_sorted = lt_tag_str | split: "|||" | sort -%}
+    {%- capture lt_topic_str -%}{%- for t in lt_tag_sorted limit: 7 -%}{{ t | split: "@@" | last }}{%- unless forloop.last -%}|||{%- endunless -%}{%- endfor -%}{%- endcapture -%}
+    {%- assign lt_topics = lt_topic_str | split: "|||" -%}
+  {%- endunless -%}
+  {%- if lt_topics.size > 0 %}
+  <div class="lt-topics">
+    <div class="lt-wrap">
+      <span class="lt-label">主题</span>
+      <div class="lt-chips">
+        {%- for topic in lt_topics %}
+        {%- assign lt_topic_key = topic | url_encode %}
+        <a class="lt-chip" href="{{ lt_archive | append: '?tag=' | append: lt_topic_key | relative_url }}">{{ topic }}</a>
+        {%- endfor %}
+      </div>
+      <a class="lt-more lt-hide-s" href="{{ lt_archive | relative_url }}#tags"><span>全部标签</span>{% include icon.html name="arrow-right" %}</a>
+    </div>
+  </div>
+  {%- endif %}
+</section>
+
+{% else %}<div class="lt-wrap lt-intro"><h1 class="lt-page-title">文章列表 · 第 {{ lt_page_number }} 页</h1></div>{% endif %}
+{%- if lt_featured %}
+{%- include byline.html post=lt_featured %}
+<section aria-labelledby="featured-title" class="lt-wrap lt-featured">
+  <div class="lt-section-head"><span class="lt-label">最新文章</span><span class="lt-rule"></span></div>
+  <a class="lt-card lt-featured__card" href="{{ lt_featured.url | relative_url }}">
+    {% include cover.html post=lt_featured arrow=true overlay=true %}
+    <div class="lt-featured__body">
+      {% include post-meta.html post=lt_featured %}
+      <h2 id="featured-title" class="lt-featured__title"><span class="lt-ct">{{ lt_featured.title }}</span></h2>
+      {%- assign lt_fdek = lt_featured.dek | default: lt_featured.description | default: lt_featured.excerpt | strip_html | strip | truncate: 180 %}
+      {%- if lt_fdek != "" %}
+      <p class="lt-featured__dek">{{ lt_fdek }}</p>
+      {%- endif %}
+      <div class="lt-byline"><span class="lt-avs">{{ lt_avatars }}</span><span>{{ lt_names }}</span><span class="sep" aria-hidden="true">·</span><span class="read">{% include read-time.html post=lt_featured %} 分钟阅读</span></div>
+      <span class="lt-more"><span>阅读全文</span>{% include icon.html name="arrow-right" %}</span>
+    </div>
+  </a>
+</section>
+{%- endif %}
+
+{%- assign lt_shown = 0 -%}
+{%- assign lt_writing_total = 0 -%}
+{%- capture lt_cards -%}
+{%- for post in lt_listing -%}
+  {%- if post.categories contains lt_notes_cat -%}{%- continue -%}{%- endif -%}
+  {%- assign lt_writing_total = lt_writing_total | plus: 1 -%}
+  {%- if post.url == lt_featured.url -%}{%- continue -%}{%- endif -%}
+  {%- if lt_shown >= lt_home_count -%}{%- continue -%}{%- endif -%}
+  {%- assign lt_shown = lt_shown | plus: 1 -%}
+  {% include post-card.html post=post %}
+{%- endfor -%}
+{%- endcapture -%}
+{%- if lt_shown > 0 %}
+<section aria-labelledby="latest-title" class="lt-wrap lt-latest">
+  <div class="lt-heading-row">
+    <h2 id="latest-title" class="lt-h2-sm">{{ lt.latest_title | default: "最近文章" }}</h2>
+    <a class="lt-more" href="{{ lt_archive | relative_url }}"><span>查看全部文章</span>{% include icon.html name="arrow-right" %}</a>
+  </div>
+  <div class="lt-grid">
+    {{ lt_cards }}
+  </div>
+
+</section>
+{%- endif %}
+
+{% include pagination.html %}
+
+{%- assign lt_content = content | strip %}
+{%- if lt_content != "" %}
+<section class="lt-wrap lt-home-content">
+  <div class="lt-prose" data-prose>{{ content }}</div>
+</section>
+{%- endif %}
+
+{%- assign lt_notes = site.categories[lt_notes_cat] %}
+{%- if lt_notes and lt_notes.size > 0 and lt.home_notes != false %}
+<section aria-labelledby="notes-title" class="lt-notes">
+  <div class="lt-wrap">
+    <div class="lt-notes__intro">
+      <span class="lt-label">{% include section-title.html key=lt_notes_cat %}</span>
+      <h2 id="notes-title" class="lt-h2-sm">{{ lt.notes_title | default: "Short, dated, unpolished." }}</h2>
+      <p>{{ lt.notes_description | default: "Observations too small for a post — logged as they happen and kept in their own collection." }}</p>
+      <a class="lt-more" href="{{ lt_archive | append: '?section=' | append: lt_notes_cat | relative_url }}"><span>All {% include section-title.html key=lt_notes_cat %}</span>{% include icon.html name="arrow-right" %}</a>
+    </div>
+    <div class="lt-notes__list">
+      {%- for note in lt_notes limit: 5 %}
+      <div>
+        <a class="lt-row lt-note-row" href="{{ note.url | relative_url }}">
+          <time datetime="{{ note.date | date_to_xmlschema }}">{{ note.date | date: "%b %-d, %Y" }}</time>
+          <span class="t"><span class="lt-ct">{{ note.title }}{% if note.dek %}. {{ note.dek }}{% endif %}</span></span>
+          {% include icon.html name="arrow-right" px=18 class="lt-row-arrow lt-hide-s" %}
+        </a>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if lt.newsletter != false %}
+{%- include newsletter.html %}
+{%- endif %}
+
+</main>

@@ -1,0 +1,4 @@
+{% include head/custom.html %}
+{% if site.twitter.username %}<meta name="twitter:site" content="@{{ site.twitter.username }}"><meta name="twitter:creator" content="@{{ site.twitter.username }}">{% endif %}
+<meta property="og:locale" content="{{ site.locale | replace: '-', '_' }}">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":{{ site.social.name | jsonify }},"url":{{ site.url | jsonify }},"sameAs":{{ site.social.links | jsonify }}}</script>

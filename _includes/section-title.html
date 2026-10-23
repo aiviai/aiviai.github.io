@@ -1,0 +1,3 @@
+{%- comment -%}Display name for a category key: site.latent.section_titles, else capitalized.{%- endcomment -%}
+{%- assign lt_st = site.latent.section_titles[include.key] -%}
+{%- if lt_st -%}{{ lt_st }}{%- else -%}{{ include.key | capitalize }}{%- endif -%}

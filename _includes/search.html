@@ -1,0 +1,29 @@
+{%- comment -%}
+  Cmd-K palette. The script fills results from assets/search.json, an index
+  generated at build time.
+{%- endcomment -%}
+<div class="lt-palette" id="lt-search" hidden data-search data-index="{{ '/assets/search.json' | relative_url }}">
+  <div class="lt-palette__scrim" data-search-close></div>
+  <div class="lt-palette__panel" role="dialog" aria-modal="true" aria-label="站内搜索">
+    <div class="lt-palette__bar">
+      {% include icon.html name="search" px=20 %}
+      <label class="lt-sr" for="lt-search-q">搜索文章、内容与标签</label>
+      <input id="lt-search-q" type="search" autocomplete="off" spellcheck="false" placeholder="搜索文章、内容与标签" aria-controls="lt-search-results" data-search-input>
+      <button class="lt-kbd" type="button" data-search-close aria-label="关闭搜索">esc</button>
+    </div>
+    <div class="lt-palette__scopes" role="group" aria-label="Search scope">
+      <button class="lt-scope on" type="button" data-scope="all" aria-pressed="true">全部</button>
+      <button class="lt-scope" type="button" data-scope="posts" aria-pressed="false">文章</button>
+      <button class="lt-scope" type="button" data-scope="sections" aria-pressed="false">章节</button>
+      <button class="lt-scope" type="button" data-scope="tags" aria-pressed="false">标签</button>
+      <span class="count" data-search-count aria-live="polite"></span>
+    </div>
+    <div class="lt-palette__results" id="lt-search-results" data-search-results></div>
+    <div class="lt-palette__foot">
+      <span><kbd class="lt-kbd">↑</kbd><kbd class="lt-kbd">↓</kbd>选择</span>
+      <span><kbd class="lt-kbd">↵</kbd>打开</span>
+      <span><kbd class="lt-kbd">esc</kbd>关闭</span>
+      <span class="note">搜索全部文章与页面</span>
+    </div>
+  </div>
+</div>

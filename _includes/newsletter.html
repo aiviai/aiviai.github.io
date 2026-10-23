@@ -1,0 +1,23 @@
+{%- comment -%}
+  Newsletter signup. Posts to site.latent.newsletter_action (Buttondown,
+  Mailchimp, a form service...). Until that is set, the form explains what to
+  configure instead of pretending to subscribe.
+{%- endcomment -%}
+{%- assign lt = site.latent -%}
+<section id="subscribe" aria-labelledby="sub-title" class="lt-wrap lt-subscribe">
+  <div class="lt-subscribe__box">
+    <div class="lt-subdots" aria-hidden="true"></div>
+    <div class="lt-subscribe__text">
+      <span class="lt-label">{{ lt.newsletter_label | default: "Newsletter" }}</span>
+      <h2 id="sub-title">{{ lt.newsletter_title | default: "Get new writing in your inbox." }}</h2>
+      <p>{{ lt.newsletter_text | default: "One email when something new is published. Prefer feeds? Everything is on RSS too." }}</p>
+    </div>
+    <form class="lt-subscribe__form" data-newsletter{% if lt.newsletter_action and lt.newsletter_action != "" %} action="{{ lt.newsletter_action }}" method="post"{% endif %}>
+      <label class="lt-sr" for="sub-email">Email address</label>
+      <input class="lt-input" id="sub-email" name="{{ lt.newsletter_field | default: 'email' }}" type="email" required autocomplete="email" placeholder="you@example.com">
+      <button class="lt-btn lt-btn-primary" type="submit">Subscribe{% include icon.html name="arrow-right" class="go" %}</button>
+      <p class="lt-status" role="status" hidden data-newsletter-ok>{% include icon.html name="check" px=18 %}{{ lt.newsletter_thanks | default: "Thanks — check your inbox to confirm." }}</p>
+      <p class="lt-status is-error" role="status" hidden data-newsletter-unset>Set <code>latent.newsletter_action</code> in _config.yml to collect signups.</p>
+    </form>
+  </div>
+</section>

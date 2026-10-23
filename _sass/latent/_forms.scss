@@ -1,0 +1,58 @@
+.lt-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: 15px;
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+
+  &::placeholder {
+    color: var(--ink-3);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--ink);
+    box-shadow: 0 0 0 4px var(--signal-soft);
+  }
+}
+
+.lt-field {
+  position: relative;
+  display: flex;
+
+  > svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    margin-top: -8px;
+    color: var(--ink-3);
+    pointer-events: none;
+  }
+
+  .lt-input {
+    padding-left: 42px;
+  }
+}
+
+.lt-status {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 999px;
+  background: var(--signal);
+  color: var(--on-signal);
+  font-size: 15px;
+  font-weight: 500;
+
+  &.is-error {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+}

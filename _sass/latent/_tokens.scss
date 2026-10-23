@@ -1,0 +1,91 @@
+// Design tokens. Everything visual reads from these custom properties, so a
+// site can retheme by overriding them in its own stylesheet.
+
+$lt-bp-wide: 1180px !default;  // contents rail hides, sidenotes fold inline
+$lt-bp-nav: 900px !default;    // primary nav collapses into the menu
+$lt-bp-phone: 760px !default;  // single column, smaller body text
+
+@mixin lt-wide-down { @media (max-width: $lt-bp-wide) { @content; } }
+@mixin lt-nav-down { @media (max-width: $lt-bp-nav) { @content; } }
+@mixin lt-phone-down { @media (max-width: $lt-bp-phone) { @content; } }
+
+@mixin lt-light-tokens {
+  color-scheme: light;
+  --paper: #F7F8F8;
+  --surface: #FFFFFF;
+  --surface-2: #EEF0F1;
+  --ink: #0B0D0E;
+  --prose: #1B1F23;
+  --ink-2: #3F454B;
+  --ink-3: #646A71;
+  --line: #E1E4E6;
+  --line-2: #C9CDD1;
+  --ring: rgba(11, 13, 14, .6);
+  --plate: #0F1112;
+  --plate-2: #181B1E;
+  --plate-border: transparent;
+  --plate-ink: #E6E8EA;
+  --plate-ink-2: #9AA1A8;
+  --plate-line: rgba(230, 232, 234, .14);
+  --plate-str: rgba(230, 232, 234, .3);
+  --plate-dot: rgba(230, 232, 234, .3);
+  --header: rgba(247, 248, 248, .8);
+  --progress: var(--ink);
+  --code-border: transparent;
+  --scrim: rgba(240, 242, 243, .62);
+  --shadow: 0 40px 100px -24px rgba(11, 13, 14, .35);
+}
+
+@mixin lt-dark-tokens {
+  color-scheme: dark;
+  --paper: #0A0B0C;
+  --surface: #111314;
+  --surface-2: #181B1D;
+  --ink: #ECEEEF;
+  --prose: #D6DADD;
+  --ink-2: #B0B6BC;
+  --ink-3: #8A9198;
+  --line: #212528;
+  --line-2: #343A3F;
+  --ring: transparent;
+  --plate: #111315;
+  --plate-2: #1A1D20;
+  --plate-border: #24282C;
+  --plate-ink: #E6E8EA;
+  --plate-ink-2: #9AA1A8;
+  --plate-line: rgba(230, 232, 234, .1);
+  --plate-str: rgba(230, 232, 234, .24);
+  --plate-dot: rgba(230, 232, 234, .22);
+  --header: rgba(10, 11, 12, .78);
+  --progress: var(--signal);
+  --code-border: #24282C;
+  --scrim: rgba(5, 6, 7, .64);
+  --shadow: 0 40px 120px -20px rgba(0, 0, 0, .85);
+}
+
+:root {
+  --signal: #D2FF3D;
+  --on-signal: #0B0D0E;
+  --signal-soft: color-mix(in srgb, var(--signal) 45%, transparent);
+  --sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: "Newsreader", "Iowan Old Style", Charter, Georgia, serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --header-h: 64px;
+  @include lt-light-tokens;
+}
+
+:root[data-theme="dark"] {
+  @include lt-dark-tokens;
+}
+
+// No stored choice and no script: follow the operating system.
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    @include lt-dark-tokens;
+  }
+}
+
+@include lt-phone-down {
+  :root { --header-h: 56px; }
+}

@@ -1,0 +1,6 @@
+{% if page.share %}{% assign share_url = page.url | absolute_url | url_encode %}
+<nav class="lt-chips lt-share-links" aria-label="分享文章">
+<a class="lt-chip" href="https://twitter.com/intent/tweet?via={{ site.twitter.username | url_encode }}&amp;text={{ page.title | url_encode }}%20{{ share_url }}" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+<a class="lt-chip" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}" target="_blank" rel="noopener noreferrer">Facebook</a>
+<a class="lt-chip" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+</nav>{% endif %}

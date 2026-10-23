@@ -1,0 +1,28 @@
+{%- comment -%}
+  Author avatars and names for include.post.
+    avatars   "all" (default) or "first"
+    link      link names to each author's `url`
+{%- endcomment -%}
+{%- include authors.html post=include.post -%}
+{%- capture lt_avatars -%}
+  {%- for key in lt_authors -%}
+    {%- if include.avatars == "first" and forloop.index > 1 -%}{%- break -%}{%- endif -%}
+    {%- assign lt_a = site.data.authors[key] -%}
+    {%- assign lt_an = lt_a.name | default: key -%}
+    {%- if lt_a.initials -%}
+      {%- assign lt_ai = lt_a.initials -%}
+    {%- else -%}
+      {%- assign lt_ap = lt_an | split: " " -%}
+      {%- capture lt_ai -%}{{ lt_ap.first | slice: 0 }}{% if lt_ap.size > 1 %}{{ lt_ap.last | slice: 0 }}{% endif %}{%- endcapture -%}
+    {%- endif -%}
+    {% if lt_an == site.author.name and site.author.avatar %}<img class="lt-av" src="{{ site.author.avatar | relative_url }}" alt="" width="32" height="32">{% else %}<span class="lt-av">{{ lt_ai | upcase }}</span>{% endif %}
+  {%- endfor -%}
+{%- endcapture -%}
+{%- capture lt_names -%}
+  {%- for key in lt_authors -%}
+    {%- assign lt_a = site.data.authors[key] -%}
+    {%- assign lt_an = lt_a.name | default: key -%}
+    {%- if forloop.last and forloop.length > 1 %} &amp; {% elsif forloop.index > 1 %}, {% endif -%}
+    {%- if include.link and lt_a.url -%}<a class="lt-blink" href="{{ lt_a.url | relative_url }}">{{ lt_an }}</a>{%- elsif include.link -%}<strong>{{ lt_an }}</strong>{%- else -%}{{ lt_an }}{%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}

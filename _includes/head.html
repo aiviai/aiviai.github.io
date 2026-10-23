@@ -1,0 +1,79 @@
+{%- assign lt = site.latent -%}
+{%- assign lt_scheme = lt.color_scheme | default: "system" -%}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- if page.title and page.url != "/" %}
+  {%- assign lt_page_title = page.title | append: " — " | append: site.title -%}
+{%- elsif site.tagline %}
+  {%- assign lt_page_title = site.title | append: " — " | append: site.tagline -%}
+{%- else %}
+  {%- assign lt_page_title = site.title -%}
+{%- endif %}
+<title>{{ lt_page_title | strip_html | escape }}</title>
+{%- assign lt_desc = page.dek | default: page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 200 %}
+<meta name="description" content="{{ lt_desc | escape }}">
+{%- assign lt_canonical = page.url | replace: "index.html", "" | absolute_url %}
+<link rel="canonical" href="{{ lt_canonical }}">
+<meta property="og:site_name" content="{{ site.title | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | strip_html | escape }}">
+<meta property="og:description" content="{{ lt_desc | escape }}">
+<meta property="og:url" content="{{ lt_canonical }}">
+{%- assign lt_image = page.image | default: lt.og_image %}
+{%- if lt_image %}
+<meta property="og:image" content="{{ lt_image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- else %}
+<meta name="twitter:card" content="summary">
+{%- endif %}
+{%- if page.date and page.collection == "posts" %}
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+{%- if page.last_modified_at %}
+<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+{%- endif %}
+{%- for tag in page.tags %}
+<meta property="article:tag" content="{{ tag | escape }}">
+{%- endfor %}
+{%- include authors.html post=page %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | strip_html | jsonify }},"description":{{ lt_desc | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"url":{{ lt_canonical | jsonify }},"author":[{% for key in lt_authors %}{% assign lt_a = site.data.authors[key] %}{"@type":"Person","name":{{ lt_a.name | default: key | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}],"publisher":{"@type":"Organization","name":{{ site.title | jsonify }}}}
+</script>
+{%- else %}
+<meta property="og:type" content="website">
+{%- endif %}
+<meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A0B0C" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Jekyll v{{ jekyll.version }}">
+<link rel="alternate" type="application/atom+xml" title="{{ site.title | escape }}" href="{{ lt.feed_url | default: '/feed.xml' | relative_url }}">
+<link rel="alternate" type="application/feed+json" title="{{ site.title | escape }}" href="{{ '/assets/feed.json' | relative_url }}">
+<link rel="icon" href="{{ lt.favicon | default: '/assets/images/favicon.svg' | relative_url }}"{% unless lt.favicon %} type="image/svg+xml"{% endunless %}>
+{%- comment -%}
+  Resolve the color theme before first paint: a stored choice wins, then the
+  site default. "system" follows prefers-color-scheme.
+{%- endcomment %}
+<script>
+(function (d) {
+  var r = d.documentElement, p, k = "latent-theme";
+  try { p = localStorage.getItem(k); } catch (e) {}
+  if (p !== "light" && p !== "dark" && p !== "system") p = r.getAttribute("data-theme-default") || "system";
+  var t = p === "system" ? (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light") : p;
+  r.setAttribute("data-theme", t);
+  r.setAttribute("data-theme-pref", p);
+  r.className = r.className.replace(/\bno-js\b/, "js");
+})(document);
+</script>
+{%- if lt.google_fonts != false %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&amp;family=Geist+Mono:wght@400..600&amp;family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&amp;display=swap">
+{%- endif %}
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+{%- if lt.accent %}
+<style>:root { --signal: {{ lt.accent }}; }</style>
+{%- endif %}
+{%- if page.math %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+{%- endif %}
+{%- include head-custom.html %}

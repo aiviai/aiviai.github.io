@@ -1,0 +1,37 @@
+{%- comment -%}
+  A post's cover inside a dark frame.
+    post      the post (required)
+    class     extra classes on the frame
+    arrow     show the hover arrow badge
+    overlay   show `cover_labels` and `cover_caption` from front matter
+  `cover:` may name a generative cover (field, rings, lines, grid, rays, wave,
+  stream) or an image path. Without it, one is picked from the slug, so a post
+  keeps the same cover across builds.
+{%- endcomment -%}
+{%- assign lt_cover_names = "field,rings,lines,grid,rays,wave,stream" | split: "," -%}
+{%- assign lt_cv_post = include.post -%}
+{%- assign lt_cv = lt_cv_post.cover -%}
+{%- unless lt_cv -%}
+  {%- assign lt_cv_seed = lt_cv_post.slug | default: lt_cv_post.title | size -%}
+  {%- assign lt_cv_day = lt_cv_post.date | date: "%j" | plus: 0 -%}
+  {%- assign lt_cv_i = lt_cv_seed | plus: lt_cv_day | modulo: 7 -%}
+  {%- assign lt_cv = lt_cover_names[lt_cv_i] -%}
+{%- endunless -%}
+<div class="lt-frame{% if include.class %} {{ include.class }}{% endif %}">
+  {%- if lt_cv contains "/" or lt_cv contains "." %}
+  <img class="lt-cover lt-cover--img" src="{{ lt_cv | relative_url }}" alt="{{ lt_cv_post.cover_alt | escape }}" loading="lazy">
+  {%- else %}
+  <div class="lt-cover cv-{{ lt_cv }}"></div>
+  {%- endif %}
+  {%- if include.overlay %}
+  {%- if lt_cv_post.cover_labels %}
+  <div class="lt-st" aria-hidden="true">{% for l in lt_cv_post.cover_labels %}<span><b>{{ l }}</b><i></i><em>+</em></span>{% endfor %}</div>
+  {%- endif %}
+  {%- if lt_cv_post.cover_caption %}
+  <div class="lt-frame__caption" aria-hidden="true">{% for c in lt_cv_post.cover_caption %}<span>{{ c }}</span>{% endfor %}</div>
+  {%- endif %}
+  {%- endif %}
+  {%- if include.arrow %}
+  <span class="lt-arrow" aria-hidden="true">{% include icon.html name="arrow-up-right" px=16 %}</span>
+  {%- endif %}
+</div>

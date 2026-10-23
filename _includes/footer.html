@@ -1,24 +1,71 @@
-<div class="page__footer-follow">
-    <ul class="social-icons">
-      {% if site.data.ui-text[site.locale].follow_label %}
-        <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
-      {% endif %}
-  
-      {% if site.footer.links %}
-        {% for link in site.footer.links %}
-          {% if link.label and link.url %}
-            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer"><i class="{{ link.icon | default: 'fas fa-link' }}" aria-hidden="true"></i> {{ link.label }}</a></li>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-  
-      {% unless site.atom_feed.hide %}
-        <li><a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a></li>
-      {% endunless %}
-    </ul>
+{%- assign lt = site.latent -%}
+{%- assign lt_archive = lt.archive_url | default: "/archive/" -%}
+{%- assign lt_feed = lt.feed_url | default: "/feed.xml" -%}
+{%- capture lt_bottom -%}
+<div class="lt-footer__bottom">
+  <span>© {{ site.time | date: "%Y" }} {{ site.title }}</span>
+  {%- if lt.credit != false %}
+  <span>Built with Jekyll · Latent theme 1.0</span>
+  {%- endif %}
+</div>
+{%- endcapture -%}
+{%- if include.slim %}
+<footer class="lt-footer lt-footer--slim">
+  <div class="lt-wrap">{{ lt_bottom }}</div>
+</footer>
+{%- else %}
+{%- include sections.html %}
+<footer class="lt-footer">
+  <div class="lt-wrap lt-footer__inner">
+    {% include author-profile.html %}
+    <div class="lt-footer__top">
+      <div class="lt-footer__about">
+        <a class="lt-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }}, home">{% include logo.html %}<span>{{ site.title }}</span></a>
+        {%- if site.description %}
+        <p>{{ site.description }}</p>
+        {%- endif %}
+      </div>
+      <div class="lt-footer__cols">
+        <div class="lt-fcol">
+          <span class="lt-label">{{ lt.footer_writing_label | default: "Writing" }}</span>
+          {%- for sec in lt_sections %}
+          <a class="lt-flink" href="{{ lt_archive | append: '?section=' | append: sec | relative_url }}">{% include section-title.html key=sec %}</a>
+          {%- endfor %}
+          <a class="lt-flink" href="{{ lt_archive | relative_url }}">全部文章</a>
+        </div>
+        <div class="lt-fcol">
+          <span class="lt-label">关注我</span>
+          {%- if site.footer.links %}
+          {% for link in site.footer.links %}<a class="lt-flink" href="{{ link.url | escape }}">{{ link.label }}</a>{% endfor %}
+          <a class="lt-flink" href="{{ lt_feed | relative_url }}">RSS</a>
+          {%- elsif lt.elsewhere %}
+          {%- for link in lt.elsewhere %}
+          <a class="lt-flink" href="{{ link.url | relative_url }}">{{ link.title }}</a>
+          {%- endfor %}
+          {%- else %}
+          <a class="lt-flink" href="{{ lt_feed | relative_url }}">RSS 订阅</a>
+          <a class="lt-flink" href="{{ '/assets/feed.json' | relative_url }}">JSON feed</a>
+          {%- if site.github_username %}
+          <a class="lt-flink" href="https://github.com/{{ site.github_username }}">GitHub</a>
+          {%- endif %}
+          {%- if site.email %}
+          <a class="lt-flink" href="mailto:{{ site.email }}">Email</a>
+          {%- endif %}
+          {%- endif %}
+        </div>
+        <div class="lt-fcol" data-requires-js>
+          <span class="lt-label">外观</span>
+          {%- include theme-switch.html %}
+          <span class="hint">自动记住本机设置。</span>
+        </div>
+      </div>
+    </div>
+    {%- if lt.wordmark != false %}
+    <div class="lt-wordmark" aria-hidden="true">{{ lt.wordmark | default: site.title }}</div>
+    {%- endif %}
+    {{ lt_bottom }}
   </div>
-  
-  <div class="page__footer-copyright">&copy; {{ site.time | date: '%Y' }} <a href="{{ site.copyright_url | default: site.url }}">{{ site.copyright | default: site.title }}</a>. </div>
+</footer>
+{%- endif %}
 
-  <!-- 100% privacy-first analytics -->
 <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>

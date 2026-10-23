@@ -1,0 +1,10 @@
+{%- comment -%}
+  An image with a numbered caption.
+  {% include figure.html src="/assets/img/plot.png" alt="..." label="Figure 3" caption="..." wide=true %}
+{%- endcomment -%}
+<figure class="lt-fig{% if include.wide %} wide{% endif %}">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy">
+  {%- if include.caption %}
+  <figcaption class="lt-cap">{% if include.label %}<b>{{ include.label }}</b>{% endif %}<span>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" | strip }}</span></figcaption>
+  {%- endif %}
+</figure>
