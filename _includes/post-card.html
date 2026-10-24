@@ -1,7 +1,7 @@
 {%- assign lt_card = include.post -%}
 {%- include byline.html post=lt_card avatars="first" -%}
 <a class="lt-card" href="{{ lt_card.url | relative_url }}">
-  {% include cover.html post=lt_card arrow=true %}
+  {% include cover.html post=lt_card arrow=true keywords=true %}
   <div class="lt-card__body">
     {% include post-meta.html post=lt_card %}
     <h3 class="lt-card__title"><span class="lt-ct">{{ lt_card.title }}</span></h3>

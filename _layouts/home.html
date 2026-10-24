@@ -81,7 +81,7 @@ layout: default
 <section id="articles" aria-labelledby="featured-title" class="lt-wrap lt-featured">
   <div class="lt-section-head"><span class="lt-label">{% if lt_is_home %}最新文章{% else %}本页首篇{% endif %}</span><span class="lt-rule"></span></div>
   <a class="lt-card lt-featured__card" href="{{ lt_featured.url | relative_url }}">
-    {% include cover.html post=lt_featured arrow=true overlay=true %}
+    {% include cover.html post=lt_featured arrow=true overlay=true keywords=true %}
     <div class="lt-featured__body">
       {% include post-meta.html post=lt_featured %}
       <h2 id="featured-title" class="lt-featured__title"><span class="lt-ct">{{ lt_featured.title }}</span></h2>

@@ -1,0 +1,40 @@
+{%- comment -%}
+  Presentation-only cover copy. Existing posts use _data/cover_titles.json.
+  Authors can override with cover_title or cover_lines, and cover_subtitle.
+  New posts fall back to the most specific tag present in the slug, then a
+  shortened title. No client-side script or custom Jekyll plugin is needed.
+{%- endcomment -%}
+{%- assign lt_kw_post = include.post -%}
+{%- assign lt_kw_data = site.data.cover_titles[lt_kw_post.slug] -%}
+{%- assign lt_kw_lines = lt_kw_post.cover_lines | default: lt_kw_data.lines -%}
+{%- if lt_kw_post.cover_title -%}
+  {%- assign lt_kw_lines = lt_kw_post.cover_title | split: "|||" -%}
+{%- endif -%}
+{%- unless lt_kw_lines -%}
+  {%- assign lt_kw_slug = lt_kw_post.slug | downcase | remove: '-' | remove: '_' | remove: '+' | remove: '.' | remove: ' ' -%}
+  {%- assign lt_kw_title = '' -%}
+  {%- assign lt_kw_length = 0 -%}
+  {%- for tag in lt_kw_post.tags -%}
+    {%- assign lt_kw_tag = tag | downcase | remove: '-' | remove: '_' | remove: '+' | remove: '.' | remove: ' ' -%}
+    {%- assign lt_kw_size = lt_kw_tag | size -%}
+    {%- if lt_kw_size >= 3 and lt_kw_size > lt_kw_length and lt_kw_slug contains lt_kw_tag -%}
+      {%- assign lt_kw_title = tag -%}
+      {%- assign lt_kw_length = lt_kw_size -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if lt_kw_title == '' -%}
+    {%- assign lt_kw_title = lt_kw_post.title | strip_html | remove: '🚀' | remove: '🔥' | remove: '🦞' | split: '：' | first | split: '！' | first | strip | truncate: 30 -%}
+  {%- endif -%}
+  {%- assign lt_kw_lines = lt_kw_title | split: "|||" -%}
+{%- endunless -%}
+{%- assign lt_kw_subtitle = lt_kw_post.cover_subtitle | default: lt_kw_data.subtitle -%}
+{%- assign lt_kw_longest = 0 -%}
+{%- for line in lt_kw_lines -%}
+  {%- assign lt_kw_size = line | size -%}
+  {%- if lt_kw_size > lt_kw_longest -%}{%- assign lt_kw_longest = lt_kw_size -%}{%- endif -%}
+{%- endfor -%}
+<div class="lt-cover-type{% if lt_kw_longest > 18 %} lt-cover-type--long{% elsif lt_kw_longest > 12 %} lt-cover-type--medium{% endif %}" aria-hidden="true">
+  <div class="lt-cover-type__meta"><span class="lt-cover-type__category">{% include section-title.html key=lt_kw_post.categories.first %}</span><span>{{ lt_kw_post.date | date: "%Y.%m" }}</span></div>
+  <div class="lt-cover-type__title">{% for line in lt_kw_lines %}<span>{{ line | escape }}</span>{% endfor %}</div>
+  {%- if lt_kw_subtitle %}<div class="lt-cover-type__subtitle">{{ lt_kw_subtitle | escape }}</div>{% endif %}
+</div>

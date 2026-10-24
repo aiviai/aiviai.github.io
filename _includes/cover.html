@@ -4,6 +4,7 @@
     class     extra classes on the frame
     arrow     show the hover arrow badge
     overlay   show `cover_labels` and `cover_caption` from front matter
+    keywords  show a concise typographic title on generated covers
   `cover:` may name a generative cover (field, rings, lines, grid, rays, wave,
   stream) or an image path. Without it, one is picked from the slug, so a post
   keeps the same cover across builds.
@@ -17,13 +18,19 @@
   {%- assign lt_cv_i = lt_cv_seed | plus: lt_cv_day | modulo: 7 -%}
   {%- assign lt_cv = lt_cover_names[lt_cv_i] -%}
 {%- endunless -%}
-<div class="lt-frame{% if include.class %} {{ include.class }}{% endif %}">
+{%- assign lt_cv_keywords = false -%}
+{%- if include.keywords -%}
+  {%- unless lt_cv contains "/" or lt_cv contains "." -%}{%- assign lt_cv_keywords = true -%}{%- endunless -%}
+{%- endif -%}
+<div class="lt-frame{% if lt_cv_keywords %} lt-frame--keywords{% endif %}{% if include.class %} {{ include.class }}{% endif %}">
   {%- if lt_cv contains "/" or lt_cv contains "." %}
   <img class="lt-cover lt-cover--img" src="{{ lt_cv | relative_url }}" alt="{{ lt_cv_post.cover_alt | escape }}" loading="lazy">
   {%- else %}
   <div class="lt-cover cv-{{ lt_cv }}"></div>
   {%- endif %}
-  {%- if include.overlay %}
+  {%- if lt_cv_keywords %}
+    {% include cover-keywords.html post=lt_cv_post %}
+  {%- elsif include.overlay %}
   {%- if lt_cv_post.cover_labels %}
   <div class="lt-st" aria-hidden="true">{% for l in lt_cv_post.cover_labels %}<span><b>{{ l }}</b><i></i><em>+</em></span>{% endfor %}</div>
   {%- endif %}

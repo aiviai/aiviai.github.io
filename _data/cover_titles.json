@@ -1,0 +1,902 @@
+{
+  "claude-fable-55-animation-review": {
+    "lines": [
+      "Claude",
+      "Fable 5.5"
+    ],
+    "subtitle": "动画实测 · 8 个案例"
+  },
+  "codex-multi-agent-v2": {
+    "lines": [
+      "Codex",
+      "Multi-agent V2"
+    ],
+    "subtitle": "多模型协作 · 动态子智能体"
+  },
+  "introduce-orca-ade": {
+    "lines": [
+      "Orca",
+      "多 Agent 编排"
+    ],
+    "subtitle": "工作树隔离 · 协作开发"
+  },
+  "introduce-GPT-5.6-Sol": {
+    "lines": [
+      "GPT-5.6",
+      "Sol"
+    ],
+    "subtitle": "九轮实测 · 编程与自动化"
+  },
+  "Claude-Code-Docker-Sandboxes": {
+    "lines": [
+      "Claude Code",
+      "Docker 沙箱"
+    ],
+    "subtitle": "隔离运行 · 安装与配置"
+  },
+  "claude-code-workflow": {
+    "lines": [
+      "Claude Code",
+      "Workflow"
+    ],
+    "subtitle": "脚本化编排 · 并行调度"
+  },
+  "codex-goal": {
+    "lines": [
+      "Codex",
+      "/goal"
+    ],
+    "subtitle": "计划模式 · 规格驱动开发"
+  },
+  "gitnexus": {
+    "lines": [
+      "GitNexus",
+      "知识图谱"
+    ],
+    "subtitle": "代码索引 · MCP 集成"
+  },
+  "notebooklm-py": {
+    "lines": [
+      "NotebookLM",
+      "Python / CLI"
+    ],
+    "subtitle": "批量导出 · Agent 集成"
+  },
+  "chatgpt-images-2": {
+    "lines": [
+      "ChatGPT",
+      "Images 2.0"
+    ],
+    "subtitle": "图像生成 · 中文与设计实测"
+  },
+  "hermes-agent-advanced": {
+    "lines": [
+      "Hermes Agent",
+      "进阶玩法"
+    ],
+    "subtitle": "Ollama · Open WebUI"
+  },
+  "hermes-wiki": {
+    "lines": [
+      "Hermes Agent",
+      "LLM Wiki"
+    ],
+    "subtitle": "微信接入 · Obsidian 知识库"
+  },
+  "graphify": {
+    "lines": [
+      "graphify",
+      "知识图谱"
+    ],
+    "subtitle": "代码与文档 · 知识库实践"
+  },
+  "Gemm4-in-OpenClaw": {
+    "lines": [
+      "Gemma 4",
+      "OpenClaw"
+    ],
+    "subtitle": "多 Agent 协作 · 浏览器实测"
+  },
+  "ClaudeCode-SourceCode": {
+    "lines": [
+      "Claude Code",
+      "源码解析"
+    ],
+    "subtitle": "中文上下文 · Token 估算"
+  },
+  "LossLess-Claw-Enhanced": {
+    "lines": [
+      "OpenClaw",
+      "精准记忆"
+    ],
+    "subtitle": "lossless-claw-enhanced"
+  },
+  "OpenClaw-WeChat": {
+    "lines": [
+      "OpenClaw",
+      "微信接入"
+    ],
+    "subtitle": "插件安装 · 移动办公"
+  },
+  "OpenClaw-Agent-Tutorial": {
+    "lines": [
+      "OpenClaw",
+      "Agent 进阶"
+    ],
+    "subtitle": "工作区 · 三类 Agent 详解"
+  },
+  "OpenClaw-Agent-Teams": {
+    "lines": [
+      "OpenClaw",
+      "Agent Teams"
+    ],
+    "subtitle": "Claude Code · Hooks 回调"
+  },
+  "OpenClaw-Agent-Skill": {
+    "lines": [
+      "OpenClaw",
+      "多 Agent 协作"
+    ],
+    "subtitle": "模型容灾 · 远程 Gateway"
+  },
+  "Opus46-vs-GPT53": {
+    "lines": [
+      "Opus 4.6",
+      "GPT-5.3-Codex"
+    ],
+    "subtitle": "七项对比 · OpenClaw 实测"
+  },
+  "introduce-OpenClaw-Agent": {
+    "lines": [
+      "OpenClaw",
+      "任务分工"
+    ],
+    "subtitle": "独立会话 · 记忆与工作空间"
+  },
+  "introduce-OpenClaw": {
+    "lines": [
+      "OpenClaw",
+      "自动化助手"
+    ],
+    "subtitle": "自我进化 · 规格驱动开发"
+  },
+  "introduce-Moltbot": {
+    "lines": [
+      "OpenClaw",
+      "远程开发"
+    ],
+    "subtitle": "手机指令 · 部署与 GitHub"
+  },
+  "introduce-Clawdbot": {
+    "lines": [
+      "OpenClaw",
+      "个人 AI 助手"
+    ],
+    "subtitle": "部署入门 · WhatsApp 远控"
+  },
+  "introduce-ralph-for-claude-code": {
+    "lines": [
+      "Ralph",
+      "Claude Code"
+    ],
+    "subtitle": "PRD 导入 · 自动迭代开发"
+  },
+  "introduce-antigravity-anvanced-skills": {
+    "lines": [
+      "Agent Skills",
+      "决策树"
+    ],
+    "subtitle": "Antigravity · Claude Code"
+  },
+  "introduce-antigravity-skills": {
+    "lines": [
+      "Antigravity",
+      "Agent Skills"
+    ],
+    "subtitle": "安装 · 创建 · 调用"
+  },
+  "introduce-Superpowers": {
+    "lines": [
+      "Superpowers"
+    ],
+    "subtitle": "头脑风暴 · 计划 · TDD"
+  },
+  "introduce-oh-my-opencode": {
+    "lines": [
+      "Oh My",
+      "OpenCode"
+    ],
+    "subtitle": "多模型协作 · 自动化开发"
+  },
+  "introduce-opencode": {
+    "lines": [
+      "OpenCode"
+    ],
+    "subtitle": "OpenSpec · LSP · 使用指南"
+  },
+  "introduce-Claude-Code-empirical": {
+    "lines": [
+      "Claude Code",
+      "工作流实践"
+    ],
+    "subtitle": "Boris 配置 · 复利工程"
+  },
+  "introduce-ralph-wiggum": {
+    "lines": [
+      "Ralph Wiggum"
+    ],
+    "subtitle": "自动迭代 · 修复与测试"
+  },
+  "introduce-GLM-4.7": {
+    "lines": [
+      "GLM-4.7"
+    ],
+    "subtitle": "编程与 Agent 能力实测"
+  },
+  "introduce-GPT-5.2-Codex+Skills": {
+    "lines": [
+      "GPT-5.2-Codex",
+      "Agent Skills"
+    ],
+    "subtitle": "三项编程任务 · 实战测评"
+  },
+  "introduce-Gemini-3-Flash": {
+    "lines": [
+      "Gemini 3",
+      "Flash"
+    ],
+    "subtitle": "OCR · 视觉 · 编程实测"
+  },
+  "antigravity+Opus4.5": {
+    "lines": [
+      "Antigravity",
+      "Opus 4.5"
+    ],
+    "subtitle": "项目重构 · 全栈开发"
+  },
+  "introduce-GPT-5.2": {
+    "lines": [
+      "GPT-5.2"
+    ],
+    "subtitle": "Codex 编程能力实测"
+  },
+  "introduce-GLM-4.6v": {
+    "lines": [
+      "GLM-4.6V"
+    ],
+    "subtitle": "本地部署 · 视觉与工具调用"
+  },
+  "deploy-ministral-3-14b": {
+    "lines": [
+      "Ministral 3",
+      "14B"
+    ],
+    "subtitle": "本地部署 · 多模态实测"
+  },
+  "introduce-Nano-Banana-Pro": {
+    "lines": [
+      "Nano Banana",
+      "Pro"
+    ],
+    "subtitle": "中文书法 · 修图 · 图像生成"
+  },
+  "introduce-Gemini-3-Pro": {
+    "lines": [
+      "Gemini 3",
+      "Pro"
+    ],
+    "subtitle": "Antigravity · 编程对比"
+  },
+  "GPT-5.1-vs-Claude-Sonnet-4.5": {
+    "lines": [
+      "GPT-5.1",
+      "Sonnet 4.5"
+    ],
+    "subtitle": "写作 · 编程 · 自动化对比"
+  },
+  "Fine-Tuning-DeepSeek-OCR": {
+    "lines": [
+      "DeepSeek-OCR",
+      "微调实践"
+    ],
+    "subtitle": "Colab · 中文文档识别"
+  },
+  "deploy-Chandra-OCR": {
+    "lines": [
+      "Chandra",
+      "OCR"
+    ],
+    "subtitle": "本地部署 · 复杂文档实测"
+  },
+  "introduce-Skill-Seeker": {
+    "lines": [
+      "Skill Seeker"
+    ],
+    "subtitle": "框架文档 · AI 编程实践"
+  },
+  "deploy-DeepSeek-OCR": {
+    "lines": [
+      "DeepSeek-OCR"
+    ],
+    "subtitle": "本地部署 · 文档识别实测"
+  },
+  "introduce-OpenSpec": {
+    "lines": [
+      "OpenSpec"
+    ],
+    "subtitle": "规范驱动开发 · 项目迭代"
+  },
+  "introduce-Claude-Code-Plugins": {
+    "lines": [
+      "Claude Code",
+      "Plugins"
+    ],
+    "subtitle": "插件打包 · 工作流共享"
+  },
+  "introduce-spec-kit": {
+    "lines": [
+      "Spec Kit"
+    ],
+    "subtitle": "规格驱动开发 · TDD"
+  },
+  "introduce-GLM-4.6": {
+    "lines": [
+      "GLM-4.6",
+      "Claude Code"
+    ],
+    "subtitle": "模型接入 · Agentic Coding"
+  },
+  "introduce-Claude-Sonnet-4.5": {
+    "lines": [
+      "Claude",
+      "Sonnet 4.5"
+    ],
+    "subtitle": "Claude Code 2.0 · 编程实测"
+  },
+  "introduce-GitHub-Copilot-CLI": {
+    "lines": [
+      "GitHub",
+      "Copilot CLI"
+    ],
+    "subtitle": "MCP 扩展 · 应用开发"
+  },
+  "introduce-Qwen3-VL": {
+    "lines": [
+      "Qwen3-VL"
+    ],
+    "subtitle": "OCR · 视频理解 · 目标定位"
+  },
+  "deploy-Qwen3-Omni": {
+    "lines": [
+      "Qwen3-Omni"
+    ],
+    "subtitle": "本地部署 · 全模态测评"
+  },
+  "introduce-Claude-in-Xcode": {
+    "lines": [
+      "Claude",
+      "in Xcode"
+    ],
+    "subtitle": "原生 iOS 开发 · 智能调试"
+  },
+  "introduce-GPT-5-Codex": {
+    "lines": [
+      "GPT-5",
+      "Codex"
+    ],
+    "subtitle": "终端 · IDE · 云端编程"
+  },
+  "introduce-google-stitch": {
+    "lines": [
+      "Google",
+      "Stitch"
+    ],
+    "subtitle": "UI 设计 · 原型与 Figma"
+  },
+  "introduce-Claude-Code-PM": {
+    "lines": [
+      "Claude Code",
+      "PM"
+    ],
+    "subtitle": "GitHub Issues · 并行开发"
+  },
+  "introduce-Claude-Code-Spec-Workflow": {
+    "lines": [
+      "Claude Code",
+      "Spec Workflow"
+    ],
+    "subtitle": "规范驱动开发 · 工作流"
+  },
+  "introduce-ClaudeCode-Outputstyles": {
+    "lines": [
+      "Claude Code",
+      "Output Styles"
+    ],
+    "subtitle": "输出风格 · 双 AI 协作"
+  },
+  "introduce-GLM-4.5V": {
+    "lines": [
+      "GLM-4.5V"
+    ],
+    "subtitle": "视频理解 · OCR 实测"
+  },
+  "introduce-Cursor-CLI+GPT-5": {
+    "lines": [
+      "Cursor CLI",
+      "GPT-5"
+    ],
+    "subtitle": "安装入门 · 编程实测"
+  },
+  "introduce-gpt-oss-120B+20B": {
+    "lines": [
+      "gpt-oss",
+      "120B / 20B"
+    ],
+    "subtitle": "本地部署 · 多维度测评"
+  },
+  "introduce-dots.ocr": {
+    "lines": [
+      "dots.ocr"
+    ],
+    "subtitle": "本地部署 · PDF 文档解析"
+  },
+  "introduce-BMad-Method": {
+    "lines": [
+      "BMad-Method"
+    ],
+    "subtitle": "多智能体 · 敏捷开发"
+  },
+  "introduce-Sub-agents": {
+    "lines": [
+      "Claude Code",
+      "Subagents"
+    ],
+    "subtitle": "任务分工 · 规范驱动开发"
+  },
+  "introduce-Context-Engineering-for-Claude-Code": {
+    "lines": [
+      "Claude Code",
+      "上下文工程"
+    ],
+    "subtitle": "需求分析 · 自动化开发"
+  },
+  "introduce-Graphiti-MCP-Server": {
+    "lines": [
+      "Graphiti",
+      "MCP Server"
+    ],
+    "subtitle": "时序知识图谱 · 持久记忆"
+  },
+  "deploy-OCRFlux-3B": {
+    "lines": [
+      "OCRFlux",
+      "3B"
+    ],
+    "subtitle": "本地部署 · PDF 转 Markdown"
+  },
+  "introduce-SuperClaude": {
+    "lines": [
+      "SuperClaude"
+    ],
+    "subtitle": "专业命令 · 角色与开发实践"
+  },
+  "introduce-Claudia": {
+    "lines": [
+      "Claudia"
+    ],
+    "subtitle": "Claude Code 的图形界面"
+  },
+  "introduce-Augment-Code": {
+    "lines": [
+      "Augment",
+      "Code"
+    ],
+    "subtitle": "上下文理解 · 编程智能体"
+  },
+  "introduce-Gemini-CLI": {
+    "lines": [
+      "Gemini CLI"
+    ],
+    "subtitle": "安装配置 · MCP 扩展"
+  },
+  "deploy-MonkeyOCR": {
+    "lines": [
+      "MonkeyOCR"
+    ],
+    "subtitle": "本地部署 · 扫描件实测"
+  },
+  "introduce-Serena+Cursor": {
+    "lines": [
+      "Serena",
+      "Cursor"
+    ],
+    "subtitle": "代码依赖分析 · 项目开发"
+  },
+  "introduce-Augment+Context7": {
+    "lines": [
+      "Augment",
+      "Context7"
+    ],
+    "subtitle": "文档检索 · 编程实践"
+  },
+  "introduce-Claude-Code+Zen-MCP": {
+    "lines": [
+      "Claude Code",
+      "Zen MCP"
+    ],
+    "subtitle": "多 AI 协作 · 编程工作流"
+  },
+  "DeepSeekR1+AutoGen": {
+    "lines": [
+      "DeepSeek R1",
+      "AutoGen"
+    ],
+    "subtitle": "PRD 生成 · 智能体工作流"
+  },
+  "Qwen3-Embedding-4B+n8n-RAG": {
+    "lines": [
+      "Qwen3",
+      "Embedding 4B"
+    ],
+    "subtitle": "n8n · RAG 知识库"
+  },
+  "Cursor+ClaudeTaskMaster": {
+    "lines": [
+      "Cursor",
+      "Task Master"
+    ],
+    "subtitle": "需求拆解 · 自动化开发"
+  },
+  "introduce-gemini-fullstack-langgraph": {
+    "lines": [
+      "Gemini",
+      "LangGraph"
+    ],
+    "subtitle": "深度搜索 · 全栈智能体"
+  },
+  "introduce-Kilo-Code": {
+    "lines": [
+      "Kilo Code"
+    ],
+    "subtitle": "智能模式 · 任务分解"
+  },
+  "introduce-DeepSeek-R1-0528": {
+    "lines": [
+      "DeepSeek R1",
+      "0528"
+    ],
+    "subtitle": "推理 · 编程 · 多维度测评"
+  },
+  "introduce-Claude-Code+Cursor+Claude4": {
+    "lines": [
+      "Claude Code",
+      "Cursor"
+    ],
+    "subtitle": "Claude 4 · 项目功能开发"
+  },
+  "introduce-Claude4": {
+    "lines": [
+      "Claude 4"
+    ],
+    "subtitle": "原生应用 · 编程能力实测"
+  },
+  "introduce-Google-Jules": {
+    "lines": [
+      "Google",
+      "Jules"
+    ],
+    "subtitle": "GitHub 集成 · 代码重构"
+  },
+  "Windsurf-SWE1-Testing": {
+    "lines": [
+      "Windsurf",
+      "SWE-1"
+    ],
+    "subtitle": "编程实测 · MCP 开发"
+  },
+  "deploy-Wan2.1-VACE": {
+    "lines": [
+      "Wan2.1",
+      "VACE"
+    ],
+    "subtitle": "视频生成 · 本地与 Colab 部署"
+  },
+  "deploy-Docling+InternVL3+Gemini2.5": {
+    "lines": [
+      "Docling"
+    ],
+    "subtitle": "视觉模型 · PDF 解析与 OCR"
+  },
+  "introduce-AutoGen-GraphFlow": {
+    "lines": [
+      "AutoGen",
+      "GraphFlow"
+    ],
+    "subtitle": "多智能体 · 工作流编排"
+  },
+  "deploy-n8n+Gemini-2.5-pro-0506-for-OCR": {
+    "lines": [
+      "n8n",
+      "Gemini 2.5 Pro"
+    ],
+    "subtitle": "OCR 识别 · 自动化工作流"
+  },
+  "Fine-Tuning-Qwen3-14B": {
+    "lines": [
+      "Qwen3",
+      "14B 微调"
+    ],
+    "subtitle": "LoRA · 量化 · LM Studio"
+  },
+  "introduce-DeepSeek-Prover-V2-671B": {
+    "lines": [
+      "DeepSeek",
+      "Prover V2"
+    ],
+    "subtitle": "形式化定理证明 · 671B 实测"
+  },
+  "deploy-Qwen3": {
+    "lines": [
+      "Qwen3"
+    ],
+    "subtitle": "本地部署 · 多规格测评"
+  },
+  "introduce-AutoGen-McpWorkbench": {
+    "lines": [
+      "AutoGen",
+      "McpWorkbench"
+    ],
+    "subtitle": "MCP 工具 · 智能体实践"
+  },
+  "Cline+Context7-tutorial": {
+    "lines": [
+      "Cline",
+      "Context7"
+    ],
+    "subtitle": "文档检索 · 自定义指令"
+  },
+  "deploy-InternVL3": {
+    "lines": [
+      "InternVL3"
+    ],
+    "subtitle": "本地部署 · 中文 OCR 实测"
+  },
+  "introduce-codex": {
+    "lines": [
+      "OpenAI",
+      "Codex CLI"
+    ],
+    "subtitle": "命令行智能体 · 编程实践"
+  },
+  "introduce-GPT-4.1-model": {
+    "lines": [
+      "GPT-4.1"
+    ],
+    "subtitle": "编程 · 指令遵循 · 实测"
+  },
+  "introduce-ADK": {
+    "lines": [
+      "Google",
+      "ADK"
+    ],
+    "subtitle": "Agent Development Kit"
+  },
+  "introduce-Llama4": {
+    "lines": [
+      "Llama 4"
+    ],
+    "subtitle": "Scout · Maverick · 多模态实测"
+  },
+  "mcpo-and-OpenWebUI-tutorial": {
+    "lines": [
+      "mcpo",
+      "Open WebUI"
+    ],
+    "subtitle": "MCP 扩展 · 本地部署"
+  },
+  "RooCode-Gemini2.5Pro-OpenAIAgentsSDK": {
+    "lines": [
+      "Roo Code",
+      "Gemini 2.5 Pro"
+    ],
+    "subtitle": "Agents SDK · 工作流界面"
+  },
+  "introduce-Gemini-2.5-pro": {
+    "lines": [
+      "Gemini",
+      "2.5 Pro"
+    ],
+    "subtitle": "中文 OCR · 表格提取"
+  },
+  "introduce-DeepSeek-V3-0324": {
+    "lines": [
+      "DeepSeek V3",
+      "0324"
+    ],
+    "subtitle": "推理 · 编程 · 文档实测"
+  },
+  "using-WindSurf-to-Create-MCP-Server-for-LightRAG": {
+    "lines": [
+      "Windsurf",
+      "LightRAG"
+    ],
+    "subtitle": "MCP 开发 · 知识库接入"
+  },
+  "introduce-AutoGenStudio": {
+    "lines": [
+      "AutoGen",
+      "Studio"
+    ],
+    "subtitle": "可视化编排 · 智能体工作流"
+  },
+  "deploy-Mistral-Small-3.1": {
+    "lines": [
+      "Mistral",
+      "Small 3.1"
+    ],
+    "subtitle": "本地部署 · 多模态实测"
+  },
+  "introduce-MCP": {
+    "lines": [
+      "MCP"
+    ],
+    "subtitle": "从协议入门到 Server 开发"
+  },
+  "introduce-Gemma3": {
+    "lines": [
+      "Gemma 3",
+      "27B"
+    ],
+    "subtitle": "多模态 · 推理 · 编程实测"
+  },
+  "introduce-agents-SDK": {
+    "lines": [
+      "OpenAI",
+      "Agents SDK"
+    ],
+    "subtitle": "任务交接 · 客服智能体"
+  },
+  "AutoGen+MCPServer": {
+    "lines": [
+      "AutoGen",
+      "MCP Server"
+    ],
+    "subtitle": "网络搜索 · 文件操作"
+  },
+  "deploy-olmOCR": {
+    "lines": [
+      "olmOCR"
+    ],
+    "subtitle": "本地部署 · PDF 转换"
+  },
+  "introduce-Claude-3.7-Sonnet": {
+    "lines": [
+      "Claude",
+      "3.7 Sonnet"
+    ],
+    "subtitle": "深度思考 · 多维度测评"
+  },
+  "Cline+AutoGen+LangFlow": {
+    "lines": [
+      "AutoGen",
+      "LangFlow"
+    ],
+    "subtitle": "Cline · MCP · 文档问答"
+  },
+  "deploy-PaliGemma2MIX": {
+    "lines": [
+      "PaliGemma 2",
+      "mix"
+    ],
+    "subtitle": "本地部署 · 视觉理解"
+  },
+  "deploy-Qwen2.5-VL": {
+    "lines": [
+      "Qwen2.5-VL"
+    ],
+    "subtitle": "vLLM 部署 · 视频目标查找"
+  },
+  "finetuning-deepseek-r1": {
+    "lines": [
+      "DeepSeek R1",
+      "8B 微调"
+    ],
+    "subtitle": "Unsloth · SQL 转自然语言"
+  },
+  "introduce-Gemini2.0-Pro": {
+    "lines": [
+      "Gemini",
+      "2.0 Pro"
+    ],
+    "subtitle": "多模态实测 · 编程实践"
+  },
+  "introduce-node-DeepResearch": {
+    "lines": [
+      "node",
+      "DeepResearch"
+    ],
+    "subtitle": "本地部署 · 深度研究智能体"
+  },
+  "introduce-Mistral-Small-3": {
+    "lines": [
+      "Mistral",
+      "Small 3"
+    ],
+    "subtitle": "本地部署 · Roo Code"
+  },
+  "introduce-Qwen2.5-VL": {
+    "lines": [
+      "Qwen2.5-VL"
+    ],
+    "subtitle": "视觉实测 · 本地部署"
+  },
+  "introduce-Qwen2.5-Max": {
+    "lines": [
+      "Qwen2.5",
+      "Max"
+    ],
+    "subtitle": "API 调用 · 智能体实践"
+  },
+  "introduce-Janus-pro": {
+    "lines": [
+      "Janus-Pro",
+      "7B"
+    ],
+    "subtitle": "图像理解 · 图像生成"
+  },
+  "introduce-autogen-swarm": {
+    "lines": [
+      "AutoGen",
+      "Swarm"
+    ],
+    "subtitle": "Magentic-One · 多智能体"
+  },
+  "litGPT-Fine-Tuning-Phi4-LLM": {
+    "lines": [
+      "Phi-4",
+      "LitGPT"
+    ],
+    "subtitle": "模型微调 · Text to SQL"
+  },
+  "introduce-Roo-Cline-MCP-Server": {
+    "lines": [
+      "Roo Cline",
+      "MCP Server"
+    ],
+    "subtitle": "项目工具 · 编程实践"
+  },
+  "introduce-Cline-3.1-new-features": {
+    "lines": [
+      "Cline",
+      "3.1"
+    ],
+    "subtitle": "版本管理 · 任务跟踪"
+  },
+  "introduce-smolagents": {
+    "lines": [
+      "smolagents"
+    ],
+    "subtitle": "Hugging Face · 智能体入门"
+  },
+  "introduce-graphrag-1.0": {
+    "lines": [
+      "GraphRAG",
+      "1.0"
+    ],
+    "subtitle": "DRIFT 搜索 · 本地模型"
+  },
+  "introduce-Llama3.3": {
+    "lines": [
+      "Llama 3.3",
+      "70B"
+    ],
+    "subtitle": "开源模型 · 编程与智能体"
+  },
+  "introduce-Claude-MCP-Server": {
+    "lines": [
+      "Claude",
+      "MCP"
+    ],
+    "subtitle": "模型上下文协议 · 工具扩展"
+  }
+}
