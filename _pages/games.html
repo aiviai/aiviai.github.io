@@ -1,0 +1,44 @@
+---
+layout: default
+title: 小游戏
+description: 阅读之余，来一场港口防守。在线试玩 Low Tide，使用键盘和鼠标守住九号码头。
+permalink: /games/
+footer: slim
+search: false
+---
+<main id="main" class="lt-main lt-games">
+  <div class="lt-wrap lt-games__wrap">
+    <header class="lt-games__intro">
+      <div class="lt-label lt-kicker"><span class="lt-sq" aria-hidden="true"></span>阅读之外 · PLAY</div>
+      <h1>读累了，玩一会儿。</h1>
+      <p>给好奇心一个休息站。无需安装，打开电脑浏览器就能开始。</p>
+    </header>
+
+    <article class="lt-games__feature" aria-labelledby="low-tide-title">
+      <a class="lt-games__preview" href="{{ '/games/low-tide.html' | relative_url }}" aria-label="开始试玩 Low Tide 港湾守卫">
+        <img src="{{ '/assets/games/low-tide/preview.jpg' | relative_url }}" alt="Low Tide 游戏实景：夕阳下的港口、集装箱与起重机" width="1584" height="990" fetchpriority="high">
+        <span class="lt-games__preview-label"><span>游戏实景</span>{% include icon.html name="arrow-up-right" px=20 %}</span>
+      </a>
+      <div class="lt-games__body">
+        <p class="lt-games__meta">01 / 第一人称射击 · 生存挑战</p>
+        <h2 id="low-tide-title"><span lang="en">Low Tide</span><span class="lt-games__subtitle">港湾守卫</span></h2>
+        <p class="lt-games__description">黄昏，九号码头。敌人正穿过集装箱堆场逼近。带上武器，利用掩体，守住港口，看看你能坚持多少波。</p>
+        <div class="lt-games__facts"><span>9 种武器</span><span>波次生存</span><span>浏览器即玩</span></div>
+        <p class="lt-games__device">需要电脑键盘与鼠标，暂不支持触屏操作。<br>首次进入会生成场景，请稍候；点击 Deploy 开始。</p>
+        <a class="lt-btn lt-btn-primary" href="{{ '/games/low-tide.html' | relative_url }}">开始试玩{% include icon.html name="arrow-right" class="go" %}</a>
+      </div>
+    </article>
+
+    <section class="lt-games__controls" aria-labelledby="game-controls-title">
+      <div><span class="lt-label">HOW TO PLAY</span><h2 id="game-controls-title">上手只需一分钟</h2><p>按 Esc 或 P 暂停，释放鼠标。<br>画质和音量可在 Settings 中调整。</p></div>
+      <dl>
+        <div><dt><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd></dt><dd>移动 · 鼠标控制视角</dd></div>
+        <div><dt>鼠标左键 / 右键</dt><dd>射击 / 瞄准</dd></div>
+        <div><dt><kbd>R</kbd><kbd>1–9</kbd></dt><dd>换弹 / 切换武器</dd></div>
+        <div><dt><kbd>Shift</kbd><kbd>Space</kbd><kbd>C</kbd></dt><dd>冲刺 / 跳跃 / 蹲下</dd></div>
+        <div><dt><kbd>G</kbd><kbd>F</kbd></dt><dd>投掷手雷 / 拾取弹药</dd></div>
+        <div><dt><kbd>Esc</kbd><kbd>P</kbd></dt><dd>暂停 · 返回菜单</dd></div>
+      </dl>
+    </section>
+  </div>
+</main>

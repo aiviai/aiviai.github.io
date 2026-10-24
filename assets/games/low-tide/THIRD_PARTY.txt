@@ -1,0 +1,11 @@
+# Low Tide assets
+
+`preview.jpg` is a screenshot captured from the playable game at `/games/low-tide.html`.
+
+`three-r147/` contains the unchanged Three.js 0.147.0 build and the thirteen-script dependency set used by this game. These files are served locally so gameplay does not require a third-party script CDN. The optional Google Fonts stylesheet has system-font fallbacks.
+
+Source package: https://www.npmjs.com/package/three/v/0.147.0
+
+Download base: https://cdn.jsdelivr.net/npm/three@0.147.0/
+
+The upstream MIT license is retained at `three-r147/LICENSE`.
