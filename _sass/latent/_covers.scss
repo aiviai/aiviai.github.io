@@ -57,23 +57,18 @@
     var(--plate);
 }
 
-// Editorial keyword covers for homepage and paginated article cards.
-// The original generated pattern remains as a quiet background texture.
+// Typographic article covers inspired by the supplied blue/yellow artwork.
 .lt-frame--keywords {
   container-type: inline-size;
-  // A distinct graphite surface keeps covers readable against dark paper.
   background: var(--keyword-cover-bg);
   border-color: var(--keyword-cover-border);
   box-shadow: var(--keyword-cover-shadow);
 
-  > .lt-cover { opacity: .3; }
+  > .lt-cover { display: none; }
 
-  &::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--keyword-cover-shade);
-    pointer-events: none;
+  > .lt-arrow {
+    background: var(--keyword-cover-accent);
+    color: var(--keyword-cover-black);
   }
 }
 
@@ -85,7 +80,7 @@
   flex-direction: column;
   padding: 24px;
   padding: clamp(18px, 6cqw, 42px);
-  color: var(--plate-ink);
+  color: var(--keyword-cover-ink);
   pointer-events: none;
 
   &__meta {
@@ -93,11 +88,11 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    font: 10px/1.3 var(--mono);
+    font: 700 10px/1.3 var(--sans);
     font-size: clamp(9px, 2.8cqw, 12px);
     letter-spacing: .09em;
     text-transform: uppercase;
-    color: var(--plate-ink-2);
+    color: var(--keyword-cover-black);
   }
 
   &__category {
@@ -110,7 +105,7 @@
       width: 5px;
       height: 5px;
       border-radius: 1px;
-      background: var(--signal);
+      background: var(--keyword-cover-black);
     }
   }
 
@@ -122,23 +117,27 @@
     flex: 1;
     min-height: 0;
     margin: 14px 0;
-    font: 600 38px/1.08 var(--sans);
+    font: 900 38px/1.1 var(--keyword-cover-font);
     font-size: clamp(26px, 9.5cqw, 76px);
     letter-spacing: -.045em;
     overflow-wrap: anywhere;
+    text-shadow: 0 .065em 0 var(--keyword-cover-black);
 
-    > span:last-child:not(:first-child) { color: var(--signal); }
+    > span:last-child:not(:first-child) { color: var(--keyword-cover-accent); }
   }
 
   &--medium &__title { font-size: clamp(23px, 8cqw, 68px); }
   &--long &__title { font-size: clamp(20px, 6.5cqw, 56px); }
 
   &__subtitle {
-    border-top: 1px solid var(--plate-str);
-    padding-top: 12px;
-    font: 400 12px/1.5 var(--sans);
+    align-self: flex-start;
+    max-width: 100%;
+    padding: 6px 10px;
+    border-radius: 4px;
+    background: var(--keyword-cover-black);
+    font: 700 12px/1.5 var(--sans);
     font-size: clamp(11px, 3.4cqw, 17px);
     letter-spacing: .025em;
-    color: var(--plate-ink-2);
+    color: var(--keyword-cover-ink);
   }
 }
