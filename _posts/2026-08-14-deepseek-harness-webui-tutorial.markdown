@@ -4,6 +4,8 @@ title: "DeepSeek Harness 上手实测：Web UI、执行轨迹、会话分支与�
 date: 2026-08-14 17:54:36 +0800
 categories: AIAgents
 tags: [DeepSeek, Harness, WebUI, Codex, AI编程]
+cover_lines: ["DeepSeek", "Harness"]
+cover_subtitle: "上手实测 · Web UI 与会话分支"
 classes: wide
 author_profile: true
 sidebar:
@@ -32,11 +34,9 @@ Harness 的插件化设计很有吸引力，但是否适合自己的工作流，
 
 补核时，[官方仓库](https://github.com/deepseek-ai/deepseek-harness)给出的 npm 启动命令如下。这是 2026 年 10 月 24 日所见的说明，不冒充视频中未完整呈现的历史命令：
 
-```bash
-npx @deepseek-ai/dsh web
-```
 
-当前 README 说明默认地址为 `http://127.0.0.1:3080`，并提示项目仍处于 developer preview，可能发生破坏兼容性的变更。开始前应阅读当前版本说明与安全提示，不要混用旧教程的配置片段。
+
+当前 README 说明默认地址为 ，并提示项目仍处于 developer preview，可能发生破坏兼容性的变更。开始前应阅读当前版本说明与安全提示，不要混用旧教程的配置片段。
 
 API Key 应保留在对应提供商的本地配置或安全输入界面中。下面的案例只讨论操作流程，不展示任何密钥、令牌或个人公网访问地址。
 

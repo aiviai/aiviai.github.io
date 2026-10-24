@@ -4,6 +4,8 @@ title: "Prime Agent 实测：动态分工、四个 SubAgent 与长期任务"
 date: 2026-08-12 23:32:56 +0800
 categories: AIAgents
 tags: [PrimeAgent, RLM, Harness, MultiAgent]
+cover_lines: ["Prime Agent"]
+cover_subtitle: "动态分工 · 四个子任务与长期目标"
 classes: wide
 author_profile: true
 sidebar:

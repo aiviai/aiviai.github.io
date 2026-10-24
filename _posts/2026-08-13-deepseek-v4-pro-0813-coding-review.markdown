@@ -4,6 +4,8 @@ title: "DeepSeek V4 Pro 0813 编程实测：5.36 元 API 消耗背后的七项�
 date: 2026-08-13 16:37:02 +0800
 categories: LLMs
 tags: [DeepSeek, ClaudeCode, Godot, SwiftUI, AI编程]
+cover_lines: ["DeepSeek", "V4 Pro 0813"]
+cover_subtitle: "七项编程 · 5.36 元 API 消耗"
 classes: wide
 author_profile: true
 sidebar:

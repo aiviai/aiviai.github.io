@@ -4,6 +4,8 @@ title: "Claude Fable 5.1 编程实测：七项任务与 Unity 3D 侏罗纪沙盒
 date: 2026-09-02 17:05:47 +0800
 categories: LLMs
 tags: [Claude, Fable5.1, ClaudeCode, Unity3D]
+cover_lines: ["Claude", "Fable 5.1"]
+cover_subtitle: "七项任务 · Unity 侏罗纪沙盒"
 classes: wide
 author_profile: true
 sidebar:

@@ -4,6 +4,8 @@ title: "GPT-6 Astra 实测：medium 推理下的原生 App、3D 游戏与电脑�
 date: 2026-09-05 17:43:19 +0800
 categories: LLMs
 tags: [OpenAI, GPT-6 Astra, Codex, AI编程, Godot, Computer Use]
+cover_lines: ["GPT-6", "Astra"]
+cover_subtitle: "开发实测 · 原生 App 与电脑操作"
 classes: wide
 author_profile: true
 sidebar:

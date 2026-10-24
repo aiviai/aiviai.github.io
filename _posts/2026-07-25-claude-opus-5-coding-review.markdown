@@ -4,6 +4,8 @@ title: "Claude Opus 5 编程实测：可探索住宅、Godot 沙盒与 26 分钟
 date: 2026-07-25 16:39:05 +0800
 categories: LLMs
 tags: [Claude, Opus5, ClaudeCode, Godot, Android, Threejs]
+cover_lines: ["Claude", "Opus 5"]
+cover_subtitle: "编程实测 · Godot 与 Android"
 classes: wide
 author_profile: true
 sidebar:

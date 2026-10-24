@@ -4,6 +4,8 @@ title: "Claude Opus 5.5 实测：35 分钟音乐播放器、可探索房屋与�
 date: 2026-09-23 16:35:17 +0800
 categories: LLMs
 tags: [Claude, Opus 5.5, Claude Code, Claude Design, AI编程, Godot]
+cover_lines: ["Claude", "Opus 5.5"]
+cover_subtitle: "开发实测 · 播放器与三维房屋"
 classes: wide
 author_profile: true
 sidebar:

@@ -4,6 +4,8 @@ title: "DeepSeek V4 Flash 0731 实测：七项编程任务、约 1.42 元成本�
 date: 2026-07-31 20:45:17 +0800
 categories: LLMs
 tags: [DeepSeek, ClaudeCode, Godot, iOS, AI编程]
+cover_lines: ["DeepSeek", "V4 Flash 0731"]
+cover_subtitle: "七项编程 · 成本与游戏短板"
 classes: wide
 author_profile: true
 sidebar:

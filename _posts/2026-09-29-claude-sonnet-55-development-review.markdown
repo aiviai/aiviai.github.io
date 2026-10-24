@@ -4,6 +4,8 @@ title: "Claude Sonnet 5.5 实测：81 分钟音乐播放器、原生 App、Godot
 date: 2026-09-29 17:07:48 +0800
 categories: LLMs
 tags: [Claude, Sonnet 5.5, Claude Code, AI编程, Godot, Computer Use]
+cover_lines: ["Claude", "Sonnet 5.5"]
+cover_subtitle: "开发实测 · App、游戏与桌面"
 classes: wide
 author_profile: true
 sidebar:

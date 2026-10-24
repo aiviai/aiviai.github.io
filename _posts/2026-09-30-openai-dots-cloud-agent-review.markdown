@@ -4,6 +4,8 @@ title: "OpenAI dots 实测：语音操作 Notion，云端并行开发 Godot 游�
 date: 2026-09-30 19:34:43 +0800
 categories: AIAgents
 tags: [OpenAI, dots, GPT6Astra, Godot, Blender, Notion]
+cover_lines: ["OpenAI", "dots"]
+cover_subtitle: "云端实测 · 语音与并行开发"
 classes: wide
 author_profile: true
 sidebar:

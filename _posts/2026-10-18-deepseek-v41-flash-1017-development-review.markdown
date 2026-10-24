@@ -4,6 +4,8 @@ title: "DeepSeek-V4.1-Flash-1017 实测：30.04 元完成 7 项开发，画面�
 date: 2026-10-18 01:04:25 +0800
 categories: LLMs
 tags: [DeepSeek, DeepSeek-V4.1-Flash-1017, DeepSeek Harness, AI编程, 游戏开发, iOS]
+cover_lines: ["DeepSeek", "V4.1 Flash 1017"]
+cover_subtitle: "七项开发 · 动画、游戏与 App"
 classes: wide
 author_profile: true
 sidebar:

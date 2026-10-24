@@ -4,6 +4,8 @@ title: "MiniMax M3.1 Flash 长程编程实测：音乐播放器、极光号飞�
 date: 2026-10-20 23:15:58 +0800
 categories: LLMs
 tags: [MiniMax, M3.1Flash, OpenCode, Hermes, AI编程]
+cover_lines: ["MiniMax", "M3.1 Flash"]
+cover_subtitle: "长程编程 · 播放器与三维场景"
 classes: wide
 author_profile: true
 sidebar:

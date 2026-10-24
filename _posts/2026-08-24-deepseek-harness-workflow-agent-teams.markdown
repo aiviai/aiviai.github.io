@@ -4,6 +4,8 @@ title: "DeepSeek Harness 进阶实测：4 个子任务审计、9 个 Agent 协�
 date: 2026-08-24 22:38:58 +0800
 categories: AIAgents
 tags: [DeepSeek, Harness, Workflow, AgentTeams, 插件]
+cover_lines: ["DeepSeek", "Harness"]
+cover_subtitle: "九个智能体协作与插件开发"
 classes: wide
 author_profile: true
 sidebar:

@@ -4,6 +4,8 @@ title: "WebMCP 与 Codex 浏览器实测：从论文笔记到网站工具调用"
 date: 2026-08-26 23:24:54 +0800
 categories: AIAgents
 tags: [WebMCP, Codex, ChatGPT, 浏览器自动化]
+cover_lines: ["WebMCP", "Codex 浏览器"]
+cover_subtitle: "网页工具 · 笔记与贺卡实测"
 classes: wide
 author_profile: true
 sidebar:

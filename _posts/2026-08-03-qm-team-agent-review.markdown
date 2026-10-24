@@ -4,6 +4,8 @@ title: "qm 团队 Agent 实测：记忆管理、共享项目与私人空间"
 date: 2026-08-03 23:42:08 +0800
 categories: AIAgents
 tags: [qm, YCombinator, Agent, 团队协作]
+cover_lines: ["qm", "团队 Agent"]
+cover_subtitle: "协作实测 · 记忆管理与共享项目"
 classes: wide
 author_profile: true
 sidebar:
