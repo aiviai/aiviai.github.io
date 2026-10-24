@@ -305,20 +305,7 @@
 
     .lt-plate {
       flex: 1 1 100%;
-      aspect-ratio: auto;
-      height: 196px;
       border-radius: 16px;
-      // A flatter version of the hero illustration for the banner.
-      background:
-        radial-gradient(circle at 70% 42%, var(--signal) 0 6px, transparent 7px),
-        repeating-radial-gradient(ellipse at 70% 42%, transparent 0 21px, var(--plate-str) 21px 22px),
-        radial-gradient(circle, var(--plate-dot) 1px, transparent 1.6px) 50% 50%/18px 18px,
-        var(--plate);
-
-      > svg,
-      .lt-plate__foot {
-        display: none;
-      }
     }
 
     .lt-plate__label {

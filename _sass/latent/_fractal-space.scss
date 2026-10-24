@@ -1,0 +1,109 @@
+// Fractal Space: the home hero's Menger sponge (_includes/fractal-space.html,
+// assets/js/fractal-space.js). The panel itself is a .lt-plate; these rules
+// only style what is drawn inside it. The panel stays dark in both themes.
+
+$lt-fs-edge: rgba(218, 223, 227, .52) !default;
+$lt-fs-rim: rgba(218, 223, 227, .34) !default;
+
+.lt-fs {
+  isolation: isolate;
+  contain: layout paint;
+
+  > svg {
+    overflow: hidden;
+  }
+
+  // The theme crossfades colors on every element; here the script changes
+  // them every frame, and faces take their tone from `color`, so a
+  // transition would start each new face from the panel's light ink.
+  * {
+    transition: none;
+  }
+}
+
+.lt-fs__dot {
+  fill: var(--plate-dot);
+  opacity: .5;
+}
+
+.lt-fs__veil-stop {
+  stop-color: var(--plate);
+}
+
+// Interior faces: fill and stroke share one color so neighbouring squares
+// meet without hairline seams.
+.lt-fs__face {
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: .6;
+  stroke-linejoin: round;
+}
+
+.lt-fs__hull {
+  fill-rule: evenodd;
+}
+
+// Patches that close the corner's finest openings: the matching stroke
+// hides the seam against the face around them.
+.lt-fs__fill {
+  stroke-width: .8;
+}
+
+.lt-fs__edge {
+  fill: none;
+  stroke: $lt-fs-edge;
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lt-fs__edge--rimA,
+.lt-fs__edge--rimC,
+.lt-fs__edge--rimF {
+  stroke: $lt-fs-rim;
+  stroke-width: .8;
+}
+
+.lt-fs__beam,
+.lt-fs__glow {
+  fill: none;
+  stroke: var(--signal);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 13 87;
+}
+
+.lt-fs__beam {
+  stroke-width: 1.7;
+}
+
+.lt-fs__glow {
+  stroke-width: 6;
+  stroke-opacity: .16;
+}
+
+.lt-fs__label {
+  z-index: 1;
+}
+
+.lt-fs__caption {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--serif), "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", serif;
+  font-size: 14px;
+  line-height: 1.4;
+  letter-spacing: .04em;
+  color: var(--plate-ink-2);
+}
+
+@include lt-phone-down {
+  .lt-fs__caption {
+    left: 16px;
+    bottom: 14px;
+    font-size: 13px;
+  }
+}
