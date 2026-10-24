@@ -236,7 +236,7 @@ footer:
 # Presentation only: article metadata, permalinks and pagination stay unchanged.
 lang: zh-CN
 latent:
-  home_posts: 10
+  home_posts: 12
   color_scheme: system
   search: true
   toc: true
