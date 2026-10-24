@@ -1,6 +1,6 @@
 <section class="lt-profile" aria-label="作者资料">
   <a href="{{ '/about/' | relative_url }}"><img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name | escape }}" width="64" height="64" loading="lazy"></a>
-  <div><strong>{{ site.author.name }}</strong><div>{{ site.author.bio | markdownify }}</div><span>{{ site.author.location }}</span></div>
+  <div><strong>{{ site.author.name }}</strong><div>{{ site.author.bio | markdownify }}</div>{% if site.author.location != blank %}<span class="lt-profile__location">{% include icon.html name="map-pin" px=18 %}<span>{{ site.author.location | escape }}</span></span>{% endif %}</div>
   <div class="lt-profile__links">
     {% for link in site.author.links %}
     {% assign profile_url = link.url %}

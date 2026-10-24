@@ -20,6 +20,8 @@
 .lt-profile { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; padding-bottom: 28px; }
 .lt-profile img { border-radius: 50%; object-fit: cover; }
 .lt-profile p { margin: 4px 0; }
+.lt-profile__location { display: inline-flex; align-items: center; gap: 6px; }
+.lt-profile__location svg { flex: none; color: var(--ink-3); }
 .lt-profile__links { display: flex; flex-wrap: wrap; gap: 8px; }
 .lt-footer-topics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
 .lt-footer-topics__group { min-width: 0; border-top: 1px solid var(--line); padding-top: 20px; }
