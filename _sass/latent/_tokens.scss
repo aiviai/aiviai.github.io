@@ -29,8 +29,8 @@ $lt-bp-phone: 760px !default;  // single column, smaller body text
   --plate-line: rgba(230, 232, 234, .14);
   --plate-str: rgba(230, 232, 234, .3);
   --plate-dot: rgba(230, 232, 234, .3);
-  --keyword-cover-border: #1872CC;
-  --keyword-cover-shadow: 0 8px 24px rgba(11, 11, 12, .12);
+  --keyword-cover-border: #D2D5D8;
+  --keyword-cover-shadow: 0 8px 24px rgba(11, 11, 12, .08);
   --header: rgba(247, 248, 248, .8);
   --progress: var(--ink);
   --code-border: transparent;
@@ -58,7 +58,7 @@ $lt-bp-phone: 760px !default;  // single column, smaller body text
   --plate-line: rgba(230, 232, 234, .1);
   --plate-str: rgba(230, 232, 234, .24);
   --plate-dot: rgba(230, 232, 234, .22);
-  --keyword-cover-border: #75BAFF;
+  --keyword-cover-border: #D2D5D8;
   --keyword-cover-shadow: 0 8px 24px rgba(0, 0, 0, .18);
   --header: rgba(10, 11, 12, .78);
   --progress: var(--signal);
@@ -68,10 +68,11 @@ $lt-bp-phone: 760px !default;  // single column, smaller body text
 }
 
 :root {
-  // Article-cover palette sampled from the supplied blue/yellow reference.
-  --keyword-cover-bg: #1E8FFF;
-  --keyword-cover-ink: #FFFFFF;
+  // Article-cover palette sampled from the supplied white/black reference.
+  --keyword-cover-bg: #FFFFFF;
+  --keyword-cover-ink: #0B0B0C;
   --keyword-cover-accent: #FFCC1A;
+  --keyword-cover-mark: #D97757;
   --keyword-cover-black: #0B0B0C;
   --keyword-cover-font: "Arial Black", "Arial", "PingFang SC", "Microsoft YaHei", sans-serif;
   --signal: #D2FF3D;

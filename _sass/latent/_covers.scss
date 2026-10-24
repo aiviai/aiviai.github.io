@@ -57,7 +57,7 @@
     var(--plate);
 }
 
-// Typographic article covers inspired by the supplied blue/yellow artwork.
+// Typographic article covers inspired by the supplied white/black artwork.
 .lt-frame--keywords {
   container-type: inline-size;
   background: var(--keyword-cover-bg);
@@ -67,8 +67,8 @@
   > .lt-cover { display: none; }
 
   > .lt-arrow {
-    background: var(--keyword-cover-accent);
-    color: var(--keyword-cover-black);
+    background: var(--keyword-cover-black);
+    color: var(--keyword-cover-accent);
   }
 }
 
@@ -105,7 +105,7 @@
       width: 5px;
       height: 5px;
       border-radius: 1px;
-      background: var(--keyword-cover-black);
+      background: var(--keyword-cover-mark);
     }
   }
 
@@ -121,9 +121,6 @@
     font-size: clamp(26px, 9.5cqw, 76px);
     letter-spacing: -.045em;
     overflow-wrap: anywhere;
-    text-shadow: 0 .065em 0 var(--keyword-cover-black);
-
-    > span:last-child:not(:first-child) { color: var(--keyword-cover-accent); }
   }
 
   &--medium &__title { font-size: clamp(23px, 8cqw, 68px); }
@@ -132,12 +129,12 @@
   &__subtitle {
     align-self: flex-start;
     max-width: 100%;
-    padding: 6px 10px;
-    border-radius: 4px;
+    padding: 6px 12px;
+    border-radius: 999px;
     background: var(--keyword-cover-black);
     font: 700 12px/1.5 var(--sans);
     font-size: clamp(11px, 3.4cqw, 17px);
     letter-spacing: .025em;
-    color: var(--keyword-cover-ink);
+    color: var(--keyword-cover-accent);
   }
 }
