@@ -29,6 +29,10 @@ $lt-bp-phone: 760px !default;  // single column, smaller body text
   --plate-line: rgba(230, 232, 234, .14);
   --plate-str: rgba(230, 232, 234, .3);
   --plate-dot: rgba(230, 232, 234, .3);
+  --keyword-cover-bg: var(--plate);
+  --keyword-cover-border: var(--plate-border);
+  --keyword-cover-shade: linear-gradient(110deg, rgba(10, 12, 13, .55), rgba(10, 12, 13, .08));
+  --keyword-cover-shadow: none;
   --header: rgba(247, 248, 248, .8);
   --progress: var(--ink);
   --code-border: transparent;
@@ -56,6 +60,10 @@ $lt-bp-phone: 760px !default;  // single column, smaller body text
   --plate-line: rgba(230, 232, 234, .1);
   --plate-str: rgba(230, 232, 234, .24);
   --plate-dot: rgba(230, 232, 234, .22);
+  --keyword-cover-bg: #222A30;
+  --keyword-cover-border: #4B5660;
+  --keyword-cover-shade: linear-gradient(120deg, rgba(255, 255, 255, .045), rgba(10, 12, 13, .08));
+  --keyword-cover-shadow: 0 8px 24px rgba(0, 0, 0, .18);
   --header: rgba(10, 11, 12, .78);
   --progress: var(--signal);
   --code-border: #24282C;

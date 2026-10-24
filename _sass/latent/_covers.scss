@@ -61,6 +61,10 @@
 // The original generated pattern remains as a quiet background texture.
 .lt-frame--keywords {
   container-type: inline-size;
+  // A distinct graphite surface keeps covers readable against dark paper.
+  background: var(--keyword-cover-bg);
+  border-color: var(--keyword-cover-border);
+  box-shadow: var(--keyword-cover-shadow);
 
   > .lt-cover { opacity: .3; }
 
@@ -68,7 +72,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(110deg, rgba(10, 12, 13, .55), rgba(10, 12, 13, .08));
+    background: var(--keyword-cover-shade);
     pointer-events: none;
   }
 }
