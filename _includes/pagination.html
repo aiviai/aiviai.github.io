@@ -2,8 +2,19 @@
 {%- assign lt_current_page = paginator.page | default: 1 -%}
 {% if lt_total_pages > 1 %}
 <nav class="lt-wrap lt-pagination" aria-label="文章分页">
-  {% if lt_current_page > 1 %}{% assign previous_number = lt_current_page | minus: 1 %}<a class="lt-btn lt-btn-secondary" href="{{ site.paginate_path | replace: ':num', previous_number | relative_url }}" rel="prev">← 上一页</a>{% endif %}
-  <div class="lt-pagination__pages">{% for number in (1..lt_total_pages) %}{% assign page_path = site.paginate_path | replace: ':num', number %}{% if number == lt_current_page %}<span class="lt-chip on" aria-current="page">{{ number }}</span>{% else %}<a class="lt-chip" href="{{ page_path | relative_url }}" aria-label="第 {{ number }} 页">{{ number }}</a>{% endif %}{% endfor %}</div>
+  {% if lt_current_page > 1 %}
+    {% assign previous_number = lt_current_page | minus: 1 %}
+    {% assign previous_path = site.paginate_path | replace: ':num', previous_number %}
+    {% if previous_number == 1 %}{% assign previous_path = '/#articles' %}{% endif %}
+    <a class="lt-btn lt-btn-secondary" href="{{ previous_path | relative_url }}" rel="prev">← 上一页</a>
+  {% endif %}
+  <div class="lt-pagination__pages">
+    {% for number in (1..lt_total_pages) %}
+      {% assign page_path = site.paginate_path | replace: ':num', number %}
+      {% if number == 1 %}{% assign page_path = '/#articles' %}{% endif %}
+      {% if number == lt_current_page %}<span class="lt-chip on" aria-current="page">{{ number }}</span>{% else %}<a class="lt-chip" href="{{ page_path | relative_url }}" aria-label="第 {{ number }} 页">{{ number }}</a>{% endif %}
+    {% endfor %}
+  </div>
   {% if lt_current_page < lt_total_pages %}{% assign next_number = lt_current_page | plus: 1 %}<a class="lt-btn lt-btn-secondary" href="{{ site.paginate_path | replace: ':num', next_number | relative_url }}" rel="next">下一页 →</a>{% endif %}
 </nav>
 {% endif %}

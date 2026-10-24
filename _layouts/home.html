@@ -21,8 +21,6 @@ layout: default
   {%- if post.featured -%}{%- assign lt_featured = post -%}{%- break -%}{%- endif -%}
 {%- endfor -%}
 {%- unless lt_featured -%}{%- assign lt_featured = lt_first -%}{%- endunless -%}
-{%- assign lt_home_count = lt.home_posts | default: 6 -%}
-{%- unless lt_is_home -%}{%- assign lt_home_count = site.paginate -%}{%- endunless -%}
 
 <main id="main" class="lt-main">
 
@@ -80,8 +78,8 @@ layout: default
 {% else %}<div class="lt-wrap lt-intro"><h1 class="lt-page-title">文章列表 · 第 {{ lt_page_number }} 页</h1></div>{% endif %}
 {%- if lt_featured %}
 {%- include byline.html post=lt_featured %}
-<section aria-labelledby="featured-title" class="lt-wrap lt-featured">
-  <div class="lt-section-head"><span class="lt-label">最新文章</span><span class="lt-rule"></span></div>
+<section id="articles" aria-labelledby="featured-title" class="lt-wrap lt-featured">
+  <div class="lt-section-head"><span class="lt-label">{% if lt_is_home %}最新文章{% else %}本页首篇{% endif %}</span><span class="lt-rule"></span></div>
   <a class="lt-card lt-featured__card" href="{{ lt_featured.url | relative_url }}">
     {% include cover.html post=lt_featured arrow=true overlay=true %}
     <div class="lt-featured__body">
@@ -98,17 +96,12 @@ layout: default
 </section>
 {%- endif %}
 
-{%- comment -%} The homepage preview is separate from the complete paginated article list. {%- endcomment -%}
-{%- assign lt_recent_listing = lt_listing -%}
-{%- if lt_is_home -%}{%- assign lt_recent_listing = site.posts -%}{%- endif -%}
+{%- comment -%} Every page uses the same paginator slice: one featured post and the remaining cards. {%- endcomment -%}
 {%- assign lt_shown = 0 -%}
-{%- assign lt_writing_total = 0 -%}
 {%- capture lt_cards -%}
-{%- for post in lt_recent_listing -%}
+{%- for post in lt_listing -%}
   {%- if post.categories contains lt_notes_cat -%}{%- continue -%}{%- endif -%}
-  {%- assign lt_writing_total = lt_writing_total | plus: 1 -%}
   {%- if post.url == lt_featured.url -%}{%- continue -%}{%- endif -%}
-  {%- if lt_shown >= lt_home_count -%}{%- continue -%}{%- endif -%}
   {%- assign lt_shown = lt_shown | plus: 1 -%}
   {% include post-card.html post=post %}
 {%- endfor -%}
@@ -116,7 +109,7 @@ layout: default
 {%- if lt_shown > 0 %}
 <section aria-labelledby="latest-title" class="lt-wrap lt-latest">
   <div class="lt-heading-row">
-    <h2 id="latest-title" class="lt-h2-sm">{{ lt.latest_title | default: "最近文章" }}</h2>
+    <h2 id="latest-title" class="lt-h2-sm">{% if lt_is_home %}{{ lt.latest_title | default: "最近文章" }}{% else %}文章列表{% endif %}</h2>
     <a class="lt-more" href="{{ lt_archive | relative_url }}"><span>查看全部文章</span>{% include icon.html name="arrow-right" %}</a>
   </div>
   <div class="lt-grid">
@@ -126,13 +119,7 @@ layout: default
 </section>
 {%- endif %}
 
-{% if lt_is_home %}
-<nav class="lt-wrap lt-pagination" aria-label="文章列表">
-  <a class="lt-btn lt-btn-secondary" href="{{ site.paginate_path | replace: ':num', 1 | relative_url }}">分页浏览全部文章 →</a>
-</nav>
-{% else %}
 {% include pagination.html %}
-{% endif %}
 
 {%- assign lt_content = content | strip %}
 {%- if lt_content != "" %}
