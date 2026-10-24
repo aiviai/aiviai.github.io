@@ -4,7 +4,8 @@ title: "🚀达到专业设计师水平！ChatGPT Images 2.0深度评测：会�
 sidebar:
   nav: "docs"
 date: 2026-04-22 00:00:00 +0800
-categories: LLMs
+categories: MultimodalAI
+permalink: /llms/chatgpt-images-2
 tags: [ChatGPT, OpenAI, Images 2.0, AI画图, 图像生成, Prompt, 视觉设计, AGI, AIGC]
 classes: wide
 author_profile: true

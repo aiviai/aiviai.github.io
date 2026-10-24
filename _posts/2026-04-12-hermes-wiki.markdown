@@ -4,7 +4,8 @@ title: "🚀Hermes Agent高级玩法！微信扫码即用+LLM Wiki知识库+Obsi
 sidebar:
   nav: "docs"
 date: 2026-04-12 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/hermes-wiki
 tags: [Hermes Agent, LLM Wiki, Obsidian, Karpathy, 微信, AI智能体, 知识库, AGI, AIGC]
 classes: wide
 author_profile: true

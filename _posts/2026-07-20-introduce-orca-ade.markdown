@@ -4,7 +4,8 @@ title: "🚀Orca不是另一个AI IDE，而是一个人的AI工程团队作战�
 sidebar:
   nav: "docs"
 date: 2026-07-20 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-orca-ade
 tags: [Orca, Claude Code, Codex, OpenCode, AI智能体, 多Agent, AI编程, Vibe Coding, Git Worktree, Agent Teams, AGI, AIGC]
 classes: wide
 author_profile: true

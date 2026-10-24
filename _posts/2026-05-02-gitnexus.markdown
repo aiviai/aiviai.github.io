@@ -4,7 +4,8 @@ title: "🚀GitNexus保姆级教程：将代码库索引为知识图谱，让Cla
 sidebar:
   nav: "docs"
 date: 2026-05-02 00:00:00 +0800
-categories: LLMs
+categories: RAG
+permalink: /llms/gitnexus
 tags: [Claude, Claude Code, Codex, Cursor, GitNexus, MCP, 知识图谱, AI编程, AGI, AIGC]
 classes: wide
 author_profile: true

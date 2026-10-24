@@ -4,7 +4,8 @@ title: "🚀深挖50万行源码：Claude Code上下文管理对中文的支持�
 sidebar:
   nav: "docs"
 date: 2026-04-01 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/ClaudeCode-SourceCode
 tags: [Claude,Claude Code, Plugins, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

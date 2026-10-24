@@ -4,7 +4,8 @@ title: "🚀一人抵一个开发团队！OpenCode最强插件Oh My OpenCode让�
 sidebar:
   nav: "docs"
 date: 2026-01-09 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-oh-my-opencode
 tags: [OpenCode, Claude Code, Plugins, Oh My OpenCode, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

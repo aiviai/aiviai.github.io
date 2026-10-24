@@ -4,7 +4,8 @@ title: "🚀Claude Code终极外挂！Ralph Wiggum插件让AI自动迭代不停�
 sidebar:
   nav: "docs"
 date: 2026-01-03 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-ralph-wiggum
 tags: [Claude Sonnet 4.5,Claude Code , Plugins, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

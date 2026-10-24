@@ -4,7 +4,8 @@ title: "🦞在OpenClaw实测谷歌开源大模型Gemma 4！256K上下文+多模
 sidebar:
   nav: "docs"
 date: 2026-04-03 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/Gemm4-in-OpenClaw
 tags: [Claude,Claude Code, Gemma4, Gemma, OpenClaw, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

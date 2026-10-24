@@ -4,7 +4,8 @@ title: "🚀Graph Engineering范式：Codex Multi-agent V2支持Kimi、MiniMax�
 sidebar:
   nav: "docs"
 date: 2026-07-23 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/codex-multi-agent-v2
 tags: [Codex, Kimi, MiniMax, Pi Agent, Subagents, 多Agent, Graph Engineering, AI智能体, AI编程, OpenAI, AGI, AIGC]
 classes: wide
 author_profile: true

@@ -4,7 +4,8 @@ title: "🚀Claude Code自动化开发必备神器！Ralph for Claude Code实战
 sidebar:
   nav: "docs"
 date: 2026-01-20 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-ralph-for-claude-code
 tags: [Claude Sonnet 4.5,Claude Code , Plugins, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

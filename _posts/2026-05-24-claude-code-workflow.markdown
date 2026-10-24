@@ -4,7 +4,8 @@ title: "🚀Claude Code悄悄加入的Workflow，可能会改变我们使用多A
 sidebar:
   nav: "docs"
 date: 2026-05-24 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/claude-code-workflow
 tags: [Claude, Claude Code, Workflow, Subagents, Agent Teams, Skills, MCP, 多Agent, AI编程, AGI, AIGC]
 classes: wide
 author_profile: true

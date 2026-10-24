@@ -4,7 +4,8 @@ title: "🚀开源界的Claude Code来了！生产力核弹opencode深度使用�
 sidebar:
   nav: "docs"
 date: 2026-01-07 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-opencode
 tags: [OpenCode, Claude Code, Plugins, Oh My OpenCode, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

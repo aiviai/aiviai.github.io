@@ -4,7 +4,8 @@ title: "🚀2026年Skills元年正式开启！谷歌Antigravity支持Agent Skill
 sidebar:
   nav: "docs"
 date: 2026-01-15 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-antigravity-skills
 tags:
   - Claude Opus 4.5
   - Antigravity IDE

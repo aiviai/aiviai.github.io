@@ -4,7 +4,8 @@ title: "🚀Agent Skills决策树高级技巧！让Antigravity和Claude Code减�
 sidebar:
   nav: "docs"
 date: 2026-01-17 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-antigravity-anvanced-skills
 tags:
   - Claude Opus 4.5
   - Antigravity IDE

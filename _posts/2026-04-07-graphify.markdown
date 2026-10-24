@@ -4,7 +4,8 @@ title: "🚀Karpathy知识库工作流终极进化：graphify知识图谱保姆�
 sidebar:
   nav: "docs"
 date: 2026-04-07 00:00:00 +0800
-categories: LLMs
+categories: RAG
+permalink: /llms/graphify
 tags: [Claude,Claude Code, Codex, Claude Code 2.0, Vibe Coding, AI智能体, graphify, AGI, AIGC]
 classes: wide
 author_profile: true

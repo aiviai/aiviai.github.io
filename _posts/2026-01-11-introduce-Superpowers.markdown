@@ -4,7 +4,8 @@ title: "🚀Claude Code最强外挂？Superpowers保姆级教程！从头脑风�
 sidebar:
   nav: "docs"
 date: 2026-01-11 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-Superpowers
 tags: [Superpowers, OpenCode, Claude Code, Codex, Plugins, Oh My OpenCode, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

@@ -2,7 +2,8 @@
 layout: single
 title: "Meta Muse 视频生成实测：多风格音画生成与三张参考图的人物一致性流程"
 date: 2026-10-05 23:02:42 +0800
-categories: LLMs
+categories: MultimodalAI
+permalink: /llms/meta-muse-video-review
 tags: [Meta, Muse, MuseVideo, AI视频, 人物一致性]
 cover_lines: ["Meta", "Muse Video"]
 cover_subtitle: "音画生成 · 三图人物一致性"

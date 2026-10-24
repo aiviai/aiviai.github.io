@@ -4,7 +4,8 @@ title: "🚀Claude Code有后门？立即锁进Docker Sandboxes里！sbx完整�
 sidebar:
   nav: "docs"
 date: 2026-07-04 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/Claude-Code-Docker-Sandboxes
 tags: [Claude, Claude Code, Docker Sandboxes, Subagents, Agent Teams, Skills, MCP, 多Agent, AI编程, AGI, AIGC]
 classes: wide
 author_profile: true

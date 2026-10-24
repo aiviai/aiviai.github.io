@@ -4,7 +4,8 @@ title: "🚀Claude Code创始人Boris亲自揭秘：他的设置竟然如此简�
 sidebar:
   nav: "docs"
 date: 2026-01-05 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/introduce-Claude-Code-empirical
 tags: [Claude Sonnet 4.5,Claude Code , Plugins, Claude Code 2.0, Vibe Coding, AI智能体, TDD, AGI, AIGC]
 classes: wide
 author_profile: true

@@ -4,7 +4,8 @@ title: "🚀Hermes Agent高级玩法之三大隐藏技能全公开！Ollama云�
 sidebar:
   nav: "docs"
 date: 2026-04-21 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/hermes-agent-advanced
 tags: [Hermes Agent, Ollama, Open WebUI, MiniMax, Gemini, 省Token, AI智能体, 免费模型, AGI, AIGC]
 classes: wide
 author_profile: true

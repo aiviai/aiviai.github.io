@@ -251,6 +251,7 @@ latent:
   footer_writing_label: "文章分类"
   section_titles:
     LLMs: LLMs
+    MultimodalAI: MultimodalAI
     AIAgents: AIAgents
     RAG: RAG
     Fine-Tuning: Fine-Tuning

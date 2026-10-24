@@ -4,7 +4,8 @@ title: "🚀解锁NotebookLM隐藏功能！notebooklm-py完全使用指南：Pyt
 sidebar:
   nav: "docs"
 date: 2026-04-26 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/notebooklm-py
 tags: [NotebookLM, Python, CLI, Claude Code, Hermes Agent, OpenClaw, AI Agent, 自动化, AGI, AIGC]
 classes: wide
 author_profile: true

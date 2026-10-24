@@ -4,7 +4,8 @@ title: "🚀开发者必看！Codex /goal命令你真用对了吗？goal命令�
 sidebar:
   nav: "docs"
 date: 2026-05-05 00:00:00 +0800
-categories: LLMs
+categories: AIAgents
+permalink: /llms/codex-goal
 tags: [Codex, Claude, Claude Code, OpenAI, goal, Ralph Loop, Spec-Driven, OpenSpec, AI编程, AGI, AIGC]
 classes: wide
 author_profile: true
