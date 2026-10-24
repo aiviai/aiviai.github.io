@@ -4,6 +4,9 @@ layout: default
 {%- assign lt = site.latent -%}
 {%- assign lt_listing = paginator.posts | default: site.posts -%}
 {%- assign lt_page_number = paginator.page | default: 1 -%}
+{%- assign lt_is_home = false -%}
+{%- if lt_page_number == 1 and page.listing_page != 1 -%}{%- assign lt_is_home = true -%}{%- endif -%}
+{%- if page.listing_page == 1 -%}{%- assign lt_listing = site.posts | slice: 0, site.paginate -%}{%- endif -%}
 {%- assign lt_hero = page.hero -%}
 {%- assign lt_archive = lt.archive_url | default: "/archive/" -%}
 {%- assign lt_feed = lt.feed_url | default: "/feed.xml" -%}
@@ -19,10 +22,11 @@ layout: default
 {%- endfor -%}
 {%- unless lt_featured -%}{%- assign lt_featured = lt_first -%}{%- endunless -%}
 {%- assign lt_home_count = lt.home_posts | default: 6 -%}
+{%- unless lt_is_home -%}{%- assign lt_home_count = site.paginate -%}{%- endunless -%}
 
 <main id="main" class="lt-main">
 
-{% if lt_page_number == 1 %}
+{% if lt_is_home %}
 <section aria-labelledby="hero-title">
   <div class="lt-wrap lt-hero">
     <div class="lt-hero__text">
@@ -93,9 +97,9 @@ layout: default
 </section>
 {%- endif %}
 
-{%- comment -%} The homepage recent-post preview has its own limit; keep historical pagination intact. {%- endcomment -%}
+{%- comment -%} The homepage preview is separate from the complete paginated article list. {%- endcomment -%}
 {%- assign lt_recent_listing = lt_listing -%}
-{%- if lt_page_number == 1 -%}{%- assign lt_recent_listing = site.posts -%}{%- endif -%}
+{%- if lt_is_home -%}{%- assign lt_recent_listing = site.posts -%}{%- endif -%}
 {%- assign lt_shown = 0 -%}
 {%- assign lt_writing_total = 0 -%}
 {%- capture lt_cards -%}
@@ -121,7 +125,13 @@ layout: default
 </section>
 {%- endif %}
 
+{% if lt_is_home %}
+<nav class="lt-wrap lt-pagination" aria-label="文章列表">
+  <a class="lt-btn lt-btn-secondary" href="{{ site.paginate_path | replace: ':num', 1 | relative_url }}">分页浏览全部文章 →</a>
+</nav>
+{% else %}
 {% include pagination.html %}
+{% endif %}
 
 {%- assign lt_content = content | strip %}
 {%- if lt_content != "" %}

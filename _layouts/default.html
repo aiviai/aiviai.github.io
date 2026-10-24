@@ -19,6 +19,6 @@
 {%- if site.latent.search != false %}
 {%- include search.html %}
 {%- endif %}
-<script src="{{ '/assets/js/latent.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/latent.js' | relative_url }}?v={{ site.time | date: "%s" }}" defer></script>
 </body>
 </html>

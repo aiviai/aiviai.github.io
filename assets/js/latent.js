@@ -141,12 +141,12 @@
     var trigger = e.target.closest("[data-search-open]");
     if (trigger && search) {
       e.preventDefault();
-      if (menu && !menu.hidden) setMenu(false);
       search.open();
     }
   });
 
   on(doc, "keydown", function (e) {
+    if (e.isComposing || e.keyCode === 229) return;
     var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName) || e.target.isContentEditable;
     if ((e.metaKey || e.ctrlKey) && (e.key === "k" || e.key === "K")) {
       if (!search) return;
@@ -174,8 +174,15 @@
 
     function load() {
       if (index || loading) return loading;
+      results.innerHTML = '<div class="lt-palette__empty" role="status">正在加载搜索…</div>';
+      count.textContent = "";
+      flat = [];
+      input.removeAttribute("aria-activedescendant");
       loading = fetch(el.getAttribute("data-index"))
-        .then(function (r) { return r.json(); })
+        .then(function (r) {
+          if (!r.ok) throw new Error("Search index unavailable");
+          return r.json();
+        })
         .then(function (data) {
           index = { posts: data.posts || [], sections: [], tags: data.tags || [] };
           index.posts.forEach(function (p) {
@@ -187,10 +194,12 @@
               });
             });
           });
+          loading = null;
           render();
         })
         .catch(function () {
-          results.innerHTML = '<div class="lt-palette__empty"><strong>暂时无法搜索</strong><span>搜索索引加载失败，请稍后重试。</span></div>';
+          loading = null;
+          results.innerHTML = '<div class="lt-palette__empty"><strong>暂时无法搜索</strong><span>搜索索引加载失败，请重试。</span><button class="lt-btn lt-btn-secondary lt-btn-sm" type="button" data-search-retry>重新加载</button></div>';
         });
       return loading;
     }
@@ -213,8 +222,12 @@
       if (matches(q, p.t, p.s) || matches(q, (p.g || []).join(" "))) return p.s || "";
       var i = norm(p.x).indexOf(q);
       if (i < 0) return null;
-      var start = Math.max(0, p.x.lastIndexOf(" ", Math.max(0, i - 40)) + 1);
-      return (start > 0 ? "…" : "") + p.x.slice(start, start + 220);
+      var start = Math.max(0, i - 40);
+      var boundary = p.x.lastIndexOf(" ", start);
+      // Chinese and code passages may have no nearby word boundary.
+      if (boundary >= Math.max(0, start - 40)) start = boundary + 1;
+      var end = Math.min(p.x.length, Math.max(start + 220, i + q.length));
+      return (start > 0 ? "…" : "") + p.x.slice(start, end) + (end < p.x.length ? "…" : "");
     }
 
     var icons = {
@@ -291,6 +304,7 @@
 
     on(input, "input", render);
     on(input, "keydown", function (e) {
+      if (e.isComposing || e.keyCode === 229) return;
       if (e.key === "ArrowDown") { e.preventDefault(); setActive(active + 1); }
       else if (e.key === "ArrowUp") { e.preventDefault(); setActive(active - 1); }
       else if (e.key === "Enter" && flat[active]) { e.preventDefault(); window.location.href = flat[active]; }
@@ -300,6 +314,11 @@
       if (row) { var i = +row.getAttribute("data-i"); if (i !== active) setActive(i); }
     });
     on(results, "click", function (e) {
+      if (e.target.closest("[data-search-retry]")) {
+        input.focus();
+        load();
+        return;
+      }
       var row = e.target.closest(".lt-res");
       if (row) close(false);
     });
@@ -318,6 +337,7 @@
     $$("[data-search-close]", el).forEach(function (b) { on(b, "click", function () { close(); }); });
 
     function open() {
+      if (menu && !menu.hidden) setMenu(false);
       showOverlay(el, input);
       input.select();
       load();
@@ -505,8 +525,16 @@
         label.textContent = Math.round(p) + "% · 约剩 " + left + " 分钟";
       }
       var current = 0;
-      targets.forEach(function (t, i) { if (t && t.getBoundingClientRect().top < 160) current = i; });
-      tocLinks.forEach(function (a, i) { a.classList.toggle("on", i === current); });
+      var scrollPadding = parseFloat(window.getComputedStyle(root).scrollPaddingTop) || 0;
+      targets.forEach(function (t, i) {
+        if (!t) return;
+        var scrollMargin = parseFloat(window.getComputedStyle(t).scrollMarginTop) || 0;
+        if (t.getBoundingClientRect().top <= scrollPadding + scrollMargin + 2) current = i;
+      });
+      var currentTarget = targets[current];
+      tocLinks.forEach(function (a, i) {
+        a.classList.toggle("on", !!currentTarget && targets[i] === currentTarget);
+      });
     };
 
     on(window, "scroll", function () {

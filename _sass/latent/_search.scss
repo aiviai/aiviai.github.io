@@ -20,6 +20,8 @@
   top: 100px;
   width: 700px;
   max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 124px);
+  max-height: calc(100dvh - 124px);
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
@@ -120,7 +122,7 @@
 .lt-palette__results {
   height: 520px;
   max-height: calc(100vh - 340px);
-  min-height: 160px;
+  min-height: 0;
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 6px 8px 10px;
@@ -285,6 +287,8 @@
 @include lt-phone-down {
   .lt-palette__panel {
     top: 12px;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
   }
 
   .lt-palette__results {
@@ -295,4 +299,17 @@
     > span:not(.note) { display: none; }
     .note { margin-left: 0; }
   }
+}
+
+// Keep controls and the scrolling results inside short landscape viewports.
+.lt-palette__scopes,
+.lt-palette__foot { flex-shrink: 0; }
+
+@media (max-height: 600px) {
+  .lt-palette__panel {
+    top: 12px;
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+  .lt-palette__results { max-height: none; }
 }
