@@ -1,0 +1,52 @@
+---
+layout: default
+title: 微信联系
+description: 扫码添加 AI超元域的微信，一起聊 AI、大模型与开源项目。
+permalink: /wechat/
+footer: slim
+search: false
+---
+<main id="main" class="lt-main lt-wechat">
+  <div class="lt-wrap lt-wechat__wrap">
+    <div class="lt-wechat__topline">
+      <a class="lt-wechat__back" href="{{ '/' | relative_url }}">{% include icon.html name="arrow-left" px=15 %}<span>返回博客</span></a>
+      <span class="lt-wechat__index" aria-hidden="true">AIVI / CONNECT</span>
+    </div>
+
+    <div class="lt-wechat__grid">
+      <section class="lt-wechat__intro" aria-labelledby="wechat-title">
+        <p class="lt-wechat__eyebrow"><span class="lt-sq" aria-hidden="true"></span>保持联系<span class="lt-wechat__english" lang="en">WECHAT</span></p>
+        <h1 id="wechat-title">在微信，<br>继续聊 <span class="lt-wechat__accent">AI</span>。</h1>
+        <p class="lt-wechat__dek">从一篇文章，到一次交流。<br>欢迎聊 AI、大模型与开源项目，<br class="lt-wechat__desktop-break">也欢迎分享你的发现。</p>
+
+        <div class="lt-wechat__author">
+          <img src="{{ site.author.avatar | relative_url }}" alt="" width="44" height="44">
+          <div><strong>{{ site.author.name }}</strong><span>AI · 开源 · 技术实践</span></div>
+        </div>
+      </section>
+
+      <div class="lt-wechat__scan">
+        <figure class="lt-wechat__card">
+          <div class="lt-wechat__card-head">
+            <span class="lt-wechat__card-label"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M8 3H4a1 1 0 0 0-1 1v4m13-5h4a1 1 0 0 1 1 1v4M3 16v4a1 1 0 0 0 1 1h4m8 0h4a1 1 0 0 0 1-1v-4M7 12h10"/></svg>微信二维码</span>
+            <span class="lt-wechat__card-note" lang="en">SCAN TO CONNECT</span>
+          </div>
+          <img class="lt-wechat__qr" src="{{ '/assets/images/wechat-qr.jpg' | relative_url }}" alt="AI超元域的个人微信二维码，打开微信扫一扫即可添加好友" width="1074" height="1455" fetchpriority="high">
+          <figcaption><span class="lt-wechat__dot" aria-hidden="true"></span>微信扫一扫 · 添加好友</figcaption>
+        </figure>
+        <a class="lt-btn lt-btn-secondary lt-wechat__save" href="{{ '/assets/images/wechat-qr.jpg' | relative_url }}" download="AI超元域-微信二维码.jpg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M4 16v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4"/></svg>保存二维码</a>
+      </div>
+
+      <dl class="lt-wechat__guide" aria-label="添加微信的方法">
+        <div>
+          <dt><span aria-hidden="true">01</span>用手机扫一扫</dt>
+          <dd>打开微信「扫一扫」，扫描页面中的二维码。</dd>
+        </div>
+        <div>
+          <dt><span aria-hidden="true">02</span>正在用手机阅读？</dt>
+          <dd>长按二维码保存图片，再从微信「扫一扫」的相册中选择。</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</main>

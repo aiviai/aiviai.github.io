@@ -1,0 +1,60 @@
+// A quiet, editorial contact page. Keep the original QR image on white in both themes.
+.lt-wechat {
+  &__wrap { max-width: 1192px; padding-top: 32px; padding-bottom: 72px; }
+  &__topline { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+  &__back { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; color: var(--ink-2); font-size: 13px; }
+  &__back:hover { color: var(--ink); }
+  &__index { font: 10px var(--mono); letter-spacing: .12em; color: var(--ink-3); }
+  &__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); grid-template-areas: "intro scan" "guide scan"; align-items: start; gap: 36px clamp(48px, 7vw, 100px); padding-top: 48px; }
+  &__intro { grid-area: intro; align-self: end; }
+  &__eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 28px; font-size: 12px; letter-spacing: .12em; }
+  &__english { margin-left: 6px; color: var(--ink-3); font: 10px var(--mono); letter-spacing: .16em; }
+  h1 { margin: 0; font-family: var(--serif); font-size: clamp(44px, 4.8vw, 64px); font-weight: 500; line-height: 1.35; letter-spacing: -.035em; }
+  &__accent { position: relative; display: inline-block; isolation: isolate; }
+  &__accent::after { content: ""; position: absolute; z-index: -1; left: -.04em; right: -.04em; bottom: .12em; height: .16em; background: var(--signal); }
+  &__dek { margin: 24px 0 28px; color: var(--ink-2); font-size: 15px; line-height: 1.95; }
+  &__author { display: flex; align-items: center; gap: 12px; }
+  &__author img { flex: none; border-radius: 50%; object-fit: cover; }
+  &__author strong, &__author span { display: block; }
+  &__author strong { font-size: 14px; font-weight: 600; line-height: 1.5; }
+  &__author span { margin-top: 4px; font-size: 11px; letter-spacing: .04em; color: var(--ink-3); }
+  &__guide { grid-area: guide; margin: 0; padding-top: 24px; border-top: 1px solid var(--line); display: grid; gap: 20px; }
+  &__guide dt { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 500; }
+  &__guide dt span { color: var(--ink-3); font: 10px var(--mono); }
+  &__guide dd { margin: 7px 0 0 25px; max-width: 320px; color: var(--ink-3); font-size: 12px; line-height: 1.85; }
+  &__scan { grid-area: scan; align-self: center; display: flex; flex-direction: column; align-items: center; gap: 22px; min-width: 0; }
+  &__card { width: 100%; margin: 0; padding: 24px 28px 22px; border: 1px solid #E1E4E6; border-radius: 20px; background: #fff; color: #0B0D0E; box-shadow: 0 8px 24px rgba(0, 0, 0, .025), 0 28px 72px -32px rgba(0, 0, 0, .15); }
+  &__card-head { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-bottom: 18px; border-bottom: 1px solid #EEF0F1; }
+  &__card-label { display: inline-flex; align-items: center; gap: 9px; font-size: 12px; font-weight: 500; }
+  &__card-note { color: #646A71; font: 8px var(--mono); letter-spacing: .1em; }
+  &__qr { display: block; width: 100%; height: auto; background: #fff; }
+  &__card figcaption { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 2px; padding-top: 18px; border-top: 1px solid #EEF0F1; color: #3F454B; font-size: 12px; letter-spacing: .06em; line-height: 1.6; }
+  &__dot { width: 5px; height: 5px; border-radius: 50%; background: #24813C; }
+  &__save { height: 40px; font-size: 12px; padding: 0 18px; }
+}
+
+[data-theme="dark"] .lt-wechat__card { border-color: #343A3F; box-shadow: 0 24px 64px -24px rgba(0, 0, 0, .45); }
+
+@media (max-width: 900px) {
+  .lt-wechat__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 360px); column-gap: 40px; }
+  .lt-wechat__card { padding: 22px; }
+  .lt-wechat__card-note { display: none; }
+  .lt-wechat__desktop-break { display: none; }
+}
+
+@media (max-width: 680px) {
+  .lt-wechat__wrap { max-width: 520px; padding-top: 16px; padding-bottom: 48px; }
+  .lt-wechat__grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "scan" "guide"; gap: 32px; padding-top: 28px; }
+  .lt-wechat__eyebrow { margin-bottom: 18px; }
+  .lt-wechat h1 { font-size: clamp(42px, 10vw, 54px); }
+  .lt-wechat__dek { margin: 18px 0 22px; font-size: 14px; }
+  .lt-wechat__guide { padding-top: 20px; gap: 16px; }
+  .lt-wechat__scan { width: 100%; max-width: 380px; justify-self: center; gap: 18px; }
+  .lt-wechat__card { padding: 20px; border-radius: 16px; }
+  .lt-wechat__card-note { display: inline; }
+}
+
+@media (max-width: 359px) {
+  .lt-wechat__card { padding: 16px; }
+  .lt-wechat__card-note { display: none; }
+}
