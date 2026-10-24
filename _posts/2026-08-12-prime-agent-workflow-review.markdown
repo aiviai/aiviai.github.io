@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "记录 Prime Agent 调用外部编程工具、四个 SubAgent 审查和 REST 到 tRPC 迁移，并验证心跳任务的设置与停止。动态编排可用，长期稳定性与节省比例尚未测量。"
 ---
 
 大家好，我是 AI 超元域。

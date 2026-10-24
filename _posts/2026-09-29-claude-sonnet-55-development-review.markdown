@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "记录 Sonnet 5.5 的 81 分钟播放器、iOS 学习流程、Godot 飞行游戏和桌面下棋。核心交互可操作，但原型运行、完整对局与生产验收不能混为一谈。"
 ---
 
 大家好，我是 AI 超元域。

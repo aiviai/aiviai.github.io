@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "实测 Opus 5.5 导入并播放本地音乐、完成单词学习测试、探索双层住宅和制作水墨动画。交互细节较完整，数据稳定性、建筑尺寸与科学原理仍需另行核验。"
 ---
 
 大家好，我是 AI 超元域。

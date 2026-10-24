@@ -1,7 +1,57 @@
+{%- comment -%}
+  Shared, server-rendered prose estimate for cards, archives and articles.
+  GitHub Pages uses Jekyll 3, whose number_of_words does not count Chinese.
+  Count Han characters at 400/min and Latin/number words at 200/min, sum the
+  durations, then round up (minimum 1 minute). Both rates can be configured
+  under latent. Exclude code and embedded media; never add video duration.
+{%- endcomment -%}
 {%- if include.post.read_time and include.post.read_time != true -%}
   {%- assign lt_minutes = include.post.read_time -%}
 {%- else -%}
-  {%- assign lt_wpm = site.latent.words_per_minute | default: site.words_per_minute | default: 200 -%}
-  {%- assign lt_minutes = include.post.content | strip_html | number_of_words | divided_by: lt_wpm | at_least: 1 -%}
+  {%- assign lt_rt_html = include.post.content | default: "" | markdownify -%}
+  {%- assign lt_rt_omit = "pre,code,script,style,iframe,svg,video,audio" | split: "," -%}
+  {%- for lt_rt_tag in lt_rt_omit -%}
+    {%- assign lt_rt_open = "<" | append: lt_rt_tag -%}
+    {%- assign lt_rt_close = "</" | append: lt_rt_tag | append: ">" -%}
+    {%- assign lt_rt_parts = lt_rt_html | split: lt_rt_open -%}
+    {%- capture lt_rt_html -%}
+      {{- lt_rt_parts.first -}}
+      {%- for lt_rt_part in lt_rt_parts offset: 1 -%}
+        {%- if lt_rt_part contains lt_rt_close %} {{ lt_rt_part | split: lt_rt_close | last }}{% endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+  {%- endfor -%}
+  {%- assign lt_rt_text = lt_rt_html | replace: "<", " <" | strip_html | replace: "&nbsp;", " " | replace: "&#160;", " " | replace: "&amp;", " " | replace: "&lt;", " " | replace: "&gt;", " " | replace: "&quot;", " " | replace: "&#39;", "'" | downcase -%}
+  {%- assign lt_rt_chars = lt_rt_text | split: "" -%}
+  {%- assign lt_rt_han = 0 -%}
+  {%- assign lt_rt_words = 0 -%}
+  {%- assign lt_rt_in_word = false -%}
+  {%- assign lt_rt_latin = "abcdefghijklmnopqrstuvwxyz0123456789" -%}
+  {%- for lt_rt_char in lt_rt_chars -%}
+    {%- assign lt_rt_is_han = false -%}
+    {%- if lt_rt_char >= "一" and lt_rt_char <= "鿿" -%}
+      {%- assign lt_rt_is_han = true -%}
+    {%- elsif lt_rt_char >= "㐀" and lt_rt_char <= "䶿" -%}
+      {%- assign lt_rt_is_han = true -%}
+    {%- elsif lt_rt_char >= "豈" and lt_rt_char <= "﫿" -%}
+      {%- assign lt_rt_is_han = true -%}
+    {%- elsif lt_rt_char >= "𠀀" and lt_rt_char <= "𯨟" -%}
+      {%- assign lt_rt_is_han = true -%}
+    {%- endif -%}
+    {%- if lt_rt_is_han -%}
+      {%- assign lt_rt_han = lt_rt_han | plus: 1 -%}
+      {%- assign lt_rt_in_word = false -%}
+    {%- elsif lt_rt_latin contains lt_rt_char -%}
+      {%- unless lt_rt_in_word -%}{%- assign lt_rt_words = lt_rt_words | plus: 1 -%}{%- endunless -%}
+      {%- assign lt_rt_in_word = true -%}
+    {%- elsif lt_rt_char != "'" and lt_rt_char != "’" -%}
+      {%- assign lt_rt_in_word = false -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- assign lt_rt_cpm = site.latent.chars_per_minute | default: 400 | at_least: 1 -%}
+  {%- assign lt_rt_wpm = site.latent.words_per_minute | default: site.words_per_minute | default: 200 | at_least: 1 -%}
+  {%- assign lt_rt_chinese = lt_rt_han | times: 1.0 | divided_by: lt_rt_cpm -%}
+  {%- assign lt_rt_english = lt_rt_words | times: 1.0 | divided_by: lt_rt_wpm -%}
+  {%- assign lt_minutes = lt_rt_chinese | plus: lt_rt_english | ceil | at_least: 1 -%}
 {%- endif -%}
 {{- lt_minutes -}}

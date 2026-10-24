@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "通过语音完成 Notion 查找与笔记写回，并行交付 Godot 贪吃蛇和 Blender 巨石阵文件。区分亲手试玩、助手报告与仅完成设置的长期任务，保留验收边界。"
 ---
 
 大家好，我是 AI 超元域。

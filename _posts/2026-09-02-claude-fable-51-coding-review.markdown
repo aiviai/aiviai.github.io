@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "从黑洞、住宅和流程动画测试到约三小时的 Unity 侏罗纪沙盒，检查七项任务的交互与细节。复杂玩法能运行，水下雨效等边界问题和长期稳定性仍待验收。"
 ---
 
 大家好，我是 AI 超元域。

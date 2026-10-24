@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "本地部署 qm，用两个账号检查记忆管理、共享项目中的接续问答和文件可见性。普通界面的私人空间有区分，但未进行越权安全审计，PDF 分析也未展示最终结果。"
 ---
 
 大家好，我是 AI 超元域。

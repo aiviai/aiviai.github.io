@@ -18,8 +18,6 @@
 {%- if page.cover == false or lt_is_note and page.cover == nil -%}{%- assign lt_show_cover = false -%}{%- endif -%}
 {%- assign lt_show_cite = true -%}
 {%- if page.cite == false or lt.citations == false or lt_is_note and page.cite != true -%}{%- assign lt_show_cite = false -%}{%- endif -%}
-{%- assign lt_numbered = lt_show_toc -%}
-{%- if page.numbered == false -%}{%- assign lt_numbered = false -%}{%- endif -%}
 
 {%- include byline.html post=page link=true -%}
 
@@ -87,7 +85,7 @@
     </aside>
 
     <div class="lt-article-col">
-      <div class="lt-prose{% if lt_numbered %} lt-prose--numbered{% endif %}" data-prose data-anchors{% if lt_sidenotes %} data-sidenotes{% endif %}{% if page.math %} data-math{% endif %}>
+      <div class="lt-prose" data-prose data-anchors{% if lt_sidenotes %} data-sidenotes{% endif %}{% if page.math %} data-math{% endif %}>
 {% include render-content.html html=content %}
       </div>
 

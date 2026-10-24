@@ -18,6 +18,7 @@
 {%- include mobile-menu.html %}
 {%- if site.latent.search != false %}
 {%- include search.html %}
+<script src="{{ '/assets/js/search-ranking.js' | relative_url }}?v={{ site.time | date: "%s" }}" defer></script>
 {%- endif %}
 <script src="{{ '/assets/js/latent.js' | relative_url }}?v={{ site.time | date: "%s" }}" defer></script>
 </body>

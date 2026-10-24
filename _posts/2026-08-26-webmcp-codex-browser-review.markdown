@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "用 Codex 侧边栏分析论文、翻译摘要并写入 Notion，再通过 WebMCP Demo 创建笔记与贺卡。区分插件连接和网站工具，说明已完成的操作及尚未验证的支持范围。"
 ---
 
 大家好，我是 AI 超元域。

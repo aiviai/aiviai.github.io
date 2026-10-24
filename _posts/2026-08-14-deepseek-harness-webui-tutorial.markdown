@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "从 Web UI 与模型接入开始，查看执行轨迹、分支分析同一 Issue，并试玩同模型同提示词开发的游戏。流程跑通，但远程访问、修复方案和长期稳定性各有验证边界。"
 ---
 
 大家好，我是 AI 超元域。

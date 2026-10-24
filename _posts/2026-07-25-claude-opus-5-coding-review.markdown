@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "测试可进入的双层住宅、飞船、Godot 沙盒与约 26 分钟的 Android 开发和模拟器测试。交互原型较完整，发音音量、本地化和长期运行仍需补充验收。"
 ---
 
 大家好，我是 AI 超元域。

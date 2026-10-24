@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "在 OpenCode 中完成音乐播放器、极光号飞船与圣家堂，记录长任务耗时和运行体验。基础功能可用，但复杂三维场景发热、建筑还原与动画细节仍需改进。"
 ---
 
 大家好，我是 AI 超元域。

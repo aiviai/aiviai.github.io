@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "以 5.36 元 API 消耗完成七项测试，检查可探索飞船、Godot 战斗和 SwiftUI 播放器。复杂原型可操作，SVG 星环关系仍出错，调用账单也不包含返工与维护成本。"
 ---
 
 大家好，我是 AI 超元域。

@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "用 Workflow 拆分四项只读审计，再由九个 Agent 协作评审并尝试插件开发。展示结构化汇总与执行轨迹，25 条原始问题不等于已验证漏洞，也未测得效率倍增。"
 ---
 
 大家好，我是 AI 超元域。

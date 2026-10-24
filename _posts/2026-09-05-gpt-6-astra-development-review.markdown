@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "在 medium 推理下开发原生 App 与 3D 游戏，检查模拟器测试、STL 导入和桌面操作。交付可操作原型，同时保留恐龙行为修改、家具朝向和鱼群动画的不足。"
 ---
 
 大家好，我是 AI 超元域。

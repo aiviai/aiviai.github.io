@@ -216,20 +216,6 @@
 
     function matches(q, a, b) { return !q || norm(a).indexOf(q) >= 0 || (b && norm(b).indexOf(q) >= 0); }
 
-    // Title, summary, tags, then body text; the snippet shows where the hit is.
-    function matchPost(q, p) {
-      if (!q) return p.s || "";
-      if (matches(q, p.t, p.s) || matches(q, (p.g || []).join(" "))) return p.s || "";
-      var i = norm(p.x).indexOf(q);
-      if (i < 0) return null;
-      var start = Math.max(0, i - 12);
-      var boundary = p.x.lastIndexOf(" ", start);
-      // Chinese and code passages may have no nearby word boundary.
-      if (boundary >= Math.max(0, start - 8)) start = boundary + 1;
-      var end = Math.min(p.x.length, Math.max(start + 220, i + q.length));
-      return (start > 0 ? "…" : "") + p.x.slice(start, end) + (end < p.x.length ? "…" : "");
-    }
-
     var icons = {
       post: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3.5h7l4 4V20a.5.5 0 0 1-.5.5h-10A.5.5 0 0 1 7 20Z"></path><path d="M10 12h5M10 16h5"></path></svg>',
       tag: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3-8.7 8.7Z"></path><circle cx="8" cy="8" r="1.4" fill="currentColor" stroke="none"></circle></svg>'
@@ -242,9 +228,9 @@
       var want = function (g) { return scope === "all" || scope === g; };
       var posts = [];
       if (want("posts")) {
-        index.posts.forEach(function (p) {
-          var snip = matchPost(q, p);
-          if (snip !== null) posts.push({ t: p.t, s: snip, m: p.m, u: p.u });
+        posts = window.LatentSearch.rank(index.posts, input.value).map(function (hit) {
+          var p = hit.post;
+          return { t: p.t, s: hit.snippet, m: p.m, u: p.u };
         });
         posts = posts.slice(0, q ? 6 : 3);
       }

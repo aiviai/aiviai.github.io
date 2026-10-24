@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "从水彩、生活与科幻样例观察 Muse 的音画配合，再用人物、服装和背景三张参考图制作雪地人像视频。单个样例有效，跨镜头一致性与批量成功率尚未验证。"
 ---
 
 大家好，我是 AI 超元域。

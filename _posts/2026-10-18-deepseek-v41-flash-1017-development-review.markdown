@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "在 Harness 中完成 7 项开发，记录 30.04 元调用消耗及可运行成果，也保留转向反转、穿模、游戏报错和 iPad 导航失效，分别检查画面、交互与性能。"
 ---
 
 大家好，我是 AI 超元域。

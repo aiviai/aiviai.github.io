@@ -1,4 +1,5 @@
 {%- comment -%}
+  Preserve literal heading/case numbers; do not prepend a second sequence.
   Contents list built from the <h2 id="..."> headings in include.html, with
   no plugin. A heading can set a shorter label with kramdown's attribute
   syntax:  ## A long heading {#id data-toc="Short"}
@@ -17,7 +18,7 @@
     {%- assign lt_label = lt_head | remove_first: lt_attr | remove_first: ">" | strip_html | strip -%}
   {%- endif -%}
   {%- assign lt_toc_n = lt_toc_n | plus: 1 -%}
-  <li><a class="lt-toc-a" href="#{{ lt_id }}" data-toc-link><span class="n">{% if lt_toc_n < 10 %}0{% endif %}{{ lt_toc_n }}</span><span>{{ lt_label }}</span></a></li>
+  <li><a class="lt-toc-a" href="#{{ lt_id }}" data-toc-link><span>{{ lt_label }}</span></a></li>
 {%- endfor -%}
 {%- endcapture -%}
 {%- if lt_toc_n > 0 -%}

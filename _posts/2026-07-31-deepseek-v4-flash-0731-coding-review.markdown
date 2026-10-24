@@ -10,6 +10,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "约 1.42 元调用消耗测试七项任务，得到动画与可运行的 iOS 学习原型，也暴露齿轮分离、Godot 操控不足和深色主题失效。低单价不等于低验收与返工成本。"
 ---
 
 大家好，我是 AI 超元域。

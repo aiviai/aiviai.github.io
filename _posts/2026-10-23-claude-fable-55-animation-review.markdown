@@ -8,6 +8,7 @@ classes: wide
 author_profile: true
 sidebar:
   nav: "docs"
+excerpt: "用 8 个动画案例检查 Fable 5.5 从图片或文字交付 MP4、补齐素材与控制结尾构图的能力。保留内测范围，区分视觉效果、事实准确性与未测量的效率。"
 ---
 
 大家好，我是 AI 超元域。
