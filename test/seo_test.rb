@@ -108,4 +108,12 @@ class SeoTest < Minitest::Test
     end
     assert_operator count, :>=, 149
   end
+
+  def test_historical_emoji_heading_links_survive_runtime_upgrades
+    assert doc("/about/").at_css('[id="-关于我"]'), "preserve the original profile anchor"
+    assert doc("/aiagents/introduce-Kilo-Code").at_css('[id="-新手程序员"]'), "preserve the original article anchor"
+    search = JSON.parse(File.read(File.join(DEST, "assets/search.json")))
+    profile = search.fetch("posts").find { |p| p["u"] == "/about/" }
+    assert_equal "-关于我", profile.fetch("h").first.fetch("id")
+  end
 end

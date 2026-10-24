@@ -7,7 +7,7 @@ The repository's Pages source must be **GitHub Actions**. The custom domain stay
 
 ## Validate locally
 
-Use Ruby 3.4, Bundler 2.6.2 and Node.js with the built-in test runner:
+Use Ruby 3.4.1, Bundler 2.6.2 and Node.js with the built-in test runner:
 
 ```sh
 bundle install
@@ -20,6 +20,9 @@ bundle exec ruby test/seo_test.rb
 `SITE_DEST` can point the metadata test at a different build directory. The build
 logs the Jekyll version and fails if it is not 4.4.1. Sass may report existing
 `@import` deprecations; changing the vendored theme is a separate maintenance task.
+Ruby is pinned because 3.4.12 changes Unicode handling in generated IDs for two
+existing emoji headings. The historical anchor tests must pass before changing
+the Ruby version; keep those links stable without rewriting article bodies.
 
 ## Compatibility and permissions
 
