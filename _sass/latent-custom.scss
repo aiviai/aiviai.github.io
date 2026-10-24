@@ -18,9 +18,16 @@
 .lt-profile img { border-radius: 50%; object-fit: cover; }
 .lt-profile p { margin: 4px 0; }
 .lt-profile__links { display: flex; flex-wrap: wrap; gap: 8px; }
-.lt-legacy-topics { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; margin-bottom: 40px; }
-.lt-legacy-topics div { display: flex; flex-direction: column; gap: 10px; font-size: 13px; }
-.lt-legacy-topics a { color: var(--ink-2); }
+.lt-footer-topics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.lt-footer-topics__group { min-width: 0; border-top: 1px solid var(--line); padding-top: 20px; }
+.lt-footer-topics h2 { display: flex; align-items: center; gap: 10px; margin: 0 0 14px; font-size: 15px; font-weight: 500; line-height: 1.5; color: var(--ink); }
+.lt-footer-topics ul { list-style: none; margin: 0; padding: 0; }
+.lt-footer-topics a { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 40px; padding: 8px 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); transition: color .2s var(--ease); }
+.lt-footer-topics a span { min-width: 0; overflow-wrap: anywhere; }
+.lt-footer-topics a svg { flex: none; color: var(--ink-3); transition: color .2s var(--ease), transform .2s var(--ease); }
+.lt-footer-topics a:hover, .lt-footer-topics a:focus-visible { color: var(--ink); }
+.lt-footer-topics a:hover svg, .lt-footer-topics a:focus-visible svg { color: var(--ink); transform: translateX(3px); }
+@media (prefers-reduced-motion: reduce) { .lt-footer-topics a, .lt-footer-topics a svg { transition: none; } }
 .lt-pagination { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px; padding-top: 32px; padding-bottom: 64px; }
 .lt-pagination__pages { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
 .lt-pagination__pages [aria-current] { background: var(--signal); color: var(--on-signal); }
@@ -32,7 +39,8 @@
 .lt-taxonomy .lt-more { margin-top: 16px; }
 .lt-sec-b { min-width: 0; }
 @media (max-width: 760px) {
-  .lt-legacy-topics { grid-template-columns: 1fr; }
+  .lt-footer-topics { grid-template-columns: 1fr; gap: 28px; }
+  .lt-footer-topics a { min-height: 44px; }
   .lt-taxonomy .lt-entry { grid-template-columns: minmax(0,1fr); gap: 8px; }
   .lt-post-title { font-size: 28px; }
   .lt-header__bar { gap: 12px; }

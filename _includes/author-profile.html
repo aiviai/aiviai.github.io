@@ -3,4 +3,15 @@
   <div><strong>{{ site.author.name }}</strong><div>{{ site.author.bio | markdownify }}</div><span>{{ site.author.location }}</span></div>
   <div class="lt-profile__links">{% for link in site.author.links %}{% assign profile_url = link.url %}{% if profile_url contains "313519233-7568cf78-c8ba-4182-aa96-d524d903f2bc" %}{% assign profile_url = "https://github.com/win4r/AISuperDomain/assets/42172631/7568cf78-c8ba-4182-aa96-d524d903f2bc" %}{% endif %}<a class="lt-chip" href="{{ profile_url | escape }}" rel="noopener noreferrer">{{ link.label }}</a>{% endfor %}</div>
 </section>
-<nav class="lt-legacy-topics" aria-label="主题导航">{% for group in site.data.navigation.docs %}<div><strong>{{ group.title }}</strong>{% for item in group.children %}<a href="{{ item.url | replace: '#fine-tuning/', '#fine-tuning' | relative_url }}">{{ item.title }}</a>{% endfor %}</div>{% endfor %}</nav>
+<nav class="lt-footer-topics" aria-label="主题导航">
+  {% for group in site.data.navigation.docs %}
+  <section class="lt-footer-topics__group">
+    <h2><span class="lt-sq" aria-hidden="true"></span>{{ group.title | remove: '🚀' | strip }}</h2>
+    <ul>
+      {% for item in group.children %}
+      <li><a href="{{ item.url | replace: '#fine-tuning/', '#fine-tuning' | relative_url }}"><span>{{ item.title | remove: '✅' | strip }}</span>{% include icon.html name="arrow-right" px=14 %}</a></li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endfor %}
+</nav>
