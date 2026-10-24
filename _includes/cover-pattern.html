@@ -1,0 +1,86 @@
+{%- comment -%} Decorative geometry only. Color and text contrast are controlled by the cover palette. {%- endcomment -%}
+{%- capture lt_pattern_art -%}
+{%- case include.pattern -%}
+{%- when "orbit" -%}
+  <g transform="translate(475 200) rotate(-28)">
+    <ellipse rx="151" ry="58"/><ellipse rx="151" ry="91"/>
+    <ellipse rx="58" ry="151"/><circle r="37" class="lt-motif__wash"/>
+    <circle cx="139" cy="23" r="11" class="lt-motif__solid"/>
+  </g>
+{%- when "diamonds" -%}
+  <g transform="translate(480 204) rotate(45)">
+    <rect x="-114" y="-114" width="228" height="228"/>
+    <rect x="-84" y="-84" width="168" height="168"/>
+    <rect x="-52" y="-52" width="104" height="104" class="lt-motif__wash"/>
+    <path d="M-145 0H145M0-145V145" class="lt-motif__fine"/>
+  </g>
+{%- when "steps" -%}
+  <path d="M318 337V279H376V221H434V163H492V105H550V47H608" class="lt-motif__accent"/>
+  <path d="M350 369V311H408V253H466V195H524V137H582V79H640M286 305V247H344V189H402V131H460V73H518V15H576"/>
+  <path d="M434 221V163H492V105H550V163H492V221Z" class="lt-motif__wash"/>
+  <path d="M300 370L621 49" class="lt-motif__fine"/>
+{%- when "petals" -%}
+  <g transform="translate(485 200)">
+    <ellipse cy="-67" rx="30" ry="68" class="lt-motif__wash"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(45)"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(90)"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(135)"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(180)"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(225)" class="lt-motif__wash"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(270)"/>
+    <ellipse cy="-67" rx="30" ry="68" transform="rotate(315)"/>
+    <circle r="10" class="lt-motif__solid"/>
+  </g>
+{%- when "arches" -%}
+  <path d="M347 340V178a132 132 0 0 1 264 0V340M374 340V178a105 105 0 0 1 210 0V340M401 340V178a78 78 0 0 1 156 0V340M428 340V178a51 51 0 0 1 102 0V340"/>
+  <path d="M455 340V178a24 24 0 0 1 48 0V340Z" class="lt-motif__wash"/>
+  <path d="M322 340H635" class="lt-motif__fine"/>
+{%- when "circuit" -%}
+  <rect x="442" y="162" width="72" height="72" rx="12" class="lt-motif__wash"/>
+  <path d="M478 162V95L511 62H575M514 180H559L598 141V95M514 216H577L610 249V304M478 234V287L439 326H367M442 216H388L349 255V293M442 180H391L356 145V91"/>
+  <g class="lt-motif__solid"><circle cx="575" cy="62" r="7"/><circle cx="598" cy="95" r="7"/><circle cx="610" cy="304" r="7"/><circle cx="367" cy="326" r="7"/><circle cx="349" cy="293" r="7"/><circle cx="356" cy="91" r="7"/></g>
+  <rect x="458" y="178" width="40" height="40" rx="4"/>
+{%- when "cubes" -%}
+  <path d="M480 60L584 120V240L480 300L376 240V120Z M376 120L480 180L584 120M480 180V300"/>
+  <path d="M480 60L584 120L480 180L376 120Z" class="lt-motif__wash"/>
+  <path d="M428 150L532 90M428 90L532 150M428 150V270M532 150V270M376 180L480 240L584 180" class="lt-motif__fine"/>
+  <path d="M558 270L601 295V345L558 370L515 345V295Z M515 295L558 320L601 295M558 320V370" class="lt-motif__accent"/>
+{%- when "capsules" -%}
+  <g transform="rotate(32 478 200)">
+    <rect x="364" y="74" width="52" height="252" rx="26"/>
+    <rect x="448" y="35" width="52" height="252" rx="26" class="lt-motif__wash"/>
+    <rect x="532" y="110" width="52" height="252" rx="26"/>
+    <circle cx="390" cy="112" r="12" class="lt-motif__solid"/>
+    <path d="M558 247V314" class="lt-motif__accent"/>
+  </g>
+{%- when "triangles" -%}
+  <path d="M480 52L629 310H331Z M480 103L585 285H375Z M480 154L541 260H419Z"/>
+  <path d="M480 154L541 260H419Z" class="lt-motif__wash"/>
+  <path d="M480 52V310M331 310L555 181M629 310L405 181" class="lt-motif__fine"/>
+{%- when "contours" -%}
+  <g transform="translate(476 200)">
+    <path d="M-115-109C-29-169 130-137 145-38S56 161-52 132S-186-36-115-109Z"/>
+    <path d="M-89-84C-22-132 101-106 113-30S44 125-40 103S-144-28-89-84Z"/>
+    <path d="M-64-61C-16-95 73-77 81-21S31 90-29 74S-104-20-64-61Z"/>
+    <path d="M-39-37C-10-58 44-47 50-13S19 55-18 45S-63-12-39-37Z" class="lt-motif__wash"/>
+  </g>
+{%- when "eclipse" -%}
+  <circle cx="480" cy="197" r="139" class="lt-motif__fine"/>
+  <circle cx="480" cy="197" r="112"/>
+  <path d="M480 85a112 112 0 0 0 0 224a77 112 0 0 1 0-224Z" class="lt-motif__wash"/>
+  <path d="M314 197H646" class="lt-motif__fine"/>
+  <circle cx="592" cy="197" r="9" class="lt-motif__solid"/>
+{%- when "constellation" -%}
+  <path d="M354 290L412 190L365 101L491 66L571 151L541 267L612 334M412 190L571 151M412 190L541 267L354 290M491 66L541 267"/>
+  <path d="M412 190L571 151L541 267Z" class="lt-motif__wash"/>
+  <g class="lt-motif__solid"><circle cx="354" cy="290" r="7"/><circle cx="412" cy="190" r="10"/><circle cx="365" cy="101" r="6"/><circle cx="491" cy="66" r="7"/><circle cx="571" cy="151" r="8"/><circle cx="541" cy="267" r="7"/><circle cx="612" cy="334" r="6"/></g>
+{%- when "fold" -%}
+  <path d="M333 145L606 69L535 333L455 237L386 284L404 193Z"/>
+  <path d="M404 193L606 69L455 237L535 333"/>
+  <path d="M404 193L606 69L455 237Z" class="lt-motif__wash"/>
+  <path d="M455 237L386 284L404 193" class="lt-motif__accent"/>
+{%- endcase -%}
+{%- endcapture -%}
+{%- if lt_pattern_art != "" -%}
+<svg class="lt-cover-motif" viewBox="0 0 640 400" fill="none" aria-hidden="true" focusable="false">{{ lt_pattern_art }}</svg>
+{%- endif -%}

@@ -1,7 +1,7 @@
 {%- assign lt_card = include.post -%}
 {%- include byline.html post=lt_card avatars="first" -%}
 <a class="lt-card lt-card--post" href="{{ lt_card.url | relative_url }}" aria-label="{{ lt_card.title | strip_html | escape }}">
-  {% include cover.html post=lt_card arrow=true keywords=true %}
+  {% include cover.html post=lt_card arrow=true keywords=true ordinal=include.cover_ordinal %}
   <div class="lt-card__body">
     {% include post-meta.html post=lt_card %}
     <h3 class="lt-card__title" title="{{ lt_card.title | strip_html | escape }}"><span class="lt-ct">{{ lt_card.title }}</span></h3>

@@ -76,11 +76,14 @@ layout: default
 {% endif %}
 {%- comment -%} Every page renders its complete paginator slice as uniform cards. {%- endcomment -%}
 {%- assign lt_shown = 0 -%}
+{%- assign lt_cover_offset = lt_page_number | minus: 1 | times: site.paginate -%}
 {%- capture lt_cards -%}
 {%- for post in lt_listing -%}
   {%- if post.categories contains lt_notes_cat -%}{%- continue -%}{%- endif -%}
   {%- assign lt_shown = lt_shown | plus: 1 -%}
-  {% include post-card.html post=post %}
+  {%- comment -%} Count from the oldest post so publishing newer posts keeps existing motifs stable. {%- endcomment -%}
+  {%- assign lt_cover_ordinal = site.posts.size | minus: lt_cover_offset | minus: forloop.index -%}
+  {% include post-card.html post=post cover_ordinal=lt_cover_ordinal %}
 {%- endfor -%}
 {%- endcapture -%}
 {%- if lt_shown > 0 %}

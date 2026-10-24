@@ -5,9 +5,11 @@
     arrow     show the hover arrow badge
     overlay   show `cover_labels` and `cover_caption` from front matter
     keywords  show a concise typographic title on generated covers
-  `cover:` may name a generative cover (field, rings, lines, grid, rays, wave,
-  stream) or an image path. Without it, one is picked from the slug, so a post
-  keeps the same cover across builds.
+    ordinal   post position counted from the oldest post, for listing motifs
+  `cover:` may name a generative cover or an image path. Explicit choices win.
+  Listings cycle through 20 distinct motifs using the chronological ordinal;
+  a new latest post does not reshuffle existing covers. Other placements keep
+  their original seven-pattern selection.
 {%- endcomment -%}
 {%- assign lt_cover_names = "field,rings,lines,grid,rays,wave,stream" | split: "," -%}
 {%- assign lt_cv_post = include.post -%}
@@ -15,7 +17,12 @@
 {%- unless lt_cv -%}
   {%- assign lt_cv_seed = lt_cv_post.slug | default: lt_cv_post.title | size -%}
   {%- assign lt_cv_day = lt_cv_post.date | date: "%j" | plus: 0 -%}
-  {%- assign lt_cv_i = lt_cv_seed | plus: lt_cv_day | modulo: 7 -%}
+  {%- assign lt_cv_i = lt_cv_seed | plus: lt_cv_day -%}
+  {%- if include.keywords -%}
+    {%- assign lt_cover_names = "field,arches,wave,diamonds,lines,petals,grid,steps,rings,circuit,rays,orbit,cubes,stream,capsules,triangles,contours,eclipse,constellation,fold" | split: "," -%}
+    {%- if include.ordinal != nil -%}{%- assign lt_cv_i = include.ordinal -%}{%- endif -%}
+  {%- endif -%}
+  {%- assign lt_cv_i = lt_cv_i | modulo: lt_cover_names.size -%}
   {%- assign lt_cv = lt_cover_names[lt_cv_i] -%}
 {%- endunless -%}
 {%- assign lt_cv_keywords = false -%}
@@ -26,7 +33,7 @@
   {%- if lt_cv contains "/" or lt_cv contains "." %}
   <img class="lt-cover lt-cover--img" src="{{ lt_cv | relative_url }}" alt="{{ lt_cv_post.cover_alt | escape }}" loading="lazy">
   {%- else %}
-  <div class="lt-cover cv-{{ lt_cv }}"></div>
+  <div class="lt-cover cv-{{ lt_cv }}">{%- include cover-pattern.html pattern=lt_cv -%}</div>
   {%- endif %}
   {%- if lt_cv_keywords %}
     {% include cover-keywords.html post=lt_cv_post %}
