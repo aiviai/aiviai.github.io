@@ -222,10 +222,10 @@
       if (matches(q, p.t, p.s) || matches(q, (p.g || []).join(" "))) return p.s || "";
       var i = norm(p.x).indexOf(q);
       if (i < 0) return null;
-      var start = Math.max(0, i - 40);
+      var start = Math.max(0, i - 12);
       var boundary = p.x.lastIndexOf(" ", start);
       // Chinese and code passages may have no nearby word boundary.
-      if (boundary >= Math.max(0, start - 40)) start = boundary + 1;
+      if (boundary >= Math.max(0, start - 8)) start = boundary + 1;
       var end = Math.min(p.x.length, Math.max(start + 220, i + q.length));
       return (start > 0 ? "…" : "") + p.x.slice(start, end) + (end < p.x.length ? "…" : "");
     }
