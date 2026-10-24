@@ -1,0 +1,21 @@
+{%- comment -%}One connected graph. Article dates come from the post, never its embedded video.{%- endcomment -%}
+{%- assign lt_site_url = '/' | absolute_url -%}
+{%- assign lt_author_url = site.author.url | default: '/about/' | absolute_url -%}
+{%- assign lt_person_id = lt_author_url | append: '#person' -%}
+{%- assign lt_website_id = lt_site_url | append: '#website' -%}
+{%- capture lt_schema -%}
+{"@context":"https://schema.org","@graph":[
+{"@type":"Person","@id":{{ lt_person_id | jsonify }},"name":{{ site.author.name | jsonify }},"url":{{ lt_author_url | jsonify }},"sameAs":{{ site.social.links | jsonify }}},
+{"@type":"WebSite","@id":{{ lt_website_id | jsonify }},"url":{{ lt_site_url | jsonify }},"name":{{ site.title | jsonify }},"inLanguage":{{ site.lang | default: site.locale | jsonify }},"publisher":{"@id":{{ lt_person_id | jsonify }}}}
+{%- if page.date and page.collection == 'posts' -%}
+{%- include authors.html post=page -%},
+{"@type":"BlogPosting","@id":{{ lt_canonical | append: '#article' | jsonify }},"headline":{{ page.title | strip_html | jsonify }},"description":{{ lt_desc | jsonify }},"url":{{ lt_canonical | jsonify }},"mainEntityOfPage":{{ lt_canonical | jsonify }},"isPartOf":{"@id":{{ lt_website_id | jsonify }}},"inLanguage":{{ page.lang | default: site.lang | default: site.locale | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }}
+{%- if page.last_modified_at -%},"dateModified":{{ page.last_modified_at | date_to_xmlschema | jsonify }}{% endif -%}
+{%- if lt_image -%},"image":{{ lt_image | absolute_url | jsonify }}{% endif -%},
+"author":[{% for key in lt_authors %}{% assign lt_a = site.data.authors[key] %}{% assign lt_an = lt_a.name | default: key %}{"@type":"Person","name":{{ lt_an | jsonify }}{% if lt_an == site.author.name %},"@id":{{ lt_person_id | jsonify }},"url":{{ lt_author_url | jsonify }}{% elsif lt_a.url %},"url":{{ lt_a.url | absolute_url | jsonify }}{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %}],"publisher":{"@id":{{ lt_person_id | jsonify }}}}
+{%- elsif page.url == site.author.url -%},
+{"@type":"ProfilePage","@id":{{ lt_canonical | append: '#webpage' | jsonify }},"url":{{ lt_canonical | jsonify }},"name":{{ page.title | strip_html | jsonify }},"description":{{ lt_desc | jsonify }},"mainEntity":{"@id":{{ lt_person_id | jsonify }}}}
+{%- endif -%}
+]}
+{%- endcapture -%}
+<script type="application/ld+json">{{ lt_schema | replace: '</', '<\/' }}</script>

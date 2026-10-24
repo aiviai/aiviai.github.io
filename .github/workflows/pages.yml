@@ -1,0 +1,59 @@
+name: Build and deploy Jekyll
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    env:
+      JEKYLL_ENV: production
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec # v1.334.0
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+      - name: Verify Jekyll version
+        run: |
+          bundle exec jekyll --version
+          bundle exec ruby -rjekyll -e 'abort "Unexpected Jekyll version" unless Jekyll::VERSION == "4.4.1"'
+      - name: Run reading-time and search regression tests
+        run: |
+          bundle exec ruby test/read_time_test.rb
+          node --test test/search_ranking_test.cjs
+      - name: Build production site
+        run: bundle exec jekyll build --trace
+      - name: Verify metadata and sitemap
+        run: bundle exec ruby test/seo_test.rb
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+

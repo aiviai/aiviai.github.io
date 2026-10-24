@@ -44,7 +44,7 @@ lunr:
 
 # Social Sharing
 twitter:
-  username               : "aiviai"
+  username               : "AISuperDomain"
 social:
   type                   : "Person"
   name                   : "AI超元域"
@@ -57,6 +57,7 @@ social:
 # Site Author
 author:
   name             : "AI超元域"
+  url              : "/about/"
   avatar           : "/assets/images/bio-photo.jpg"
   bio              : "**AI超元域up主**"
   location         : "新加坡"
@@ -159,7 +160,6 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-remote-theme
-  - jekyll-archives
 
 whitelist:
   - jekyll-paginate
@@ -167,19 +167,10 @@ whitelist:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  - jekyll-archives  # 添加这一行
 
 
-jekyll-archives:
-  enabled:
-    - categories
-    - tags  # 添加这行
-  layouts:
-    category: archive-taxonomy
-    tag: archive-taxonomy  # 添加这行
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/  # 添加这行
+# Keep the existing hand-curated taxonomy indexes. The former Pages build did
+# not load jekyll-archives; enabling it would add hundreds of new URLs.
 
 # Archives
 category_archive:
@@ -220,6 +211,14 @@ defaults:
       sidebar: 
         nav: "docs"
       read_time: true
+
+# Internal reference material stays accessible, but is not a search landing page.
+  - scope:
+      path: "skill.md"
+    values:
+      robots: "noindex, follow"
+      sitemap: false
+      search: false
 
 footer:
   links:

@@ -2,6 +2,7 @@
 layout: single
 title:  关于 AI 超元域 🌌 
 permalink: /about/
+description: 了解 AI超元域的开源项目、视频频道与技术实践，涵盖大模型微调、RAG、提示词工程和 AI 应用开发，并提供相关主页与联系方式。
 classes: wide
 author_profile: true  
 ---

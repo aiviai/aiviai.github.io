@@ -9,18 +9,27 @@
 {%- else %}
   {%- assign lt_page_title = site.title -%}
 {%- endif %}
+{%- if paginator.page > 1 %}
+  {%- assign lt_page_title = "第 " | append: paginator.page | append: " 页 — " | append: lt_page_title -%}
+{%- endif %}
 <title>{{ lt_page_title | strip_html | escape }}</title>
-{%- assign lt_desc = page.dek | default: page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 200 %}
+{%- assign lt_desc = page.dek | strip_html | normalize_whitespace | strip -%}
+{%- if lt_desc == empty %}{% assign lt_desc = page.description | strip_html | normalize_whitespace | strip %}{% endif -%}
+{%- if lt_desc == empty %}{% assign lt_desc = page.excerpt | strip_html | normalize_whitespace | strip %}{% endif -%}
+{%- if lt_desc == empty %}{% assign lt_desc = site.description | strip_html | normalize_whitespace | strip %}{% endif -%}
+{%- assign lt_desc = lt_desc | truncate: 200 %}
 <meta name="description" content="{{ lt_desc | escape }}">
-{%- assign lt_canonical = page.url | replace: "index.html", "" | absolute_url %}
+{%- assign lt_canonical = page.canonical_url | default: page.url | replace: "index.html", "" | absolute_url %}
 <link rel="canonical" href="{{ lt_canonical }}">
+{%- if page.robots %}<meta name="robots" content="{{ page.robots | escape }}">{% endif %}
 <meta property="og:site_name" content="{{ site.title | escape }}">
-<meta property="og:title" content="{{ page.title | default: site.title | strip_html | escape }}">
+<meta property="og:title" content="{{ lt_page_title | strip_html | escape }}">
 <meta property="og:description" content="{{ lt_desc | escape }}">
 <meta property="og:url" content="{{ lt_canonical }}">
 {%- assign lt_image = page.image | default: lt.og_image %}
 {%- if lt_image %}
 <meta property="og:image" content="{{ lt_image | absolute_url }}">
+{%- if page.image_alt %}<meta property="og:image:alt" content="{{ page.image_alt | escape }}">{% endif %}
 <meta name="twitter:card" content="summary_large_image">
 {%- else %}
 <meta name="twitter:card" content="summary">
@@ -34,13 +43,10 @@
 {%- for tag in page.tags %}
 <meta property="article:tag" content="{{ tag | escape }}">
 {%- endfor %}
-{%- include authors.html post=page %}
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ page.title | strip_html | jsonify }},"description":{{ lt_desc | jsonify }},"datePublished":{{ page.date | date_to_xmlschema | jsonify }},"url":{{ lt_canonical | jsonify }},"author":[{% for key in lt_authors %}{% assign lt_a = site.data.authors[key] %}{"@type":"Person","name":{{ lt_a.name | default: key | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}],"publisher":{"@type":"Organization","name":{{ site.title | jsonify }}}}
-</script>
 {%- else %}
 <meta property="og:type" content="website">
 {%- endif %}
+{%- include structured-data.html %}
 <meta name="theme-color" content="#F7F8F8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0A0B0C" media="(prefers-color-scheme: dark)">
 <meta name="generator" content="Jekyll v{{ jekyll.version }}">

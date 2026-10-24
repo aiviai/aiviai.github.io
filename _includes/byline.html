@@ -23,6 +23,8 @@
     {%- assign lt_a = site.data.authors[key] -%}
     {%- assign lt_an = lt_a.name | default: key -%}
     {%- if forloop.last and forloop.length > 1 %} &amp; {% elsif forloop.index > 1 %}, {% endif -%}
-    {%- if include.link and lt_a.url -%}<a class="lt-blink" href="{{ lt_a.url | relative_url }}">{{ lt_an }}</a>{%- elsif include.link -%}<strong>{{ lt_an }}</strong>{%- else -%}{{ lt_an }}{%- endif -%}
+    {%- assign lt_author_link = lt_a.url -%}
+    {%- if lt_an == site.author.name -%}{%- assign lt_author_link = lt_author_link | default: site.author.url -%}{%- endif -%}
+    {%- if include.link and lt_author_link -%}<a class="lt-blink" href="{{ lt_author_link | relative_url }}">{{ lt_an }}</a>{%- elsif include.link -%}<strong>{{ lt_an }}</strong>{%- else -%}{{ lt_an }}{%- endif -%}
   {%- endfor -%}
 {%- endcapture -%}

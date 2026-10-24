@@ -1,5 +1,6 @@
 ---
 layout: single
+excerpt: 实测 Gemini 3 Flash 的字幕、图像理解、OCR 和前端原型，并记录 Antigravity 中 iOS 应用反复修复后仍崩溃的过程，对比简单任务表现与复杂项目开发能力。
 title: "🚀OCR+视觉直接起飞！Gemini 3 Flash深度实测：OCR识别潦草处方、模糊古书全对！前端小项目完美开发！Antigravity实测iOS原生开发暴露真实编码能力！别信跑分信实测！"
 sidebar:
   nav: "docs"

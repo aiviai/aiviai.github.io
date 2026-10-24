@@ -1,5 +1,6 @@
 ---
 layout: single
+excerpt: 梳理 CCPM 如何把 PRD、Epic、GitHub Issues 与 Git worktrees 串成开发流程，介绍上下文管理、安装方式和常用命令。文中的效率数字来自引用示例，并非统一条件下的对照实测。
 title: "🚀Claude Code PM 彻底颠覆传统编程开发！轻松实现并行开发！支持Spec-driven规范驱动开发！让GitHub Issues秒变独立分支的神器！开发效率提升300%!支持头脑风暴生成PRD文档"
 sidebar:
   nav: "docs"
