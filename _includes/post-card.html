@@ -1,10 +1,10 @@
 {%- assign lt_card = include.post -%}
 {%- include byline.html post=lt_card avatars="first" -%}
-<a class="lt-card" href="{{ lt_card.url | relative_url }}">
+<a class="lt-card lt-card--post" href="{{ lt_card.url | relative_url }}" aria-label="{{ lt_card.title | strip_html | escape }}">
   {% include cover.html post=lt_card arrow=true keywords=true %}
   <div class="lt-card__body">
     {% include post-meta.html post=lt_card %}
-    <h3 class="lt-card__title"><span class="lt-ct">{{ lt_card.title }}</span></h3>
+    <h3 class="lt-card__title" title="{{ lt_card.title | strip_html | escape }}"><span class="lt-ct">{{ lt_card.title }}</span></h3>
     {%- assign lt_card_dek = lt_card.dek | default: lt_card.description | default: lt_card.excerpt | strip_html | strip | truncatewords: 32 %}
     {%- if lt_card_dek != "" %}
     <p class="lt-card__excerpt">{{ lt_card_dek }}</p>

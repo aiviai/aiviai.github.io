@@ -53,6 +53,74 @@
   }
 }
 
+// Listing cards keep their cover and text in one clearly bounded surface.
+.lt-card--post {
+  min-width: 0;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid var(--line-2);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 4px 16px rgba(11, 13, 14, .035);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease), background-color .35s var(--ease);
+
+  &:hover,
+  &:focus-visible {
+    border-color: var(--ink-3);
+    box-shadow: 0 8px 24px rgba(11, 13, 14, .08);
+  }
+
+  > .lt-frame {
+    flex-shrink: 0;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .lt-card__body {
+    flex: 1;
+    min-width: 0;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .lt-card__title,
+  .lt-card__excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    overflow-wrap: anywhere;
+    text-wrap: wrap;
+  }
+
+  .lt-card__title {
+    font-size: 20px;
+    line-height: 1.45;
+    font-weight: 600;
+    min-height: 4.35em;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  .lt-card__excerpt {
+    font-size: 14px;
+    line-height: 1.55;
+    text-wrap: pretty;
+    min-height: 3.1em;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .lt-card__byline {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    gap: 8px;
+    font-size: 12.5px;
+  }
+}
+
 // A plate that holds a generative cover.
 .lt-frame {
   position: relative;
