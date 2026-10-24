@@ -147,7 +147,7 @@ sass:
 
 # Outputting
 permalink: /:categories/:title
-paginate: 13 # 每页 1 篇主推文章 + 12 篇文章卡片，与首页连续衔接
+paginate: 12 # 首页和分页统一显示 12 篇文章卡片
 paginate_path: /page:num/
 timezone: Asia/Singapore
 
