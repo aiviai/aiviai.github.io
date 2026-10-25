@@ -86,7 +86,7 @@
 
     <div class="lt-article-col">
       <div class="lt-prose" data-prose data-anchors{% if lt_sidenotes %} data-sidenotes{% endif %}{% if page.math %} data-math{% endif %}>
-{% include render-content.html html=content %}
+{% assign lt_post_content = content | lazy_video_embeds %}{% include render-content.html html=lt_post_content %}
       </div>
 
       {% include share-links.html %}

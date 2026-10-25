@@ -13,6 +13,7 @@ Use Ruby 3.4.1, Bundler 2.6.2 and Node.js with the built-in test runner:
 bundle install
 bundle exec ruby test/read_time_test.rb
 node --test test/search_ranking_test.cjs
+bundle exec ruby test/performance_test.rb
 JEKYLL_ENV=production bundle exec jekyll build
 bundle exec ruby test/seo_test.rb
 ```
@@ -57,3 +58,15 @@ author avatar is not a fallback article illustration.
 Canonical, sitemap and description tests verify technical output. They do not
 measure Google indexing, search position, traffic, or real-user Core Web Vitals.
 No special AI-search file or `llms.txt` is required for these fixes.
+
+## Theme performance
+
+`_plugins/latent_performance.rb` fingerprints the compiled theme CSS and its three
+JavaScript files after rendering. Their URLs change only when their actual bytes
+change, including imported Sass changes. A new article alone does not invalidate
+these resource URLs. GitHub Pages still controls the HTTP cache lifetime.
+
+The content renderer adds native `loading="lazy"` to YouTube embeds without an
+explicit loading preference. Existing eager/lazy choices, non-video embeds and
+the source articles are preserved. Browsers load videos when they approach the
+viewport; this is not a click-to-play facade or a change to the video contents.

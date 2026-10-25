@@ -35,6 +35,7 @@ jobs:
         run: |
           bundle exec ruby test/read_time_test.rb
           node --test test/search_ranking_test.cjs
+          bundle exec ruby test/performance_test.rb
       - name: Build production site
         run: bundle exec jekyll build --trace
       - name: Verify metadata and sitemap
