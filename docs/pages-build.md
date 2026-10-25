@@ -13,6 +13,7 @@ Use Ruby 3.4.1, Bundler 2.6.2 and Node.js with the built-in test runner:
 bundle install
 bundle exec ruby test/read_time_test.rb
 node --test test/search_ranking_test.cjs
+node --test test/animation_performance_test.cjs
 bundle exec ruby test/performance_test.rb
 JEKYLL_ENV=production bundle exec jekyll build
 bundle exec ruby test/seo_test.rb
@@ -70,3 +71,7 @@ The content renderer adds native `loading="lazy"` to YouTube embeds without an
 explicit loading preference. Existing eager/lazy choices, non-video embeds and
 the source articles are preserved. Browsers load videos when they approach the
 viewport; this is not a click-to-play facade or a change to the video contents.
+
+The slowly moving SVG hero paints at most about 30 times per second on both
+mobile and high-refresh desktop displays. Its clock, automatic playback,
+offscreen/background pause and reduced-motion still are preserved.

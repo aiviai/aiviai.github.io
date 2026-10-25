@@ -8,7 +8,7 @@
   if (!root || root.LatentFractalSpace) return;
 
   var NS = "http://www.w3.org/2000/svg";
-  var CFG = { still: 0, lite: 400, frameInterval: 1000 / 30 };
+  var CFG = { still: 0, frameInterval: 1000 / 30 };
   var doc = root.document;
   function q(n) { return Math.round(n * 10) / 10; }
 
@@ -112,8 +112,9 @@
     if (!this.running) return;
     this.clock += this.last ? Math.min(.1, (now - this.last) / 1000) : 0;
     this.last = now;
-    // Retain mobile throttling; only small panels are limited to ~30 paints/s.
-    if (this.host.clientWidth >= CFG.lite || now - this.lastPaint >= CFG.frameInterval - 1) {
+    // This slow scene needs at most 30 paints/s, including on high-refresh screens.
+    // The clock still advances every frame, preserving the original motion speed.
+    if (now - this.lastPaint >= CFG.frameInterval - 1) {
       this.lastPaint = now;
       this.paint(this.clock);
     }
