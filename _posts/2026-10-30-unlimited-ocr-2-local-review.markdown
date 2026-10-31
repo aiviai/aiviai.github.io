@@ -15,7 +15,7 @@ excerpt: "基于 RTX A6000 上的 Unlimited-OCR-2 本地演示，梳理单页 2.
 cover_lines:
   - "Unlimited-OCR-2"
 cover_subtitle: "本地实测 · 表格、公式与阅读顺序"
-cover: "/assets/images/unlimited-ocr-2-cover.svg"
+cover: "/assets/images/unlimited-ocr-2-cover.svg?v=90f8d226"
 cover_alt: "Unlimited-OCR-2：本地实测，表格、公式与阅读顺序"
 classes: wide
 author_profile: true
