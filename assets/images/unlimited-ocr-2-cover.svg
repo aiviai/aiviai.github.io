@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Unlimited-OCR-2</title>
+  <desc id="desc">本地实测：表格、公式与阅读顺序</desc>
+  <rect width="1200" height="720" fill="#10181b"/>
+  <g stroke="#344448" stroke-width="1" opacity="0.65">
+    <path d="M0 120H1200M0 240H1200M0 360H1200M0 480H1200M0 600H1200M120 0V720M240 0V720M360 0V720M480 0V720M600 0V720M720 0V720M840 0V720M960 0V720M1080 0V720"/>
+  </g>
+  <rect x="80" y="218" width="1040" height="284" rx="24" fill="#10181b" stroke="#718b7b" stroke-width="2"/>
+  <rect x="110" y="264" width="8" height="166" rx="4" fill="#d5f377"/>
+  <text x="600" y="340" fill="#f5f7f5" font-family="Arial, Helvetica, sans-serif" font-size="76" font-weight="700" text-anchor="middle">Unlimited-OCR-2</text>
+  <text x="600" y="420" fill="#d5f377" font-family="Arial, 'Noto Sans CJK SC', sans-serif" font-size="36" font-weight="600" text-anchor="middle">本地实测 · 表格、公式与阅读顺序</text>
+</svg>
