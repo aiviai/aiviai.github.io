@@ -1,0 +1,8 @@
+Three.js r128
+Source: https://github.com/mrdoob/three.js/tree/r128
+Files: three-r128/three.min.js and three-r128/LICENSE
+License: MIT (included alongside the library)
+
+The submitted Rainbow Bridge, Bianjing game uses Three.js r128.
+Its runtime library is served locally so the game does not depend on a CDN.
+Optional Google Fonts retain system-font fallbacks.
