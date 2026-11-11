@@ -4,6 +4,7 @@
   h1 { margin: 20px 0 16px; font-family: var(--serif); font-size: clamp(34px, 4vw, 52px); line-height: 1.4; font-weight: 500; letter-spacing: -.03em; }
   &__intro > p { margin: 0; color: var(--ink-2); font-size: 15px; line-height: 1.8; }
   &__feature { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); border: 1px solid var(--line); background: var(--surface); }
+  &__feature--next { margin-top: 64px; }
   &__preview { position: relative; min-width: 0; min-height: 360px; overflow: hidden; background: #16242c; }
   &__preview img { display: block; width: 100%; height: 100%; object-fit: cover; }
   &__preview-label { position: absolute; bottom: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: space-between; padding: 40px 24px 20px; color: #fff; font-size: 12px; letter-spacing: .08em; background: linear-gradient(transparent, rgba(0, 0, 0, .65)); }
@@ -40,3 +41,4 @@
   .lt-hero__actions { flex-wrap: wrap; }
   .lt-hero__actions .lt-game-cta { flex: 0 0 100%; }
 }
+

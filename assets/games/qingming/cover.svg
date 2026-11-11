@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+<title id="title">清明上河图 · 虹桥</title><desc id="desc">纸色背景上，以线条绘制横跨汴河的拱桥、街市和船只。此图为主题插画。</desc>
+<defs><linearGradient id="paper" x2="0" y2="1"><stop stop-color="#e8ddc4"/><stop offset="1" stop-color="#c6bb9e"/></linearGradient><linearGradient id="river" x2="0" y2="1"><stop stop-color="#7b948b"/><stop offset="1" stop-color="#a3b1a1"/></linearGradient></defs>
+<path fill="url(#paper)" d="M0 0h1440v900H0z"/>
+<circle cx="1136" cy="168" r="58" fill="#ad462b" opacity=".68"/>
+<g fill="none" stroke="#8c8872" stroke-width="2" opacity=".35"><path d="M0 296Q180 223 375 286T800 274T1440 283"/><path d="M0 322Q230 269 410 310T900 298T1440 314"/></g>
+<path fill="url(#river)" d="M0 592Q240 497 450 567T900 555T1440 514V900H0z"/>
+<g fill="none" stroke="#e7e1cd" stroke-width="3" opacity=".6"><path d="M10 721q200-49 422-6t430-6t550-37M-40 782q260-54 460-7t440-12t650-28M80 853q220-38 420-6t430-15t460-10"/></g>
+<g stroke="#4d4939" stroke-width="4" stroke-linejoin="round">
+<g fill="#c6b58d"><path d="M0 445h170v128H0zM202 430h154v124H202zM1091 419h162v132h-162zM1283 422h157v140h-157z"/></g>
+<g fill="#68674f"><path d="M-25 448l105-67 118 67zM180 431l100-62 100 62zM1068 420l105-65 104 65zM1260 425l108-64 97 64z"/></g>
+<g fill="#3e463c"><path d="M40 500h42v73H40zM114 478h30v37h-30zM235 482h35v72h-35zM298 461h30v36h-30zM1130 477h38v74h-38zM1200 449h30v39h-30zM1323 484h39v78h-39z"/></g>
+</g>
+<g fill="none" stroke="#66513a" stroke-linecap="round"><path d="M292 625Q710 205 1148 625" stroke-width="42"/><path d="M292 592Q710 172 1148 592" stroke-width="5"/><path d="M304 625Q710 260 1136 625" stroke-width="9"/>
+<g stroke-width="5"><path d="M320 595v-29M370 550v-30M420 508v-30M470 474v-30M520 447v-30M570 425v-30M620 409v-30M670 399v-30M720 397v-30M770 400v-30M820 410v-30M870 426v-30M920 448v-30M970 476v-30M1020 510v-30M1070 551v-30M1120 595v-29"/></g></g>
+<g fill="#4e503e"><circle cx="532" cy="398" r="7"/><path d="M526 405l-7 26h26l-7-26z"/><circle cx="818" cy="358" r="7"/><path d="M812 365l-7 26h26l-7-26z"/><circle cx="971" cy="426" r="7"/><path d="M965 433l-7 26h26l-7-26z"/></g>
+<g stroke="#564532" stroke-width="4" stroke-linejoin="round"><path fill="#725a3e" d="M488 737q125 32 248-2l-36 39H524z"/><path fill="#bdaa81" d="M546 734q45-82 96 0z"/><path fill="none" d="M670 732V574"/><path fill="#d7c8a6" d="M675 582l83 102-83 19z"/><path fill="#725a3e" d="M1050 652q80 20 156-4l-25 27h-108z"/></g>
+<text x="80" y="128" fill="#514630" font-size="20" letter-spacing="8" font-family="Georgia,serif">BIANJING · THE RAINBOW BRIDGE</text>
+<text x="76" y="229" fill="#322c22" font-size="79" font-family="Noto Serif SC,Songti SC,serif" letter-spacing="12">清明上河图</text>
+<text x="82" y="280" fill="#675940" font-size="25" font-family="Noto Serif SC,Songti SC,serif" letter-spacing="5">虹桥 · 宋代街市漫游</text>
+<path fill="#a63b29" d="M642 167h61v65h-61z"/><text x="672" y="212" text-anchor="middle" fill="#efe5ca" font-size="38" font-family="serif">汴</text>
+</svg>
